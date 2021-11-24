@@ -24,7 +24,8 @@
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "aws s3 sync ./build s3://team-2-toy-project --profile=tmootu76"
+    "deploy": "aws s3 sync ./build s3://team-2-toy-project --profile=tmootu76",
+    "invalidate": "aws cloudfront create-invalidation --profile=tmootu76 --distribution-id EK89KY4GVW9JF --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico"
   },
   "eslintConfig": {
     "extends": [
