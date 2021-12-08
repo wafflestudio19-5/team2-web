@@ -6,18 +6,19 @@ import {
     Navigate,
     Routes,
 } from "react-router-dom";
-import LoginPage from "./Component/LoginPage/LoginPage";
+
 import MainPage from "./Component/MainPage/MainPage";
 import ModalContainer from "./Component/ModalContainer/ModalContainer";
+import LoginPage from "./Component/LoginPage/LoginPage";
 
 
 function App() {
-    if(로그인 안되어있으면){
+    if(1){ //로그인 안 된 경우
         return (
             <div>
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" component={LoginPage} exact/>
+                        <Route path="/" element={<LoginPage/>}/>
                         <Navigate to={"/"}/>
                     </Routes>
                 </BrowserRouter>
@@ -26,15 +27,14 @@ function App() {
         )
     }
 
-    if(로그인 되었으면){
+    /*if(1){ //로그인 된 경우
         return (
             <div>
                 <MainPage/>
                 <ModalContainer/>
             </div>
-
         )
-    }
+    }*/
 }
 
 export default App;

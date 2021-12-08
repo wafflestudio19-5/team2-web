@@ -10,24 +10,25 @@ import TweetsAndReplies from "./TweetsAndReplies/TweetsAndReplies";
 import Media from "./Media/Media";
 import Likes from "./Likes/Likes";
 
-function ProfilePage() {
-    if(사용자 아이디 존재 시 - get 여부 확인){
+function ProfilePage ():any {
+    if(1){ //사용자 아이디 존재 시 - get 여부 확인
         return (
             <div>
                 <UserProfile></UserProfile>
                 <BrowserRouter>
-                    <Route path="/:id/Tweets" component={ProfilePage}/>
-                    <Route path="/:id/TweetsAndReplies" component={TweetsAndReplies}/>
-                    <Route path="/:id/Media" component={Media}/>
-                    <Route path="/:id/Likes" component={Likes}/>
+                    <Route path="/:id/Tweets" element={<ProfilePage/>}/>
+                    <Route path="/:id/TweetsAndReplies" element={<TweetsAndReplies/>}/>
+                    <Route path="/:id/Media" element={<Media/>}/>
+                    <Route path="/:id/Likes" element={<Likes/>}/>
                 </BrowserRouter>
             </div>
 
         )
     }
-    if(사용자 아이디 없을 시 ){
+    if(null){ //사용자 아이디 없을 시
         return (
-            <ErrorPage />
+            null
+            //<ErrorPage/>
             /*에러페이지 리턴*/
         )
     }
