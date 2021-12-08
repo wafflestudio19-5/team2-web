@@ -2,9 +2,11 @@ import LeftBlock from "../MainPage/LeftBlock/LeftBlock";
 import {BrowserRouter, Routes} from "react-router-dom";
 import React from "react";
 
-function LoginPage() {
+
+
+const LoginPage = () => {
     return (
-        null
+        <div>ㅇㅇ</div>
     )
 }
 
