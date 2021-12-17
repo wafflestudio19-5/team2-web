@@ -4,7 +4,7 @@ import React from 'react';
 
 function LeftBlock() {
     return (
-        null
+        <div className={styles.LeftBlock}>leftblock</div>
     );
 }
 

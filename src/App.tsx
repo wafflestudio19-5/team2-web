@@ -13,9 +13,9 @@ import LoginPage from "./Component/LoginPage/LoginPage";
 
 
 function App() {
-    if(1){ //로그인 안 된 경우
+    if(0){ //로그인 안 된 경우
         return (
-            <div>
+            <div >
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<LoginPage/>}/> {/*: <Navigate to={"/"}/> 가 element의 인자로 들어가야함.*/}
@@ -25,20 +25,14 @@ function App() {
             </div>
         )
     }
-    else {
+    else{ //로그인 된 경우
         return (
-            <div>ㅇㅇ</div>
-        )
-    }
-
-    /*if(1){ //로그인 된 경우
-        return (
-            <div>
+            <div className={styles.App}>
                 <MainPage/>
                 <ModalContainer/>
             </div>
         )
-    }*/
+    }
 }
 
 export default App;

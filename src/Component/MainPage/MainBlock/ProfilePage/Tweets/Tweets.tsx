@@ -1,6 +1,6 @@
 function Tweets() {
     return (
-        null
+        <div>Tweets here</div>
     )
 }
 

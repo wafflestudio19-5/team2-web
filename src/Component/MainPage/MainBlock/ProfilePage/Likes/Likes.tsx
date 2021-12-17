@@ -1,6 +1,6 @@
 function Likes() {
     return (
-        null
+        <div>Likes here</div>
     )
 }
 

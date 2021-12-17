@@ -1,8 +1,8 @@
-
+import styles from "./RightBlock.module.scss"
 
 function RightBlock() {
     return (
-        null
+        <div className={styles.RightBlock}>rightblock</div>
     )
 }
 
