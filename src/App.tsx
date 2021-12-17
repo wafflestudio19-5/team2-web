@@ -18,12 +18,16 @@ function App() {
             <div>
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" element={<LoginPage/>}/>
-                        <Navigate to={"/"}/>
+                        <Route path="/" element={<LoginPage/>}/> {/*: <Navigate to={"/"}/> 가 element의 인자로 들어가야함.*/}
                     </Routes>
                 </BrowserRouter>
                 <ModalContainer/>
             </div>
+        )
+    }
+    else {
+        return (
+            <div>ㅇㅇ</div>
         )
     }
 
