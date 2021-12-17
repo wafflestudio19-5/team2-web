@@ -6,7 +6,18 @@ import React from "react";
 
 const LoginPage = () => {
     return (
-        <div>ㅇㅇ</div>
+        <div>
+            <div className={"Left"}>
+
+            </div>
+
+            <div className={"Right"}>
+                <head>
+
+                </head>
+            </div>
+
+        </div>
     )
 }
 
