@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './MainBlock.module.scss';
 import RightBlock from "./RightBlock/RightBlock";
 import ProfilePage from "./ProfilePage/ProfilePage";
 import {
@@ -9,8 +10,8 @@ import {
 } from "react-router-dom";
 function MainBlock() {
     return (
-        <div>
-            <RightBlock/>
+        <div className={styles.MainBlock}>
+            <ProfilePage/>
             <BrowserRouter>
                 <Routes>
                     {/*<Route path="/home" component={HomePage} exact />
@@ -18,7 +19,7 @@ function MainBlock() {
                     <Route path="/:id" element={<ProfilePage/>}/>
                 </Routes>
             </BrowserRouter>
-            <ProfilePage/>
+            <RightBlock/>
         </div>
     )
 }

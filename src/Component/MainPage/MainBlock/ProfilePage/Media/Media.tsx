@@ -1,6 +1,6 @@
 function Media() {
     return (
-        null
+        <div>Media here</div>
     )
 }
 
