@@ -1,6 +1,6 @@
 function ModalContainer() {
     return (
-        <div>ㅇㅇ</div>
+        null
     )
 }
 
