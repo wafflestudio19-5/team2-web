@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styles from './Tweet.module.scss';
 import { ReactComponent as CommentIcon } from '../../../Images/comment.svg';
 import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
@@ -98,3 +99,15 @@ const Tweet = (
   );
 };
 export default Tweet;
+=======
+import React from "react";
+
+function Tweet() {
+    return (
+        <div>
+        </div>
+    )
+}
+
+export default Tweet;
+>>>>>>> master
