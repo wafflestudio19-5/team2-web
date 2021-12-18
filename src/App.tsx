@@ -1,7 +1,13 @@
 import styles from './App.module.scss';
+import { useState } from 'react';
+import Tweet from './Component/Reused/Tweet/Tweet';
 
 function App() {
-  return <div className={styles.App}>team2 Toy Project 사이트 {'>.<'}</div>;
+  return (
+    <div>
+      <Tweet />
+    </div>
+  );
 }
 
 export default App;
