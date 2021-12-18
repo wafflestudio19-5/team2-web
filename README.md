@@ -1,8 +1,3 @@
 # WAFFLESTUDIO team2-web
 
-## Libraries
-
-- axios
-- react-router
-- sass
-- typescript
+## 배포 사이트 [https://dyzs1883jjmms.cloudfront.net/]
