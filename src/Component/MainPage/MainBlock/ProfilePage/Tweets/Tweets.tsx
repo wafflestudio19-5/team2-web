@@ -1,7 +1,19 @@
+import Tweet from '../../../../Reused/Tweet/Tweet';
+
 function Tweets() {
-    return (
-        <div>Tweets here</div>
-    )
+  return (
+    <div>
+      <Tweet />
+      <Tweet />
+      <Tweet />
+      <Tweet />
+      <Tweet />
+      <Tweet />
+      <Tweet />
+      <Tweet />
+      <Tweet />
+    </div>
+  );
 }
 
 export default Tweets;
