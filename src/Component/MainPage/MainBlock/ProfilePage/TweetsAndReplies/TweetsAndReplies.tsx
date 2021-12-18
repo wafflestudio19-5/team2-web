@@ -1,7 +1,5 @@
 function TweetsAndReplies() {
-    return (
-        <div>TweetsAndReplies here</div>
-    )
+  return <div>TweetsAndReplies here</div>;
 }
 
 export default TweetsAndReplies;

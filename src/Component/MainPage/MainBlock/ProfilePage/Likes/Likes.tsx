@@ -1,7 +1,5 @@
 function Likes() {
-    return (
-        <div>Likes here</div>
-    )
+  return <div>Likes here</div>;
 }
 
 export default Likes;
