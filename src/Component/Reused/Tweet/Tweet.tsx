@@ -65,7 +65,7 @@ const Tweet = (
               <img
                 className={styles.mainImg}
                 src={imgUrl}
-                alt="개시글 이미지 입니다."
+                alt="개시글 이미지"
               />
             );
           })}
