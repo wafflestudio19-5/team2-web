@@ -1,0 +1,56 @@
+.RightBlock{
+  position: relative;
+  height: 100%;
+  width: 49%;
+  margin-left: 1%;
+  border: 1px solid black;
+}
+
+.RightInside {
+  //padding-left: 40px;
+  border: 1px solid black;
+}
+
+.SearchLabel {
+  border: 1px solid black;
+  position:fixed;
+  width: 350px;
+  height: 44.4px;
+}
+
+.TrendsWrapper{
+  border: 1px solid black;
+  display: flex;
+  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex-direction: column;
+}
+.TrendHeader{
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Trend{
+
+}
+
+.TrendFooter{
+
+}
+
+.WhoToFollowWrapper{
+  border: 1px solid black;
+  display: flex;
+  margin-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex-direction: column;
+}
+
+.WhoToFollowHeader{
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
