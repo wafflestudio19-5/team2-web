@@ -1,5 +1,3 @@
-import LeftBlock from "../MainPage/LeftBlock/LeftBlock";
-import {BrowserRouter, Routes} from "react-router-dom";
 import React from "react";
 import KaKaoStart from "../LoginPage/KakaoStart.png";
 import Background from "../LoginPage/LoginBackground.png"
@@ -19,22 +17,29 @@ const LoginPage = () => {
                     <span>지금 일어나고 있는 일</span>
                 </div>
                 <div className={styles.Text2}>
-                    <span>오늘 트위터에 가입하세요</span>
+                    <span>오늘 트위터에 가입하세요.</span>
                 </div>
-                <div className={styles.ButtonWrapper}>
-                    <button className={styles.Button}>일단 임시</button>
+                <div className={styles.SignUpWrapper}>
+                    <button className={styles.Button}>Google 계정으로 가입하기</button>
                     <button className={styles.Button} style={{
                         backgroundImage: `url(${KaKaoStart})`,
                         backgroundSize: '100% 100%'
                     }} />
-                    <div className={styles.Border}>
+                    <div className={styles.BorderWrapper}>
                         또는
                     </div>
-                    <button className={styles.Button}>일단 임시</button>
+                    <button className={styles.Button}>휴대폰 번호나 이메일 주소로 가입하기</button>
+                    <div className={styles.Text3}>By signing up, you agree to the <a className={styles.Link} href="">Terms of Service </a>
+                        and <a className={styles.Link} href="">Privacy Policy</a> , including Cookie Use.</div>
+                </div>
+
+                <div className={styles.LoginWrapper}>
+                    <span className={styles.Text4}>이미 트위터에 가입하셨나요?</span>
+                    <button className={styles.Button}>로그인</button>
                 </div>
 
             </div>
-            {/**/}
+
         </div>
     )
 }

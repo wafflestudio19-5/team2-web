@@ -1,7 +1,7 @@
 .LoginPageWrapper {
   display: flex;
 }
-/**/
+
 .Background {
   height: 90vh;
   width: 50vw;
@@ -28,7 +28,7 @@
   padding: 32px;
 }
 
-.ButtonWrapper {
+.SignUpWrapper {
   display: flex;
   width: 300px;
   flex-direction: column;
@@ -37,7 +37,7 @@
 .Button {
   margin-bottom: 8px;
   margin-right: 20px;
-
+  background-color: white;
   height: 40px;
   border-radius: 999px;
   border: solid black 1px;
@@ -47,7 +47,53 @@
   opacity: 0.5;
 }
 
-.Border {
-
+.BorderWrapper {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 12px;
+  width: 280px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.BorderWrapper::before,
+.BorderWrapper::after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+}
+.Text3 {
+  color: rgb(83, 100, 113);
+  line-height: 12px;
+  font-size: 11px;
+  font-weight: 400;
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  width: 300px;
 }
 
+.Link{
+  text-decoration-line: none;
+  color: rgb(29, 155, 240);
+}
+.Link:hover {
+  text-decoration-line: underline;
+}
+
+.LoginWrapper {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.Text4 {
+  margin-bottom: 20px;
+  font-size: 17px;
+  color: rgb(15, 20, 25);
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 20px;
+}
