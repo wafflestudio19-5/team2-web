@@ -33,10 +33,8 @@ const LoginPage = () => {
                     <button className={styles.Button}>일단 임시</button>
                 </div>
 
-
-
             </div>
-
+            {/**/}
         </div>
     )
 }
