@@ -1,7 +1,7 @@
 import React from "react";
 import KaKaoStart from "../LoginPage/KakaoStart.png";
 import Background from "../LoginPage/LoginBackground.png"
-import Twitter from "../../Image/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg"
+import Twitter from "../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg"
 import styles from "./LoginPage.module.scss"
 
 const LoginPage = () => {

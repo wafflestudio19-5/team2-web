@@ -1,16 +1,16 @@
 .LoginPageWrapper {
   display: flex;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .Background {
-  height: 90vh;
+  height: calc(100%);
   width: 50vw;
 }
 
 .Text1{
   font-size: 64px;
   font-weight: 700;
-  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 80px;
   margin-bottom: 48px;
   margin-top: 48px;
