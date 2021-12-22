@@ -4,6 +4,21 @@ import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
 import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
+import { useState } from 'react';
+
+interface tweetType {
+  name:string,
+  id:string,
+  time:string,
+  profileImg:string,
+  text:string,
+  images: [
+    string,string,
+],
+  commentNumber: string,
+  retweetNumber: string,
+  likeNumber: string
+}
 
 const Tweet = (
   {
@@ -19,7 +34,10 @@ const Tweet = (
     //   likes,
     //   userlike,
   },
+  
 ) => {
+
+
   const dummyName = '감자튀김';
   const dummyID = 'FrenchFries';
   const dummyTime = '10h';
