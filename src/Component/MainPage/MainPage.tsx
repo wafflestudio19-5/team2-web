@@ -7,7 +7,7 @@ import MainBlock from './MainBlock/MainBlock';
 function MainPage() {
   return (
     <div className={styles.MainPage}>
-      <LeftBlock />
+      <LeftBlock/>
       <MainBlock />
     </div>
   );

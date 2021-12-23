@@ -8,13 +8,13 @@ function MainBlock() {
   return (
     <div className={styles.MainBlock}>
       <ProfilePage />
-      <BrowserRouter>
+      {/*<BrowserRouter>
         <Routes>
-          {/*<Route path="/home" component={HomePage} exact />
-                    <Route path="/notifications" component={NotificationsPage} exact /> 요기는 나중에 구현.*/}
+          <Route path="/home" component={HomePage} exact />
+                    <Route path="/notifications" component={NotificationsPage} exact /> 요기는 나중에 구현.
           <Route path="/:id" element={<ProfilePage />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter>*/}
       <RightBlock />
     </div>
   );
