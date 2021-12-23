@@ -1,0 +1,101 @@
+@mixin button_default {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  border-radius: 999px;
+  border: solid black 1px;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+.ModalWrapper {
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ModalHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.XWrapper {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  &:hover{
+    background-color: rgba(0,0,0,0.07);
+    cursor: pointer;
+  }
+}
+
+.ModalContent {
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.ContentMessage {
+  display: flex;
+  justify-content: left;
+  font-weight: 800;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
+
+.Button {
+  @include button_default;
+}
+
+
+.InputWrapper{
+  margin-bottom: 20px;
+}
+
+.Input{
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  border: #00b7ff 1px solid;
+}
+
+.EmailOrPhone {
+  font-size: 15px;
+  color: #00b7ff;
+  margin-bottom: 30px;
+  &:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.BirthdayNotificationHeader {
+  font-weight: 800;
+}
+
+.BirthdayNotificationContent {
+  font-weight: 200;
+}
+
+.BirthdayInputWrapper {
+  display: flex;
+
+}
+
+.BlackButton{
+  @include button_default;
+  background-color: black;
+  color: white;
+  font-weight: 800;
+  font-size: 15px;
+}
