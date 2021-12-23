@@ -1,10 +1,10 @@
 $grey: rgb(239, 243, 244);
 
 .RightBlock{
-  position: relative;
+  position: fixed;
   height: 100%;
-  width: 56%;
-  margin-left: 1%;
+  width: 21.5%;
+  margin-left: 37%;
 
   font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont,
   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -20,7 +20,7 @@ $grey: rgb(239, 243, 244);
   border: none;
   background-color: $grey;
   position:fixed;
-  width: 25%;
+  width: 20%;
   height: 44.4px;
   display: flex;
   border-radius: 9999px;
