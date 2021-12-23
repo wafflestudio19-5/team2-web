@@ -5,23 +5,11 @@ import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
 import { useState } from 'react';
+import {Props} from '../../MainPage/MainBlock/ProfilePage/Tweets/Tweets';
 
-interface tweetType {
-  name:string,
-  id:string,
-  time:string,
-  profileImg:string,
-  text:string,
-  images: [
-    string,string,
-],
-  commentNumber: string,
-  retweetNumber: string,
-  likeNumber: string
-}
 
 const Tweet = (
-  {
+  /*{
     //   tweetType,
     //   author,
     //   retweetingUser,
@@ -33,27 +21,9 @@ const Tweet = (
     //   retweets,
     //   likes,
     //   userlike,
-  },
-  
-) => {
-
-
-  const dummyName = '감자튀김';
-  const dummyID = 'FrenchFries';
-  const dummyTime = '10h';
-  const dummyProfileImg =
-    'https://img.sbs.co.kr/newsnet/etv/upload/2014/12/11/30000443115_700.jpg';
-
-  const dummyText =
-    '감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아';
-  const dummyImages = [
-    'http://www.dailygaewon.com/news/photo/201906/4510_5372_5434.JPG',
-    'https://src.hidoc.co.kr/image/lib/2019/3/21/20190321174958927_0.jpg',
-  ];
-
-  const dummyCommentNumber = '100';
-  const dummyRetweetNumber = '2.5k';
-  const dummyLikeNumber = '4.5k';
+  },*/
+  {item}:{item:Props['tweetType']}
+): JSX.Element=> {
 
   const handleCommentCliecked = (e: React.MouseEvent<HTMLElement>): void => {
     console.log('Comment Clicked');
@@ -76,16 +46,16 @@ const Tweet = (
       <div className={styles.leftWrapper}>
         <img
           className={styles.profileImage}
-          src={dummyProfileImg}
+          src={item.profileImg}
           alt="tweet Profile Image"
         />
       </div>
       <div className={styles.rightWrapper}>
         <div className={styles.topWrapper}>
           <div className={styles.topTextWrapper}>
-            <div className={styles.nameText}>{dummyName}</div>
+            <div className={styles.nameText}>{item.name}</div>
             <div className={styles.idTimeText}>
-              @{dummyID} · {dummyTime}
+              @{item.id} · {item.time}
             </div>
           </div>
           <button className={styles.moreButton}>
@@ -93,8 +63,8 @@ const Tweet = (
           </button>
         </div>
         <div className={styles.middleWrapper}>
-          <div className={styles.mainText}>{dummyText}</div>
-          {dummyImages.map(imgUrl => {
+          <div className={styles.mainText}>{item.text}</div>
+          {item.images.map(imgUrl => {
             return (
               <img
                 className={styles.mainImg}
@@ -112,7 +82,7 @@ const Tweet = (
             >
               <CommentIcon className={styles.commentImg} />
               <div className={styles.commentButtonText}>
-                {dummyCommentNumber}
+                {item.commentNumber}
               </div>
             </button>
             <button
@@ -121,12 +91,12 @@ const Tweet = (
             >
               <RetweetIcon className={styles.retweetImg} />
               <div className={styles.retweetButtonText}>
-                {dummyRetweetNumber}
+                {item.retweetNumber}
               </div>
             </button>
             <button className={styles.likeButton} onClick={handleLikeCliecked}>
               <LikeIcon className={styles.likeImg} />
-              <div className={styles.likeButtonText}>{dummyLikeNumber}</div>
+              <div className={styles.likeButtonText}>{item.likeNumber}</div>
             </button>
             <button
               className={styles.shareButton}
