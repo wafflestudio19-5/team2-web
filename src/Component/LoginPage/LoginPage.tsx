@@ -5,6 +5,7 @@ import Twitter from "../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo bl
 import styles from "./LoginPage.module.scss"
 import LoginModal from "../Modal/LoginModal/LoginModal";
 import SignUpModal from "../Modal/SignUpModal/SignUpModal";
+import {KAKAO_AUTH_URL} from "../../Auth/KakaoAuth";
 
 const LoginPage = () => {
     const [loginModalOpen, setLoginIsOpen] = useState(false);
@@ -26,10 +27,13 @@ const LoginPage = () => {
                 </div>
                 <div className={styles.SignUpWrapper}>
                     <button className={styles.Button}>Google 계정으로 가입하기</button>
-                    <button  className={styles.Button} style={{
+
+                    <button onClick={()=>{
+                        window.location.href = KAKAO_AUTH_URL;
+                    }} className={styles.Button} style={{
                         backgroundImage: `url(${KaKaoStart})`,
                         backgroundSize: '100% 100%'
-                    }} />
+                    }} ></button>
                     <div className={styles.BorderWrapper}>
                         또는
                     </div>

@@ -7,10 +7,9 @@ import LoginPage from './Component/LoginPage/LoginPage';
 import axios from "axios"
 import {useNetworkContext} from "./Auth/AuthContext";
 import useEffect from "react"
-
+import KakaoAuthRedirect from "./Auth/KakaoAuthRedirect";
 function App() {
     const networkContext = useNetworkContext();
-
 
     axios.defaults.baseURL =
         "http://3.35.19.155/";
@@ -23,7 +22,8 @@ function App() {
       <div>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<LoginPage />} />{' '}
+            <Route path="/" element={<LoginPage />} />
+            <Route path={"/oauth/callback/kakao"}  element={<KakaoAuthRedirect/> } />
               <Route
                   path="*"
                   element={<Navigate to="/" />}
