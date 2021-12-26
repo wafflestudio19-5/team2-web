@@ -5,12 +5,14 @@ import twitter from "../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo
 import KaKaoLogin from "../../../Images/kakao_login.png";
 import React, {MouseEventHandler, useState} from "react";
 import axios from "axios";
+import {useNetworkContext} from "../../../Auth/AuthContext";
 
 
 interface props {
     isOpen:boolean
     setSignUpIsOpen: (boolean:boolean)=>void
 }
+
 
 function SignUpModal(props:props) {
     const [emailUse, setEmailUse] = useState(false);
@@ -21,6 +23,14 @@ function SignUpModal(props:props) {
         "birth_date": '',
         "password": ''
     })
+    const [sendData,setSendData] = useState({
+        "username": '',
+        "email": '',
+        "phone_number": '',
+        "birth_date": '',
+        "password": ''
+    });
+    const authContext = useNetworkContext();
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         setUserData({
             ...userData, [e.target.name]:e.target.value
@@ -28,7 +38,12 @@ function SignUpModal(props:props) {
     }
     const onClick = (e:MouseEventHandler<HTMLButtonElement>)=>{
         axios.post<{success:boolean}>("/signup", userData)
-            .then()
+            .then((response)=>{
+                authContext.setToken(response.data.token);
+            })
+            .catch((error)=>{
+
+            })
     }
     return (
         <Modal ariaHideApp={false}
@@ -71,7 +86,8 @@ function SignUpModal(props:props) {
                         <input onChange={onChange} className={styles.Input} name={"password"} placeholder="비밀번호" type="password"/>
                     </form>
                     <span onClick={()=>{
-                        setEmailUse(!emailUse)
+                        setUserData({...userData, [emailUse ? "email" : "phone_number"]: ''});
+                        setEmailUse(!emailUse);
                     }} className={styles.EmailOrPhone}>{emailUse ? "대신 휴대폰 사용하기" : "대신 이메일 사용하기" }</span>
                     <div className={styles.BirthdayNotificationWrapper}>
                         <span className={styles.BirthdayNotificationHeader}>생년월일</span>
@@ -87,6 +103,7 @@ function SignUpModal(props:props) {
                     </div>
 
                     <button className={styles.BlackButton}>다음</button>
+
                 </div>
             </div>
         </Modal>

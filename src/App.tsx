@@ -16,7 +16,7 @@ function App() {
     axios.defaults.headers.common["Authorization"] = "Bearer " + networkContext.token;
 
     if (/*networkContext.token === "undefined" ||
-      networkContext.token === undefined*/ 1) {
+      networkContext.token === undefined*/ 0) {
     //로그인 안 된 경우
     return (
       <div>
