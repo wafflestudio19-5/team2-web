@@ -1,4 +1,5 @@
 import styles from './SignUpModal.module.scss';
+
 import Modal from "react-modal";
 import X from "../../../Images/X.svg";
 import twitter from "../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg";
@@ -8,9 +9,10 @@ import axios from "axios";
 import {useNetworkContext} from "../../../Auth/AuthContext";
 
 
+
 interface props {
-    isOpen:boolean
-    setSignUpIsOpen: (boolean:boolean)=>void
+  isOpen: boolean;
+  setSignUpIsOpen: (boolean: boolean) => void;
 }
 
 
@@ -109,6 +111,7 @@ function SignUpModal(props:props) {
             </div>
         </Modal>
     );
+
 }
 
 export default SignUpModal;

@@ -1,4 +1,5 @@
 import styles from './LoginModal.module.scss';
+
 import Modal from "react-modal";
 import twitter from "../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg"
 import X from "../../../Images/X.svg"
@@ -86,6 +87,7 @@ function LoginModal(props: props) {
 
         </Modal>
     );
+
 }
 
 export default LoginModal;
