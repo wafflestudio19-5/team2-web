@@ -1,7 +1,7 @@
 .LoginPageWrapper {
   display: flex;
-  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont,
-  "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .Background {
@@ -9,7 +9,7 @@
   width: 50vw;
 }
 
-.Text1{
+.Text1 {
   font-size: 64px;
   font-weight: 700;
   line-height: 80px;
@@ -17,10 +17,11 @@
   margin-top: 48px;
 }
 
-.Text2{
+.Text2 {
   font-size: 31px;
   font-weight: 700;
-  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 36px;
   margin-bottom: 32px;
 }
@@ -60,7 +61,7 @@
 }
 .BorderWrapper::before,
 .BorderWrapper::after {
-  content: "";
+  content: '';
   flex-grow: 1;
   background: rgba(0, 0, 0, 0.35);
   height: 1px;
@@ -72,11 +73,12 @@
   line-height: 12px;
   font-size: 11px;
   font-weight: 400;
-  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
   width: 300px;
 }
 
-.Link{
+.Link {
   text-decoration-line: none;
   color: rgb(29, 155, 240);
 }
@@ -94,7 +96,8 @@
   margin-bottom: 20px;
   font-size: 17px;
   color: rgb(15, 20, 25);
-  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   line-height: 20px;
 }

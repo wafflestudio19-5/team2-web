@@ -4,7 +4,7 @@ import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
 import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
-import {Props} from '../../MainPage/MainBlock/ProfilePage/Tweets/Tweets';
+import { Props } from '../../MainPage/MainBlock/ProfilePage/Tweets/Tweets';
 import React from 'react';
 
 const Tweet = (
@@ -21,9 +21,8 @@ const Tweet = (
     //   likes,
     //   userlike,
   },*/
-  {item}:{item:Props['tweetType']}
-): JSX.Element=> {
-
+  { item }: { item: Props['tweetType'] },
+): JSX.Element => {
   const handleCommentCliecked = (e: React.MouseEvent<HTMLElement>): void => {
     console.log('Comment Clicked');
   };

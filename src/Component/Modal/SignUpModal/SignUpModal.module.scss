@@ -6,15 +6,15 @@
   height: 50px;
   border-radius: 999px;
   border: solid black 1px;
-  &:hover{
+  &:hover {
     cursor: pointer;
     opacity: 0.5;
   }
 }
 
 .ModalWrapper {
-  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont,
-  "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .ModalHeader {
@@ -29,8 +29,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  &:hover{
-    background-color: rgba(0,0,0,0.07);
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.07);
     cursor: pointer;
   }
 }
@@ -54,12 +54,11 @@
   @include button_default;
 }
 
-
-.InputWrapper{
+.InputWrapper {
   margin-bottom: 20px;
 }
 
-.Input{
+.Input {
   width: 100%;
   height: 50px;
   border-radius: 5px;
@@ -73,7 +72,7 @@
   font-size: 15px;
   color: #00b7ff;
   margin-bottom: 30px;
-  &:hover{
+  &:hover {
     cursor: pointer;
     text-decoration: underline;
   }
@@ -89,10 +88,9 @@
 
 .BirthdayInputWrapper {
   display: flex;
-
 }
 
-.BlackButton{
+.BlackButton {
   @include button_default;
   background-color: black;
   color: white;
