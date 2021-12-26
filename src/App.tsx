@@ -32,6 +32,7 @@ function App() {
         </BrowserRouter>
       </div>
     );
+
   } else {
     //로그인 된 경우
     return (

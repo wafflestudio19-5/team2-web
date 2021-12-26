@@ -30,6 +30,7 @@ function SignUpModal(props:props) {
         "birth_date": '',
         "password": ''
     });
+
     const authContext = useNetworkContext();
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         setUserData({

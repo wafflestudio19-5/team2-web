@@ -59,6 +59,7 @@ function LoginModal(props: props) {
                     }} className={styles.XWrapper}><img src={X} width={25} height={25} alt="no img"/></div>
                     <div className={styles.LogoWrapper}><img src={twitter} width={30} height={30} alt="no img"/></div>
                     <div/>
+
                 </header>
                 <div className={styles.ModalContent}>
                     <span className={styles.ContentMessage}>트위터에 로그인하기</span>

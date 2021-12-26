@@ -47,6 +47,7 @@ const LoginPage = () => {
                     <button onClick={()=>{setLoginIsOpen(true)}} className={styles.Button}>로그인</button>
                 </div>
 
+
             </div>
 
         </div>
