@@ -6,6 +6,10 @@ import MainPage from './Component/MainPage/MainPage';
 import LoginPage from './Component/LoginPage/LoginPage';
 
 function App() {
+  const testtest1 = "test";
+  const testtest2 = "test";
+  const testtest3 = "test";
+  const testtest4 = "test";
   if (0) {
     //로그인 안 된 경우
     return (
