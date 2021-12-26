@@ -3,7 +3,6 @@ import React from 'react';
 import { Route, BrowserRouter, Navigate, Routes } from 'react-router-dom';
 
 import MainPage from './Component/MainPage/MainPage';
-import ModalContainer from './Component/ModalContainer/ModalContainer';
 import LoginPage from './Component/LoginPage/LoginPage';
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
             {/*: <Navigate to={"/"}/> 가 element의 인자로 들어가야함.*/}
           </Routes>
         </BrowserRouter>
-        <ModalContainer />
       </div>
     );
   } else {
@@ -25,7 +23,6 @@ function App() {
     return (
       <div className={styles.App}>
         <MainPage />
-        <ModalContainer />
       </div>
     );
   }
