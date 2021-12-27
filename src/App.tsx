@@ -12,8 +12,9 @@ function App() {
     const networkContext = useNetworkContext();
 
     axios.defaults.baseURL =
-        "http://3.35.19.155/";
+        "https://www.clonetwitter.shop/api/v1";
     axios.defaults.headers.common["Authorization"] = "Bearer " + networkContext.token;
+    axios.defaults.withCredentials = true;
 
     if (/*networkContext.token === "undefined" ||
       networkContext.token === undefined*/ 0) {

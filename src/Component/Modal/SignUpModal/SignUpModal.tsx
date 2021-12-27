@@ -4,8 +4,9 @@ import X from "../../../Images/X.svg";
 import twitter from "../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg";
 import KaKaoLogin from "../../../Images/kakao_login.png";
 import React, {MouseEventHandler, useState} from "react";
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 import {useNetworkContext} from "../../../Auth/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 
 interface props {
@@ -15,35 +16,49 @@ interface props {
 
 
 function SignUpModal(props:props) {
-    const [emailUse, setEmailUse] = useState(false);
+    const [emailUse, setEmailUse] = useState(true);
     const [userData, setUserData] = useState({
         "username": '',
         "email": '',
         "phone_number": '',
         "birth_date": '',
-        "password": ''
+        "password": '',
+        "user_id": "string",
+        "bio": "string",
     })
     const [sendData,setSendData] = useState({
         "username": '',
         "email": '',
         "phone_number": '',
         "birth_date": '',
-        "password": ''
-    });
+        "password": '',
+        "user_id": "",
+        "bio": "",
 
+    /*    "profile_img": '',
+        "user_id": '',
+        "language": '',
+        "allow_notification": ''*/
+
+    });
+    const Navigate = useNavigate();
     const authContext = useNetworkContext();
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         setUserData({
             ...userData, [e.target.name]:e.target.value
         })
     }
-    const onClick = (e:MouseEventHandler<HTMLButtonElement>)=>{
-        axios.post<{success:boolean}>("/signup", userData)
-            .then((response)=>{
+    const onClick = (e:React.MouseEvent<HTMLButtonElement>)=>{
+        console.log('d');
+        axios.post<{success:boolean}>("/signup/", userData)
+            .then((response: AxiosResponse<any>)=>{
                 authContext.setToken(response.data.token);
+                props.setSignUpIsOpen(false);
+                Navigate('/:id'); //id 받아오는 api가 필요할 듯.
+
             })
             .catch((error)=>{
-
+                console.log(error.data.message);
             })
     }
     return (
@@ -103,7 +118,7 @@ function SignUpModal(props:props) {
                         <input onChange={onChange} name={"birth_date"} className={styles.BirthdayInput} type="date"/>
                     </div>
 
-                    <button className={styles.BlackButton}>다음</button>
+                    <button onClick={onClick} className={styles.BlackButton}>다음</button>
 
                 </div>
             </div>

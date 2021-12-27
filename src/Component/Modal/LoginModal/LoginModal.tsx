@@ -14,7 +14,7 @@ interface props {
 
 function LoginModal(props: props) {
     const [authData, setAuthData] = useState({
-        "id": '', // id 또는 이메일 또는 전화번호
+        "user_id": '', // id 또는 이메일 또는 전화번호
         "password": ''
     })
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -23,8 +23,13 @@ function LoginModal(props: props) {
         })
     }
     const onSubmit = () => {
-        axios.post<{success:boolean}>("/login", authData)
-            .then()
+        axios.post<{success:boolean}>("/login/", authData)
+            .then(()=>{
+                props.setLoginIsOpen(false);
+            })
+            .catch((error)=>{
+                console.log(error.message);
+            })
     }
     return (
         <Modal ariaHideApp={false}
@@ -65,7 +70,9 @@ function LoginModal(props: props) {
                     <span className={styles.ContentMessage}>트위터에 로그인하기</span>
                     <button className={styles.Button}>Google 계정으로 로그인하기</button>
 
-                    <button className={styles.Button} style={{
+                    <button onClick={()=>{
+                        window.location.href = KAKAO_AUTH_URL;
+                    }} className={styles.Button} style={{
                         backgroundImage: `url(${KaKaoLogin})`,
                         backgroundSize: '100% 100%'
                     }}/>
