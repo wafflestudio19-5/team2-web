@@ -6,7 +6,10 @@ import X from "../../../Images/X.svg"
 import KaKaoLogin from "../../../Images/kakao_login.png"
 import React, {useState} from "react";
 import {KAKAO_AUTH_URL} from "../../../Auth/KakaoAuth";
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
+import {useNetworkContext} from "../../../Auth/AuthContext";
+import {Navigate, useNavigate} from "react-router-dom";
+import {useTmpNetworkContext} from "../../../Auth/TempAuthContext";
 
 interface props {
     isOpen: boolean
@@ -14,9 +17,11 @@ interface props {
 }
 
 function LoginModal(props: props) {
+    const navigate = useNavigate();
+    const networkContext = useNetworkContext();
     const [authData, setAuthData] = useState({
-        "user_id": '', // id 또는 이메일 또는 전화번호
-        "password": ''
+        user_id: '', // id 또는 이메일 또는 전화번호
+        password: ''
     })
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         setAuthData({
@@ -24,9 +29,12 @@ function LoginModal(props: props) {
         })
     }
     const onSubmit = () => {
-        axios.post<{success:boolean}>("/login/", authData)
-            .then(()=>{
+        axios.post<{success:boolean}>("/login/", {...authData})
+            .then((response: any)=>{
+                localStorage.setItem("JWT", response.data.token);
+                networkContext.setToken(response.data.token);
                 props.setLoginIsOpen(false);
+                navigate("/"+response.data.user_id);
             })
             .catch((error)=>{
                 console.log(error.message);
@@ -85,13 +93,12 @@ function LoginModal(props: props) {
                         e.preventDefault();
                         onSubmit();
                     }} className={styles.InputWrapper}>
-                        <input onChange={onChange} name={"id"} className={styles.Input} placeholder="휴대폰 번호, 이메일 주소 또는 사용자 아이디" type="text"/>
+                        <input onChange={onChange} name={"user_id"} className={styles.Input} placeholder="사용자 아이디" type="text"/>
                         <input onChange={onChange} className={styles.Input} name={"password"} placeholder="비밀번호" type="password"/>
                         <button className={styles.BlackButton}>다음</button>
                     </form>
                 </div>
             </div>
-
         </Modal>
     );
 

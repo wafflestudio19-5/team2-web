@@ -50,21 +50,7 @@ const LoginPage = () => {
 
 
             </div>
-
-
-        <div className={styles.LoginWrapper}>
-          <span className={styles.Text4}>이미 트위터에 가입하셨나요?</span>
-          <button
-            onClick={() => {
-              setLoginIsOpen(true);
-            }}
-            className={styles.Button}
-          >
-            로그인
-          </button>
-        </div>
       </div>
-    </div>
   );
 };
 

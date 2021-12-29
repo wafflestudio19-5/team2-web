@@ -14,7 +14,7 @@ function MainBlock() {
            {/*<Route path="/notifications" component={NotificationsPage} exact />*/}
           <Route path="/:id" element={<ProfilePage/>} />
             <Route
-                path="*"
+                path="/*"
                 element={<Navigate to="/home" />}
             />
         </Routes>

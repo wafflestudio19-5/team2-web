@@ -7,17 +7,21 @@ import axios from "axios"
 import {useNetworkContext} from "./Auth/AuthContext";
 import useEffect from "react"
 import KakaoAuthRedirect from "./Auth/KakaoAuthRedirect";
+import {useTmpNetworkContext} from "./Auth/TempAuthContext";
 function App() {
 
     const networkContext = useNetworkContext();
 
+    /*axios.defaults.baseURL =
+        "https://cors-anywhere.herokuapp.com/https://clonetwitter.shop/api/v1";*/
     axios.defaults.baseURL =
-        "https://www.clonetwitter.shop/api/v1";
-    axios.defaults.headers.common["Authorization"] = "Bearer " + networkContext.token;
-    axios.defaults.withCredentials = true;
+        "https://clonetwitter.shop/api/v1";
+    if(networkContext !== null){
+        axios.defaults.headers.common["Authorization"] = "Bearer " + networkContext.token;
+    }
 
-    if (/*networkContext.token === "undefined" ||
-      networkContext.token === undefined*/ 0) {
+    if (networkContext === null || networkContext.token === "undefined" ||
+      networkContext.token === undefined) {
 
     //로그인 안 된 경우
     return (
@@ -39,13 +43,11 @@ function App() {
     //로그인 된 경우
     return (
       <div className={styles.App}>
-
           <BrowserRouter>
               <Routes>
                   <Route path="/*" element={<MainPage />} />
               </Routes>
           </BrowserRouter>
-
       </div>
     );
   }

@@ -8,6 +8,7 @@ import React, {MouseEventHandler, useState} from "react";
 import axios, {AxiosResponse} from "axios";
 import {useNetworkContext} from "../../../Auth/AuthContext";
 import {useNavigate} from "react-router-dom";
+import {useTmpNetworkContext} from "../../../Auth/TempAuthContext";
 
 
 
@@ -22,7 +23,7 @@ function SignUpModal(props:props) {
     const [userData, setUserData] = useState({
         "username": '',
         "email": '',
-        "phone_number": '',
+        "phone_number": '010-1234-5678',
         "birth_date": '',
         "password": '',
         "user_id": "string",
@@ -31,11 +32,11 @@ function SignUpModal(props:props) {
     const [sendData,setSendData] = useState({
         "username": '',
         "email": '',
-        "phone_number": '',
-        "birth_date": '',
+        /*"phone_number": '',
+        "birth_date": '',*/
         "password": '',
         "user_id": "",
-        "bio": "",
+        /*"bio": "",*/
 
     /*    "profile_img": '',
         "user_id": '',
@@ -44,7 +45,7 @@ function SignUpModal(props:props) {
 
     });
     const Navigate = useNavigate();
-    const authContext = useNetworkContext();
+    const networkContext = useNetworkContext();
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         setUserData({
             ...userData, [e.target.name]:e.target.value
@@ -52,15 +53,25 @@ function SignUpModal(props:props) {
     }
     const onClick = (e:React.MouseEvent<HTMLButtonElement>)=>{
         console.log('d');
-        axios.post<{success:boolean}>("/signup/", userData)
+        axios.post<{success:boolean}>("/signup/", {
+            "username": "dlgkehd",
+            "email": "dlgkehd@naver.com",
+            /*"phone_number": "010-1234-5678",
+            */
+            /*"birth_date": "2021-12-24",*/
+            "password": "1234",
+            "user_id": "dlgkehd",
+            /*"bio": "string",*/
+        })
             .then((response: AxiosResponse<any>)=>{
-                authContext.setToken(response.data.token);
+                localStorage.setItem("JWT", response.data.token);
+                networkContext.setToken(response.data.token);
                 props.setSignUpIsOpen(false);
-                Navigate('/:id'); //id 받아오는 api가 필요할 듯.
-
+                Navigate('/'+response.data.user_id);
+                 //id 받아오는 api가 필요할 듯.
             })
             .catch((error)=>{
-                console.log(error.data.message);
+                console.log(error.message);
             })
     }
     return (
@@ -101,6 +112,7 @@ function SignUpModal(props:props) {
                         <input onChange={onChange} className={styles.Input} name={"username"} placeholder="이름" type="text"/>
                         <input onChange={onChange} className={styles.Input} name={emailUse ? "email" : "phone_number"}
                                placeholder={emailUse ? "이메일" : "휴대폰" } type="text"/>
+                        <input onChange={onChange} className={styles.Input} name={"user_id"} placeholder="아이디" type="text"/>
                         <input onChange={onChange} className={styles.Input} name={"password"} placeholder="비밀번호" type="password"/>
                     </form>
                     <span onClick={()=>{

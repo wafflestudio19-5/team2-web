@@ -85,6 +85,9 @@
   font-size: 15px;
   line-height: 20px;
   margin-bottom: 10px;
+  &:focus{
+    outline-color: #00b7ff;
+  }
 }
 
 .BlackButton {

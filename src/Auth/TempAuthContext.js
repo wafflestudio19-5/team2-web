@@ -1,14 +1,12 @@
 import {useContext, createContext, useState, Dispatch} from "react";
 import React from "react"
-const networkContext = createContext({
-    token: localStorage.JWT,
-    setToken: (state: string) => {}
-});
-export const NetworkContextProvider = ({ children } : {children: React.ReactNode}  ) => {
+const tmpNetworkContext = createContext();
+
+export const NetworkContextProvider = ({ children } ) => {
     const [token, setToken] = useState(localStorage.JWT);
     //const [kakaoApproveCode,setKakaoApproveCode] = useState('null');
     return (
-        <networkContext.Provider
+        <tmpNetworkContext.Provider
             value={{
                 token,
                 setToken,
@@ -17,8 +15,8 @@ export const NetworkContextProvider = ({ children } : {children: React.ReactNode
             }}
         >
             {children}
-        </networkContext.Provider>
+        </tmpNetworkContext.Provider>
     );
 };
 
-export const useNetworkContext = () => useContext(networkContext);
+export const useTmpNetworkContext = () => useContext(tmpNetworkContext);
