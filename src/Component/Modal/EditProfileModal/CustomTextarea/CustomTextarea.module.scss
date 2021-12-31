@@ -1,0 +1,55 @@
+.inputWrapper {
+  position: relative;
+
+  width: calc(100% - 20px);
+}
+
+.inputBox {
+  width: calc(100% - 4px);
+  height: calc(100% - 25px);
+  padding: 25px 4px 0px 8px;
+
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+
+  font-size: 17px;
+
+  &:focus {
+    border: 1px solid #1c9bf0;
+    outline: 1px solid #1c9bf0;
+  }
+}
+
+@mixin titleDefault($fontsize, $top, $color) {
+  position: absolute;
+  font-size: $fontsize;
+  color: $color;
+
+  top: $top;
+  text-indent: 10px;
+
+  transition: all 100ms;
+}
+
+.inputTitle {
+  @include titleDefault(17px, 20px, #7c7c7c);
+}
+
+.inputTitleFilled {
+  @include titleDefault(12px, 10px, #7c7c7c);
+}
+
+.inputTitleOnfocus {
+  @include titleDefault(12px, 10px, #1c9bf0);
+}
+
+.lengthText {
+  @include titleDefault(13px, 10px, #7c7c7c);
+  right: 5px;
+}
+
+.lengthTextOnblur {
+  display: none;
+}

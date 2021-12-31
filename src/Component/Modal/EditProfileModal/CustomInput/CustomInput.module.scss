@@ -1,0 +1,74 @@
+.inputWrapper {
+  position: relative;
+  width: calc(100% - 20px);
+}
+
+@mixin inputBoxDefault($defaultColor, $hoverColor) {
+  width: calc(100% - 4px);
+  height: calc(100% - 20px);
+  padding: 20px 4px 0px 8px;
+
+  border: 1px solid $defaultColor;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+
+  font-size: 17px;
+
+  &:focus {
+    border: 1px solid $hoverColor;
+    outline: 1px solid $hoverColor;
+  }
+}
+
+.inputBox {
+  @include inputBoxDefault(rgb(202, 202, 202), #1c9bf0);
+}
+
+.inputBoxWarning {
+  @include inputBoxDefault(#ff0019, #ff0019);
+}
+
+@mixin titleDefault($fontsize, $top, $color) {
+  position: absolute;
+  font-size: $fontsize;
+  color: $color;
+
+  top: $top;
+  text-indent: 10px;
+
+  transition: all 100ms;
+}
+
+.inputTitle {
+  @include titleDefault(17px, 20px, #7c7c7c);
+}
+
+.inputTitleFilled {
+  @include titleDefault(12px, 10px, #7c7c7c);
+}
+
+.inputTitleOnfocus {
+  @include titleDefault(12px, 10px, #1c9bf0);
+}
+
+.inputTitleOnfocusWarning {
+  @include titleDefault(12px, 10px, #ff0019);
+}
+
+.lengthText {
+  @include titleDefault(13px, 10px, #7c7c7c);
+  right: 5px;
+}
+
+.lengthTextOnblur {
+  display: none;
+}
+
+.warningText {
+  @include titleDefault(13px, 65px, #ff0019);
+}
+
+.warningTextInvisible {
+  display: none;
+}

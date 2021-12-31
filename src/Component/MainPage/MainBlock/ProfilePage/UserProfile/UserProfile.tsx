@@ -1,7 +1,15 @@
-import { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
+import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
 
 function UserProfile(props: any) {
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] =
+    useState<boolean>(false);
+
+  const handleEditProfileClick = () => {
+    setIsEditProfileModalOpen(!isEditProfileModalOpen);
+  };
+
   const switchToTweets = () => {
     props.setIsChosen('Tweets');
   };
@@ -17,6 +25,10 @@ function UserProfile(props: any) {
 
   return (
     <>
+      <EditProfileModal
+        isOpen={isEditProfileModalOpen}
+        setIsOpen={setIsEditProfileModalOpen}
+      />
       <header className={styles.UserProfileHeader}>
         <button className={styles.UserProfileHeaderButton}>back</button>
         <div>
@@ -31,7 +43,7 @@ function UserProfile(props: any) {
         <div>
           <div>
             <img /> {/*profile img*/}
-            <button>Edit profile</button>
+            <button onClick={handleEditProfileClick}>Edit profile</button>
           </div>
           <div>
             <p>id.name</p>
