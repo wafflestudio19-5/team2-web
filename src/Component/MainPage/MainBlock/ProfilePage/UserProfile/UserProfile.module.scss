@@ -1,4 +1,5 @@
 .UserProfileHeader {
+  position: absolute;
   height: 55px;
   width: 35.06%;
   display: flex;
@@ -8,7 +9,7 @@
   background-color: white;
   opacity: 0.95;
   position: fixed;
-  z-index: 8;
+  z-index: 1;
 }
 
 .UserProfileHeaderButton {
