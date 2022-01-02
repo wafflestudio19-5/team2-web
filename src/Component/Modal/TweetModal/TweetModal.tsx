@@ -2,13 +2,13 @@ import styles from './TweetModal.module.scss';
 import Modal from 'react-modal';
 import X from "../../../Images/X.svg";
 import twitter from "../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg"
-import Icon from "../../../Images/Icon.svg"
-import Picture from "../../../Images/Picture.svg"
-import GIF from "../../../Images/GIF.svg"
-import Chart from "../../../Images/Chart.svg"
-import Schedule from "../../../Images/Schedule.svg"
-import GPS from "../../../Images/GPS.svg"
-
+import  { ReactComponent as Icon } from "../../../Images/Icon.svg"
+import { ReactComponent as Picture } from "../../../Images/Picture.svg"
+import {ReactComponent as GIF} from "../../../Images/GIF.svg"
+import {ReactComponent as Chart} from "../../../Images/Chart.svg"
+import {ReactComponent as Schedule} from "../../../Images/Schedule.svg"
+import {ReactComponent as GPS} from "../../../Images/GPS.svg"
+import {ReactComponent as Comment} from "../../../Images/comment.svg"
 
 
 import React from "react";
@@ -37,7 +37,7 @@ const TweetModal = ({
         top: '50px',
         left: '450px',
         right: '450px',
-        bottom: '350px',
+        bottom: '420px',
         border: '1px solid #ccc',
         borderRadius: '20px',
         background: '#fff',
@@ -65,9 +65,17 @@ const TweetModal = ({
               <textarea className={styles.ModalContentInput} placeholder="What's happening?"/>
             </div>
             <div className={styles.BorderWrapper}/>
-            <div className={styles.ModalContentButtonWrapper}>
-              <div className={styles.IconWrapper}><img className={styles.Icon} src={Picture} alt="no img"/></div>
-              <div/>
+            <div className={styles.ModalContentRightFooter}>
+              <div className={styles.ModalContentButtonWrapper}>
+                <div className={styles.IconWrapper}><Picture className={styles.Icon}/></div>
+                <div className={styles.IconWrapper}><GIF className={styles.Icon}/></div>
+                <div className={styles.IconWrapper}><Chart className={styles.Icon}/></div>
+                <div className={styles.IconWrapper}><Icon className={styles.Icon}/></div>
+                <div className={styles.IconWrapper}><Schedule className={styles.Icon}/></div>
+              </div>
+              <div className={styles.TweetButtonWrapper}>
+                <button className={styles.Button}>Tweet</button>
+              </div>
             </div>
           </div>
         </div>

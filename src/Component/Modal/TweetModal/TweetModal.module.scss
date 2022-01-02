@@ -64,14 +64,21 @@
   font-size: 0px;
   line-height: 0px;
 }
-.ModalContentButtonWrapper{
+
+.ModalContentRightFooter {
   display: flex;
   justify-content: space-between;
 }
+
+.ModalContentButtonWrapper{
+  display: flex;
+}
 .Icon{
-  width: 25px;
-  height: 25px;
-  fill: #00b7ff;
+  width: 20px;
+  height: 20px;
+  stroke-width: 1px;
+  stroke: #00b7ff;
+  color: #00b7ff;
 }
 
 .IconWrapper{
@@ -87,5 +94,24 @@
   }
 }
 
+.TweetButtonWrapper{
+  display: flex;
+  align-items: center;
+}
+.Button {
+  background-color: rgb(26, 140, 216);
+  width: 100px;
+  height: 40px;
+  border-radius: 999px;
+  border: solid black 1px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+}
+.Button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
 
 

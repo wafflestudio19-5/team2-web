@@ -16,6 +16,8 @@ function App() {
         "https://cors-anywhere.herokuapp.com/https://clonetwitter.shop/api/v1";*/
     axios.defaults.baseURL =
         "https://clonetwitter.shop/api/v1";
+    axios.defaults.headers.post['Content-Type'] = "application/json"
+
     if(networkContext !== null){
         axios.defaults.headers.common["Authorization"] = "Bearer " + networkContext.token;
     }
