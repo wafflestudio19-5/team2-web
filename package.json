@@ -12,6 +12,7 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.3.2",
     "axios": "^0.24.0",
+    "http-proxy-middleware": "^2.0.1",
     "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-day-picker": "^8.0.0-beta.36",
@@ -30,10 +31,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "aws s3 sync ./build s3://team-2-toy-project --profile=tmootu76",
-    "invalidate": "aws cloudfront create-invalidation --profile=tmootu76 --distribution-id EK89KY4GVW9JF --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico"
+    "deploy": "aws s3 sync ./build s3://team-2-toy-project --profile=ChrisLee02",
+    "invalidate": "aws cloudfront create-invalidation --profile=ChrisLee02 --distribution-id EK89KY4GVW9JF --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico"
   },
   "eslintConfig": {
     "extends": [
@@ -56,4 +58,6 @@
   "devDependencies": {
     "@types/react-modal": "^3.13.1"
   }
+
 }
+
