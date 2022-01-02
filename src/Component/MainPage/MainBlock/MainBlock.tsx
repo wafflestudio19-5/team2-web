@@ -9,6 +9,7 @@ function MainBlock() {
   return (
     <div className={styles.MainBlock}>
       {/*<ProfilePage />*/}
+
         <Routes>
           <Route path="/home" element={<HomePage/>}  />
            {/*<Route path="/notifications" component={NotificationsPage} exact />*/}
@@ -18,6 +19,7 @@ function MainBlock() {
                 element={<Navigate to="/home" />}
             />
         </Routes>
+
       <RightBlock />
     </div>
   );

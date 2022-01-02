@@ -1,12 +1,11 @@
-
-import React, {useState} from "react";
-import KaKaoStart from "../LoginPage/KakaoStart.png";
-import Background from "../LoginPage/LoginBackground.png"
-import Twitter from "../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg"
-import styles from "./LoginPage.module.scss"
-import LoginModal from "../Modal/LoginModal/LoginModal";
-import SignUpModal from "../Modal/SignUpModal/SignUpModal";
-import {KAKAO_AUTH_URL} from "../../Auth/KakaoAuth";
+import React, { useState } from 'react';
+import KaKaoStart from '../LoginPage/KakaoStart.png';
+import Background from '../LoginPage/LoginBackground.png';
+import Twitter from '../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg';
+import styles from './LoginPage.module.scss';
+import LoginModal from '../Modal/LoginModal/LoginModal';
+import SignUpModal from '../Modal/SignUpModal/SignUpModal';
+import { KAKAO_AUTH_URL } from '../../Auth/KakaoAuth';
 
 const LoginPage = () => {
     const [loginModalOpen, setLoginIsOpen] = useState(false);
@@ -51,6 +50,7 @@ const LoginPage = () => {
 
             </div>
       </div>
+
   );
 };
 

@@ -9,14 +9,15 @@ import {KAKAO_AUTH_URL} from "../../../Auth/KakaoAuth";
 import axios, {AxiosResponse} from "axios";
 import {useNetworkContext} from "../../../Auth/AuthContext";
 import {Navigate, useNavigate} from "react-router-dom";
-import {useTmpNetworkContext} from "../../../Auth/TempAuthContext";
+
 
 interface props {
-    isOpen: boolean
-    setLoginIsOpen: (boolean: boolean) => void
+  isOpen: boolean;
+  setLoginIsOpen: (boolean: boolean) => void;
 }
 
 function LoginModal(props: props) {
+
     const navigate = useNavigate();
     const networkContext = useNetworkContext();
     const [authData, setAuthData] = useState({
@@ -103,6 +104,35 @@ function LoginModal(props: props) {
         </Modal>
     );
 
+
+          <div className={styles.BorderWrapper}>또는</div>
+          <form
+            onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+              e.preventDefault();
+              onSubmit();
+            }}
+            className={styles.InputWrapper}
+          >
+            <input
+              onChange={onChange}
+              name={'id'}
+              className={styles.Input}
+              placeholder="휴대폰 번호, 이메일 주소 또는 사용자 아이디"
+              type="text"
+            />
+            <input
+              onChange={onChange}
+              className={styles.Input}
+              name={'password'}
+              placeholder="비밀번호"
+              type="password"
+            />
+            <button className={styles.BlackButton}>다음</button>
+          </form>
+        </div>
+      </div>
+    </Modal>
+  );
 }
 
 export default LoginModal;

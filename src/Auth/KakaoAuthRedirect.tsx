@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {BeatLoader} from "react-spinners";
 import axios from "axios";
 import {useNetworkContext} from "./AuthContext";
@@ -35,6 +36,7 @@ function KakaoAuthRedirect() {
             <BeatLoader loading={true}></BeatLoader>
         </div>
     );
+
 }
 
 export default KakaoAuthRedirect;

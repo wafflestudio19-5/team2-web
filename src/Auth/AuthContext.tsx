@@ -1,3 +1,4 @@
+
 import {useContext, createContext, useState, Dispatch} from "react";
 import React from "react"
 const networkContext = createContext({
@@ -12,13 +13,11 @@ export const NetworkContextProvider = ({ children } : {children: React.ReactNode
             value={{
                 token,
                 setToken,
-                /*kakaoApproveCode,
-                setKakaoApproveCode*/
-            }}
-        >
-            {children}
-        </networkContext.Provider>
-    );
+      }}
+    >
+      {children}
+    </networkContext.Provider>
+  );
 };
 
 export const useNetworkContext = () => useContext(networkContext);
