@@ -40,6 +40,7 @@ function LoginModal(props: props) {
             })
             .catch((error)=>{
                 console.log(error.message);
+                console.log(localStorage);
             })
     }
     return (
