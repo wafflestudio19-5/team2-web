@@ -67,7 +67,10 @@ const TweetModal = ({
             <div className={styles.BorderWrapper}/>
             <div className={styles.ModalContentRightFooter}>
               <div className={styles.ModalContentButtonWrapper}>
-                <div className={styles.IconWrapper}><Picture className={styles.Icon}/></div>
+                <input style={{display:"none"}} name="file" id="file" type="file"/>
+                <div onClick={()=>{
+                  //useRef코드
+                }} className={styles.IconWrapper}><Picture className={styles.Icon}/></div>
                 <div className={styles.IconWrapper}><GIF className={styles.Icon}/></div>
                 <div className={styles.IconWrapper}><Chart className={styles.Icon}/></div>
                 <div className={styles.IconWrapper}><Icon className={styles.Icon}/></div>

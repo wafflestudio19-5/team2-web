@@ -16,7 +16,7 @@ import useEffect from 'react';
 import KakaoAuthRedirect from './Auth/KakaoAuthRedirect';
 
 function App() {
-  const networkContext = useNetworkContext();
+
 
 
     const networkContext = useNetworkContext();
@@ -30,13 +30,10 @@ function App() {
         axios.defaults.headers.common["Authorization"] = "Bearer " + networkContext.token;
     }
 
-    if (networkContext === null || networkContext.token === "undefined" ||
-      networkContext.token === undefined) {
-
 
   if (
-    /*networkContext.token === "undefined" ||
-      networkContext.token === undefined*/ 0
+    networkContext.token === "undefined" ||
+      networkContext.token === undefined
   ) {
     //로그인 안 된 경우
     return (
