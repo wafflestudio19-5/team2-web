@@ -41,7 +41,7 @@ function UserProfile(props: any) {
           </div>
         </div>
       </header>
-      <body className={styles.UserProfileBody}>
+      <div className={styles.UserProfileBody}>
         <div />
         <div>
           <div>
@@ -56,7 +56,7 @@ function UserProfile(props: any) {
             <p>($id.following.count)following ($id.follower.count)follower</p>
           </div>
         </div>
-      </body>
+      </div>
       <button onClick={(switchToTweets)}>to Tweets</button>
       <button onClick={switchToTweetsAndReplies}>
         switchToTweetsAndReplies

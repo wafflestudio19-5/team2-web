@@ -2,31 +2,28 @@
   height: 695px;
   width: 14%;
   position: fixed;
+  display: flex;
+  justify-self: flex-end;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.NavigatorBlock {
   display: block;
 }
 
+
 .NavigatorWrapper {
   padding: 15px 5px;
+  width: 100%;
   display: flex;
   &:hover {
     cursor: pointer;
+    .NavigatorButton{
+      cursor: pointer;
+      background-color: #e9e9ea;
+    }
   }
-}
-
-.NavigatorButton {
-  border-radius: 30px;
-  padding: 10px 15px;
-  font-size: 20px;
-  display: inline-flex;
-  justify-content: space-evenly;
-  &:hover {
-    cursor: pointer;
-    background-color: #e9e9ea;
-  }
-}
-
-.Navigator {
-  margin-right: 10px;
 }
 
 .NavigatorHeader {
@@ -38,16 +35,204 @@
   }
 }
 
-.TweetButton {
+.NavigatorButton {
   border-radius: 30px;
+  padding: 5px 0px;
+  font-size: 20px;
+  display: inline-flex;
+}
+
+.NavigatorImg {
+  margin-right: 10px;
+  padding: 2px 4px;
+}
+
+.NavigatorText {
+  margin-right: 10px;
+  padding: 2px 10px;
+}
+
+
+.TweetButton {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
   border: 0;
-  padding: 18px 41%;
+  margin-left: 5px;
+  margin-top: 40px;
   background-color: #1d9bf0;
   color: #ffff;
   font-size: 16px;
-  margin-top: 40px;
   &:hover {
     cursor: pointer;
     background-color: #1a8cd8;
+  }
+}
+.TweetButtonSmall {
+  margin-right: 10px;
+  padding: 2px 4px;
+  opacity: 0;
+}
+
+.ProfileBlock {
+  border-radius: 60px;
+  bottom: 10px;
+  width: 14%;
+  position: fixed;
+  display: flex;
+  &:hover {
+    cursor: pointer;
+    background-color: #e9e9ea;
+  }
+}
+
+.ProfileWrapper {
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px 10px;
+  width: 100%;
+  position: relative;
+}
+
+.ProfileImgWrapper {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  border-radius: 60px;
+  border: 1px black solid;
+}
+
+.ProfileTextWrapper {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.ProfileImg {
+  margin-right: 10px;
+  padding: 2px 4px;
+  position: relative;
+}
+
+.ProfileText {
+  margin-right: 10px;
+  position: relative;
+  padding: 2px 10px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .LeftBlock {
+    height: 695px;
+    width: 150px;
+    align-items: center;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+  }
+  
+  .NavigatorBlock {
+    display: block;
+  }
+  
+  .NavigatorHeader {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-flex;
+    justify-content: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+  .NavigatorWrapper {
+    padding: 15px 20px;
+    width: 100%;
+    display: flex;
+    &:hover {
+      cursor: pointer;
+      .NavigatorButton{
+        cursor: pointer;
+        background-color: #e9e9ea;
+      }
+    }
+  }
+  
+  
+  .NavigatorButton {
+    border-radius: 30px;
+    padding: 5px 0px;
+    font-size: 20px;
+    display: inline-flex;
+  }
+  
+  .NavigatorImg {
+    margin-right: 10px;
+    padding: 2px 4px;
+  }
+  
+  .NavigatorText {
+    display: none;
+  }
+  
+  
+  .TweetButton {
+    display: none;
+  }
+  
+  .TweetButtonSmall {
+    margin: 40px 21px;
+    opacity: 1;
+  }
+
+  .ProfileBlock {
+    border-radius: 60px;
+    bottom: 10px;
+    position: fixed;
+    display: flex;
+    width: auto;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+      background-color: #e9e9ea;
+    }
+  }
+  
+  .ProfileWrapper {
+    display: flex;
+    padding: 5px 10px;
+  }
+  
+  .ProfileImgWrapper {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 100%;
+    border: 1px black solid;
+  }
+  
+  .ProfileTextWrapper {
+    display: none;
+  }
+  
+  .ProfileImg {
+    margin-right: 10px;
+    padding: 2px 4px;
+  }
+  
+  .ProfileText {
+    display: none;
+  }
+
+  .ProfileImgMore{
+    display: none;
   }
 }
