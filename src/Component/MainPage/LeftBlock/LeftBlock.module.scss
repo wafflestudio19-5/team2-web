@@ -2,57 +2,39 @@
   height: 695px;
   width: 14%;
   position: fixed;
+  display: block;
 }
 
-.Home {
+.NavigatorWrapper {
+  padding: 15px 5px;
+  display: flex;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.NavigatorButton {
+  border-radius: 30px;
+  padding: 10px 15px;
   font-size: 20px;
-  margin-top: 20px;
-  margin-left: 10%;
-  width: 60%;
-  border-radius: 20px;
-  padding: 10px 20px;
+  display: inline-flex;
+  justify-content: space-evenly;
   &:hover {
     cursor: pointer;
     background-color: #e9e9ea;
   }
 }
 
-.Explore {
-  font-size: 20px;
-  margin-top: 20px;
-  margin-left: 10%;
-  width: 60%;
-  border-radius: 20px;
-  padding: 10px 20px;
-  &:hover {
-    cursor: pointer;
-    background-color: #e9e9ea;
-  }
+.Navigator {
+  margin-right: 10px;
 }
 
-.Notifications {
-  font-size: 20px;
+.NavigatorHeader {
   margin-top: 20px;
-  margin-left: 10%;
-  width: 60%;
-  border-radius: 20px;
-  padding: 10px 20px;
+  margin-left: 20px;
+  display: inline-flex;
   &:hover {
     cursor: pointer;
-    background-color: #e9e9ea;
-  }
-}
-
-.Profile {
-  font-size: 20px;
-  margin-top: 20px;
-  margin-left: 10%;
-  width: 60%;
-  border-radius: 20px;
-  padding: 10px 20px;
-  &:hover {
-    cursor: pointer;
-    background-color: #e9e9ea;
   }
 }
 

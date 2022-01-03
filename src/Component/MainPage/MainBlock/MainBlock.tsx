@@ -14,10 +14,10 @@ function MainBlock() {
           <Route path="/home" element={<HomePage/>}  />
            {/*<Route path="/notifications" component={NotificationsPage} exact />*/}
           <Route path="/:id" element={<ProfilePage/>} />
-            <Route
+            {/*<Route
                 path="/*"
                 element={<Navigate to="/home" />}
-            />
+            />*/}
         </Routes>
 
       <RightBlock />

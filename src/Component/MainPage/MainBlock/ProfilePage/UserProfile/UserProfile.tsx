@@ -1,4 +1,5 @@
 import React, { MouseEventHandler, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
 
@@ -22,6 +23,8 @@ function UserProfile(props: any) {
   const switchToLikes = () => {
     props.setIsChosen('Likes');
   };
+
+  const navigate=useNavigate();
 
   return (
     <>
@@ -54,7 +57,7 @@ function UserProfile(props: any) {
           </div>
         </div>
       </body>
-      <button onClick={switchToTweets}>to Tweets</button>
+      <button onClick={(switchToTweets)}>to Tweets</button>
       <button onClick={switchToTweetsAndReplies}>
         switchToTweetsAndReplies
       </button>
