@@ -23,34 +23,13 @@ function ProfilePage(): any {
       </Routes>
     </div>
   );
+  if (null) {
+    //사용자 아이디 없을 시
+    return null;
+    //<ErrorPage/>
+    /*에러페이지 리턴*/
+  }
 
 }
 
 export default ProfilePage;
-
-/*
-{isChosen == "Tweets" ? <Tweets /> : (
-                    isChosen == "TweetsAndReplies" ? <TweetsAndReplies /> : (
-                        isChosen == "Media" ? <Media /> : (
-                            <Likes />
-                        )))
-                }
-
-*/
-
-/*
-return (
-            <div className={styles.ProfilePage}>
-                <UserProfile/>
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/:id/Tweets" element={<ProfilePage />} />
-                        <Route path="/:id/TweetsAndReplies" element={<TweetsAndReplies />} />
-                        <Route path="/:id/Media" element={<Media />} />
-                        <Route path="/:id/Likes" element={<Likes />} />
-                    </Routes>
-                </BrowserRouter>
-            </div>
-
-        )
-*/
