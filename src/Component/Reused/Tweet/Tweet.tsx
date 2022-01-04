@@ -65,6 +65,7 @@ const Tweet = (
           {item.images.map(imgUrl => {
             return (
               <img
+                key={item.images.indexOf(imgUrl)}
                 className={styles.mainImg}
                 src={imgUrl}
                 alt="개시글 이미지 입니다."
