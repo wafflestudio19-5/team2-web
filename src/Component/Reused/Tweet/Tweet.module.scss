@@ -44,6 +44,7 @@
 
   list-style-type: none;
 
+  border-bottom: 1px solid rgb(226, 226, 226);
   &:hover {
     background-color: #b1b1b12c;
   }
@@ -154,17 +155,19 @@
 }
 
 .mainText {
+  width: calc(100% - 10px);
   font-size: 15px;
   color: #000000;
 }
 
 .mainImg {
-  width: calc(100% - 5px);
+  max-width: calc(100% - 10px);
+  width: auto;
   height: auto;
 
   margin-top: 5px;
 
-  border: 1px solid #b8bab7;
+  border: 1px solid rgb(226, 226, 226);
   border-radius: 10px;
 }
 

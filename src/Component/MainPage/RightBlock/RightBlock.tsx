@@ -1,6 +1,6 @@
 import styles from './RightBlock.module.scss';
-import Magnifier from '../../../../Images/magnifier.svg';
-import Setting from '../../../../Images/setting.svg';
+import Magnifier from '../../../Images/magnifier.svg';
+import Setting from '../../../Images/setting.svg';
 import Trend from './Trend';
 import Follow from './Follow';
 

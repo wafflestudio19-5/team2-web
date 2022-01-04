@@ -1,5 +1,5 @@
 import styles from './Trend.module.scss';
-import more from '../../../../Images/more.svg';
+import more from '../../../Images/more.svg';
 
 function Trend(props: { text: string }) {
   return (
