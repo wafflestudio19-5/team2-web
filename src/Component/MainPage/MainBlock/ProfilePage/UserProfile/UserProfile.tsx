@@ -1,9 +1,16 @@
 import React, { MouseEventHandler, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
+import arrow_left from '../../../../../Images/arrow-left.svg';
+import calendar from '../../../../../Images/calendar.svg';
 
-function UserProfile(props: any) {
+function UserProfile(props: {isChosen : string
+  setIsChosen: (value: string) => void }) {
+
+  const navigate = useNavigate();
+  const params = useParams();
+
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] =
     useState<boolean>(false);
 
@@ -12,19 +19,22 @@ function UserProfile(props: any) {
   };
 
   const switchToTweets = () => {
-    props.setIsChosen('Tweets');
+    props.setIsChosen('tweets');
+    navigate('/user4');
   };
   const switchToTweetsAndReplies = () => {
-    props.setIsChosen('TweetsAndReplies');
+    props.setIsChosen('tweetsandreplies');
+    navigate('/user4/with_replies');
   };
   const switchToMedia = () => {
-    props.setIsChosen('Media');
+    props.setIsChosen('media');
+    navigate('/user4/media');
   };
   const switchToLikes = () => {
-    props.setIsChosen('Likes');
+    props.setIsChosen('likes');
+    navigate('/user4/likes');
   };
 
-  const navigate=useNavigate();
 
   return (
     <>
@@ -33,7 +43,14 @@ function UserProfile(props: any) {
         setIsOpen={setIsEditProfileModalOpen}
       />
       <header className={styles.UserProfileHeader}>
-        <button className={styles.UserProfileHeaderButton}>back</button>
+        <img
+          className={styles.UserProfileHeaderButton}
+          src={arrow_left}
+          width={25}
+          height={25}
+          alt='back'
+          onClick={() => { navigate(-1) }}
+        />
         <div>
           <div className={styles.UserProfileHeaderName}>id.name</div>
           <div className={styles.UserProfileHeaderTweetsCount}>
@@ -42,27 +59,97 @@ function UserProfile(props: any) {
         </div>
       </header>
       <div className={styles.UserProfileBody}>
-        <div />
-        <div>
-          <div>
-            <img /> {/*profile img*/}
-            <button onClick={handleEditProfileClick}>Edit profile</button>
+        <img
+          className={styles.UserProfileBackground}
+          src={arrow_left} alt='background'
+        />
+        <div className={styles.UserProfileBox}>
+          <div className={styles.UserProfileBanner}>
+            <img
+              className={styles.UserProfileImg}
+              src={arrow_left}
+              alt='profileImg'
+              width={140}
+              height={140}
+            /> {/*profile img*/}
+            <button
+              className={styles.UserProfileEditButton}
+              onClick={handleEditProfileClick}>
+              Edit profile
+            </button>
           </div>
-          <div>
-            <p>id.name</p>
-            <p>@id</p>
-            <p>text</p>
-            <p>join date</p>
-            <p>($id.following.count)following ($id.follower.count)follower</p>
+          <div className={styles.UserProfileInfoBox}>
+            <div style={{
+              fontSize: '20px',
+              fontWeight: 'bolder'
+            }}
+            >이재민/학생/컴퓨터공학부</div>
+            <div style={{
+              color: '#62717d'
+            }}
+            >@{params.id}</div>
+            <div style={{
+              marginTop: '20px',
+            }}>text</div>
+            <div style={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'space-around',
+              marginTop: '10px'
+            }}>
+              <img src={calendar} alt={calendar} width={20} height={20} />
+              <div style={{
+                marginLeft: '5px'
+              }}>join date</div>
+            </div>
+            <div style={{
+              marginTop: '10px'
+            }}>($id.following.count)following ($id.follower.count)follower</div>
           </div>
         </div>
       </div>
-      <button onClick={(switchToTweets)}>to Tweets</button>
-      <button onClick={switchToTweetsAndReplies}>
-        switchToTweetsAndReplies
-      </button>
-      <button onClick={switchToMedia}>switchToMedia</button>
-      <button onClick={switchToLikes}>switchToLikes</button>
+      <div className={styles.UserProfileRouterButtonWrapper}>
+        {props.isChosen==='tweets' ?
+        <button 
+        className={styles.UserProfileRouterButtonClicked}
+        onClick={(switchToTweets)}>
+        Tweets
+        </button>
+        :
+        <button 
+          className={styles.UserProfileRouterButtonUnclicked}
+          onClick={(switchToTweets)}>
+        Tweets
+        </button>}
+        {props.isChosen==='tweetsandreplies' ?
+        <button
+        className={styles.UserProfileRouterButtonClicked}
+        onClick={switchToTweetsAndReplies}>
+          Tweets & Replies
+        </button>
+        :
+        <button
+        className={styles.UserProfileRouterButtonUnclicked}
+        onClick={switchToTweetsAndReplies}>
+          Tweets & Replies
+        </button>}
+        {props.isChosen==='media' ?
+        <button 
+          className={styles.UserProfileRouterButtonClicked}
+        onClick={switchToMedia}>Media</button>
+        :
+        <button 
+          className={styles.UserProfileRouterButtonUnclicked}
+        onClick={switchToMedia}>Media</button>}
+        {props.isChosen==='likes' ?
+        <button 
+          className={styles.UserProfileRouterButtonClicked}
+          onClick={switchToLikes}>Likes</button>
+        :
+        <button 
+          className={styles.UserProfileRouterButtonUnclicked}
+          onClick={switchToLikes}>Likes</button>}
+      </div>
     </>
   );
 }

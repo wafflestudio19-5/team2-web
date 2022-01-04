@@ -166,13 +166,13 @@
   .LeftBlock {
     height: 695px;
     width: 150px;
-    align-items: center;
-    position: absolute;
+    position: fixed;
     display: flex;
+    justify-self: flex-end;
     flex-direction: column;
     z-index: 1;
   }
-  
+
   .NavigatorBlock {
     display: block;
   }
