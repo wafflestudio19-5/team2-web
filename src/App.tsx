@@ -17,8 +17,6 @@ import KakaoAuthRedirect from './Auth/KakaoAuthRedirect';
 
 function App() {
 
-
-
     const networkContext = useNetworkContext();
 
     
