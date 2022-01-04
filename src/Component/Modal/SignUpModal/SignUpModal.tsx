@@ -9,6 +9,8 @@ import React, {MouseEventHandler, useState} from "react";
 import axios, {AxiosResponse} from "axios";
 import {useNetworkContext} from "../../../Auth/AuthContext";
 import {useNavigate} from "react-router-dom";
+import {useUserContext} from "../../../UserContext";
+import {toast} from "react-toastify";
 
 
 interface props {
@@ -34,7 +36,7 @@ function SignUpModal(props: props) {
         bio: "null",
     })
 
-
+    const userContext = useUserContext();
     const Navigate = useNavigate();
     const networkContext = useNetworkContext();
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,11 +52,11 @@ function SignUpModal(props: props) {
                 localStorage.setItem("JWT", response.data.token);
                 networkContext.setToken(response.data.token);
                 props.setSignUpIsOpen(false);
+                userContext.setNowUserID(response.data.user_id)
                 Navigate('/' + response.data.user_id);
-                //id 받아오는 api가 필요할 듯.
             })
             .catch((error) => {
-                console.log(error.message);
+                toast.error("올바른 입력정보가 아닙니다.")
             })
     }
     return (

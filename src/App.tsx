@@ -41,10 +41,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route
+            {/*<Route
               path={'/oauth/callback/kakao'}
               element={<KakaoAuthRedirect />}
-            />
+            />*/}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>

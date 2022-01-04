@@ -6,7 +6,7 @@ import {useNetworkContext} from "./AuthContext";
 import {useNavigate} from "react-router-dom";
 
 const instance = axios.create({
-    baseURL: 'https://clonetwitter.shop'
+    baseURL: 'http://clonetwitter.shop'
 });
 
 function KakaoAuthRedirect() {

@@ -9,7 +9,8 @@ import {KAKAO_AUTH_URL} from "../../../Auth/KakaoAuth";
 import axios, {AxiosResponse} from "axios";
 import {useNetworkContext} from "../../../Auth/AuthContext";
 import {Navigate, useNavigate} from "react-router-dom";
-
+import {useUserContext} from "../../../UserContext";
+import {toast} from "react-toastify";
 
 interface props {
   isOpen: boolean;
@@ -18,10 +19,11 @@ interface props {
 
 function LoginModal(props: props) {
 
+    const userContext = useUserContext();
     const navigate = useNavigate();
     const networkContext = useNetworkContext();
     const [authData, setAuthData] = useState({
-        user_id: '', // id 또는 이메일 또는 전화번호
+        user_id: '',
         password: ''
     })
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -36,11 +38,12 @@ function LoginModal(props: props) {
                 localStorage.setItem("JWT", response.data.token);
                 networkContext.setToken(response.data.token);
                 props.setLoginIsOpen(false);
+                userContext.setNowUserID(response.data.user_id)
                 navigate("/"+response.data.user_id);
             })
             .catch((error)=>{
-                console.log(error.message);
-                console.log(localStorage);
+                toast.error(error.response.data.user_id[0])
+                toast.error(error.response.data.password[0])
             })
     }
     return (

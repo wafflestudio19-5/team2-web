@@ -11,7 +11,8 @@ import {ReactComponent as GPS} from "../../../Images/GPS.svg"
 import {ReactComponent as Comment} from "../../../Images/comment.svg"
 
 
-import React from "react";
+import React, {ChangeEventHandler, useRef, useState} from "react";
+import axios from "axios";
 
 interface TweetModalProps {
   isTweetModalOpen: boolean;
@@ -23,6 +24,21 @@ const TweetModal = ({
   setIsTweetModalOpen,
   //profileImg,
 }: TweetModalProps) => {
+  const [files,setFiles] = useState<FileList | null>();
+  const [content, setContent] = useState<string>('');
+  const fileChangedHandler = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    const file = e.target.files;
+    setFiles(file);
+  }
+  const contentChangedHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setContent(e.target.value)
+  }
+  const onClick = () => {
+    axios.post('/tweet/', {
+      "content": content,
+      "media": files
+    }).then()
+  }
   return (
     <Modal isOpen={isTweetModalOpen} style={{
       overlay: {
@@ -62,22 +78,22 @@ const TweetModal = ({
           </div>
           <div className={styles.ModalContentRight}>
             <div className={styles.ModalContentInputWrapper}>
-              <textarea className={styles.ModalContentInput} placeholder="What's happening?"/>
+              <textarea onChange={e=>{contentChangedHandler(e)}} className={styles.ModalContentInput} placeholder="What's happening?"></textarea>
             </div>
             <div className={styles.BorderWrapper}/>
             <div className={styles.ModalContentRightFooter}>
               <div className={styles.ModalContentButtonWrapper}>
-                <input style={{display:"none"}} name="file" id="file" type="file"/>
-                <div onClick={()=>{
-                  //useRef코드
-                }} className={styles.IconWrapper}><Picture className={styles.Icon}/></div>
+                <input onChange={event => {
+                  fileChangedHandler(event)
+                }} name="file" id="file" type="file"/>
+                <div className={styles.IconWrapper}><Picture className={styles.Icon}/></div>
                 <div className={styles.IconWrapper}><GIF className={styles.Icon}/></div>
                 <div className={styles.IconWrapper}><Chart className={styles.Icon}/></div>
                 <div className={styles.IconWrapper}><Icon className={styles.Icon}/></div>
                 <div className={styles.IconWrapper}><Schedule className={styles.Icon}/></div>
               </div>
               <div className={styles.TweetButtonWrapper}>
-                <button className={styles.Button}>Tweet</button>
+                <button onClick={onClick} className={styles.Button}>Tweet</button>
               </div>
             </div>
           </div>
