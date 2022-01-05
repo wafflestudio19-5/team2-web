@@ -3,61 +3,164 @@ import React, { useState } from 'react';
 import TweetModal from '../../Modal/TweetModal/TweetModal';
 import setting from '../../../Images/setting.svg';
 import profile_unclicked from '../../../Images/profile_unclicked.svg';
+import profile_clicked from '../../../Images/profile_clicked.svg';
 import notification_unclicked from '../../../Images/notification_unclicked.svg';
+import notification_clicked from '../../../Images/notification_clicked.svg';
 import home_unclicked from '../../../Images/home_unclicked.svg';
+import home_clicked from '../../../Images/home_clicked.svg';
 import explore_unclicked from '../../../Images/explore_unclicked.svg';
+import explore_clicked from '../../../Images/explore_clicked.svg';
 import logo_blue from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg';
+import more from '../../../Images/more.svg';
+import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg'
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+
 
 
 function LeftBlock() {
+
+  const navigate = useNavigate();
+
   const [isTweetModalOpen, setIsTweetModalOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const [whichNavigatorClicked, setWhichNavigatorClicked] = useState('home');
 
   const handleTweetClick = () => {
     setIsTweetModalOpen(!isTweetModalOpen);
   };
 
+  const logoutModalToggle = () => {
+    if (isLogoutModalOpen) {
+      setIsLogoutModalOpen(false);
+    }
+    else {
+      setIsLogoutModalOpen(true);
+    }
+  }
+
+  const logOut = () => {
+    localStorage.removeItem("JWT");
+    console.log("logout");
+    window.location.replace("/");
+    setIsLogoutModalOpen(false);
+  };
+
+  const HomeClicked = () => {
+    navigate('/home');
+    setWhichNavigatorClicked('home');
+  }
+
+  const ExploreClicked = () => {
+    navigate('/explore');
+    setWhichNavigatorClicked('explore');
+  }
+
+  const NotificationsClicked = () => {
+    navigate('/notifications');
+    setWhichNavigatorClicked('notifications');
+  }
+
+  const ProfileClicked = () => {
+    navigate('/user4');
+    setWhichNavigatorClicked('profile');
+  }
+
+  const SettingClicked = () => {
+    navigate('/setting');
+    setWhichNavigatorClicked('setting');
+  }
+
+
   return (
     <div className={styles.LeftBlock}>
-      <header className={styles.NavigatorHeader}>
-          <img className={styles.Navigator} src={logo_blue} width={30} height={30} alt="No img" />
-      </header>
-      <div className={styles.NavigatorWrapper}>
-        <span className={styles.NavigatorButton}>
-          <img className={styles.Navigator} src={home_unclicked} width={30} height={30} alt="No img" />
-          <text className={styles.Navigator} >Home</text>
-        </span>
+      <div className={styles.NavigatorBlock}>
+        <header className={styles.NavigatorHeader}>
+          <img className={styles.NavigatorHeaderImg} src={logo_blue} width={30} height={30} alt="No img" onClick={() => navigate("/home")} />
+        </header>
+        <div className={styles.NavigatorWrapper} onClick={HomeClicked}>
+          {whichNavigatorClicked == 'home' ?
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={home_clicked} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorTextBolder} >Home</div>
+            </span>
+            :
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={home_unclicked} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorText} >Home</div>
+            </span>}
+        </div>
+        <div className={styles.NavigatorWrapper} onClick={ExploreClicked}>
+          {whichNavigatorClicked == 'explore' ?
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={explore_clicked} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorTextBolder} >Explore</div>
+            </span>
+            :
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={explore_unclicked} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorText} >Explore</div>
+            </span>}
+        </div>
+        <div className={styles.NavigatorWrapper} onClick={NotificationsClicked}>
+
+          {whichNavigatorClicked == 'notifications' ?
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={notification_clicked} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorTextBolder} >Notifications</div>
+            </span>
+            :
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={notification_unclicked} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorText} >Notifications</div>
+            </span>}
+        </div>
+        <div className={styles.NavigatorWrapper} onClick={ProfileClicked}>
+
+          {whichNavigatorClicked == 'profile' ?
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={profile_clicked} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorTextBolder}>Profile</div>
+            </span>
+            :
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={profile_unclicked} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorText}>Profile</div>
+            </span>}
+        </div>
+        <div className={styles.NavigatorWrapper} onClick={SettingClicked}>
+          <span className={styles.NavigatorButton}>
+            <img className={styles.NavigatorImg} src={setting} width={30} height={30} alt="No img" />
+            <div className={styles.NavigatorText}>Setting</div>
+          </span>
+        </div>
+        <button className={styles.TweetButton} onClick={handleTweetClick}>
+          Tweet
+        </button>
+        <img className={styles.TweetButtonSmall} src={tweetButtonSmall} width={30} height={30} alt="No img" onClick={handleTweetClick} />
+        <TweetModal
+          isTweetModalOpen={isTweetModalOpen}
+          setIsTweetModalOpen={setIsTweetModalOpen}
+        />
       </div>
-      <div className={styles.NavigatorWrapper}>
-        <span className={styles.NavigatorButton}>
-          <img className={styles.Navigator} src={explore_unclicked} width={30} height={30} alt="No img" />
-          <text className={styles.Navigator} >Explore</text>
-        </span>
-      </div>
-      <div className={styles.NavigatorWrapper}>
-        <span className={styles.NavigatorButton}>
-          <img className={styles.Navigator} src={notification_unclicked} width={30} height={30} alt="No img" />
-          <text className={styles.Navigator} >Notifications</text>
-        </span>
-      </div>
-      <div className={styles.NavigatorWrapper}>
-        <span className={styles.NavigatorButton}>
-          <img className={styles.Navigator} src={profile_unclicked} width={30} height={30} alt="No img" />
-          <text className={styles.Navigator}>Profile</text>
-        </span>
-      </div>
-      <div className={styles.NavigatorWrapper}>
-        <span className={styles.NavigatorButton}>
-          <img className={styles.Navigator} src={setting} width={30} height={30} alt="No img" />
-          <text className={styles.Navigator} >Setting</text>
-        </span>
-      </div>
-      <button className={styles.TweetButton} onClick={handleTweetClick}>
-        Tweet
+      {isLogoutModalOpen ?
+        <div className={styles.LogoutModal} onClick={logOut}>
+          Logout @id
+        </div>
+        :
+        null
+      }
+      <button className={styles.ProfileBlock} onClick={logoutModalToggle}>
+        <div className={styles.ProfileWrapper}>
+          <div className={styles.ProfileImgWrapper}>
+            <img className={styles.ProfileImg} src={setting} width={30} height={30} alt="profile img" />
+          </div>
+          <div className={styles.ProfileTextWrapper}>
+            <div className={styles.ProfileText}>id.name</div>
+            <div className={styles.ProfileText}>@id</div>
+          </div>
+          <img className={styles.ProfileImgMore} src={more} alt="no img" />
+        </div>
       </button>
-      <TweetModal
-        isTweetModalOpen={isTweetModalOpen}
-        setIsTweetModalOpen={setIsTweetModalOpen}
-      />
     </div>
   );
 }
