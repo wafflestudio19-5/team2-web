@@ -13,6 +13,7 @@ import {ReactComponent as Comment} from "../../../Images/comment.svg"
 
 import React, {ChangeEventHandler, useRef, useState} from "react";
 import axios from "axios";
+import {toast} from "react-toastify";
 
 interface TweetModalProps {
   isTweetModalOpen: boolean;
@@ -37,7 +38,13 @@ const TweetModal = ({
     axios.post('/tweet/', {
       "content": content,
       "media": files
-    }).then()
+    })
+        .then(()=>{
+          setIsTweetModalOpen(false)
+        })
+        .catch(()=>{
+          toast.error("트윗 올리기에 실패했습니다.")
+        })
   }
   return (
     <Modal isOpen={isTweetModalOpen} style={{
