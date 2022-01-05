@@ -6,6 +6,7 @@ import { Route, BrowserRouter, Navigate, Routes } from 'react-router-dom';
 import Tweet from '../../Reused/Tweet/Tweet';
 import HomePage from "./HomePage/HomePage";
 function MainBlock() {
+
   return (
     <div className={styles.MainBlock}>
       {/*<ProfilePage />*/}
