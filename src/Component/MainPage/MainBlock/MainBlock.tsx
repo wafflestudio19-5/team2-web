@@ -21,7 +21,6 @@ function MainBlock({ loadNext }: Props) {
                 element={<Navigate to="/home" />}
             />*/}
       </Routes>
-      <RightBlock />
     </div>
   );
 }

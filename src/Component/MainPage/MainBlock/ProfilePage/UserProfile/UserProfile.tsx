@@ -1,5 +1,5 @@
-import React, { MouseEventHandler, useState } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
 import arrow_left from '../../../../../Images/arrow-left.svg';
