@@ -37,7 +37,7 @@ function UserProfile(props: {
   };
 
   return (
-    <>
+    <div className={styles.userProfileWrapper}>
       <EditProfileModal
         isOpen={isEditProfileModalOpen}
         setIsOpen={setIsEditProfileModalOpen}
@@ -195,7 +195,7 @@ function UserProfile(props: {
           </button>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

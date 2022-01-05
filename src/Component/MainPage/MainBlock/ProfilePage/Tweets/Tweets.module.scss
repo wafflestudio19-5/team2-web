@@ -1,7 +1,18 @@
-.tweetsItems {
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: left;
+  align-items: center;
+
   list-style-type: none;
-  padding-left: 0px;
   width: 100%;
-  border-top: 1px solid rgb(226, 226, 226);
-  border-bottom: 1px solid rgb(226, 226, 226);
+  height: auto;
+  min-height: calc(100% - 502px);
+
+  padding: 0px;
+  margin: 0px;
+
+  border-left: 1px solid rgb(226, 226, 226);
+  border-right: 1px solid rgb(226, 226, 226);
 }
