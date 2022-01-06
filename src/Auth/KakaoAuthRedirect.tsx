@@ -4,6 +4,7 @@ import {BeatLoader} from "react-spinners";
 import axios from "axios";
 import {useNetworkContext} from "./AuthContext";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 
 
@@ -13,8 +14,15 @@ function KakaoAuthRedirect() {
     const code = new URL(window.location.href).searchParams.get("code");
     const user_id = new URL(window.location.href).searchParams.get("user_id");
     React.useEffect(()=>{
-                networkContext.setToken(code ? code : '');
-                Navigate('/' + user_id);
+        if(code === "null") {
+            toast.error("로그인에 실패하였습니다")
+            Navigate('/')
+        }
+        else {
+            networkContext.setToken(code ? code : '');
+            Navigate('/' + user_id);
+        }
+
     }, [])
     return (
         <div style={{position: 'absolute',
