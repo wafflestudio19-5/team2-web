@@ -17,6 +17,7 @@ const dummyData = [
     commentNumber: '100',
     retweetNumber: '2.5k',
     likeNumber: '4.5k',
+    key: '1',
   },
   {
     name: '징버거',
@@ -31,6 +32,7 @@ const dummyData = [
     commentNumber: '1.8k',
     retweetNumber: '7.5k',
     likeNumber: '45.6k',
+    key: '2',
   },
   {
     name: '이재민',
@@ -42,43 +44,36 @@ const dummyData = [
     commentNumber: '1',
     retweetNumber: '0',
     likeNumber: '4',
+    key: '3',
   },
 ];
 
-export interface Props {
-  tweetsType: {
-    name: string;
-    id: string;
-    time: string;
-    profileImg: string;
-    text: string;
-    images: string[];
-    commentNumber: string;
-    retweetNumber: string;
-    likeNumber: string;
-  }[];
-  tweetType: {
-    name: string;
-    id: string;
-    time: string;
-    profileImg: string;
-    text: string;
-    images: string[];
-    commentNumber: string;
-    retweetNumber: string;
-    likeNumber: string;
-  };
+interface Data {
+  name: string;
+  id: string;
+  time: string;
+  profileImg: string;
+  text: string;
+  images: string[];
+  commentNumber: string;
+  retweetNumber: string;
+  likeNumber: string;
+  key: string;
 }
 
-function Tweets() {
-  const [tweetList, setTweetList] = useState<Props['tweetsType']>(dummyData);
+interface Props {
+  loadNext: boolean;
+}
+
+const Tweets = ({ loadNext }: Props) => {
+  const [tweetList, setTweetList] = useState<Data[]>(dummyData);
   return (
     <ul className={styles.tweetsItems}>
       {tweetList.map(item => (
-        <Tweet key={item.id} item={item} />
+        <Tweet key={item.key} item={item} />
       ))}
     </ul>
   );
-}
+};
 
 export default Tweets;

@@ -4,25 +4,24 @@ import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
 import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
-import { Props } from '../../MainPage/MainBlock/ProfilePage/Tweets/Tweets';
 import React from 'react';
 
-const Tweet = (
-  /*{
-    //   tweetType,
-    //   author,
-    //   retweetingUser,
-    //   replyTo,
-    //   content,
-    //   media,
-    //   createdAt,
-    //   replies,
-    //   retweets,
-    //   likes,
-    //   userlike,
-  },*/
-  { item }: { item: Props['tweetType'] },
-): JSX.Element => {
+interface Props {
+  item: {
+    name: string;
+    id: string;
+    time: string;
+    profileImg: string;
+    text: string;
+    images: string[];
+    commentNumber: string;
+    retweetNumber: string;
+    likeNumber: string;
+    key: string;
+  };
+}
+
+const Tweet = ({ item }: Props): JSX.Element => {
   const handleCommentCliecked = (e: React.MouseEvent<HTMLElement>): void => {
     console.log('Comment Clicked');
   };
@@ -65,6 +64,7 @@ const Tweet = (
           {item.images.map(imgUrl => {
             return (
               <img
+                key={Math.random()}
                 className={styles.mainImg}
                 src={imgUrl}
                 alt="개시글 이미지 입니다."

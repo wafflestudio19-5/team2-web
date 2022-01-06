@@ -3,9 +3,13 @@ import Magnifier from '../../../Images/magnifier.svg';
 import Setting from '../../../Images/setting.svg';
 import Trend from './Trend';
 import SideFollow from './SideFollow';
-import React, { useState } from 'react';
+import React, { RefObject, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+
+interface Props {
+  rightRef: RefObject<HTMLDivElement>;
+}
 
 interface recommendData {
   user_id: string;
@@ -13,7 +17,7 @@ interface recommendData {
   profile_img: string;
 }
 
-function RightBlock() {
+const RightBlock = ({ rightRef }: Props) => {
   const [recommendData, setRecommendData] = useState<recommendData[]>([
     { user_id: '', username: '', profile_img: '' },
     { user_id: '', username: '', profile_img: '' },
@@ -32,23 +36,25 @@ function RightBlock() {
 
   return (
     <div className={styles.RightBlock}>
-      <div className={styles.RightInside}>
-        <form className={styles.SearchLabel} action="">
-          <div className={styles.MagnifierWrapper}>
-            <img
-              className={styles.Magnifier}
-              src={Magnifier}
-              width={'20px'}
-              height={'20px'}
-              alt="no img"
+      <div className={styles.RightInside} ref={rightRef}>
+        <div className={styles.SearchWrapper}>
+          <form className={styles.SearchLabel} action="">
+            <div className={styles.MagnifierWrapper}>
+              <img
+                className={styles.Magnifier}
+                src={Magnifier}
+                width={'20px'}
+                height={'20px'}
+                alt="no img"
+              />
+            </div>
+            <input
+              className={styles.SearchInput}
+              placeholder="Search Twitter"
+              type="text"
             />
-          </div>
-          <input
-            className={styles.SearchInput}
-            placeholder="Search Twitter"
-            type="text"
-          />
-        </form>
+          </form>
+        </div>
         <div className={styles.TrendsWrapper}>
           <div className={styles.TrendsInside}>
             <div className={styles.TrendHeader}>
@@ -93,6 +99,6 @@ function RightBlock() {
       </div>
     </div>
   );
-}
+};
 
 export default RightBlock;

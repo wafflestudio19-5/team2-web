@@ -7,14 +7,18 @@ import ExplorePage from './ExplorePage/ExplorePage';
 import SettingPage from './SettingPage/SettingPage';
 import FollowPage from './FollowPage/FollowPage';
 
-function MainBlock() {
+interface Props {
+  loadNext: boolean;
+}
+
+const MainBlock = ({ loadNext }: Props) => {
   return (
     <div className={styles.MainBlock}>
       <Routes>
         <Route path="/home" element={<HomePage />} />
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
-        <Route path="/:id/*" element={<ProfilePage />} />
+        <Route path="/:id/*" element={<ProfilePage loadNext={loadNext} />} />
         <Route path="/:id/following" element={<FollowPage />} />
         <Route path="/:id/followers" element={<FollowPage />} />
         <Route path="/setting/" element={<SettingPage />} />
@@ -22,6 +26,6 @@ function MainBlock() {
       </Routes>
     </div>
   );
-}
+};
 
 export default MainBlock;
