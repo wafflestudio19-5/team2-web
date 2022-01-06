@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useState } from 'react';
+import React, { MouseEventHandler, useContext, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
@@ -9,7 +9,7 @@ import { useUserContext } from '../../../../../UserContext';
 function UserProfile(props: {isChosen : string
   setIsChosen: (value: string) => void }) {
 
-  const UserContext = useUserContext();
+  const userContext = useUserContext();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -26,19 +26,19 @@ function UserProfile(props: {isChosen : string
 
   const switchToTweets = () => {
     props.setIsChosen('tweets');
-    navigate(`/${UserContext.nowUserID}`);
+    navigate(`/${userContext.nowUserID}`);
   };
   const switchToTweetsAndReplies = () => {
     props.setIsChosen('tweetsandreplies');
-    navigate(`/${UserContext.nowUserID}/with_replies`);
+    navigate(`/${userContext.nowUserID}/with_replies`);
   };
   const switchToMedia = () => {
     props.setIsChosen('media');
-    navigate(`/${UserContext.nowUserID}/media`);
+    navigate(`/${userContext.nowUserID}/media`);
   };
   const switchToLikes = () => {
     props.setIsChosen('likes');
-    navigate(`/${UserContext.nowUserID}/likes`);
+    navigate(`/${userContext.nowUserID}/likes`);
   };
 
 
@@ -79,7 +79,7 @@ function UserProfile(props: {isChosen : string
               height={140}
             />
             
-              {params.id===UserContext.nowUserID ?
+              {params.id===localStorage.getItem("user_id") ?
                <button
                className={styles.UserProfileEditButton}
                onClick={handleEditProfileClick}>
@@ -119,7 +119,14 @@ function UserProfile(props: {isChosen : string
             </div>
             <div style={{
               marginTop: '10px'
-            }}>($id.following.count)following ($id.follower.count)follower</div>
+            }}>
+              <div onClick={()=>{navigate(`/${userContext.nowUserID}/following`)}}>
+                ($id.following.count)following
+              </div>
+              <div onClick={()=>{navigate(`/${userContext.nowUserID}/followers`)}}>
+                ($id.follower.count)follower
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -165,6 +172,7 @@ function UserProfile(props: {isChosen : string
           className={styles.UserProfileRouterButtonUnclicked}
           onClick={switchToLikes}>Likes</button>}
       </div>
+      
     </>
   );
 }

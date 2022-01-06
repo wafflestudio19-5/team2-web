@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import twitter from "../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg"
 import X from "../../../Images/X.svg"
 import KaKaoLogin from "../../../Images/kakao_login.png"
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {KAKAO_AUTH_URL} from "../../../Auth/KakaoAuth";
 import axios, {AxiosResponse} from "axios";
 import {useNetworkContext} from "../../../Auth/AuthContext";
@@ -33,13 +33,14 @@ function LoginModal(props: props) {
     }
     const onSubmit = () => {
         axios
-            .post<{success:boolean}>("/login/", {...authData})
+            .post<{success:boolean}>("/login/", {...authData}, {headers:{Authorization:''}})
             .then((response: any)=>{
                 localStorage.setItem("JWT", response.data.token);
                 networkContext.setToken(response.data.token);
                 props.setLoginIsOpen(false);
-                userContext.setNowUserID(response.data.user_id)
-                navigate("/"+response.data.user_id);
+                localStorage.setItem("user_id", response.data.user_id);
+                userContext.setNowUserID(response.data.user_id);
+                navigate("/");
             })
             .catch((error)=>{
                 toast.error("올바른 입력정보가 아닙니다.")

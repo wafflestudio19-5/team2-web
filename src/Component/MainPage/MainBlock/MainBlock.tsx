@@ -8,6 +8,7 @@ import HomePage from "./HomePage/HomePage";
 import NotificationsPage from "./NotificationsPage/NotificationsPage";
 import ExplorePage from "./ExplorePage/ExplorePage";
 import SettingPage from "./SettingPage/SettingPage";
+import FollowPage from './FollowPage/FollowPage';
 
 function MainBlock() {
 
@@ -17,7 +18,9 @@ function MainBlock() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
-        <Route path="/:id/*" element={<ProfilePage />} />
+        <Route path="/:id/*" element={<ProfilePage/>} />
+        <Route path="/:id/following" element={<FollowPage/>} />
+        <Route path="/:id/followers" element={<FollowPage/>} />
         <Route path="/setting/" element={<SettingPage />} />
         <Route
                 path="/*"

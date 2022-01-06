@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {BeatLoader} from "react-spinners";
 import axios from "axios";
 import {useNetworkContext} from "./AuthContext";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
+import { useUserContext } from '../UserContext';
 
 
 
 function KakaoAuthRedirect() {
+    const userContext = useUserContext();
     const Navigate = useNavigate();
     const networkContext = useNetworkContext();
     const code = new URL(window.location.href).searchParams.get("code");
@@ -21,7 +23,8 @@ function KakaoAuthRedirect() {
         else {
             networkContext.setToken(code ? code : '');
             localStorage.setItem("JWT",code? code : '');
-            localStorage.setItem("user_id", user_id ? user_id : 'user4')
+            localStorage.setItem("user_id", user_id ? user_id : '')
+            userContext.setNowUserID(user_id ? user_id : '');
             Navigate('/');
         }
 

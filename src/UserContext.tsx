@@ -1,12 +1,13 @@
-import {useContext, createContext, useState, Dispatch} from "react";
+import {useContext, createContext, useState, Dispatch, useEffect} from "react";
 import React from "react"
 const userContext = createContext({
-    nowUserID: localStorage.getItem("user_id"),
+    nowUserID: '',
     setNowUserID: (state: string) => {}
 });
 
 export const UserContextProvider = ({ children } : {children: React.ReactNode}  ) => {
-    const [nowUserID, setNowUserID] = useState(localStorage.getItem("user_id"))
+    const [nowUserID, setNowUserID] = useState(localStorage.user_id);
+
     return (
         <userContext.Provider
             value={{

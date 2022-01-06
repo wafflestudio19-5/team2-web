@@ -1,5 +1,5 @@
 import styles from './LeftBlock.module.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TweetModal from '../../Modal/TweetModal/TweetModal';
 import setting from '../../../Images/setting.svg';
 import profile_unclicked from '../../../Images/profile_unclicked.svg';
@@ -14,7 +14,7 @@ import logo_blue from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Lo
 import more from '../../../Images/more.svg';
 import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useUserContext } from '../../../UserContext';
+import {useUserContext} from '../../../UserContext';
 
 
 
@@ -33,7 +33,7 @@ function LeftBlock() {
 
 
   useEffect(() => {
-    if (params.id !== userContext.nowUserID) {
+    if (params.id !== localStorage.getItem("user_id")) {
       setWhichNavigatorClicked('');
     }
   }, [])
@@ -87,7 +87,7 @@ function LeftBlock() {
   const ProfileClicked = () => {
     if (whichNavigatorClicked != 'profile') {
 
-      navigate(`/${localStorage.getItem('user_id')}`);
+      navigate(`/${userContext.nowUserID}`);
       setWhichNavigatorClicked('profile');
     }
   }
