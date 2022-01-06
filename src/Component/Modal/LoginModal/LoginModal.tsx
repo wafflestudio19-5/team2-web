@@ -17,8 +17,7 @@ interface props {
   setLoginIsOpen: (boolean: boolean) => void;
 }
 
-function LoginModal(props: props) {
-
+function LoginModal(props: props) {/**/
     const userContext = useUserContext();
     const navigate = useNavigate();
     const networkContext = useNetworkContext();
