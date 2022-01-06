@@ -24,7 +24,7 @@ interface ServerResponse {
 }
 
 function SignUpModal(props: props) {
-
+/**/
     const [emailUse, setEmailUse] = useState(true);
     const [userData, setUserData] = useState({
         username: "",

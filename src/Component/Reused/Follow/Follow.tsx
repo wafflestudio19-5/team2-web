@@ -18,7 +18,7 @@ interface User {
     'user_id': string
     'bio': string
 }
-
+/**/
 function Follow(props: props) {
     const userContext = useUserContext()
     const [following, setFollowing] = useState(false);
