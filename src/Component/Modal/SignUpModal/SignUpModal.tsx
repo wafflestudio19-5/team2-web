@@ -54,7 +54,8 @@ function SignUpModal(props: props) {
         props.setSignUpIsOpen(false);
         localStorage.setItem('user_id', response.data.user_id);
         userContext.setNowUserID(response.data.user_id);
-        Navigate('/');
+        
+        window.location.replace('/');
       })
       .catch(error => {
         toast.error('올바른 입력정보가 아닙니다.');

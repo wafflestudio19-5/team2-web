@@ -27,20 +27,20 @@ function FollowPage() {
   useEffect(() => {
     if (
       loc.pathname.slice(
-        'following' ? userContext.nowUserID.length + 2 : 0,
-        'g' ? userContext.nowUserID.length + 11 : 0,
+        userContext.nowUserID.length + 2,
+        userContext.nowUserID.length + 11
       ) === 'following'
     ) {
       setIsChosen('following');
     } else if (
       loc.pathname.slice(
-        'follower' ? userContext.nowUserID.length + 2 : 0,
-        'g' ? userContext.nowUserID.length + 11 : 0,
+        userContext.nowUserID.length + 2,
+        userContext.nowUserID.length + 11
       ) === 'followers'
     ) {
       setIsChosen('followers');
     }
-  });
+  },[]);
 
   const switchToFollowing = () => {
     setIsChosen('following');

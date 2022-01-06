@@ -46,7 +46,7 @@ function LoginModal(props: props) {
         localStorage.setItem('user_id', response.data.user_id);
         userContext.setNowUserID(response.data.user_id);
 
-        navigate('/');
+        window.location.replace('/');
       })
       .catch(error => {
         toast.error('올바른 입력정보가 아닙니다.');
