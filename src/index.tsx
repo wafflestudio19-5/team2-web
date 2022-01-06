@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {NetworkContextProvider} from "./Auth/AuthContext";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import {UserContextProvider} from "./UserContext";
+import { UserContextProvider } from './UserContext';
 
 ReactDOM.render(
     <NetworkContextProvider>

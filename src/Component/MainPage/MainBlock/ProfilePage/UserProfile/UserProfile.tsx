@@ -1,13 +1,15 @@
-import React, { MouseEventHandler, useState } from 'react';
+import React, { MouseEventHandler, useContext, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
 import arrow_left from '../../../../../Images/arrow-left.svg';
 import calendar from '../../../../../Images/calendar.svg';
+import { useUserContext } from '../../../../../UserContext';
 
 function UserProfile(props: {isChosen : string
   setIsChosen: (value: string) => void }) {
 
+  const userContext = useUserContext();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -18,21 +20,25 @@ function UserProfile(props: {isChosen : string
     setIsEditProfileModalOpen(!isEditProfileModalOpen);
   };
 
+  const handleFollowClick = () =>{
+    console.log('hi');
+  }
+
   const switchToTweets = () => {
     props.setIsChosen('tweets');
-    navigate('/user4');
+    navigate(`/${userContext.nowUserID}`);
   };
   const switchToTweetsAndReplies = () => {
     props.setIsChosen('tweetsandreplies');
-    navigate('/user4/with_replies');
+    navigate(`/${userContext.nowUserID}/with_replies`);
   };
   const switchToMedia = () => {
     props.setIsChosen('media');
-    navigate('/user4/media');
+    navigate(`/${userContext.nowUserID}/media`);
   };
   const switchToLikes = () => {
     props.setIsChosen('likes');
-    navigate('/user4/likes');
+    navigate(`/${userContext.nowUserID}/likes`);
   };
 
 
@@ -71,12 +77,21 @@ function UserProfile(props: {isChosen : string
               alt='profileImg'
               width={140}
               height={140}
-            /> {/*profile img*/}
-            <button
-              className={styles.UserProfileEditButton}
-              onClick={handleEditProfileClick}>
-              Edit profile
-            </button>
+            />
+            
+              {params.id===localStorage.getItem("user_id") ?
+               <button
+               className={styles.UserProfileEditButton}
+               onClick={handleEditProfileClick}>
+                 Edit profile
+              </button>
+               :
+               <button
+               className={styles.UserProfileEditButton}
+               onClick={handleFollowClick}>
+                 Follow
+              </button>
+               }
           </div>
           <div className={styles.UserProfileInfoBox}>
             <div style={{
@@ -104,7 +119,14 @@ function UserProfile(props: {isChosen : string
             </div>
             <div style={{
               marginTop: '10px'
-            }}>($id.following.count)following ($id.follower.count)follower</div>
+            }}>
+              <div onClick={()=>{navigate(`/${userContext.nowUserID}/following`)}}>
+                ($id.following.count)following
+              </div>
+              <div onClick={()=>{navigate(`/${userContext.nowUserID}/followers`)}}>
+                ($id.follower.count)follower
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -150,6 +172,7 @@ function UserProfile(props: {isChosen : string
           className={styles.UserProfileRouterButtonUnclicked}
           onClick={switchToLikes}>Likes</button>}
       </div>
+      
     </>
   );
 }

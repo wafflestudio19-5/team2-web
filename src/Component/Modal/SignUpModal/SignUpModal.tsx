@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import X from "../../../Images/X.svg";
 import twitter from "../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg";
 import KaKaoLogin from "../../../Images/kakao_login.png";
-import React, {MouseEventHandler, useState} from "react";
+import React, {MouseEventHandler, useContext, useState} from "react";
 import axios, {AxiosResponse} from "axios";
 import {useNetworkContext} from "../../../Auth/AuthContext";
 import {useNavigate} from "react-router-dom";
@@ -53,7 +53,8 @@ function SignUpModal(props: props) {
                 localStorage.setItem("user_id", response.data.user_id)
                 networkContext.setToken(response.data.token);
                 props.setSignUpIsOpen(false);
-                userContext.setNowUserID(response.data.user_id)
+                localStorage.setItem("user_id", response.data.user_id);
+                userContext.setNowUserID(response.data.user_id);
                 Navigate('/');
             })
             .catch((error) => {
