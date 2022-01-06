@@ -1,6 +1,6 @@
 import styles from './SideFollow.module.scss';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, {useRef, useState} from 'react';
 import { toast } from 'react-toastify';
 import { useUserContext } from '../../../UserContext';
 import Modal from 'react-modal';
@@ -66,7 +66,8 @@ function SideFollow(props: props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div
-      onClick={() => {
+      onClick={(e) => {
+        if(e.currentTarget !== e.target) return;
         navigate('/' + props.id);
       }}
       className={styles.FollowWrapper}
@@ -112,7 +113,8 @@ function SideFollow(props: props) {
         <footer>
           <div>
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 unfollow();
               }}
               className={styles.UnfollowButton}
@@ -120,7 +122,8 @@ function SideFollow(props: props) {
               UnFollow
             </button>
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 setIsOpen(false);
               }}
               className={styles.CancelButton}
