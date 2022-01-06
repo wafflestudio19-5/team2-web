@@ -16,23 +16,19 @@ import useEffect from 'react';
 import KakaoAuthRedirect from './Auth/KakaoAuthRedirect';
 
 function App() {
+  const networkContext = useNetworkContext();
 
-    const networkContext = useNetworkContext();
+  axios.defaults.baseURL = 'https://clonetwitter.shop/api/v1';
+  axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-
-    
-    axios.defaults.baseURL =
-        "https://clonetwitter.shop/api/v1";
-    axios.defaults.headers.post['Content-Type'] = "application/json"
-
-    if(networkContext !== null){
-        axios.defaults.headers.common["Authorization"] = "JWT " + networkContext.token;
-    }
-
+  if (networkContext !== null) {
+    axios.defaults.headers.common['Authorization'] =
+      'JWT ' + networkContext.token;
+  }
 
   if (
-    networkContext.token === "undefined" ||
-      networkContext.token === undefined
+    networkContext.token === 'undefined' ||
+    networkContext.token === undefined
   ) {
     //로그인 안 된 경우
     return (

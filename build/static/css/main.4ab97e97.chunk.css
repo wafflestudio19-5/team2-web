@@ -1,0 +1,1997 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.App_App__15LM- {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+.MainPage_MainPage__3ArfK {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.LeftBlock_LeftBlock__1lGAX {
+  height: 100%;
+  width: 15%;
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  justify-self: flex-end;
+  flex-direction: column;
+  margin-left: 5%;
+}
+.LeftBlock_NavigatorBlock__3MC0o {
+  display: block;
+}
+.LeftBlock_NavigatorWrapper__1Ydtb {
+  padding: 15px 5px;
+  width: 100%;
+  display: flex;
+}
+.LeftBlock_NavigatorWrapper__1Ydtb:hover {
+  cursor: pointer;
+}
+.LeftBlock_NavigatorWrapper__1Ydtb:hover .LeftBlock_NavigatorButton__1_ehu {
+  cursor: pointer;
+  background-color: #e9e9ea;
+}
+.LeftBlock_NavigatorHeader__1fZHs {
+  margin-top: 5px;
+  margin-left: 0;
+  display: inline-flex;
+}
+.LeftBlock_NavigatorHeader__1fZHs:hover {
+  cursor: pointer;
+}
+.LeftBlock_NavigatorHeaderImg__1LQ-c {
+  border-radius: 20px;
+  padding: 10px 14px;
+}
+.LeftBlock_NavigatorHeaderImg__1LQ-c:hover {
+  cursor: pointer;
+  background-color: #e8f5fe;
+}
+.LeftBlock_NavigatorButton__1_ehu {
+  border-radius: 30px;
+  padding: 5px 0;
+  font-size: 20px;
+  display: inline-flex;
+}
+.LeftBlock_NavigatorImg__3AxgL {
+  margin-right: 10px;
+  padding: 2px 4px;
+}
+.LeftBlock_NavigatorText__DSHz6 {
+  margin-right: 10px;
+  padding: 2px 10px;
+}
+.LeftBlock_NavigatorTextBolder__vVpL8 {
+  margin-right: 10px;
+  padding: 2px 10px;
+  font-weight: bolder;
+}
+.LeftBlock_TweetButton__1Szit {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  border: 0;
+  margin-top: 40px;
+  background-color: #1d9bf0;
+  color: #fff;
+  font-size: 16px;
+}
+.LeftBlock_TweetButton__1Szit:hover {
+  cursor: pointer;
+  background-color: #1a8cd8;
+}
+.LeftBlock_TweetButtonSmall__15UhX {
+  margin-right: 10px;
+  padding: 2px 4px;
+  opacity: 0;
+}
+.LeftBlock_LogoutModal__ZRsJq {
+  border-radius: 10px;
+  bottom: 70px;
+  border: 1px solid #000;
+  padding: 20px 0;
+  background: #fff;
+  position: fixed;
+  width: 14%;
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+.LeftBlock_LogoutModal__ZRsJq:hover {
+  cursor: pointer;
+  background-color: #f7f9f9;
+}
+.LeftBlock_ProfileBlock__1vezr {
+  border-radius: 60px;
+  bottom: 10px;
+  border: 0;
+  background: #fff;
+  position: fixed;
+  width: 14%;
+  display: flex;
+}
+.LeftBlock_ProfileBlock__1vezr:hover {
+  cursor: pointer;
+  background-color: #e9e9ea;
+}
+.LeftBlock_ProfileWrapper__x3OgG {
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px 10px;
+  width: 100%;
+  position: relative;
+}
+.LeftBlock_ProfileImgWrapper__3LwHp {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  border-radius: 60px;
+  border: 1px solid #000;
+}
+.LeftBlock_ProfileTextWrapper__1esDb {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.LeftBlock_ProfileImg__3P9hQ {
+  margin-right: 10px;
+  padding: 2px 4px;
+  position: relative;
+}
+.LeftBlock_ProfileText__1YL52 {
+  margin-right: 10px;
+  position: relative;
+  padding: 2px 10px;
+}
+@media screen and (max-width: 1200px) {
+  .LeftBlock_LeftBlock__1lGAX {
+    height: 695px;
+    width: 150px;
+    position: fixed;
+    display: flex;
+    justify-self: flex-end;
+    flex-direction: column;
+  }
+  .LeftBlock_NavigatorBlock__3MC0o {
+    display: block;
+  }
+  .LeftBlock_NavigatorHeader__1fZHs {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-flex;
+    justify-content: center;
+  }
+  .LeftBlock_NavigatorHeader__1fZHs:hover {
+    cursor: pointer;
+  }
+  .LeftBlock_NavigatorWrapper__1Ydtb {
+    padding: 15px 20px;
+    width: 100%;
+    display: flex;
+  }
+  .LeftBlock_NavigatorWrapper__1Ydtb:hover {
+    cursor: pointer;
+  }
+  .LeftBlock_NavigatorWrapper__1Ydtb:hover .LeftBlock_NavigatorButton__1_ehu {
+    cursor: pointer;
+    background-color: #e9e9ea;
+  }
+  .LeftBlock_NavigatorButton__1_ehu {
+    border-radius: 30px;
+    padding: 5px 0;
+    font-size: 20px;
+    display: inline-flex;
+  }
+  .LeftBlock_NavigatorImg__3AxgL {
+    margin-right: 10px;
+    padding: 2px 4px;
+  }
+  .LeftBlock_NavigatorText__DSHz6,
+  .LeftBlock_NavigatorTextBolder__vVpL8,
+  .LeftBlock_TweetButton__1Szit {
+    display: none;
+  }
+  .LeftBlock_TweetButtonSmall__15UhX {
+    margin: 40px 21px;
+    opacity: 1;
+  }
+  .LeftBlock_LogoutModal__ZRsJq {
+    border-radius: 10px;
+    bottom: 70px;
+    border: 1px solid #000;
+    padding: 20px 0;
+    background: #fff;
+    position: fixed;
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    color: red;
+  }
+  .LeftBlock_LogoutModal__ZRsJq:hover {
+    cursor: pointer;
+    background-color: #f7f9f9;
+  }
+  .LeftBlock_ProfileBlock__1vezr {
+    border-radius: 60px;
+    bottom: 10px;
+    border: 0;
+    background: #fff;
+    position: fixed;
+    width: auto;
+    align-items: center;
+    display: flex;
+  }
+  .LeftBlock_ProfileBlock__1vezr:hover {
+    cursor: pointer;
+    background-color: #e9e9ea;
+  }
+  .LeftBlock_ProfileWrapper__x3OgG {
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px 10px;
+    width: 100%;
+    position: relative;
+  }
+  .LeftBlock_ProfileImgWrapper__3LwHp {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 100%;
+    border: 1px solid #000;
+  }
+  .LeftBlock_ProfileTextWrapper__1esDb {
+    display: none;
+  }
+  .LeftBlock_ProfileImg__3P9hQ {
+    margin-right: 10px;
+    padding: 2px 4px;
+  }
+  .LeftBlock_ProfileImgMore__2XxxY,
+  .LeftBlock_ProfileText__1YL52 {
+    display: none;
+  }
+}
+.TweetModal_tweetModalWrapper__av1UK {
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+.TweetModal_ModalContent__1pbVn {
+  display: flex;
+}
+.TweetModal_ModalHeader__3n-uF {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.TweetModal_XWrapper__2C0WP {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+.TweetModal_XWrapper__2C0WP:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+.TweetModal_ModalContentLeft__1qo1l {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.TweetModal_ModalContentRight__3lJ-E {
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.TweetModal_ModalContentInput__27IaS {
+  font: 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  border: none;
+  height: 130px;
+  font-size: 20px;
+  width: 100%;
+}
+.TweetModal_ModalContentInput__27IaS:focus {
+  outline: none;
+}
+.TweetModal_BorderWrapper__3Wn4P {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  content: '';
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+}
+.TweetModal_ModalContentRightFooter__1D_qn {
+  display: flex;
+  justify-content: space-between;
+}
+.TweetModal_ModalContentButtonWrapper__3pP7f {
+  display: flex;
+}
+.TweetModal_Icon__3BZuI {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1px;
+  stroke: #00b7ff;
+  color: #00b7ff;
+}
+.TweetModal_IconWrapper__18HJX {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+.TweetModal_IconWrapper__18HJX:hover {
+  background-color: rgba(0, 183, 255, 0.1);
+  cursor: pointer;
+}
+.TweetModal_TweetButtonWrapper__1A_uf {
+  display: flex;
+  align-items: center;
+}
+.TweetModal_Button__1f11N {
+  background-color: #1a8cd8;
+  width: 100px;
+  height: 40px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+}
+.TweetModal_Button__1f11N:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.MainBlock_MainBlock__2bQvD {
+  position: relative;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+}
+.EditProfileModal_modalStyle__3nECj {
+  position: absolute;
+  top: calc(50% - 325px);
+  left: calc(50% - 300px);
+  right: calc(50% - 300px);
+  bottom: calc(50% - 325px);
+  border: none;
+  background: #fff;
+  overflow: auto;
+  border-radius: 20px;
+  outline: none;
+  padding: 0;
+  overflow: hidden;
+}
+.EditProfileModal_hideOverflow__1ck5q {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+  height: calc(100% - 60px);
+  margin-top: 60px;
+}
+.EditProfileModal_overlayStyle__2Xfas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+.EditProfileModal_modalHeader__2kDay {
+  position: absolute;
+  display: flex;
+  width: 600px;
+  height: 60px;
+  background-color: hsla(0, 0%, 100%, 0.95);
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+.EditProfileModal_exitButton__1v0fn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 100%;
+  background: none;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.EditProfileModal_exitButton__1v0fn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.25s;
+}
+.EditProfileModal_exitButtonImg__3PFdv {
+  width: 20px;
+  height: 20px;
+}
+.EditProfileModal_headText__1YpbY {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 55%;
+}
+.EditProfileModal_saveButton__3iSyr {
+  width: 65px;
+  height: 32px;
+  margin-right: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 100px;
+  background-color: #000;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.EditProfileModal_saveButton__3iSyr:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: all 0.25s;
+}
+.EditProfileModal_contentWrapper__3ptrn {
+  width: calc(100% - 10px);
+  height: 100%;
+  margin: 0 5px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.EditProfileModal_profileImgWrapper__3eyyl {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  left: 20px;
+  top: 145px;
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  overflow: hidden;
+  z-index: 10;
+}
+.EditProfileModal_profileImgNull__2EdBd {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.EditProfileModal_profileImg__xI1nW {
+  width: 100%;
+  height: 100%;
+}
+.EditProfileModal_profileImgShade__3zo5X {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.EditProfileModal_profileImgButton__2pSdg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 100%;
+  transition: background 0.25s;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 10;
+}
+.EditProfileModal_profileImgButton__2pSdg:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transition: background 0.25s;
+}
+.EditProfileModal_profileImageInput__2N8PH {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  font-size: 0;
+  cursor: pointer;
+}
+.EditProfileModal_cameraImg__vrboK {
+  width: 20px;
+  height: 20px;
+}
+.EditProfileModal_backgroundImgWrapper__1LByQ {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
+}
+.EditProfileModal_backgroundImg__3K3Ez {
+  width: 100%;
+  height: 100%;
+}
+.EditProfileModal_backgroundImgNull__ihsmU {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.EditProfileModal_xImg__3VUBT {
+  width: 20px;
+  height: 20px;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.EditProfileModal_backgroundImgShade__2JXJ0 {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.EditProfileModal_birthDateWrapper__2jGUW {
+  width: calc(100% - 15px);
+  min-height: 100px;
+  padding: 0 0 100px;
+  margin: 30px 0 0 15px;
+  display: flex;
+  flex-flow: column;
+}
+.EditProfileModal_birthDateHeader__f8ur_ {
+  display: flex;
+  width: 100%;
+  height: 25px;
+  font-size: 17px;
+  align-items: center;
+  justify-content: left;
+}
+.EditProfileModal_birthDateHeaderText__2jmpX {
+  color: #6b6b6b;
+  text-align: center;
+}
+.EditProfileModal_birthDateHeaderButton__1G9vA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #5959fc;
+  margin: 0 0 0 5px;
+  padding: 1px 0 0;
+  border: none;
+  background-color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+}
+.EditProfileModal_birthDateHeaderButton__1G9vA:hover {
+  -webkit-text-decoration: underline #5959fc;
+  text-decoration: underline #5959fc;
+}
+.EditProfileModal_birthDateContent__29RC7 {
+  width: 100%;
+  height: 35px;
+  font-size: 28px;
+  vertical-align: middle;
+  margin-top: 5px;
+}
+.EditProfileModal_birthDateWrapperOnEdit__2uTwn {
+  width: calc(100% - 15px);
+  min-height: 100px;
+  padding: 0 0 100px;
+  margin: 30px 0 0 15px;
+  display: flex;
+  flex-flow: column;
+}
+.EditProfileModal_birthDateEditHeaderText__3wnPm {
+  color: #000;
+  text-align: center;
+  font-weight: 700;
+}
+.EditProfileModal_birthDateEditExplainText__qbBcF {
+  font-size: 15px;
+  color: #5e5e5e;
+  text-align: left;
+  margin-top: 5px;
+}
+.EditProfileModal_selectTitleWrapper__2Nxc1 {
+  margin: 20px 0 3px;
+  font-size: 18px;
+  color: #4d4d4d;
+  text-indent: 3px;
+}
+.EditProfileModal_selectTitleWrapper__2Nxc1,
+.EditProfileModal_selectWrapper__3oNwk {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.EditProfileModal_monthSelect__3zNq7 {
+  width: 200px;
+}
+.EditProfileModal_daySelect__2wUVz {
+  width: 150px;
+}
+.EditProfileModal_yearSelect__incXz {
+  width: 170px;
+}
+.CustomInput_inputWrapper__31RaA {
+  position: relative;
+  width: calc(100% - 20px);
+}
+.CustomInput_inputBox__eMoC7 {
+  width: calc(100% - 4px);
+  height: calc(100% - 20px);
+  padding: 20px 4px 0 8px;
+  border: 1px solid #cacaca;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+  font-size: 17px;
+}
+.CustomInput_inputBox__eMoC7:focus {
+  border: 1px solid #1c9bf0;
+  outline: 1px solid #1c9bf0;
+}
+.CustomInput_inputBoxWarning__1M88g {
+  width: calc(100% - 4px);
+  height: calc(100% - 20px);
+  padding: 20px 4px 0 8px;
+  border: 1px solid #ff0019;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+  font-size: 17px;
+}
+.CustomInput_inputBoxWarning__1M88g:focus {
+  border: 1px solid #ff0019;
+  outline: 1px solid #ff0019;
+}
+.CustomInput_inputTitle__2RWij {
+  position: absolute;
+  font-size: 17px;
+  color: #7c7c7c;
+  top: 20px;
+  text-indent: 10px;
+  transition: all 0.1s;
+}
+.CustomInput_inputTitleFilled__33I6k {
+  color: #7c7c7c;
+}
+.CustomInput_inputTitleFilled__33I6k,
+.CustomInput_inputTitleOnfocus__Qmj-T {
+  position: absolute;
+  font-size: 12px;
+  top: 10px;
+  text-indent: 10px;
+  transition: all 0.1s;
+}
+.CustomInput_inputTitleOnfocus__Qmj-T {
+  color: #1c9bf0;
+}
+.CustomInput_inputTitleOnfocusWarning__Ye5ec {
+  position: absolute;
+  font-size: 12px;
+  color: #ff0019;
+  top: 10px;
+  text-indent: 10px;
+  transition: all 0.1s;
+}
+.CustomInput_lengthText__2qt8h {
+  position: absolute;
+  font-size: 13px;
+  color: #7c7c7c;
+  top: 10px;
+  text-indent: 10px;
+  transition: all 0.1s;
+  right: 5px;
+}
+.CustomInput_lengthTextOnblur__1IgYU {
+  display: none;
+}
+.CustomInput_warningText__1uRY_ {
+  position: absolute;
+  font-size: 13px;
+  color: #ff0019;
+  top: 65px;
+  text-indent: 10px;
+  transition: all 0.1s;
+}
+.CustomInput_warningTextInvisible__Ht872 {
+  display: none;
+}
+.CustomTextarea_inputWrapper__3gI_2 {
+  position: relative;
+  width: calc(100% - 20px);
+}
+.CustomTextarea_inputBox__10jq2 {
+  width: calc(100% - 4px);
+  height: calc(100% - 25px);
+  padding: 25px 4px 0 8px;
+  border: 1px solid #cacaca;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+  font-size: 17px;
+}
+.CustomTextarea_inputBox__10jq2:focus {
+  border: 1px solid #1c9bf0;
+  outline: 1px solid #1c9bf0;
+}
+.CustomTextarea_inputTitle__QqsN0 {
+  position: absolute;
+  font-size: 17px;
+  color: #7c7c7c;
+  top: 20px;
+  text-indent: 10px;
+  transition: all 0.1s;
+}
+.CustomTextarea_inputTitleFilled__2H6AN {
+  position: absolute;
+  font-size: 12px;
+  color: #7c7c7c;
+  top: 10px;
+  text-indent: 10px;
+  transition: all 0.1s;
+}
+.CustomTextarea_inputTitleOnfocus__17iBB {
+  position: absolute;
+  font-size: 12px;
+  color: #1c9bf0;
+  top: 10px;
+  text-indent: 10px;
+  transition: all 0.1s;
+}
+.CustomTextarea_lengthText__24oXh {
+  position: absolute;
+  font-size: 13px;
+  color: #7c7c7c;
+  top: 10px;
+  text-indent: 10px;
+  transition: all 0.1s;
+  right: 5px;
+}
+.CustomTextarea_lengthTextOnblur__3-Opy {
+  display: none;
+}
+.CropImageModal_modalStyle__ndrbJ {
+  position: absolute;
+  top: calc(50% - 325px);
+  left: calc(50% - 300px);
+  right: calc(50% - 300px);
+  bottom: calc(50% - 325px);
+  border: none;
+  background: #fff;
+  overflow: auto;
+  border-radius: 20px;
+  outline: none;
+  padding: 0;
+  overflow: hidden;
+}
+.CropImageModal_overlayStyle__VSXO9 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+.CropImageModal_modalHeader__ZPUzt {
+  position: absolute;
+  display: flex;
+  width: 600px;
+  height: 60px;
+  background-color: hsla(0, 0%, 100%, 0.95);
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+.CropImageModal_backButton__1E6sb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 100%;
+  background: none;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.CropImageModal_backButton__1E6sb:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.25s;
+}
+.CropImageModal_backButtonImage__aeJ0r {
+  width: 23px;
+  height: 23px;
+}
+.CropImageModal_headText__3nkTI {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 55%;
+}
+.CropImageModal_applyButton__1R1uF {
+  width: 65px;
+  height: 32px;
+  margin-right: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 100px;
+  background-color: #000;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.CropImageModal_applyButton__1R1uF:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: all 0.25s;
+}
+.CropImageModal_cropContainer__2hypC {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 10px);
+  height: calc(100% - 120px);
+  margin: 60px 5px 0;
+  background-color: #fff;
+}
+.CropImageModal_cropControllerConatiner__27k0r {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+.CropImageModal_zoomController__1XwDh {
+  position: relative;
+  width: 300px;
+  height: 5px;
+  margin: 0 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #d6d6d6;
+  border: none;
+}
+.CropImageModal_zoomController__1XwDh::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background-color: #1c9bf0;
+  border-radius: 100%;
+  width: 17px;
+  height: 17px;
+  box-shadow: none;
+  -webkit-transition: box-shadow 0.15s;
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+}
+.CropImageModal_zoomController__1XwDh::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.15s;
+  transition: box-shadow 0.15s;
+}
+.CropImageModal_fillTrackColor__2TRBm {
+  position: absolute;
+  left: 150px;
+  height: 5px;
+  background-color: #1c9bf0;
+  background-color: rgba(0, 0, 0, 0.788235294117647);
+}
+.CropImageModal_magnifyImage__2O5fK {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+.UserProfile_UserProfileHeader__QRc3l {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid #ececec;
+  background-color: #fff;
+  opacity: 0.95;
+  z-index: 1;
+}
+.UserProfile_UserProfileHeaderButton__28g60 {
+  background-color: #fff;
+  border-radius: 30px;
+  border: none;
+  padding: 6px;
+  margin-right: 17px;
+  margin-left: 7px;
+}
+.UserProfile_UserProfileHeaderButton__28g60:hover {
+  cursor: pointer;
+  background-color: #e6e7e7;
+}
+.UserProfile_UserProfileHeaderName__2odbm {
+  font-size: 25px;
+  color: #000;
+}
+.UserProfile_UserProfileHeaderTweetsCount__3J_AO {
+  font-size: 15px;
+  color: #2e2e2e;
+}
+.UserProfile_UserProfileBody__2biBf {
+  width: 100%;
+}
+.UserProfile_UserProfileBackground__vXRZC {
+  width: 100%;
+  height: 200px;
+  background-color: #5f9ea0;
+}
+.UserProfile_UserProfileBox__3Fbc8 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 210px;
+  padding: 20px;
+}
+.UserProfile_UserProfileBanner__LSCq_ {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.UserProfile_UserProfileImg__2v4dW {
+  border: 3px solid #fff;
+  border-radius: 135px;
+  background-color: #d2691e;
+}
+.UserProfile_UserProfileEditButton__2zb8K {
+  border: 2px solid #e7ecee;
+  background-color: #fff;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  margin-right: 30px;
+  height: 40px;
+  width: 120px;
+  font-weight: bolder;
+}
+.UserProfile_UserProfileEditButton__2zb8K:hover {
+  cursor: pointer;
+  background-color: #e6e7e7;
+}
+.UserProfile_UserProfileInfoBox__1612s {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.UserProfile_UserProfileRouterButtonWrapper__3fKBS {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  border-bottom: 1px solid #ececec;
+}
+.UserProfile_UserProfileRouterButtonUnclicked__3ekcQ {
+  width: 25%;
+  height: 100%;
+  border: 0;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #546572;
+}
+.UserProfile_UserProfileRouterButtonUnclicked__3ekcQ:hover {
+  cursor: pointer;
+  background-color: #e6e7e7;
+}
+.UserProfile_UserProfileRouterButtonClicked__3F7t6 {
+  width: 25%;
+  height: 100%;
+  border: 0;
+  border-bottom: 2px solid #1d9bf0;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: bolder;
+}
+.UserProfile_UserProfileRouterButtonClicked__3F7t6:hover {
+  cursor: pointer;
+  background-color: #e6e7e7;
+}
+.Tweet_wrapper__1BYn1 {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  border-bottom: 1px solid #ececec;
+}
+.Tweet_wrapper__1BYn1:hover {
+  background-color: hsla(0, 0%, 69.4%, 0.17254901960784313);
+}
+.Tweet_leftWrapper__1rDZi {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 60px;
+  height: auto;
+  margin-left: 10px;
+  color: #000;
+}
+.Tweet_profileImage__taCBf {
+  width: 45px;
+  height: 45px;
+  margin-top: 10px;
+  border-radius: 100%;
+  border: none;
+}
+.Tweet_rightWrapper__fpJA1 {
+  display: flex;
+  flex-flow: column;
+  width: calc(100% - 30px);
+  height: 100%;
+  margin-right: 10px;
+}
+.Tweet_topWrapper__TNwWq {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 20px;
+}
+.Tweet_topTextWrapper__3Mn0t {
+  display: flex;
+  width: auto;
+  align-items: center;
+}
+.Tweet_nameText__3rgFE {
+  font-size: 15px;
+  color: #000;
+  font-weight: 700;
+  margin-right: 5px;
+}
+.Tweet_idTimeText__1C5U5 {
+  font-size: 15px;
+  color: #536471;
+}
+.Tweet_moreButton__3mazr {
+  display: inline-flex;
+  justify-content: right;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+.Tweet_moreButton__3mazr:hover .Tweet_moreButtonImg__24a6K {
+  stroke: #3fa1ee;
+  background-color: rgba(63, 161, 238, 0.08235294117647059);
+}
+.Tweet_moreButtonImg__24a6K {
+  width: 20px;
+  height: 20px;
+  stroke: #979797;
+  color: #979797;
+  stroke-width: 1px;
+  padding: 6px;
+  border: none;
+  border-radius: 100%;
+  background: none;
+  stroke: #525252;
+}
+.Tweet_middleWrapper__3CZEB {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  height: calc(100% - 55px);
+}
+.Tweet_mainText__p9a4f {
+  font-size: 15px;
+  color: #000;
+}
+.Tweet_mainImg__2yJPd {
+  width: calc(100% - 5px);
+  height: auto;
+  margin-top: 5px;
+  border: 1px solid #b8bab7;
+  border-radius: 10px;
+}
+.Tweet_bottomWrapper__1P5x0 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+}
+.Tweet_buttonWrapper__x4Dt3 {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+.Tweet_commentButton__nyiEe:hover .Tweet_commentImg__VY1LT {
+  stroke: #00b7ff;
+  background-color: rgba(108, 213, 255, 0.21176470588235294);
+}
+.Tweet_commentButton__nyiEe:hover .Tweet_commentButtonText__kyFmM {
+  color: #00b7ff;
+}
+.Tweet_commentButton__nyiEe {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+  height: 35px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+.Tweet_commentButton__nyiEe:hover .Tweet_commentImg__VY1LT {
+  stroke: #3fa1ee;
+  background-color: rgba(63, 161, 238, 0.08235294117647059);
+}
+.Tweet_commentButton__nyiEe:hover .Tweet_commentButtonText__kyFmM {
+  color: #3fa1ee;
+}
+.Tweet_commentImg__VY1LT {
+  width: 20px;
+  height: 20px;
+  stroke: #979797;
+  color: #979797;
+  stroke-width: 1px;
+  padding: 6px;
+  border: none;
+  border-radius: 100%;
+  background: none;
+}
+.Tweet_commentButtonText__kyFmM {
+  width: 40px;
+  font-size: 13px;
+  color: #536471;
+}
+.Tweet_likeButton__1Ve_s {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+  height: 35px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+.Tweet_likeButton__1Ve_s:hover .Tweet_likeImg__3cKFT {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.08235294117647059);
+}
+.Tweet_likeButton__1Ve_s:hover .Tweet_likeButtonText__3QEaN {
+  color: red;
+}
+.Tweet_likeImg__3cKFT {
+  width: 20px;
+  height: 20px;
+  stroke: #979797;
+  color: #979797;
+  stroke-width: 1px;
+  padding: 6px;
+  border: none;
+  border-radius: 100%;
+  background: none;
+  stroke-width: 1.5px;
+}
+.Tweet_likeButtonText__3QEaN {
+  width: 40px;
+  font-size: 13px;
+  color: #536471;
+}
+.Tweet_retweetButton__1wljL {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+  height: 35px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+.Tweet_retweetButton__1wljL:hover .Tweet_retweetImg__1eCxy {
+  color: #19bb7d;
+  background-color: rgba(25, 187, 125, 0.12549019607843137);
+}
+.Tweet_retweetButton__1wljL:hover .Tweet_retweetButtonText__Lu70I {
+  color: #19bb7d;
+}
+.Tweet_retweetImg__1eCxy {
+  width: 20px;
+  height: 20px;
+  stroke: #979797;
+  color: #979797;
+  stroke-width: 1px;
+  padding: 6px;
+  border: none;
+  border-radius: 100%;
+  background: none;
+  stroke-width: 1.5px;
+}
+.Tweet_retweetButtonText__Lu70I {
+  width: 40px;
+  font-size: 13px;
+  color: #536471;
+}
+.Tweet_shareButton__2Xur5 {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+  height: 35px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+.Tweet_shareButton__2Xur5:hover .Tweet_shareImg__ppth6 {
+  color: #3fa1ee;
+  background-color: rgba(63, 161, 238, 0.12549019607843137);
+}
+.Tweet_shareImg__ppth6 {
+  width: 20px;
+  height: 20px;
+  stroke: #979797;
+  color: #979797;
+  stroke-width: 1px;
+  padding: 6px;
+  border: none;
+  border-radius: 100%;
+  background: none;
+  stroke-width: 1.5px;
+}
+.Likes_tweetsItems__tGbY9,
+.Media_tweetsItems__2KsNv,
+.Tweets_tweetsItems__3qR5v,
+.TweetsAndReplies_tweetsItems__1r8Tr {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
+}
+.ProfilePage_Footer__zbZ3N,
+.ProfilePage_ProfilePage__1TiRY {
+  position: absolute;
+  width: 100%;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+.ProfilePage_Footer__zbZ3N {
+  align-items: center;
+  height: 200px;
+  right: -1px;
+}
+.NotificationsPage_NotificationsPage__1iMeu,
+.ProfilePage_Footer__zbZ3N {
+  display: flex;
+  justify-content: center;
+}
+.FollowPage_UserProfileHeader__3nTQs {
+  position: absolute;
+  height: 55px;
+  width: 35.06%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 5px;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+  opacity: 0.95;
+  position: fixed;
+  z-index: 1;
+}
+.FollowPage_UserProfileHeaderButton__2dvtv {
+  background-color: #fff;
+  border-radius: 30px;
+  border: none;
+  padding: 6px;
+  margin-right: 17px;
+  margin-left: 7px;
+}
+.FollowPage_UserProfileHeaderButton__2dvtv:hover {
+  cursor: pointer;
+  background-color: #e6e7e7;
+}
+.FollowPage_UserProfileHeaderName__CVaqM {
+  font-size: 25px;
+  color: #000;
+}
+.FollowPage_UserProfileHeaderID__iJFWV {
+  font-size: 15px;
+  color: #2e2e2e;
+}
+.FollowPage_UserProfileRouterButtonWrapper__uwpRX {
+  position: relative;
+  top: 55px;
+  width: 448px;
+  height: 55px;
+  display: flex;
+}
+.FollowPage_UserProfileRouterButtonUnclicked__34pAC {
+  width: 50%;
+  height: 100%;
+  border: 0;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #546572;
+}
+.FollowPage_UserProfileRouterButtonUnclicked__34pAC:hover {
+  cursor: pointer;
+  background-color: #e6e7e7;
+}
+.FollowPage_UserProfileRouterButtonClicked__2iCZ1 {
+  width: 50%;
+  height: 100%;
+  border: 0;
+  border-bottom: 2px solid #1d9bf0;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: bolder;
+}
+.FollowPage_UserProfileRouterButtonClicked__2iCZ1:hover {
+  cursor: pointer;
+  background-color: #e6e7e7;
+}
+.RightBlock_RightBlock__LBCu0 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100%;
+  width: 25%;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+.RightBlock_RightInside__10Eqg {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.RightBlock_RightInside__10Eqg::-webkit-scrollbar {
+  display: none;
+}
+.RightBlock_SearchWrapper__SpV6B {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 45px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.RightBlock_SearchLabel__7vZvt {
+  border: none;
+  background-color: #eff3f4;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  height: 44.4px;
+  display: flex;
+  border-radius: 9999px;
+  margin-top: 2%;
+}
+.RightBlock_SearchLabel__7vZvt:focus-within:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  outline: 1px solid #00b7ff;
+  border-radius: 9999px;
+  background-color: hsla(0, 0%, 100%, 0.5);
+}
+.RightBlock_MagnifierWrapper__2Zy3R {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.RightBlock_SearchInput__85BUV {
+  width: calc(100% - 40px);
+  height: 100%;
+  font-size: 16px;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  line-height: 50px;
+  z-index: -1;
+}
+.RightBlock_SearchInput__85BUV:focus {
+  outline: none;
+}
+.RightBlock_TrendsWrapper__1eQb7 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5%;
+}
+.RightBlock_TrendsInside__3MwVj {
+  padding-top: 10px;
+  background-color: #f7f9f9;
+  border-radius: 16px;
+}
+.RightBlock_TrendHeader__3tYyU {
+  height: 36px;
+  display: flex;
+  padding-left: 16px;
+  padding-right: 16px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.RightBlock_ButtonWrapper__1lhoP {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+}
+.RightBlock_ButtonWrapper__1lhoP:hover {
+  background-color: rgba(15, 20, 25, 0.1);
+}
+.RightBlock_TrendFooter__1SU8q {
+  display: flex;
+  align-items: center;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: none;
+  background-color: inherit;
+  width: 100%;
+  height: 60px;
+  font-size: 15px;
+  color: #00b7ff;
+}
+.RightBlock_TrendFooter__1SU8q:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+.RightBlock_TrendFooterText__uJur- {
+  margin-left: 20px;
+}
+.RightBlock_WhoToFollowWrapper__3xi5l {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  width: 100%;
+}
+.RightBlock_WhoToFollowInside__24KbG {
+  padding-top: 10px;
+  background-color: #f7f9f9;
+  border-radius: 16px;
+}
+.RightBlock_WhoToFollowHeader__1bts4 {
+  height: 36px;
+  display: flex;
+  padding-left: 16px;
+  padding-right: 16px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.RightBlock_FollowFooter__2f2t6 {
+  display: flex;
+  align-items: center;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: none;
+  background-color: inherit;
+  width: 100%;
+  height: 60px;
+  font-size: 15px;
+  color: #00b7ff;
+}
+.RightBlock_FollowFooter__2f2t6:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+.Trend_TrendWrapper__jvNcc {
+  height: 70px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.Trend_TrendWrapper__jvNcc:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.Trend_TrendHeader__qS5tO {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.Trend_TrendHeaderText__3fuKG {
+  color: #536471;
+  line-height: 16px;
+  font-size: 13px;
+  font-weight: 400;
+}
+.Trend_TrendContent__2Yl44 {
+  font-size: 15px;
+  margin-left: 5px;
+}
+.SideFollow_FollowWrapper__3pZSl {
+  height: 60px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.SideFollow_FollowWrapper__3pZSl:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+.SideFollow_FollowInside__ISY2a {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+}
+.SideFollow_FollowImg__3yrKg {
+  margin-right: 20px;
+}
+.SideFollow_FollowTextButton__35A3a {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.SideFollow_FollowNameID__2PxTx {
+  display: flex;
+  flex-direction: column;
+}
+.SideFollow_FollowButtonWrapper__3K4Dv {
+  display: flex;
+  align-items: center;
+}
+.SideFollow_FollowButton__1yMW5 {
+  margin-bottom: 8px;
+  margin-right: 20px;
+  width: 80px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  color: #fff;
+  background-color: #000;
+  font-weight: 600;
+}
+.SideFollow_FollowButton__1yMW5:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.SideFollow_FollowingButton__10P84 {
+  margin-bottom: 8px;
+  margin-right: 20px;
+  width: 80px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #fff;
+  font-weight: 600;
+}
+.SideFollow_FollowingButton__10P84:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.SideFollow_UnfollowButton__3LbRv {
+  margin-bottom: 8px;
+  margin-right: 20px;
+  width: 80px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  width: 100%;
+  height: 30px;
+  color: #000;
+  background-color: #fff;
+  font-weight: 600;
+}
+.SideFollow_UnfollowButton__3LbRv:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.SideFollow_CancelButton__3svwo {
+  margin-bottom: 8px;
+  margin-right: 20px;
+  width: 80px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  width: 100%;
+  height: 30px;
+  color: #fff;
+  background-color: #000;
+  font-weight: 600;
+}
+.SideFollow_CancelButton__3svwo:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.SideFollow_FollowName__2hOG2 {
+  font-weight: 800;
+}
+.SideFollow_FollowName__2hOG2:hover {
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+.SideFollow_FollowID__2czg2 {
+  font-weight: 400;
+  color: #536471;
+}
+.LoginPage_LoginPageWrapper__1ZXZx {
+  display: flex;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+.LoginPage_Background__3eXZC {
+  height: 100%;
+  width: 50vw;
+}
+.LoginPage_Text1__2dQpJ {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  margin-bottom: 48px;
+  margin-top: 48px;
+}
+.LoginPage_Text2__1JVIP {
+  font-size: 31px;
+  font-weight: 700;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 36px;
+  margin-bottom: 32px;
+}
+.LoginPage_Right__29BUt {
+  padding: 32px;
+}
+.LoginPage_SignUpWrapper__2Aqx5 {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+}
+.LoginPage_Button__KSXoX {
+  margin-bottom: 8px;
+  margin-right: 20px;
+  background-color: #fff;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #000;
+}
+.LoginPage_Button__KSXoX:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.LoginPage_BorderWrapper__3G-4P {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 12px;
+  width: 280px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.LoginPage_BorderWrapper__3G-4P:after,
+.LoginPage_BorderWrapper__3G-4P:before {
+  content: '';
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+}
+.LoginPage_Text3__2IR0B {
+  color: #536471;
+  line-height: 12px;
+  font-size: 11px;
+  font-weight: 400;
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  width: 300px;
+}
+.LoginPage_Link__iMLUa {
+  -webkit-text-decoration-line: none;
+  text-decoration-line: none;
+  color: #1d9bf0;
+}
+.LoginPage_Link__iMLUa:hover {
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+.LoginPage_LoginWrapper__18LwX {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.LoginPage_Text4__NPzaZ {
+  margin-bottom: 20px;
+  font-size: 17px;
+  color: #0f1419;
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 20px;
+}
+.LoginModal_ModalWrapper__2wm_Y {
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+.LoginModal_ModalHeader__3EQDr {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.LoginModal_XWrapper__26gIB {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+.LoginModal_XWrapper__26gIB:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+.LoginModal_ModalContent__3oDS9 {
+  padding-top: 20px;
+  padding-right: 150px;
+  padding-left: 150px;
+  display: flex;
+  flex-direction: column;
+}
+.LoginModal_ContentMessage__2ij79 {
+  display: flex;
+  justify-content: left;
+  font-weight: 800;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
+.LoginModal_Button__3gpgV {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  background-color: #fff;
+  width: 300px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #000;
+}
+.LoginModal_Button__3gpgV:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.LoginModal_BorderWrapper__2N0Yx {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 12px;
+  width: 300px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+.LoginModal_BorderWrapper__2N0Yx:after,
+.LoginModal_BorderWrapper__2N0Yx:before {
+  content: '';
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+}
+.LoginModal_InputWrapper__Hd9J- {
+  margin-bottom: 20px;
+}
+.LoginModal_Input__KGAQA {
+  width: 290px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+.LoginModal_Input__KGAQA:focus {
+  outline-color: #00b7ff;
+}
+.LoginModal_BlackButton__4HGI4 {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  background-color: #fff;
+  width: 300px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  margin-top: 50px;
+}
+.LoginModal_BlackButton__4HGI4:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.SignUpModal_ModalWrapper__3YaVK {
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+.SignUpModal_ModalHeader__E_oNx {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.SignUpModal_XWrapper__ye-wc {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+.SignUpModal_XWrapper__ye-wc:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+.SignUpModal_ModalContent__2bZld {
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.SignUpModal_ContentMessage__Z5Jm6 {
+  display: flex;
+  justify-content: left;
+  font-weight: 800;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
+.SignUpModal_Button__1jzH- {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  background-color: #fff;
+  width: 100%;
+  height: 50px;
+  border-radius: 999px;
+  border: 1px solid #000;
+}
+.SignUpModal_Button__1jzH-:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.SignUpModal_InputWrapper__OcaGv {
+  margin-bottom: 20px;
+}
+.SignUpModal_Input__pbram {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #00b7ff;
+}
+.SignUpModal_Input__pbram:focus {
+  outline: #00b7ff;
+}
+.SignUpModal_EmailOrPhone__1eOYi {
+  font-size: 15px;
+  color: #00b7ff;
+  margin-bottom: 30px;
+}
+.SignUpModal_EmailOrPhone__1eOYi:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.SignUpModal_BirthdayNotificationHeader__15yI7 {
+  font-weight: 800;
+}
+.SignUpModal_BirthdayNotificationContent__2hiHh {
+  font-weight: 200;
+}
+.SignUpModal_BirthdayInputWrapper__z9FPn {
+  display: flex;
+}
+.SignUpModal_BirthdayInput__1LWVv {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  height: 40px;
+  width: 100%;
+}
+.SignUpModal_BlackButton__3igHQ {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  background-color: #fff;
+  width: 100%;
+  height: 50px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+}
+.SignUpModal_BlackButton__3igHQ:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
