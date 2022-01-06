@@ -13,7 +13,7 @@ function MainBlock() {
         <Routes>
           <Route path="/home" element={<HomePage/>}  />
            {/*<Route path="/notifications" component={NotificationsPage} exact />*/}
-          <Route path="/:id/*" element={<ProfilePage/>} />
+            <Route path="/:id/*" element={<ProfilePage/>} />
             {/*<Route
                 path="/*"
                 element={<Navigate to="/home" />}

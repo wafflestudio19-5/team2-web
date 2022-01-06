@@ -2,10 +2,29 @@ import styles from './RightBlock.module.scss';
 import Magnifier from '../../../../Images/magnifier.svg';
 import Setting from '../../../../Images/setting.svg';
 import Trend from './Trend';
-import Follow from './Follow';
+import SideFollow from './SideFollow';
+import React, {useState} from "react";
+import axios from "axios";
+import {toast} from "react-toastify";
+
+interface recommendData {
+  user_id: string,
+  username: string,
+  profile_img: string
+}
 
 function RightBlock() {
+  const [recommendData,setRecommendData] = useState<recommendData[]>([{user_id: '', username: '', profile_img: ''},{user_id: '', username: '', profile_img: ''}]);
 
+  React.useEffect(()=>{
+    axios.get('/recommend/')
+        .then((response)=>{
+          setRecommendData(response.data)
+        })
+        .catch(()=>{
+          toast.error("팔로워 추천을 받아오는데 실패하였습니다.")
+        })
+  },[])
 
   return (
     <div className={styles.RightBlock}>
@@ -39,7 +58,6 @@ function RightBlock() {
             <Trend text={'Trend1'}></Trend>
             <Trend text={'Trend2'}></Trend>
             <Trend text={'Trend3'}></Trend>
-            <Trend text={'Trend4'}></Trend>
 
             <button className={styles.TrendFooter}>
               <span className={styles.TrendFooterText}>Show more</span>
@@ -51,8 +69,8 @@ function RightBlock() {
             <div className={styles.WhoToFollowHeader}>
               <span>Who to follow</span>
             </div>
-            <Follow id={'ABC'} name={'이이이'} img={Magnifier}></Follow>
-            <Follow id={'ABC'} name={'이이이'} img={Magnifier}></Follow>
+            <SideFollow id={recommendData[0].user_id} name={recommendData[0].username} img={recommendData[0].profile_img}/>
+            <SideFollow id={recommendData[1].user_id} name={recommendData[1].username} img={recommendData[1].profile_img}/>
             <button className={styles.FollowFooter}>
               <span>Show more</span>
             </button>
