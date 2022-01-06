@@ -1,5 +1,4 @@
-import React from 'react';
-import { Route, BrowserRouter, Navigate, Routes, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import UserProfile from './UserProfile/UserProfile';
 import Tweets from './Tweets/Tweets';
 import TweetsAndReplies from './TweetsAndReplies/TweetsAndReplies';
@@ -8,30 +7,29 @@ import Likes from './Likes/Likes';
 import styles from './ProfilePage.module.scss';
 import { useState } from 'react';
 
-function ProfilePage(): any {
-  const [isChosen, setIsChosen] = useState<string>('tweets');
+interface Props {
+  loadNext: boolean;
+}
 
-  
+const ProfilePage = ({ loadNext }: Props): JSX.Element => {
+  const [isChosen, setIsChosen] = useState<string>('tweets');
 
   //사용자 아이디 존재 시 - get 여부 확인
   return (
     <div className={styles.ProfilePage}>
-      <UserProfile isChosen={isChosen} setIsChosen={setIsChosen}/>
+      <UserProfile isChosen={isChosen} setIsChosen={setIsChosen} />
       <Routes>
-        <Route path="/" element={<Tweets />}/>
-        <Route path="/with_replies" element={<TweetsAndReplies/>} />
-        <Route path="/media" element={<Media/>}/>
-        <Route path="/likes" element={<Likes/>}/>
+        <Route path="/" element={<Tweets loadNext={loadNext} />} />
+        <Route
+          path="/with_replies"
+          element={<TweetsAndReplies loadNext={loadNext} />}
+        />
+        <Route path="/media" element={<Media loadNext={loadNext} />} />
+        <Route path="/likes" element={<Likes loadNext={loadNext} />} />
       </Routes>
+      <div className={styles.Footer}>Footer</div>
     </div>
   );
-  if (null) {
-    //사용자 아이디 없을 시
-    return null;
-    //<ErrorPage/>
-    /*에러페이지 리턴*/
-  }
-
-}
+};
 
 export default ProfilePage;

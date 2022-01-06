@@ -1,4 +1,4 @@
-import styles from './Follow.module.scss';
+import styles from './SideFollow.module.scss';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -19,7 +19,7 @@ interface User {
   bio: string;
 }
 
-function Follow(props: props) {
+function SideFollow(props: props) {
   const userContext = useUserContext();
   const [following, setFollowing] = useState(false);
   const navigate = useNavigate();
@@ -101,7 +101,7 @@ function Follow(props: props) {
         }}
         isOpen={isOpen}
       >
-        <header> Unfollow @{props.id}?</header>
+        <header> Unfollow @{props.id}? </header>
         <br />
         <br />
         <div>
@@ -168,4 +168,4 @@ function Follow(props: props) {
   );
 }
 
-export default Follow;
+export default SideFollow;

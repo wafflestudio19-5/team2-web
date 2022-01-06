@@ -1,17 +1,20 @@
-
-import {useContext, createContext, useState, Dispatch} from "react";
-import React from "react"
+import { useContext, createContext, useState, Dispatch } from 'react';
+import React from 'react';
 const networkContext = createContext({
-    token: localStorage.JWT,
-    setToken: (state: string) => {}
+  token: localStorage.JWT,
+  setToken: (state: string) => {},
 });
-export const NetworkContextProvider = ({ children } : {children: React.ReactNode}  ) => {
-    const [token, setToken] = useState(localStorage.JWT);
-    return (
-        <networkContext.Provider
-            value={{
-                token,
-                setToken,
+export const NetworkContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [token, setToken] = useState(localStorage.JWT);
+  return (
+    <networkContext.Provider
+      value={{
+        token,
+        setToken,
       }}
     >
       {children}
