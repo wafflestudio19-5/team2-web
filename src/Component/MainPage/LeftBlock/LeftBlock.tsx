@@ -1,5 +1,5 @@
 import styles from './LeftBlock.module.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TweetModal from '../../Modal/TweetModal/TweetModal';
 import setting from '../../../Images/setting.svg';
 import profile_unclicked from '../../../Images/profile_unclicked.svg';
@@ -14,16 +14,30 @@ import logo_blue from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Lo
 import more from '../../../Images/more.svg';
 import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useUserContext } from '../../../UserContext';
 
 
 
 function LeftBlock() {
+
+  const userContext = useUserContext();
+
+  const params = useParams();
+
 
   const navigate = useNavigate();
 
   const [isTweetModalOpen, setIsTweetModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [whichNavigatorClicked, setWhichNavigatorClicked] = useState('home');
+
+
+  useEffect(() => {
+    if (params.id !== userContext.nowUserID) {
+      setWhichNavigatorClicked('');
+    }
+  }, [])
+
 
   const handleTweetClick = () => {
     setIsTweetModalOpen(!isTweetModalOpen);
@@ -40,36 +54,51 @@ function LeftBlock() {
 
   const logOut = () => {
     localStorage.removeItem("JWT");
+    localStorage.removeItem("user_id");
     console.log("logout");
     window.location.replace("/");
     setIsLogoutModalOpen(false);
   };
 
   const HomeClicked = () => {
-    navigate('/home');
-    setWhichNavigatorClicked('home');
+    if (whichNavigatorClicked != 'home') {
+
+      navigate('/home');
+      setWhichNavigatorClicked('home');
+    }
   }
 
   const ExploreClicked = () => {
-    navigate('/explore');
-    setWhichNavigatorClicked('explore');
+    if (whichNavigatorClicked != 'explore') {
+
+      navigate('/explore');
+      setWhichNavigatorClicked('explore');
+    }
   }
 
   const NotificationsClicked = () => {
-    navigate('/notifications');
-    setWhichNavigatorClicked('notifications');
+    if (whichNavigatorClicked != 'notifications') {
+
+      navigate('/notifications');
+      setWhichNavigatorClicked('notifications');
+    }
   }
 
   const ProfileClicked = () => {
-    navigate('/user4');
-    setWhichNavigatorClicked('profile');
+    if (whichNavigatorClicked != 'profile') {
+
+      navigate(`/${localStorage.getItem('user_id')}`);
+      setWhichNavigatorClicked('profile');
+    }
   }
 
   const SettingClicked = () => {
-    navigate('/setting');
-    setWhichNavigatorClicked('setting');
-  }
+    if (whichNavigatorClicked != 'setting') {
 
+      navigate('/setting');
+      setWhichNavigatorClicked('setting');
+    }
+  }
 
   return (
     <div className={styles.LeftBlock}>
@@ -128,10 +157,17 @@ function LeftBlock() {
             </span>}
         </div>
         <div className={styles.NavigatorWrapper} onClick={SettingClicked}>
-          <span className={styles.NavigatorButton}>
-            <img className={styles.NavigatorImg} src={setting} width={30} height={30} alt="No img" />
-            <div className={styles.NavigatorText}>Setting</div>
-          </span>
+          {whichNavigatorClicked == 'setting' ?
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={setting} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorTextBolder}>Setting</div>
+            </span>
+            :
+            <span className={styles.NavigatorButton}>
+              <img className={styles.NavigatorImg} src={setting} width={30} height={30} alt="No img" />
+              <div className={styles.NavigatorText}>Setting</div>
+            </span>}
+
         </div>
         <button className={styles.TweetButton} onClick={handleTweetClick}>
           Tweet

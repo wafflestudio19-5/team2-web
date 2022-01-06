@@ -4,10 +4,12 @@ import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModa
 import styles from './UserProfile.module.scss';
 import arrow_left from '../../../../../Images/arrow-left.svg';
 import calendar from '../../../../../Images/calendar.svg';
+import { useUserContext } from '../../../../../UserContext';
 
 function UserProfile(props: {isChosen : string
   setIsChosen: (value: string) => void }) {
 
+  const UserContext = useUserContext();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -18,21 +20,25 @@ function UserProfile(props: {isChosen : string
     setIsEditProfileModalOpen(!isEditProfileModalOpen);
   };
 
+  const handleFollowClick = () =>{
+    console.log('hi');
+  }
+
   const switchToTweets = () => {
     props.setIsChosen('tweets');
-    navigate('/user4');
+    navigate(`/${UserContext.nowUserID}`);
   };
   const switchToTweetsAndReplies = () => {
     props.setIsChosen('tweetsandreplies');
-    navigate('/user4/with_replies');
+    navigate(`/${UserContext.nowUserID}/with_replies`);
   };
   const switchToMedia = () => {
     props.setIsChosen('media');
-    navigate('/user4/media');
+    navigate(`/${UserContext.nowUserID}/media`);
   };
   const switchToLikes = () => {
     props.setIsChosen('likes');
-    navigate('/user4/likes');
+    navigate(`/${UserContext.nowUserID}/likes`);
   };
 
 
@@ -71,12 +77,21 @@ function UserProfile(props: {isChosen : string
               alt='profileImg'
               width={140}
               height={140}
-            /> {/*profile img*/}
-            <button
-              className={styles.UserProfileEditButton}
-              onClick={handleEditProfileClick}>
-              Edit profile
-            </button>
+            />
+            
+              {params.id===UserContext.nowUserID ?
+               <button
+               className={styles.UserProfileEditButton}
+               onClick={handleEditProfileClick}>
+                 Edit profile
+              </button>
+               :
+               <button
+               className={styles.UserProfileEditButton}
+               onClick={handleFollowClick}>
+                 Follow
+              </button>
+               }
           </div>
           <div className={styles.UserProfileInfoBox}>
             <div style={{
