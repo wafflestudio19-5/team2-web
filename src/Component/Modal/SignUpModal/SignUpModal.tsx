@@ -29,7 +29,7 @@ function SignUpModal(props: props) {
     const [userData, setUserData] = useState({
         username: "",
         email: "",
-        phone_number: "010-1234-5678",
+        phone_number: "",
         birth_date: "",
         password: "",
         user_id: "",
@@ -46,10 +46,11 @@ function SignUpModal(props: props) {
     }
     const onClick = () => {
         axios
-            .post<{ success: boolean }>("/signup/", userData
+            .post<{ success: boolean }>("/signup/", userData, {headers:{Authorization:''}}
             )
             .then((response: AxiosResponse<any>) => {
                 localStorage.setItem("JWT", response.data.token);
+                localStorage.setItem("user_id", response.data.user_id)
                 networkContext.setToken(response.data.token);
                 props.setSignUpIsOpen(false);
                 localStorage.setItem("user_id", response.data.user_id);

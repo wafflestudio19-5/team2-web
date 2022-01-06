@@ -19,6 +19,7 @@ function App() {
 
     const networkContext = useNetworkContext();
 
+
     
     axios.defaults.baseURL =
         "https://clonetwitter.shop/api/v1";

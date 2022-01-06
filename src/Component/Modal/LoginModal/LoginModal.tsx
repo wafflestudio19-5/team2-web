@@ -36,10 +36,12 @@ function LoginModal(props: props) {
             .post<{success:boolean}>("/login/", {...authData}, {headers:{Authorization:''}})
             .then((response: any)=>{
                 localStorage.setItem("JWT", response.data.token);
+                localStorage.setItem("user_id", response.data.user_id)
                 networkContext.setToken(response.data.token);
                 props.setLoginIsOpen(false);
                 localStorage.setItem("user_id", response.data.user_id);
                 userContext.setNowUserID(response.data.user_id);
+
                 navigate("/");
             })
             .catch((error)=>{

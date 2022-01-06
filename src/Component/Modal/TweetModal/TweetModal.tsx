@@ -50,6 +50,7 @@ const TweetModal = ({
     <Modal isOpen={isTweetModalOpen} style={{
       overlay: {
         position: 'fixed',
+        zIndex: 100,
         top: 0,
         left: 0,
         right: 0,
