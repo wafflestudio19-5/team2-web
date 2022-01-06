@@ -1,17 +1,18 @@
 .LeftBlock {
-  height: 695px;
-  width: 14%;
-  position: fixed;
+  height: 100%;
+  width: 15%;
   display: flex;
+  position: sticky;
+  top: 0;
   justify-self: flex-end;
   flex-direction: column;
-  z-index: 1;
+
+  margin-left: 5%;
 }
 
 .NavigatorBlock {
   display: block;
 }
-
 
 .NavigatorWrapper {
   padding: 15px 5px;
@@ -19,7 +20,7 @@
   display: flex;
   &:hover {
     cursor: pointer;
-    .NavigatorButton{
+    .NavigatorButton {
       cursor: pointer;
       background-color: #e9e9ea;
     }
@@ -71,12 +72,12 @@
   display: inline-flex;
   text-align: center;
   justify-content: center;
+  align-items: center;
   border-radius: 30px;
   width: 100%;
-  padding: 15px 0;
+  height: 50px;
   text-align: center;
   border: 0;
-  margin-left: 5px;
   margin-top: 40px;
   background-color: #1d9bf0;
   color: #ffff;
@@ -92,8 +93,7 @@
   opacity: 0;
 }
 
-
-.LogoutModal{
+.LogoutModal {
   border-radius: 10px;
   bottom: 70px;
   border: 1px solid black;
@@ -161,7 +161,6 @@
   padding: 2px 10px;
 }
 
-
 @media screen and (max-width: 1200px) {
   .LeftBlock {
     height: 695px;
@@ -170,13 +169,12 @@
     display: flex;
     justify-self: flex-end;
     flex-direction: column;
-    z-index: 1;
   }
 
   .NavigatorBlock {
     display: block;
   }
-  
+
   .NavigatorHeader {
     margin-top: 20px;
     margin-left: 20px;
@@ -186,92 +184,88 @@
       cursor: pointer;
     }
   }
-  
+
   .NavigatorWrapper {
     padding: 15px 20px;
     width: 100%;
     display: flex;
     &:hover {
       cursor: pointer;
-      .NavigatorButton{
+      .NavigatorButton {
         cursor: pointer;
         background-color: #e9e9ea;
       }
     }
   }
-  
-  
+
   .NavigatorButton {
     border-radius: 30px;
     padding: 5px 0px;
     font-size: 20px;
     display: inline-flex;
   }
-  
+
   .NavigatorImg {
     margin-right: 10px;
     padding: 2px 4px;
   }
-  
+
   .NavigatorText {
     display: none;
   }
   .NavigatorTextBolder {
     display: none;
   }
-  
+
   .TweetButton {
     display: none;
   }
-  
+
   .TweetButtonSmall {
     margin: 40px 21px;
     opacity: 1;
   }
 
- 
-
-  
-.LogoutModal{
-  border-radius: 10px;
-  bottom: 70px;
-  border: 1px solid black;
-  padding: 20px 0px;
-  background: white;
-  position: fixed;
-  width: 14%;
-  display: flex;
-  justify-content: center;
-  color: red;
-  &:hover {
-    cursor: pointer;
-    background-color: #f7f9f9;
+  .LogoutModal {
+    border-radius: 10px;
+    bottom: 70px;
+    border: 1px solid black;
+    padding: 20px 0px;
+    background: white;
+    position: fixed;
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    color: red;
+    &:hover {
+      cursor: pointer;
+      background-color: #f7f9f9;
+    }
   }
-}
 
-.ProfileBlock {
-  border-radius: 60px;
-  bottom: 10px;
-  border: 0;
-  background: white;
-  position: fixed;
-  width: auto;
-  align-items: center;
-  display: flex;
-  &:hover {
-    cursor: pointer;
-    background-color: #e9e9ea;
+  .ProfileBlock {
+    border-radius: 60px;
+    bottom: 10px;
+    border: 0;
+    background: white;
+    position: fixed;
+    width: auto;
+    align-items: center;
+    display: flex;
+    &:hover {
+      cursor: pointer;
+      background-color: #e9e9ea;
+    }
   }
-}
 
-.ProfileWrapper {
-  display: flex;
-  justify-content: flex-start;
-  padding: 5px 10px;
-  width: 100%;
-  position: relative;
-}
-  
+  .ProfileWrapper {
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px 10px;
+    width: 100%;
+    position: relative;
+  }
+
   .ProfileImgWrapper {
     align-items: center;
     justify-content: center;
@@ -279,21 +273,21 @@
     border-radius: 100%;
     border: 1px black solid;
   }
-  
+
   .ProfileTextWrapper {
     display: none;
   }
-  
+
   .ProfileImg {
     margin-right: 10px;
     padding: 2px 4px;
   }
-  
+
   .ProfileText {
     display: none;
   }
 
-  .ProfileImgMore{
+  .ProfileImgMore {
     display: none;
   }
 }

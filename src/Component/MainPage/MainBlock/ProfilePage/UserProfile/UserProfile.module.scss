@@ -1,15 +1,14 @@
 .UserProfileHeader {
-  position: absolute;
+  position: sticky;
+  top: 0;
   height: 55px;
-  width: 35.06%;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding-left: 5px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(236, 236, 236);
   background-color: white;
   opacity: 0.95;
-  position: fixed;
   z-index: 1;
 }
 
@@ -38,7 +37,6 @@
 
 .UserProfileBody {
   width: 100%;
-  margin-top: 56.4px;
 }
 
 .UserProfileBackground {
@@ -95,9 +93,11 @@
   width: 100%;
   height: 55px;
   display: flex;
+
+  border-bottom: 1px solid rgb(236, 236, 236);
 }
 
-.UserProfileRouterButtonUnclicked{
+.UserProfileRouterButtonUnclicked {
   width: 25%;
   height: 100%;
   border: 0;
@@ -111,7 +111,7 @@
   }
 }
 
-.UserProfileRouterButtonClicked{
+.UserProfileRouterButtonClicked {
   width: 25%;
   height: 100%;
   border: 0;

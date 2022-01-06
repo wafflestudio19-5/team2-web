@@ -1,9 +1,8 @@
 import styles from './Trend.module.scss';
-import more from '../../../../Images/more.svg';
 import { useNavigate } from 'react-router-dom';
+import more from '../../../Images/more.svg';
 
 function Trend(props: { text: string }) {
-
   const navigate = useNavigate();
 
   return (
@@ -11,7 +10,13 @@ function Trend(props: { text: string }) {
       <div className={styles.TrendHeader}>
         <span className={styles.TrendHeaderText}>Trending in South Korea</span>
         <span>
-            <img src={more} alt="no img" onClick={()=>{console.log('setting')}}/>
+          <img
+            src={more}
+            alt="no img"
+            onClick={() => {
+              console.log('setting');
+            }}
+          />
         </span>
       </div>
       <div className={styles.TrendContent}>{props.text}</div>

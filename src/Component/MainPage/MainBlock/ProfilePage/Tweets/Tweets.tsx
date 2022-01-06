@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Interface } from 'readline';
 import Tweet from '../../../../Reused/Tweet/Tweet';
 import styles from './Tweets.module.scss';
 
@@ -73,9 +72,6 @@ export interface Props {
 
 function Tweets() {
   const [tweetList, setTweetList] = useState<Props['tweetsType']>(dummyData);
-  /*const filteredTweet = tweetItem.filter((item) => {
-    return item.name.includes(search);
-  })*/
   return (
     <ul className={styles.tweetsItems}>
       {tweetList.map(item => (

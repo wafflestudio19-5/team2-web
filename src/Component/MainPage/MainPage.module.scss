@@ -1,7 +1,10 @@
 .MainPage {
   position: relative;
   display: flex;
+  justify-content: space-around;
+  align-items: center;
   height: 100%;
-  width: 98%;
-  margin-left: 1%;
+  width: 100%;
+
+  overflow: scroll;
 }

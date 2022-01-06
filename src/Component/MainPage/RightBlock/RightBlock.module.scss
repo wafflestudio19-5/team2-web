@@ -1,10 +1,10 @@
 $grey: rgb(239, 243, 244);
 
 .RightBlock {
-  position: fixed;
+  position: sticky;
+  top: 0;
   height: 100%;
-  width: 21.5%;
-  margin-left: 37%;
+  width: 25%;
 
   font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -12,19 +12,21 @@ $grey: rgb(239, 243, 244);
 
 .RightInside {
   position: sticky;
-  //padding-left: 40px;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
 }
 
 .SearchLabel {
   border: none;
   background-color: $grey;
-  position: fixed;
-  width: 20%;
+  position: sticky;
+  top: 10px;
+  width: 100%;
   height: 44.4px;
   display: flex;
   border-radius: 9999px;
-  margin-left: 10px;
-  margin-top: 5px;
+  margin-top: 2%;
   &:focus-within::before {
     content: '';
     display: block;
@@ -33,12 +35,10 @@ $grey: rgb(239, 243, 244);
     bottom: -1px;
     left: -1px;
     right: -1px;
-    border: #00b7ff 1px solid;
+    outline: #00b7ff 1px solid;
     border-radius: 9999px;
     background-color: rgba(255, 255, 255, 0.5);
   }
-}
-.Magnifier {
 }
 
 .MagnifierWrapper {
@@ -64,10 +64,9 @@ $grey: rgb(239, 243, 244);
 
 .TrendsWrapper {
   display: flex;
-  padding-top: 60px;
-  padding-left: 10px;
-  padding-right: 10px;
   flex-direction: column;
+  width: 100%;
+  margin-top: 5%;
 }
 
 .TrendsInside {
@@ -122,10 +121,9 @@ $grey: rgb(239, 243, 244);
 
 .WhoToFollowWrapper {
   display: flex;
-  margin-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
   flex-direction: column;
+  margin-top: 5%;
+  width: 100%;
 }
 
 .WhoToFollowInside {

@@ -1,14 +1,14 @@
 import styles from './MainPage.module.scss';
-import React from 'react';
-
 import LeftBlock from './LeftBlock/LeftBlock';
 import MainBlock from './MainBlock/MainBlock';
+import RightBlock from './RightBlock/RightBlock';
 
 function MainPage() {
   return (
     <div className={styles.MainPage}>
       <LeftBlock />
       <MainBlock />
+      <RightBlock />
     </div>
   );
 }
