@@ -6,7 +6,7 @@ const userContext = createContext({
 });
 
 export const UserContextProvider = ({ children } : {children: React.ReactNode}  ) => {
-    const [nowUserID, setNowUserID] = useState('')
+    const [nowUserID, setNowUserID] = useState(localStorage.user_id)
     return (
         <userContext.Provider
             value={{
