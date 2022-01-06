@@ -5,6 +5,8 @@ import Trend from './Trend';
 import Follow from './Follow';
 
 function RightBlock() {
+
+
   return (
     <div className={styles.RightBlock}>
       <div className={styles.RightInside}>

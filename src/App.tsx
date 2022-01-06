@@ -25,7 +25,7 @@ function App() {
     axios.defaults.headers.post['Content-Type'] = "application/json"
 
     if(networkContext !== null){
-        axios.defaults.headers.common["Authorization"] = "Bearer " + networkContext.token;
+        axios.defaults.headers.common["Authorization"] = "JWT " + networkContext.token;
     }
 
 
@@ -39,10 +39,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            {/*<Route
+            <Route
               path={'/oauth/callback/kakao'}
               element={<KakaoAuthRedirect />}
-            />*/}
+            />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
@@ -52,13 +52,11 @@ function App() {
     //로그인 된 경우
     return (
       <div className={styles.App}>
-
         <BrowserRouter>
           <Routes>
             <Route path="/*" element={<MainPage />} />
           </Routes>
         </BrowserRouter>
-
       </div>
     );
   }

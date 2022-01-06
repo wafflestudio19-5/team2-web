@@ -4,25 +4,25 @@ import {BeatLoader} from "react-spinners";
 import axios from "axios";
 import {useNetworkContext} from "./AuthContext";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
-const instance = axios.create({
-    baseURL: 'http://clonetwitter.shop'
-});
+
 
 function KakaoAuthRedirect() {
     const Navigate = useNavigate();
     const networkContext = useNetworkContext();
     const code = new URL(window.location.href).searchParams.get("code");
-    console.log(code);
+    const user_id = new URL(window.location.href).searchParams.get("user_id");
     React.useEffect(()=>{
-        instance.get('/oauth/callback/kakao/?code='+code)
-            .then((response)=>{
-                networkContext.setToken(response.data.token);
-                Navigate('/' + response.data.user_id);
-            })
-            .catch((error)=>{
-                console.log(error.message)
-            })
+        if(code === "null") {
+            toast.error("로그인에 실패하였습니다")
+            Navigate('/')
+        }
+        else {
+            networkContext.setToken(code ? code : '');
+            Navigate('/' + user_id);
+        }
+
     }, [])
     return (
         <div style={{position: 'absolute',

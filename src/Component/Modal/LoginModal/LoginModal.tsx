@@ -42,8 +42,7 @@ function LoginModal(props: props) {
                 navigate("/"+response.data.user_id);
             })
             .catch((error)=>{
-                toast.error(error.response.data.user_id[0])
-                toast.error(error.response.data.password[0])
+                toast.error("올바른 입력정보가 아닙니다.")
             })
     }
     return (

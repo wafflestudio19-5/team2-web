@@ -6,12 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import {NetworkContextProvider} from "./Auth/AuthContext";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import {UserContextProvider} from "./UserContext";
+
 ReactDOM.render(
     <NetworkContextProvider>
+        <UserContextProvider>
         <React.StrictMode>
             <App/>
             <ToastContainer position="bottom-right" />
         </React.StrictMode>
+        </UserContextProvider>
     </NetworkContextProvider>
     ,
     document.getElementById('root'),

@@ -7,7 +7,6 @@ const networkContext = createContext({
 });
 export const NetworkContextProvider = ({ children } : {children: React.ReactNode}  ) => {
     const [token, setToken] = useState(localStorage.JWT);
-    //const [kakaoApproveCode,setKakaoApproveCode] = useState('null');
     return (
         <networkContext.Provider
             value={{
