@@ -53,6 +53,7 @@ function SignUpModal(props: props) {
                 networkContext.setToken(response.data.token);
                 props.setSignUpIsOpen(false);
                 userContext.setNowUserID(response.data.user_id)
+                localStorage.setItem("user_id", response.data.user_id)
                 Navigate('/' + response.data.user_id);
             })
             .catch((error) => {
