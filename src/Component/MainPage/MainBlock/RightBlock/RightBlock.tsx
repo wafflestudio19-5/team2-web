@@ -3,9 +3,28 @@ import Magnifier from '../../../../Images/magnifier.svg';
 import Setting from '../../../../Images/setting.svg';
 import Trend from './Trend';
 import Follow from './Follow';
+import {useUserContext} from "../../../../UserContext";
+import React, {useState} from "react";
+import axios from "axios";
+import {toast} from "react-toastify";
+
+interface recommendData {
+  user_id: '',
+  username: ''
+}
 
 function RightBlock() {
+  const [recommendData,setRecommendData] = useState<recommendData[]>([{user_id: '', username: ''},{user_id: '', username: ''}]);
 
+  React.useEffect(()=>{
+    axios.get('/recommend/')
+        .then((response)=>{
+          setRecommendData(response.data)
+        })
+        .catch(()=>{
+          toast.error("팔로워 추천을 받아오는데 실패하였습니다.")
+        })
+  },[])
 
   return (
     <div className={styles.RightBlock}>
@@ -51,8 +70,8 @@ function RightBlock() {
             <div className={styles.WhoToFollowHeader}>
               <span>Who to follow</span>
             </div>
-            <Follow id={'ABC'} name={'이이이'} img={Magnifier}></Follow>
-            <Follow id={'ABC'} name={'이이이'} img={Magnifier}></Follow>
+            <Follow  id={recommendData[0].user_id} name={recommendData[0].username} img={Magnifier}></Follow>
+            <Follow  id={recommendData[1].user_id} name={recommendData[1].username} img={Magnifier}></Follow>
             <button className={styles.FollowFooter}>
               <span>Show more</span>
             </button>

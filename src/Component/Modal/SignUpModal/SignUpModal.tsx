@@ -46,7 +46,7 @@ function SignUpModal(props: props) {
     }
     const onClick = () => {
         axios
-            .post<{ success: boolean }>("/signup/", userData
+            .post<{ success: boolean }>("/signup/", userData, {headers:{Authorization:''}}
             )
             .then((response: AxiosResponse<any>) => {
                 localStorage.setItem("JWT", response.data.token);

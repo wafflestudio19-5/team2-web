@@ -33,7 +33,7 @@ function LoginModal(props: props) {
     }
     const onSubmit = () => {
         axios
-            .post<{success:boolean}>("/login/", {...authData})
+            .post<{success:boolean}>("/login/", {...authData}, {headers:{Authorization:''}})
             .then((response: any)=>{
                 localStorage.setItem("JWT", response.data.token);
                 networkContext.setToken(response.data.token);

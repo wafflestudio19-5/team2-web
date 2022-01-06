@@ -20,6 +20,7 @@ function KakaoAuthRedirect() {
         }
         else {
             networkContext.setToken(code ? code : '');
+            localStorage.setItem("JWT", code ? code : '');
             localStorage.setItem("user_id", user_id ? user_id : '')
             Navigate('/' + user_id);
         }

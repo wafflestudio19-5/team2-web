@@ -1,4 +1,6 @@
 import styles from './Follow.module.scss';
+import axios from "axios";
+import {useState} from "react";
 
 interface props {
   name: string;
@@ -6,7 +8,12 @@ interface props {
   img: string;
 }
 
+/*
+axios.post('/follow/',{following: user_id})
+*/
+
 function Follow(props: props) {
+  const [following ,setFollowing] = useState()
   return (
     <div className={styles.FollowWrapper}>
       <div className={styles.FollowInside}>
