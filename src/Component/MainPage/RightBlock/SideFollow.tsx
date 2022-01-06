@@ -23,23 +23,6 @@ function SideFollow(props: props) {
   const userContext = useUserContext();
   const [following, setFollowing] = useState(false);
   const navigate = useNavigate();
-  React.useEffect(() => {
-    axios
-      .get('/follow_list/' + userContext.nowUserID + '/following/')
-      .then(response => {
-        const list = response.data.filter(
-          (user: User) => user.user_id === props.id,
-        );
-        if (list.length === 0) {
-          setFollowing(false);
-        } else {
-          setFollowing(true);
-        }
-      })
-      .catch(() => {
-        toast.error('팔로우 목록 요청 실패');
-      });
-  }, []);
 
   const follow = () => {
     axios
@@ -47,12 +30,12 @@ function SideFollow(props: props) {
       .then(() => {
         setFollowing(true);
       })
-      .catch(() => {
+      .catch((error) => {
         toast.error('팔로우 요청 실패');
       });
   };
 
-  const unfollow = () => {
+   const unfollow = () => {
     axios
       .delete('/unfollow/' + props.id)
       .then(() => {
@@ -67,7 +50,6 @@ function SideFollow(props: props) {
   return (
     <div
       onClick={(e) => {
-        if(e.currentTarget !== e.target) return;
         navigate('/' + props.id);
       }}
       className={styles.FollowWrapper}
@@ -147,7 +129,8 @@ function SideFollow(props: props) {
           <div className={styles.FollowButtonWrapper}>
             {following ? (
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   setIsOpen(true);
                 }}
                 className={styles.FollowingButton}
@@ -156,7 +139,8 @@ function SideFollow(props: props) {
               </button>
             ) : (
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   follow();
                 }}
                 className={styles.FollowButton}
