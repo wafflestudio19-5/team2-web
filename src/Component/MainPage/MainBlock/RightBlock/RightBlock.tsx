@@ -2,7 +2,7 @@ import styles from './RightBlock.module.scss';
 import Magnifier from '../../../../Images/magnifier.svg';
 import Setting from '../../../../Images/setting.svg';
 import Trend from './Trend';
-import Follow from './Follow';
+import SideFollow from './SideFollow';
 import React, {useState} from "react";
 import axios from "axios";
 import {toast} from "react-toastify";
@@ -58,7 +58,6 @@ function RightBlock() {
             <Trend text={'Trend1'}></Trend>
             <Trend text={'Trend2'}></Trend>
             <Trend text={'Trend3'}></Trend>
-            <Trend text={'Trend4'}></Trend>
 
             <button className={styles.TrendFooter}>
               <span className={styles.TrendFooterText}>Show more</span>
@@ -70,8 +69,8 @@ function RightBlock() {
             <div className={styles.WhoToFollowHeader}>
               <span>Who to follow</span>
             </div>
-            <Follow id={recommendData[0].user_id} name={recommendData[0].username} img={recommendData[0].profile_img}/>
-            <Follow id={recommendData[1].user_id} name={recommendData[1].username} img={recommendData[1].profile_img}/>
+            <SideFollow id={recommendData[0].user_id} name={recommendData[0].username} img={recommendData[0].profile_img}/>
+            <SideFollow id={recommendData[1].user_id} name={recommendData[1].username} img={recommendData[1].profile_img}/>
             <button className={styles.FollowFooter}>
               <span>Show more</span>
             </button>

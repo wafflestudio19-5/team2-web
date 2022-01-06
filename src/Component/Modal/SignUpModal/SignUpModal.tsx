@@ -29,7 +29,7 @@ function SignUpModal(props: props) {
     const [userData, setUserData] = useState({
         username: "",
         email: "",
-        phone_number: "010-1234-5678",
+        phone_number: "",
         birth_date: "",
         password: "",
         user_id: "",
@@ -50,11 +50,11 @@ function SignUpModal(props: props) {
             )
             .then((response: AxiosResponse<any>) => {
                 localStorage.setItem("JWT", response.data.token);
+                localStorage.setItem("user_id", response.data.user_id)
                 networkContext.setToken(response.data.token);
                 props.setSignUpIsOpen(false);
                 userContext.setNowUserID(response.data.user_id)
-                localStorage.setItem("user_id", response.data.user_id)
-                Navigate('/' + response.data.user_id);
+                Navigate('/');
             })
             .catch((error) => {
                 toast.error("올바른 입력정보가 아닙니다.")

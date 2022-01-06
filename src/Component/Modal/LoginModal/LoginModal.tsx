@@ -36,10 +36,11 @@ function LoginModal(props: props) {
             .post<{success:boolean}>("/login/", {...authData}, {headers:{Authorization:''}})
             .then((response: any)=>{
                 localStorage.setItem("JWT", response.data.token);
+                localStorage.setItem("user_id", response.data.user_id)
                 networkContext.setToken(response.data.token);
                 props.setLoginIsOpen(false);
                 userContext.setNowUserID(response.data.user_id)
-                navigate("/"+response.data.user_id);
+                navigate("/");
             })
             .catch((error)=>{
                 toast.error("올바른 입력정보가 아닙니다.")

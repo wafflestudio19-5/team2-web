@@ -14,13 +14,14 @@ import logo_blue from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Lo
 import more from '../../../Images/more.svg';
 import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {useUserContext} from "../../../UserContext";
 
 
 
 function LeftBlock() {
 
   const navigate = useNavigate();
-
+  const userContext = useUserContext()
   const [isTweetModalOpen, setIsTweetModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [whichNavigatorClicked, setWhichNavigatorClicked] = useState('home');
@@ -42,6 +43,7 @@ function LeftBlock() {
     localStorage.removeItem("JWT");
     console.log("logout");
     window.location.replace("/");
+    userContext.setNowUserID("undefined")
     setIsLogoutModalOpen(false);
   };
 
@@ -61,7 +63,7 @@ function LeftBlock() {
   }
 
   const ProfileClicked = () => {
-    navigate('/user4');
+    navigate('/'+userContext.nowUserID);
     setWhichNavigatorClicked('profile');
   }
 

@@ -1,9 +1,10 @@
-import styles from './Follow.module.scss';
+import styles from './SideFollow.module.scss';
 import axios from "axios";
 import React, {useState} from "react";
 import {toast} from "react-toastify";
 import {useUserContext} from "../../../../UserContext";
 import Modal from "react-modal";
+import {useNavigate} from "react-router-dom";
 
 interface props {
   name: string;
@@ -18,22 +19,19 @@ interface User {
     'bio': string
 }
 
-function Follow(props: props) {
+function SideFollow(props: props) {
   const userContext = useUserContext()
   const [following , setFollowing] = useState(false);
+  const navigate = useNavigate();
   React.useEffect(()=>{
     axios.get('/follow_list/'+userContext.nowUserID+'/following/')
         .then((response)=>{
-            console.log(response.data)
           const list = response.data.filter( (user:User) => user.user_id=== props.id);
-          console.log("list:")
-            console.log(list.length)
           if( list.length === 0 ) {
             setFollowing(false)
           } else {
             setFollowing(true)
           }
-
         })
         .catch(()=>{
           toast.error("팔로우 목록 요청 실패")
@@ -54,6 +52,7 @@ function Follow(props: props) {
     axios.delete('/unfollow/'+ props.id)
         .then(()=>{
           setFollowing(false)
+          setIsOpen(false)
         })
         .catch(()=>{
           toast.error("언팔로우 요청 실패")
@@ -61,7 +60,9 @@ function Follow(props: props) {
   }
   const [isOpen, setIsOpen] = useState<boolean>(false)
   return (
-    <div className={styles.FollowWrapper}>
+    <div onClick={()=>{
+        navigate('/'+props.id)
+    }} className={styles.FollowWrapper}>
         <Modal ariaHideApp={false}
                style={{
                    overlay: {
@@ -106,9 +107,7 @@ function Follow(props: props) {
       <div className={styles.FollowInside}>
         <div className={styles.FollowImg}>
           <span>
-            <a href="">
               <img src={props.img} alt="no img" width={'40px'} />
-            </a>
           </span>
         </div>
         <div className={styles.FollowTextButton}>
@@ -129,4 +128,4 @@ function Follow(props: props) {
   );
 }
 
-export default Follow;
+export default SideFollow;
