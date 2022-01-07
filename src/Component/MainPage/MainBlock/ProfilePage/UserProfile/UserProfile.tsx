@@ -1,4 +1,3 @@
-
 import React, {
   MouseEventHandler,
   useContext,
@@ -49,7 +48,6 @@ function UserProfile(props: {
   const switchToLikes = () => {
     props.setIsChosen('likes');
     navigate(`/${params.id}/likes`);
-
   };
 
   return (
@@ -145,7 +143,7 @@ function UserProfile(props: {
               <div
                 style={{
                   marginLeft: '5px',
-                  color: '#586875'
+                  color: '#586875',
                 }}
               >
                 Joined {props.month ? props.month : ''}{' '}
@@ -164,40 +162,46 @@ function UserProfile(props: {
                 }}
                 className={styles.UserFollowNumberButton}
               >
-              <span
-                style={{
-                  fontWeight: 'bolder'
-                }}
-              >{props.userData.following}</span>
-              &nbsp;
-              <div
-              style={{
-                color: '#586875'
-              }}>
-                Following
-              </div>
+                <span
+                  style={{
+                    fontWeight: 'bolder',
+                  }}
+                >
+                  {props.userData.following}
+                </span>
+                &nbsp;
+                <div
+                  style={{
+                    color: '#586875',
+                  }}
+                >
+                  Following
+                </div>
               </div>
               <div
                 onClick={() => {
                   navigate(`/${params.id}/followers`);
                 }}
                 style={{
-                  marginLeft: '10px'
+                  marginLeft: '10px',
                 }}
                 className={styles.UserFollowNumberButton}
               >
                 <span
                   style={{
-                    fontWeight: 'bolder'
+                    fontWeight: 'bolder',
                   }}
-                >{props.userData.follower}</span>
+                >
+                  {props.userData.follower}
+                </span>
                 &nbsp;
-              <div
-              style={{
-                color: '#586875'
-              }}>
-                Follower
-              </div>
+                <div
+                  style={{
+                    color: '#586875',
+                  }}
+                >
+                  Follower
+                </div>
               </div>
             </div>
           </div>

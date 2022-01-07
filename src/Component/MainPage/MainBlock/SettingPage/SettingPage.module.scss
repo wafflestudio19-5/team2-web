@@ -1,5 +1,4 @@
 .SettingPage {
-
 }
 
 @mixin Button_default {
@@ -24,7 +23,6 @@
 .DeactivateButton {
   @include Button_default;
 }
-
 
 .SocialDeactivateButton {
   @include Button_default;
