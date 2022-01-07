@@ -17,10 +17,8 @@ import KakaoAuthRedirect from './Auth/KakaoAuthRedirect';
 
 function App() {
   const networkContext = useNetworkContext();
-
   axios.defaults.baseURL = 'https://clonetwitter.shop/api/v1';
   axios.defaults.headers.post['Content-Type'] = 'application/json';
-
   if (networkContext !== null) {
     axios.defaults.headers.common['Authorization'] =
       'JWT ' + networkContext.token;

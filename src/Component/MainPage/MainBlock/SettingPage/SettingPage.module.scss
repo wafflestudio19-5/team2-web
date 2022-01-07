@@ -1,2 +1,29 @@
 .SettingPage {
 }
+
+@mixin Button_default {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  border: 0;
+  margin-top: 40px;
+  background-color: #1d9bf0;
+  color: #ffff;
+  font-size: 16px;
+  &:hover {
+    cursor: pointer;
+    background-color: #1a8cd8;
+  }
+}
+.DeactivateButton {
+  @include Button_default;
+}
+
+.SocialDeactivateButton {
+  @include Button_default;
+}

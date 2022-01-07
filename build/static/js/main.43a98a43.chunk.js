@@ -3,80 +3,80 @@
   {
     10: function (e, t, a) {
       e.exports = {
-        UserProfileHeader: 'UserProfile_UserProfileHeader__QRc3l',
-        UserProfileHeaderButton: 'UserProfile_UserProfileHeaderButton__28g60',
-        UserProfileHeaderName: 'UserProfile_UserProfileHeaderName__2odbm',
+        UserProfileHeader: 'UserProfile_UserProfileHeader__1BV_L',
+        UserProfileHeaderButton: 'UserProfile_UserProfileHeaderButton__NhZkf',
+        UserProfileHeaderName: 'UserProfile_UserProfileHeaderName__Gexhv',
         UserProfileHeaderTweetsCount:
-          'UserProfile_UserProfileHeaderTweetsCount__3J_AO',
-        UserProfileBody: 'UserProfile_UserProfileBody__2biBf',
-        UserProfileBackground: 'UserProfile_UserProfileBackground__vXRZC',
-        UserProfileBox: 'UserProfile_UserProfileBox__3Fbc8',
-        UserProfileBanner: 'UserProfile_UserProfileBanner__LSCq_',
-        UserProfileImg: 'UserProfile_UserProfileImg__2v4dW',
-        UserProfileEditButton: 'UserProfile_UserProfileEditButton__2zb8K',
-        UserProfileInfoBox: 'UserProfile_UserProfileInfoBox__1612s',
+          'UserProfile_UserProfileHeaderTweetsCount__3GisF',
+        UserProfileBody: 'UserProfile_UserProfileBody__npmCW',
+        UserProfileBackground: 'UserProfile_UserProfileBackground__3SVBK',
+        UserProfileBox: 'UserProfile_UserProfileBox__YWNej',
+        UserProfileBanner: 'UserProfile_UserProfileBanner__UctlX',
+        UserProfileImg: 'UserProfile_UserProfileImg__KSj9a',
+        UserProfileEditButton: 'UserProfile_UserProfileEditButton__1z138',
+        UserProfileInfoBox: 'UserProfile_UserProfileInfoBox__39YGD',
         UserProfileRouterButtonWrapper:
-          'UserProfile_UserProfileRouterButtonWrapper__3fKBS',
+          'UserProfile_UserProfileRouterButtonWrapper__27Nt3',
         UserProfileRouterButtonUnclicked:
-          'UserProfile_UserProfileRouterButtonUnclicked__3ekcQ',
+          'UserProfile_UserProfileRouterButtonUnclicked__2pMIK',
         UserProfileRouterButtonClicked:
-          'UserProfile_UserProfileRouterButtonClicked__3F7t6',
+          'UserProfile_UserProfileRouterButtonClicked__1FE7W',
       };
     },
     11: function (e, t, a) {
       e.exports = {
-        ModalWrapper: 'SignUpModal_ModalWrapper__3YaVK',
-        ModalHeader: 'SignUpModal_ModalHeader__E_oNx',
-        XWrapper: 'SignUpModal_XWrapper__ye-wc',
-        ModalContent: 'SignUpModal_ModalContent__2bZld',
-        ContentMessage: 'SignUpModal_ContentMessage__Z5Jm6',
-        Button: 'SignUpModal_Button__1jzH-',
-        InputWrapper: 'SignUpModal_InputWrapper__OcaGv',
-        Input: 'SignUpModal_Input__pbram',
-        EmailOrPhone: 'SignUpModal_EmailOrPhone__1eOYi',
+        ModalWrapper: 'SignUpModal_ModalWrapper__3vHTf',
+        ModalHeader: 'SignUpModal_ModalHeader__3VIg2',
+        XWrapper: 'SignUpModal_XWrapper__2teSI',
+        ModalContent: 'SignUpModal_ModalContent__2U2-O',
+        ContentMessage: 'SignUpModal_ContentMessage__3R4eF',
+        Button: 'SignUpModal_Button__1v56S',
+        InputWrapper: 'SignUpModal_InputWrapper__1gdOR',
+        Input: 'SignUpModal_Input__2uzLA',
+        EmailOrPhone: 'SignUpModal_EmailOrPhone__1q8j9',
         BirthdayNotificationHeader:
-          'SignUpModal_BirthdayNotificationHeader__15yI7',
+          'SignUpModal_BirthdayNotificationHeader__3AI-_',
         BirthdayNotificationContent:
-          'SignUpModal_BirthdayNotificationContent__2hiHh',
-        BirthdayInputWrapper: 'SignUpModal_BirthdayInputWrapper__z9FPn',
-        BirthdayInput: 'SignUpModal_BirthdayInput__1LWVv',
-        BlackButton: 'SignUpModal_BlackButton__3igHQ',
+          'SignUpModal_BirthdayNotificationContent__3pRL-',
+        BirthdayInputWrapper: 'SignUpModal_BirthdayInputWrapper__1phAf',
+        BirthdayInput: 'SignUpModal_BirthdayInput__31FQ3',
+        BlackButton: 'SignUpModal_BlackButton__R0UrD',
       };
     },
     12: function (e, t, a) {
       e.exports = {
-        RightBlock: 'RightBlock_RightBlock__LBCu0',
-        RightInside: 'RightBlock_RightInside__10Eqg',
-        SearchWrapper: 'RightBlock_SearchWrapper__SpV6B',
-        SearchLabel: 'RightBlock_SearchLabel__7vZvt',
-        MagnifierWrapper: 'RightBlock_MagnifierWrapper__2Zy3R',
-        SearchInput: 'RightBlock_SearchInput__85BUV',
-        TrendsWrapper: 'RightBlock_TrendsWrapper__1eQb7',
-        TrendsInside: 'RightBlock_TrendsInside__3MwVj',
-        TrendHeader: 'RightBlock_TrendHeader__3tYyU',
-        ButtonWrapper: 'RightBlock_ButtonWrapper__1lhoP',
-        TrendFooter: 'RightBlock_TrendFooter__1SU8q',
-        TrendFooterText: 'RightBlock_TrendFooterText__uJur-',
-        WhoToFollowWrapper: 'RightBlock_WhoToFollowWrapper__3xi5l',
-        WhoToFollowInside: 'RightBlock_WhoToFollowInside__24KbG',
-        WhoToFollowHeader: 'RightBlock_WhoToFollowHeader__1bts4',
-        FollowFooter: 'RightBlock_FollowFooter__2f2t6',
+        RightBlock: 'RightBlock_RightBlock__lfOgz',
+        RightInside: 'RightBlock_RightInside__25hgZ',
+        SearchWrapper: 'RightBlock_SearchWrapper__1OHFA',
+        SearchLabel: 'RightBlock_SearchLabel__1-y4J',
+        MagnifierWrapper: 'RightBlock_MagnifierWrapper__2Wlw2',
+        SearchInput: 'RightBlock_SearchInput__19E3V',
+        TrendsWrapper: 'RightBlock_TrendsWrapper__1Pgvf',
+        TrendsInside: 'RightBlock_TrendsInside__2F639',
+        TrendHeader: 'RightBlock_TrendHeader__1vdLP',
+        ButtonWrapper: 'RightBlock_ButtonWrapper__3zEc4',
+        TrendFooter: 'RightBlock_TrendFooter__3ofVL',
+        TrendFooterText: 'RightBlock_TrendFooterText__3NNKg',
+        WhoToFollowWrapper: 'RightBlock_WhoToFollowWrapper__17ho1',
+        WhoToFollowInside: 'RightBlock_WhoToFollowInside__1takg',
+        WhoToFollowHeader: 'RightBlock_WhoToFollowHeader__1bFPA',
+        FollowFooter: 'RightBlock_FollowFooter__3L--w',
       };
     },
     13: function (e, t, a) {
       e.exports = {
-        LoginPageWrapper: 'LoginPage_LoginPageWrapper__1ZXZx',
-        Background: 'LoginPage_Background__3eXZC',
-        Text1: 'LoginPage_Text1__2dQpJ',
-        Text2: 'LoginPage_Text2__1JVIP',
-        Right: 'LoginPage_Right__29BUt',
-        SignUpWrapper: 'LoginPage_SignUpWrapper__2Aqx5',
-        Button: 'LoginPage_Button__KSXoX',
-        BorderWrapper: 'LoginPage_BorderWrapper__3G-4P',
-        Text3: 'LoginPage_Text3__2IR0B',
-        Link: 'LoginPage_Link__iMLUa',
-        LoginWrapper: 'LoginPage_LoginWrapper__18LwX',
-        Text4: 'LoginPage_Text4__NPzaZ',
+        LoginPageWrapper: 'LoginPage_LoginPageWrapper__XwVyr',
+        Background: 'LoginPage_Background__2dWeA',
+        Text1: 'LoginPage_Text1__3Rbao',
+        Text2: 'LoginPage_Text2__2Z9mp',
+        Right: 'LoginPage_Right__3A8uH',
+        SignUpWrapper: 'LoginPage_SignUpWrapper__3Q8mV',
+        Button: 'LoginPage_Button__2v295',
+        BorderWrapper: 'LoginPage_BorderWrapper__3AUUm',
+        Text3: 'LoginPage_Text3__1UttX',
+        Link: 'LoginPage_Link__d3AWT',
+        LoginWrapper: 'LoginPage_LoginWrapper__2Y5Ph',
+        Text4: 'LoginPage_Text4__2lY3D',
       };
     },
     162: function (e, t, a) {
@@ -96,13 +96,13 @@
         j = a(4),
         g = a.n(j),
         b = a(8),
-        f = a.n(b),
-        h = a(23),
-        x = a.n(h),
+        h = a.n(b),
+        f = a(23),
+        x = a.n(f),
         O = a.p + 'static/media/X.f6c13a58.svg',
-        v = a.p + 'static/media/Logo blue.bf36f3f6.svg';
-      function w() {
-        return (w =
+        v = a.p + 'static/media/Logo blue.33f1fdd4.svg';
+      function _() {
+        return (_ =
           Object.assign ||
           function (e) {
             for (var t = 1; t < arguments.length; t++) {
@@ -113,7 +113,7 @@
             return e;
           }).apply(this, arguments);
       }
-      function _(e, t) {
+      function w(e, t) {
         if (null == e) return {};
         var a,
           r,
@@ -152,10 +152,10 @@
       function I(e, t) {
         var a = e.title,
           n = e.titleId,
-          i = _(e, ['title', 'titleId']);
+          i = w(e, ['title', 'titleId']);
         return r.createElement(
           'svg',
-          w(
+          _(
             {
               xmlns: 'http://www.w3.org/2000/svg',
               viewBox: '0 0 24 24',
@@ -277,7 +277,7 @@
         }
         return n;
       }
-      var S = r.createElement(
+      var W = r.createElement(
         'g',
         null,
         r.createElement('path', {
@@ -287,7 +287,7 @@
           d: 'M20.5 2.02h-17c-1.24 0-2.25 1.007-2.25 2.247v15.507c0 1.238 1.01 2.246 2.25 2.246h17c1.24 0 2.25-1.008 2.25-2.246V4.267c0-1.24-1.01-2.247-2.25-2.247zm.75 17.754c0 .41-.336.746-.75.746h-17c-.414 0-.75-.336-.75-.746V4.267c0-.412.336-.747.75-.747h17c.414 0 .75.335.75.747v15.507z',
         }),
       );
-      function W(e, t) {
+      function S(e, t) {
         var a = e.title,
           n = e.titleId,
           i = E(e, ['title', 'titleId']);
@@ -306,10 +306,10 @@
             i,
           ),
           a ? r.createElement('title', { id: n }, a) : null,
-          S,
+          W,
         );
       }
-      var R = r.forwardRef(W);
+      var R = r.forwardRef(S);
       a.p;
       function M() {
         return (M =
@@ -452,11 +452,11 @@
           J,
         );
       }
-      var q = r.forwardRef(Y),
-        G = (a.p, a(16)),
-        Z = a.n(G),
-        X = a(15),
-        V = a(0),
+      var G = r.forwardRef(Y),
+        q = (a.p, a(16)),
+        Z = a.n(q),
+        V = a(15),
+        X = a(0),
         Q = function (e) {
           var t = e.isTweetModalOpen,
             a = e.setIsTweetModalOpen,
@@ -468,7 +468,7 @@
             s = Object(u.a)(c, 2),
             d = s[0],
             m = s[1];
-          return Object(V.jsx)(x.a, {
+          return Object(X.jsx)(x.a, {
             isOpen: t,
             style: {
               overlay: {
@@ -494,36 +494,36 @@
                 padding: '0 15px 20px 15px',
               },
             },
-            className: f.a.ModalContainer,
-            children: Object(V.jsxs)('div', {
-              className: f.a.ModalWrapper,
+            className: h.a.ModalContainer,
+            children: Object(X.jsxs)('div', {
+              className: h.a.ModalWrapper,
               children: [
-                Object(V.jsxs)('header', {
-                  className: f.a.ModalHeader,
+                Object(X.jsxs)('header', {
+                  className: h.a.ModalHeader,
                   children: [
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       onClick: function () {
                         a(!1);
                       },
-                      className: f.a.XWrapper,
-                      children: Object(V.jsx)('img', {
+                      className: h.a.XWrapper,
+                      children: Object(X.jsx)('img', {
                         src: O,
                         width: 25,
                         height: 25,
                         alt: 'no img',
                       }),
                     }),
-                    Object(V.jsx)('div', {}),
+                    Object(X.jsx)('div', {}),
                   ],
                 }),
-                Object(V.jsxs)('div', {
-                  className: f.a.ModalContent,
+                Object(X.jsxs)('div', {
+                  className: h.a.ModalContent,
                   children: [
-                    Object(V.jsx)('div', {
-                      className: f.a.ModalContentLeft,
-                      children: Object(V.jsx)('div', {
-                        className: f.a.ProfileImgWrapper,
-                        children: Object(V.jsx)('img', {
+                    Object(X.jsx)('div', {
+                      className: h.a.ModalContentLeft,
+                      children: Object(X.jsx)('div', {
+                        className: h.a.ProfileImgWrapper,
+                        children: Object(X.jsx)('img', {
                           width: 48,
                           height: 48,
                           src: v,
@@ -531,29 +531,29 @@
                         }),
                       }),
                     }),
-                    Object(V.jsxs)('div', {
-                      className: f.a.ModalContentRight,
+                    Object(X.jsxs)('div', {
+                      className: h.a.ModalContentRight,
                       children: [
-                        Object(V.jsx)('div', {
-                          className: f.a.ModalContentInputWrapper,
-                          children: Object(V.jsx)('textarea', {
+                        Object(X.jsx)('div', {
+                          className: h.a.ModalContentInputWrapper,
+                          children: Object(X.jsx)('textarea', {
                             onChange: function (e) {
                               !(function (e) {
                                 m(e.target.value);
                               })(e);
                             },
-                            className: f.a.ModalContentInput,
+                            className: h.a.ModalContentInput,
                             placeholder: "What's happening?",
                           }),
                         }),
-                        Object(V.jsx)('div', { className: f.a.BorderWrapper }),
-                        Object(V.jsxs)('div', {
-                          className: f.a.ModalContentRightFooter,
+                        Object(X.jsx)('div', { className: h.a.BorderWrapper }),
+                        Object(X.jsxs)('div', {
+                          className: h.a.ModalContentRightFooter,
                           children: [
-                            Object(V.jsxs)('div', {
-                              className: f.a.ModalContentButtonWrapper,
+                            Object(X.jsxs)('div', {
+                              className: h.a.ModalContentButtonWrapper,
                               children: [
-                                Object(V.jsx)('input', {
+                                Object(X.jsx)('input', {
                                   onChange: function (e) {
                                     !(function (e) {
                                       var t = e.target.files;
@@ -564,41 +564,41 @@
                                   id: 'file',
                                   type: 'file',
                                 }),
-                                Object(V.jsx)('div', {
-                                  className: f.a.IconWrapper,
-                                  children: Object(V.jsx)(P, {
-                                    className: f.a.Icon,
+                                Object(X.jsx)('div', {
+                                  className: h.a.IconWrapper,
+                                  children: Object(X.jsx)(P, {
+                                    className: h.a.Icon,
                                   }),
                                 }),
-                                Object(V.jsx)('div', {
-                                  className: f.a.IconWrapper,
-                                  children: Object(V.jsx)(R, {
-                                    className: f.a.Icon,
+                                Object(X.jsx)('div', {
+                                  className: h.a.IconWrapper,
+                                  children: Object(X.jsx)(R, {
+                                    className: h.a.Icon,
                                   }),
                                 }),
-                                Object(V.jsx)('div', {
-                                  className: f.a.IconWrapper,
-                                  children: Object(V.jsx)(D, {
-                                    className: f.a.Icon,
+                                Object(X.jsx)('div', {
+                                  className: h.a.IconWrapper,
+                                  children: Object(X.jsx)(D, {
+                                    className: h.a.Icon,
                                   }),
                                 }),
-                                Object(V.jsx)('div', {
-                                  className: f.a.IconWrapper,
-                                  children: Object(V.jsx)(k, {
-                                    className: f.a.Icon,
+                                Object(X.jsx)('div', {
+                                  className: h.a.IconWrapper,
+                                  children: Object(X.jsx)(k, {
+                                    className: h.a.Icon,
                                   }),
                                 }),
-                                Object(V.jsx)('div', {
-                                  className: f.a.IconWrapper,
-                                  children: Object(V.jsx)(q, {
-                                    className: f.a.Icon,
+                                Object(X.jsx)('div', {
+                                  className: h.a.IconWrapper,
+                                  children: Object(X.jsx)(G, {
+                                    className: h.a.Icon,
                                   }),
                                 }),
                               ],
                             }),
-                            Object(V.jsx)('div', {
-                              className: f.a.TweetButtonWrapper,
-                              children: Object(V.jsx)('button', {
+                            Object(X.jsx)('div', {
+                              className: h.a.TweetButtonWrapper,
+                              children: Object(X.jsx)('button', {
                                 onClick: function () {
                                   Z.a
                                     .post('/tweet/', { content: d, media: o })
@@ -606,12 +606,12 @@
                                       a(!1);
                                     })
                                     .catch(function () {
-                                      X.b.error(
+                                      V.b.error(
                                         '\ud2b8\uc717 \uc62c\ub9ac\uae30\uc5d0 \uc2e4\ud328\ud588\uc2b5\ub2c8\ub2e4.',
                                       );
                                     });
                                 },
-                                className: f.a.Button,
+                                className: h.a.Button,
                                 children: 'Tweet',
                               }),
                             }),
@@ -646,7 +646,7 @@
             n = Object(u.a)(a, 2),
             i = n[0],
             o = n[1];
-          return Object(V.jsx)(se.Provider, {
+          return Object(X.jsx)(se.Provider, {
             value: { nowUserID: i, setNowUserID: o },
             children: t,
           });
@@ -668,23 +668,23 @@
             p = s[1],
             j = Object(r.useState)('home'),
             b = Object(u.a)(j, 2),
-            f = b[0],
-            h = b[1];
+            h = b[0],
+            f = b[1];
           Object(r.useEffect)(function () {
-            e.id !== localStorage.getItem('user_id') && h('');
+            e.id !== localStorage.getItem('user_id') && f('');
           }, []);
           var x = function () {
             l(!o);
           };
-          return Object(V.jsxs)('div', {
+          return Object(X.jsxs)('div', {
             className: g.a.LeftBlock,
             children: [
-              Object(V.jsxs)('div', {
+              Object(X.jsxs)('div', {
                 className: g.a.NavigatorBlock,
                 children: [
-                  Object(V.jsx)('header', {
+                  Object(X.jsx)('header', {
                     className: g.a.NavigatorHeader,
-                    children: Object(V.jsx)('img', {
+                    children: Object(X.jsx)('img', {
                       className: g.a.NavigatorHeaderImg,
                       src: v,
                       width: 30,
@@ -695,214 +695,214 @@
                       },
                     }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: g.a.NavigatorWrapper,
                     onClick: function () {
-                      'home' != f && (t('/home'), h('home'));
+                      'home' != h && (t('/home'), f('home'));
                     },
                     children:
-                      'home' == f
-                        ? Object(V.jsxs)('span', {
+                      'home' == h
+                        ? Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: ne,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorTextBolder,
                                 children: 'Home',
                               }),
                             ],
                           })
-                        : Object(V.jsxs)('span', {
+                        : Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: re,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorText,
                                 children: 'Home',
                               }),
                             ],
                           }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: g.a.NavigatorWrapper,
                     onClick: function () {
-                      'explore' != f && (t('/explore'), h('explore'));
+                      'explore' != h && (t('/explore'), f('explore'));
                     },
                     children:
-                      'explore' == f
-                        ? Object(V.jsxs)('span', {
+                      'explore' == h
+                        ? Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: oe,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorTextBolder,
                                 children: 'Explore',
                               }),
                             ],
                           })
-                        : Object(V.jsxs)('span', {
+                        : Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: ie,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorText,
                                 children: 'Explore',
                               }),
                             ],
                           }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: g.a.NavigatorWrapper,
                     onClick: function () {
-                      'notifications' != f &&
-                        (t('/notifications'), h('notifications'));
+                      'notifications' != h &&
+                        (t('/notifications'), f('notifications'));
                     },
                     children:
-                      'notifications' == f
-                        ? Object(V.jsxs)('span', {
+                      'notifications' == h
+                        ? Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: ae,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorTextBolder,
                                 children: 'Notifications',
                               }),
                             ],
                           })
-                        : Object(V.jsxs)('span', {
+                        : Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: te,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorText,
                                 children: 'Notifications',
                               }),
                             ],
                           }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: g.a.NavigatorWrapper,
                     onClick: function () {
-                      'profile' != f &&
-                        (t('/'.concat(a.nowUserID)), h('profile'));
+                      'profile' != h &&
+                        (t('/'.concat(a.nowUserID)), f('profile'));
                     },
                     children:
-                      'profile' == f
-                        ? Object(V.jsxs)('span', {
+                      'profile' == h
+                        ? Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: ee,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorTextBolder,
                                 children: 'Profile',
                               }),
                             ],
                           })
-                        : Object(V.jsxs)('span', {
+                        : Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: $,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorText,
                                 children: 'Profile',
                               }),
                             ],
                           }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: g.a.NavigatorWrapper,
                     onClick: function () {
-                      'setting' != f && (t('/setting'), h('setting'));
+                      'setting' != h && (t('/setting'), f('setting'));
                     },
                     children:
-                      'setting' == f
-                        ? Object(V.jsxs)('span', {
+                      'setting' == h
+                        ? Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: K,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorTextBolder,
                                 children: 'Setting',
                               }),
                             ],
                           })
-                        : Object(V.jsxs)('span', {
+                        : Object(X.jsxs)('span', {
                             className: g.a.NavigatorButton,
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 className: g.a.NavigatorImg,
                                 src: K,
                                 width: 30,
                                 height: 30,
                                 alt: 'No img',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 className: g.a.NavigatorText,
                                 children: 'Setting',
                               }),
                             ],
                           }),
                   }),
-                  Object(V.jsx)('button', {
+                  Object(X.jsx)('button', {
                     className: g.a.TweetButton,
                     onClick: x,
                     children: 'Tweet',
                   }),
-                  Object(V.jsx)('img', {
+                  Object(X.jsx)('img', {
                     className: g.a.TweetButtonSmall,
                     src: ce,
                     width: 30,
@@ -910,14 +910,14 @@
                     alt: 'No img',
                     onClick: x,
                   }),
-                  Object(V.jsx)(Q, {
+                  Object(X.jsx)(Q, {
                     isTweetModalOpen: o,
                     setIsTweetModalOpen: l,
                   }),
                 ],
               }),
               m
-                ? Object(V.jsx)('div', {
+                ? Object(X.jsx)('div', {
                     className: g.a.LogoutModal,
                     onClick: function () {
                       localStorage.removeItem('JWT'),
@@ -930,17 +930,17 @@
                     children: 'Logout @id',
                   })
                 : null,
-              Object(V.jsx)('button', {
+              Object(X.jsx)('button', {
                 className: g.a.ProfileBlock,
                 onClick: function () {
                   p(!m);
                 },
-                children: Object(V.jsxs)('div', {
+                children: Object(X.jsxs)('div', {
                   className: g.a.ProfileWrapper,
                   children: [
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       className: g.a.ProfileImgWrapper,
-                      children: Object(V.jsx)('img', {
+                      children: Object(X.jsx)('img', {
                         className: g.a.ProfileImg,
                         src: K,
                         width: 30,
@@ -948,20 +948,20 @@
                         alt: 'profile img',
                       }),
                     }),
-                    Object(V.jsxs)('div', {
+                    Object(X.jsxs)('div', {
                       className: g.a.ProfileTextWrapper,
                       children: [
-                        Object(V.jsx)('div', {
+                        Object(X.jsx)('div', {
                           className: g.a.ProfileText,
                           children: 'id.name',
                         }),
-                        Object(V.jsx)('div', {
+                        Object(X.jsx)('div', {
                           className: g.a.ProfileText,
                           children: '@id',
                         }),
                       ],
                     }),
-                    Object(V.jsx)('img', {
+                    Object(X.jsx)('img', {
                       className: g.a.ProfileImgMore,
                       src: le,
                       alt: 'no img',
@@ -976,8 +976,8 @@
         je = a.n(pe),
         ge = a(5),
         be = a.n(ge),
-        fe = a.p + 'static/media/Xwhite.72480b5f.svg',
-        he = a.p + 'static/media/cameraImg.039b8a55.svg',
+        he = a.p + 'static/media/Xwhite.72480b5f.svg',
+        fe = a.p + 'static/media/cameraImg.039b8a55.svg',
         xe = a(24),
         Oe = a.n(xe),
         ve = function (e) {
@@ -995,35 +995,35 @@
             j = { minHeight: c, height: c, margin: d },
             g = Object(r.useState)(!1),
             b = Object(u.a)(g, 2),
-            f = b[0],
-            h = b[1],
+            h = b[0],
+            f = b[1],
             x = Object(r.useState)(!1),
             O = Object(u.a)(x, 2),
             v = O[0],
-            w = O[1];
-          return Object(V.jsxs)('div', {
+            _ = O[1];
+          return Object(X.jsxs)('div', {
             className: Oe.a.inputWrapper,
             style: j,
             children: [
-              Object(V.jsx)('input', {
+              Object(X.jsx)('input', {
                 className: p && v ? Oe.a.inputBoxWarning : Oe.a.inputBox,
                 onChange: function (e) {
                   t.length >= n
                     ? a(e.target.value.slice(0, n))
                     : a(e.target.value),
-                    0 === e.target.value.length ? w(!0) : w(!1);
+                    0 === e.target.value.length ? _(!0) : _(!1);
                 },
                 value: t,
                 onFocus: function () {
-                  h(!0);
+                  f(!0);
                 },
                 onBlur: function () {
-                  h(!1);
+                  f(!1);
                 },
                 maxLength: n,
               }),
-              Object(V.jsx)('div', {
-                className: f
+              Object(X.jsx)('div', {
+                className: h
                   ? p && v
                     ? Oe.a.inputTitleOnfocusWarning
                     : Oe.a.inputTitleOnfocus
@@ -1032,13 +1032,13 @@
                   : Oe.a.inputTitleFilled,
                 children: o,
               }),
-              Object(V.jsxs)('div', {
+              Object(X.jsxs)('div', {
                 className:
-                  f || (p && v) ? Oe.a.lengthText : Oe.a.lengthTextOnblur,
+                  h || (p && v) ? Oe.a.lengthText : Oe.a.lengthTextOnblur,
                 children: [t.length, ' / ', n],
               }),
               p
-                ? Object(V.jsx)('div', {
+                ? Object(X.jsx)('div', {
                     className: v ? Oe.a.warningText : Oe.a.warningTextInvisible,
                     children: "Name can't be blank",
                   })
@@ -1046,8 +1046,8 @@
             ],
           });
         },
-        we = a(28),
-        _e = a.n(we),
+        _e = a(28),
+        we = a.n(_e),
         Ne = function (e) {
           var t = e.value,
             a = e.setValue,
@@ -1066,12 +1066,12 @@
             p = Object(u.a)(m, 2),
             j = p[0],
             g = p[1];
-          return Object(V.jsxs)('div', {
-            className: _e.a.inputWrapper,
+          return Object(X.jsxs)('div', {
+            className: we.a.inputWrapper,
             style: d,
             children: [
-              Object(V.jsx)('textarea', {
-                className: _e.a.inputBox,
+              Object(X.jsx)('textarea', {
+                className: we.a.inputBox,
                 onChange: function (e) {
                   t.length >= n
                     ? a(e.target.value.slice(0, n))
@@ -1086,16 +1086,16 @@
                 },
                 maxLength: n,
               }),
-              Object(V.jsx)('div', {
+              Object(X.jsx)('div', {
                 className: j
-                  ? _e.a.inputTitleOnfocus
+                  ? we.a.inputTitleOnfocus
                   : '' === t
-                  ? _e.a.inputTitle
-                  : _e.a.inputTitleFilled,
+                  ? we.a.inputTitle
+                  : we.a.inputTitleFilled,
                 children: o,
               }),
-              Object(V.jsxs)('div', {
-                className: j ? _e.a.lengthText : _e.a.lengthTextOnblur,
+              Object(X.jsxs)('div', {
+                className: j ? we.a.lengthText : we.a.lengthTextOnblur,
                 children: [t.length, ' / ', n],
               }),
             ],
@@ -1108,10 +1108,10 @@
         Ce = a(18),
         Ae = a.n(Ce),
         Pe = a.p + 'static/media/arrow-left.365375f9.svg',
-        Te = a.p + 'static/media/minus-magnifying-glass.2f30aec6.svg',
-        Ee = a.p + 'static/media/plus-magnifying-glass.2678b334.svg',
-        Se = a(77),
-        We = function (e) {
+        Te = a.p + 'static/media/minus-magnifying-glass.b90f8359.svg',
+        Ee = a.p + 'static/media/plus-magnifying-glass.b93cfba5.svg',
+        We = a(77),
+        Se = function (e) {
           return new Promise(function (t, a) {
             var r = new Image();
             r.addEventListener('load', function () {
@@ -1162,7 +1162,7 @@
                           ? p[3]
                           : { horizontal: !1, vertical: !1 }),
                       (e.next = 4),
-                      We(t)
+                      Se(t)
                     );
                   case 4:
                     if (
@@ -1223,14 +1223,14 @@
             j = Object(u.a)(p, 2),
             g = j[0],
             b = j[1],
-            f = Object(r.useState)(null),
-            h = Object(u.a)(f, 2),
-            O = h[0],
-            v = h[1],
-            w = function () {
+            h = Object(r.useState)(null),
+            f = Object(u.a)(h, 2),
+            O = f[0],
+            v = f[1],
+            _ = function () {
               m({ x: 0, y: 0 }), b(1), v(null);
             },
-            _ = (function () {
+            w = (function () {
               var e = Object(ye.a)(
                 Be.a.mark(function e() {
                   var t, r;
@@ -1252,7 +1252,7 @@
                             n(r),
                             o(URL.createObjectURL(r)),
                             a(!1),
-                            w());
+                            _());
                         case 5:
                         case 'end':
                           return e.stop();
@@ -1264,7 +1264,7 @@
                 return e.apply(this, arguments);
               };
             })();
-          return Object(V.jsxs)(x.a, {
+          return Object(X.jsxs)(x.a, {
             isOpen: t,
             className: Ae.a.modalStyle,
             overlayClassName: Ae.a.overlayStyle,
@@ -1273,38 +1273,38 @@
               a(!1);
             },
             onAfterClose: function () {
-              w();
+              _();
             },
             ariaHideApp: !1,
             children: [
-              Object(V.jsxs)('header', {
+              Object(X.jsxs)('header', {
                 className: Ae.a.modalHeader,
                 children: [
-                  Object(V.jsx)('button', {
+                  Object(X.jsx)('button', {
                     className: Ae.a.backButton,
                     onClick: function () {
-                      w(), n(null), o(null), a(!1);
+                      _(), n(null), o(null), a(!1);
                     },
-                    children: Object(V.jsx)('img', {
+                    children: Object(X.jsx)('img', {
                       className: Ae.a.backButtonImage,
                       src: Pe,
                       alt: 'back Button Image',
                     }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: Ae.a.headText,
                     children: 'Edit Media',
                   }),
-                  Object(V.jsx)('button', {
+                  Object(X.jsx)('button', {
                     className: Ae.a.applyButton,
-                    onClick: _,
+                    onClick: w,
                     children: 'Apply',
                   }),
                 ],
               }),
-              Object(V.jsx)('div', {
+              Object(X.jsx)('div', {
                 className: Ae.a.cropContainer,
-                children: Object(V.jsx)(Se.a, {
+                children: Object(X.jsx)(We.a, {
                   style: {
                     cropAreaStyle: { border: '4px solid rgba(0, 0, 0, 0.7)' },
                   },
@@ -1320,14 +1320,14 @@
                   zoomWithScroll: !1,
                 }),
               }),
-              Object(V.jsxs)('div', {
+              Object(X.jsxs)('div', {
                 className: Ae.a.cropControllerConatiner,
                 children: [
-                  Object(V.jsx)('img', {
+                  Object(X.jsx)('img', {
                     src: Te,
                     className: Ae.a.magnifyImage,
                   }),
-                  Object(V.jsx)('input', {
+                  Object(X.jsx)('input', {
                     className: Ae.a.zoomController,
                     type: 'range',
                     value: g,
@@ -1338,11 +1338,11 @@
                       b(Number(e.target.value));
                     },
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: Ae.a.fillTrackColor,
                     style: { width: ''.concat(141.5 * (g - 1), 'px') },
                   }),
-                  Object(V.jsx)('img', {
+                  Object(X.jsx)('img', {
                     src: Ee,
                     className: Ae.a.magnifyImage,
                   }),
@@ -1402,12 +1402,12 @@
             j = (p[0], p[1]),
             g = Object(r.useState)(null),
             b = Object(u.a)(g, 2),
-            f = b[0],
-            h = b[1],
+            h = b[0],
+            f = b[1],
             v = Object(r.useState)(!1),
-            w = Object(u.a)(v, 2),
-            _ = w[0],
-            N = w[1],
+            _ = Object(u.a)(v, 2),
+            w = _[0],
+            N = _[1],
             I = Object(r.useState)(null),
             k = Object(u.a)(I, 2),
             B = k[0],
@@ -1417,9 +1417,9 @@
             P = A[0],
             T = A[1],
             E = Object(r.useState)(''),
-            S = Object(u.a)(E, 2),
-            W = S[0],
-            R = S[1],
+            W = Object(u.a)(E, 2),
+            S = W[0],
+            R = W[1],
             M = Object(r.useState)(''),
             U = Object(u.a)(M, 2),
             F = U[0],
@@ -1429,11 +1429,11 @@
             z = H[0],
             J = H[1],
             Y = Object(r.useState)(null),
-            q = Object(u.a)(Y, 2),
-            G = q[0],
-            Z = q[1],
-            X = Object(r.useState)(null),
-            Q = Object(u.a)(X, 2),
+            G = Object(u.a)(Y, 2),
+            q = G[0],
+            Z = G[1],
+            V = Object(r.useState)(null),
+            Q = Object(u.a)(V, 2),
             K = Q[0],
             $ = Q[1],
             ee = Object(r.useState)(null),
@@ -1448,7 +1448,7 @@
               o(null),
                 d(null),
                 j(null),
-                h(null),
+                f(null),
                 T(''),
                 R(''),
                 L(''),
@@ -1462,12 +1462,12 @@
               null !== e.target.files &&
                 1 === e.target.files.length &&
                 (j(e.target.files[0]),
-                h(URL.createObjectURL(e.target.files[0])),
+                f(URL.createObjectURL(e.target.files[0])),
                 y('background'),
                 N(!0),
                 (e.target.value = ''));
             };
-          return Object(V.jsxs)(x.a, {
+          return Object(X.jsxs)(x.a, {
             isOpen: t,
             className: be.a.modalStyle,
             overlayClassName: be.a.overlayStyle,
@@ -1484,36 +1484,36 @@
             },
             ariaHideApp: !1,
             children: [
-              Object(V.jsx)(Le, {
-                isOpen: _,
+              Object(X.jsx)(Le, {
+                isOpen: w,
                 setIsOpen: N,
                 setImageFile:
                   'profile' === B ? o : 'background' === B ? j : function () {},
                 imageFileUrl:
-                  'profile' === B ? s : 'background' === B ? f : null,
+                  'profile' === B ? s : 'background' === B ? h : null,
                 setImageFileUrl:
-                  'profile' === B ? d : 'background' === B ? h : function () {},
+                  'profile' === B ? d : 'background' === B ? f : function () {},
                 imageOnEdit: B,
               }),
-              Object(V.jsxs)('header', {
+              Object(X.jsxs)('header', {
                 className: be.a.modalHeader,
                 children: [
-                  Object(V.jsx)('button', {
+                  Object(X.jsx)('button', {
                     className: be.a.exitButton,
                     onClick: function () {
                       (document.body.style.overflow = 'scroll'), ce(), a(!1);
                     },
-                    children: Object(V.jsx)('img', {
+                    children: Object(X.jsx)('img', {
                       className: be.a.exitButtonImg,
                       src: O,
                       alt: 'Exit Button Image',
                     }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: be.a.headText,
                     children: 'Edit Profile',
                   }),
-                  Object(V.jsx)('button', {
+                  Object(X.jsx)('button', {
                     className: be.a.saveButton,
                     onClick: function () {
                       console.log('Saving Modal Data...'),
@@ -1525,35 +1525,35 @@
                   }),
                 ],
               }),
-              Object(V.jsx)('div', {
+              Object(X.jsx)('div', {
                 className: be.a.hideOverflow,
-                children: Object(V.jsxs)('div', {
+                children: Object(X.jsxs)('div', {
                   className: be.a.contentWrapper,
                   children: [
-                    Object(V.jsxs)('div', {
+                    Object(X.jsxs)('div', {
                       className: be.a.profileImgWrapper,
                       children: [
                         null === s
-                          ? Object(V.jsx)('div', {
+                          ? Object(X.jsx)('div', {
                               className: be.a.profileImgNull,
                             })
-                          : Object(V.jsx)('img', {
+                          : Object(X.jsx)('img', {
                               className: be.a.profileImg,
                               src: s,
                               alt: 'profileImage',
                             }),
-                        Object(V.jsx)('div', {
+                        Object(X.jsx)('div', {
                           className: be.a.profileImgShade,
                         }),
-                        Object(V.jsxs)('div', {
+                        Object(X.jsxs)('div', {
                           className: be.a.profileImgButton,
                           children: [
-                            Object(V.jsx)('img', {
+                            Object(X.jsx)('img', {
                               className: be.a.cameraImg,
-                              src: he,
+                              src: fe,
                               alt: 'cameraImage',
                             }),
-                            Object(V.jsx)('input', {
+                            Object(X.jsx)('input', {
                               className: be.a.profileImageInput,
                               type: 'file',
                               accept: 'image/png, image/jpeg, image/jpg',
@@ -1571,24 +1571,24 @@
                         }),
                       ],
                     }),
-                    Object(V.jsxs)('div', {
+                    Object(X.jsxs)('div', {
                       className: be.a.backgroundImgWrapper,
                       children: [
-                        null === f
-                          ? Object(V.jsxs)(V.Fragment, {
+                        null === h
+                          ? Object(X.jsxs)(X.Fragment, {
                               children: [
-                                Object(V.jsx)('div', {
+                                Object(X.jsx)('div', {
                                   className: be.a.backgroundImgNull,
                                 }),
-                                Object(V.jsxs)('div', {
+                                Object(X.jsxs)('div', {
                                   className: be.a.profileImgButton,
                                   children: [
-                                    Object(V.jsx)('img', {
+                                    Object(X.jsx)('img', {
                                       className: be.a.cameraImg,
-                                      src: he,
+                                      src: fe,
                                       alt: 'cameraImage',
                                     }),
-                                    Object(V.jsx)('input', {
+                                    Object(X.jsx)('input', {
                                       className: be.a.profileImageInput,
                                       type: 'file',
                                       accept:
@@ -1599,23 +1599,23 @@
                                 }),
                               ],
                             })
-                          : Object(V.jsxs)(V.Fragment, {
+                          : Object(X.jsxs)(X.Fragment, {
                               children: [
-                                Object(V.jsx)('img', {
+                                Object(X.jsx)('img', {
                                   className: be.a.backgroundImg,
-                                  src: f,
+                                  src: h,
                                   alt: 'background Image',
                                 }),
-                                Object(V.jsxs)('div', {
+                                Object(X.jsxs)('div', {
                                   className: be.a.profileImgButton,
                                   style: { margin: '0px 100px 0px 0px' },
                                   children: [
-                                    Object(V.jsx)('img', {
+                                    Object(X.jsx)('img', {
                                       className: be.a.cameraImg,
-                                      src: he,
+                                      src: fe,
                                       alt: 'cameraImage',
                                     }),
-                                    Object(V.jsx)('input', {
+                                    Object(X.jsx)('input', {
                                       className: be.a.profileImageInput,
                                       type: 'file',
                                       accept:
@@ -1624,29 +1624,29 @@
                                     }),
                                   ],
                                 }),
-                                Object(V.jsx)('button', {
+                                Object(X.jsx)('button', {
                                   className: be.a.profileImgButton,
                                   style: {
                                     margin: '0px 0px 0px 100px',
                                     cursor: 'pointer',
                                   },
                                   onClick: function () {
-                                    j(null), h(null);
+                                    j(null), f(null);
                                   },
-                                  children: Object(V.jsx)('img', {
+                                  children: Object(X.jsx)('img', {
                                     className: be.a.xImg,
-                                    src: fe,
+                                    src: he,
                                     alt: 'xImage',
                                   }),
                                 }),
                               ],
                             }),
-                        Object(V.jsx)('div', {
+                        Object(X.jsx)('div', {
                           className: be.a.backgroundImgShade,
                         }),
                       ],
                     }),
-                    Object(V.jsx)(ve, {
+                    Object(X.jsx)(ve, {
                       value: P,
                       setValue: T,
                       maxLength: 50,
@@ -1654,22 +1654,22 @@
                       margin: '100px 0px 0px 0px',
                       warn: !0,
                     }),
-                    Object(V.jsx)(Ne, {
-                      value: W,
+                    Object(X.jsx)(Ne, {
+                      value: S,
                       setValue: R,
                       maxLength: 160,
                       titleName: 'Bio',
                       margin: '30px 0px 0px 0px',
                       height: '150px',
                     }),
-                    Object(V.jsx)(ve, {
+                    Object(X.jsx)(ve, {
                       value: F,
                       setValue: L,
                       maxLength: 30,
                       titleName: 'Location',
                       margin: '30px 0px 0px 0px',
                     }),
-                    Object(V.jsx)(ve, {
+                    Object(X.jsx)(ve, {
                       value: z,
                       setValue: J,
                       maxLength: 100,
@@ -1677,17 +1677,17 @@
                       margin: '30px 0px 0px 0px',
                     }),
                     oe
-                      ? Object(V.jsxs)('div', {
+                      ? Object(X.jsxs)('div', {
                           className: be.a.birthDateWrapperOnEdit,
                           children: [
-                            Object(V.jsxs)('div', {
+                            Object(X.jsxs)('div', {
                               className: be.a.birthDateHeader,
                               children: [
-                                Object(V.jsx)('div', {
+                                Object(X.jsx)('div', {
                                   className: be.a.birthDateEditHeaderText,
                                   children: 'Birth date \xb7',
                                 }),
-                                Object(V.jsx)('button', {
+                                Object(X.jsx)('button', {
                                   className: be.a.birthDateHeaderButton,
                                   onClick: function () {
                                     le(!1);
@@ -1696,34 +1696,34 @@
                                 }),
                               ],
                             }),
-                            Object(V.jsx)('div', {
+                            Object(X.jsx)('div', {
                               className: be.a.birthDateEditExplainText,
                               children:
                                 'This should be your date of birth, whether this account is for your business, event, or even your cat.',
                             }),
-                            Object(V.jsxs)('div', {
+                            Object(X.jsxs)('div', {
                               className: be.a.selectTitleWrapper,
                               children: [
-                                Object(V.jsx)('div', {
+                                Object(X.jsx)('div', {
                                   className: be.a.monthSelect,
                                   children: 'Month',
                                 }),
-                                Object(V.jsx)('div', {
+                                Object(X.jsx)('div', {
                                   className: be.a.daySelect,
                                   children: 'Day',
                                 }),
-                                Object(V.jsx)('div', {
+                                Object(X.jsx)('div', {
                                   className: be.a.yearSelect,
                                   children: 'Year',
                                 }),
                               ],
                             }),
-                            Object(V.jsxs)('div', {
+                            Object(X.jsxs)('div', {
                               className: be.a.selectWrapper,
                               children: [
-                                Object(V.jsx)(Ie.a, {
+                                Object(X.jsx)(Ie.a, {
                                   options: He,
-                                  defaultValue: null === G ? null : He[G - 1],
+                                  defaultValue: null === q ? null : He[q - 1],
                                   isLoading: !1,
                                   isClearable: !1,
                                   isSearchable: !1,
@@ -1734,7 +1734,7 @@
                                   name: 'month',
                                   className: be.a.monthSelect,
                                 }),
-                                Object(V.jsx)(Ie.a, {
+                                Object(X.jsx)(Ie.a, {
                                   options: ze,
                                   defaultValue: null === K ? null : ze[K - 1],
                                   isLoading: !1,
@@ -1747,7 +1747,7 @@
                                   name: 'day',
                                   className: be.a.daySelect,
                                 }),
-                                Object(V.jsx)(Ie.a, {
+                                Object(X.jsx)(Ie.a, {
                                   options: Je,
                                   defaultValue:
                                     null === ae ? null : Je[2022 - ae],
@@ -1765,17 +1765,17 @@
                             }),
                           ],
                         })
-                      : Object(V.jsxs)('div', {
+                      : Object(X.jsxs)('div', {
                           className: be.a.birthDateWrapper,
                           children: [
-                            Object(V.jsxs)('div', {
+                            Object(X.jsxs)('div', {
                               className: be.a.birthDateHeader,
                               children: [
-                                Object(V.jsx)('div', {
+                                Object(X.jsx)('div', {
                                   className: be.a.birthDateHeaderText,
                                   children: 'Birth date \xb7',
                                 }),
-                                Object(V.jsx)('button', {
+                                Object(X.jsx)('button', {
                                   className: be.a.birthDateHeaderButton,
                                   onClick: function () {
                                     le(!0);
@@ -1784,7 +1784,7 @@
                                 }),
                               ],
                             }),
-                            Object(V.jsx)('div', {
+                            Object(X.jsx)('div', {
                               className: be.a.birthDateContent,
                               children: (function (e) {
                                 var t = e.birthDateMonth,
@@ -1797,7 +1797,7 @@
                                       .concat(a, ', ')
                                       .concat(r);
                               })({
-                                birthDateMonth: G,
+                                birthDateMonth: q,
                                 birthDateDay: K,
                                 birthDateYear: ae,
                               }),
@@ -1810,10 +1810,10 @@
             ],
           });
         },
-        qe = a(10),
-        Ge = a.n(qe),
+        Ge = a(10),
+        qe = a.n(Ge),
         Ze = a.p + 'static/media/calendar.040676f3.svg';
-      var Xe = function (e) {
+      var Ve = function (e) {
           var t = ue(),
             a = Object(d.g)(),
             n = Object(d.h)(),
@@ -1834,14 +1834,14 @@
             j = function () {
               e.setIsChosen('likes'), a('/'.concat(t.nowUserID, '/likes'));
             };
-          return Object(V.jsxs)(V.Fragment, {
+          return Object(X.jsxs)(X.Fragment, {
             children: [
-              Object(V.jsx)(Ye, { isOpen: l, setIsOpen: c }),
-              Object(V.jsxs)('header', {
-                className: Ge.a.UserProfileHeader,
+              Object(X.jsx)(Ye, { isOpen: l, setIsOpen: c }),
+              Object(X.jsxs)('header', {
+                className: qe.a.UserProfileHeader,
                 children: [
-                  Object(V.jsx)('img', {
-                    className: Ge.a.UserProfileHeaderButton,
+                  Object(X.jsx)('img', {
+                    className: qe.a.UserProfileHeaderButton,
                     src: Pe,
                     width: 25,
                     height: 25,
@@ -1850,51 +1850,51 @@
                       a(-1);
                     },
                   }),
-                  Object(V.jsxs)('div', {
+                  Object(X.jsxs)('div', {
                     children: [
-                      Object(V.jsx)('div', {
-                        className: Ge.a.UserProfileHeaderName,
+                      Object(X.jsx)('div', {
+                        className: qe.a.UserProfileHeaderName,
                         children: 'id.name',
                       }),
-                      Object(V.jsx)('div', {
-                        className: Ge.a.UserProfileHeaderTweetsCount,
+                      Object(X.jsx)('div', {
+                        className: qe.a.UserProfileHeaderTweetsCount,
                         children: '($id.tweet.count)Tweets',
                       }),
                     ],
                   }),
                 ],
               }),
-              Object(V.jsxs)('div', {
-                className: Ge.a.UserProfileBody,
+              Object(X.jsxs)('div', {
+                className: qe.a.UserProfileBody,
                 children: [
-                  Object(V.jsx)('img', {
-                    className: Ge.a.UserProfileBackground,
+                  Object(X.jsx)('img', {
+                    className: qe.a.UserProfileBackground,
                     src: Pe,
                     alt: 'background',
                   }),
-                  Object(V.jsxs)('div', {
-                    className: Ge.a.UserProfileBox,
+                  Object(X.jsxs)('div', {
+                    className: qe.a.UserProfileBox,
                     children: [
-                      Object(V.jsxs)('div', {
-                        className: Ge.a.UserProfileBanner,
+                      Object(X.jsxs)('div', {
+                        className: qe.a.UserProfileBanner,
                         children: [
-                          Object(V.jsx)('img', {
-                            className: Ge.a.UserProfileImg,
+                          Object(X.jsx)('img', {
+                            className: qe.a.UserProfileImg,
                             src: Pe,
                             alt: 'profileImg',
                             width: 140,
                             height: 140,
                           }),
                           n.id === localStorage.getItem('user_id')
-                            ? Object(V.jsx)('button', {
-                                className: Ge.a.UserProfileEditButton,
+                            ? Object(X.jsx)('button', {
+                                className: qe.a.UserProfileEditButton,
                                 onClick: function () {
                                   c(!l);
                                 },
                                 children: 'Edit profile',
                               })
-                            : Object(V.jsx)('button', {
-                                className: Ge.a.UserProfileEditButton,
+                            : Object(X.jsx)('button', {
+                                className: qe.a.UserProfileEditButton,
                                 onClick: function () {
                                   console.log('hi');
                                 },
@@ -1902,23 +1902,23 @@
                               }),
                         ],
                       }),
-                      Object(V.jsxs)('div', {
-                        className: Ge.a.UserProfileInfoBox,
+                      Object(X.jsxs)('div', {
+                        className: qe.a.UserProfileInfoBox,
                         children: [
-                          Object(V.jsx)('div', {
+                          Object(X.jsx)('div', {
                             style: { fontSize: '20px', fontWeight: 'bolder' },
                             children:
                               '\uc774\uc7ac\ubbfc/\ud559\uc0dd/\ucef4\ud4e8\ud130\uacf5\ud559\ubd80',
                           }),
-                          Object(V.jsxs)('div', {
+                          Object(X.jsxs)('div', {
                             style: { color: '#62717d' },
                             children: ['@', n.id],
                           }),
-                          Object(V.jsx)('div', {
+                          Object(X.jsx)('div', {
                             style: { marginTop: '20px' },
                             children: 'text',
                           }),
-                          Object(V.jsxs)('div', {
+                          Object(X.jsxs)('div', {
                             style: {
                               display: 'flex',
                               alignItems: 'flex-end',
@@ -1926,28 +1926,28 @@
                               marginTop: '10px',
                             },
                             children: [
-                              Object(V.jsx)('img', {
+                              Object(X.jsx)('img', {
                                 src: Ze,
                                 alt: Ze,
                                 width: 20,
                                 height: 20,
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 style: { marginLeft: '5px' },
                                 children: 'join date',
                               }),
                             ],
                           }),
-                          Object(V.jsxs)('div', {
+                          Object(X.jsxs)('div', {
                             style: { marginTop: '10px' },
                             children: [
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 onClick: function () {
                                   a('/'.concat(t.nowUserID, '/following'));
                                 },
                                 children: '($id.following.count)following',
                               }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)('div', {
                                 onClick: function () {
                                   a('/'.concat(t.nowUserID, '/followers'));
                                 },
@@ -1961,50 +1961,50 @@
                   }),
                 ],
               }),
-              Object(V.jsxs)('div', {
-                className: Ge.a.UserProfileRouterButtonWrapper,
+              Object(X.jsxs)('div', {
+                className: qe.a.UserProfileRouterButtonWrapper,
                 children: [
                   'tweets' === e.isChosen
-                    ? Object(V.jsx)('button', {
-                        className: Ge.a.UserProfileRouterButtonClicked,
+                    ? Object(X.jsx)('button', {
+                        className: qe.a.UserProfileRouterButtonClicked,
                         onClick: s,
                         children: 'Tweets',
                       })
-                    : Object(V.jsx)('button', {
-                        className: Ge.a.UserProfileRouterButtonUnclicked,
+                    : Object(X.jsx)('button', {
+                        className: qe.a.UserProfileRouterButtonUnclicked,
                         onClick: s,
                         children: 'Tweets',
                       }),
                   'tweetsandreplies' === e.isChosen
-                    ? Object(V.jsx)('button', {
-                        className: Ge.a.UserProfileRouterButtonClicked,
+                    ? Object(X.jsx)('button', {
+                        className: qe.a.UserProfileRouterButtonClicked,
                         onClick: m,
                         children: 'Tweets & Replies',
                       })
-                    : Object(V.jsx)('button', {
-                        className: Ge.a.UserProfileRouterButtonUnclicked,
+                    : Object(X.jsx)('button', {
+                        className: qe.a.UserProfileRouterButtonUnclicked,
                         onClick: m,
                         children: 'Tweets & Replies',
                       }),
                   'media' === e.isChosen
-                    ? Object(V.jsx)('button', {
-                        className: Ge.a.UserProfileRouterButtonClicked,
+                    ? Object(X.jsx)('button', {
+                        className: qe.a.UserProfileRouterButtonClicked,
                         onClick: p,
                         children: 'Media',
                       })
-                    : Object(V.jsx)('button', {
-                        className: Ge.a.UserProfileRouterButtonUnclicked,
+                    : Object(X.jsx)('button', {
+                        className: qe.a.UserProfileRouterButtonUnclicked,
                         onClick: p,
                         children: 'Media',
                       }),
                   'likes' === e.isChosen
-                    ? Object(V.jsx)('button', {
-                        className: Ge.a.UserProfileRouterButtonClicked,
+                    ? Object(X.jsx)('button', {
+                        className: qe.a.UserProfileRouterButtonClicked,
                         onClick: j,
                         children: 'Likes',
                       })
-                    : Object(V.jsx)('button', {
-                        className: Ge.a.UserProfileRouterButtonUnclicked,
+                    : Object(X.jsx)('button', {
+                        className: qe.a.UserProfileRouterButtonUnclicked,
                         onClick: j,
                         children: 'Likes',
                       }),
@@ -2013,8 +2013,8 @@
             ],
           });
         },
-        Ve = a(7),
-        Qe = a.n(Ve);
+        Xe = a(7),
+        Qe = a.n(Xe);
       function Ke() {
         return (Ke =
           Object.assign ||
@@ -2293,10 +2293,10 @@
           gt,
         );
       }
-      var ft = r.forwardRef(bt);
+      var ht = r.forwardRef(bt);
       a.p;
-      function ht() {
-        return (ht =
+      function ft() {
+        return (ft =
           Object.assign ||
           function (e) {
             for (var t = 1; t < arguments.length; t++) {
@@ -2344,7 +2344,7 @@
           i = xt(e, ['title', 'titleId']);
         return r.createElement(
           'svg',
-          ht(
+          ft(
             {
               width: '21px',
               height: '21px',
@@ -2359,58 +2359,58 @@
           Ot,
         );
       }
-      var wt = r.forwardRef(vt),
-        _t =
+      var _t = r.forwardRef(vt),
+        wt =
           (a.p,
           function (e) {
             var t = e.item;
-            return Object(V.jsxs)('li', {
+            return Object(X.jsxs)('li', {
               className: Qe.a.wrapper,
               children: [
-                Object(V.jsx)('div', {
+                Object(X.jsx)('div', {
                   className: Qe.a.leftWrapper,
-                  children: Object(V.jsx)('img', {
+                  children: Object(X.jsx)('img', {
                     className: Qe.a.profileImage,
                     src: t.profileImg,
                     alt: 'tweet Profile Image',
                   }),
                 }),
-                Object(V.jsxs)('div', {
+                Object(X.jsxs)('div', {
                   className: Qe.a.rightWrapper,
                   children: [
-                    Object(V.jsxs)('div', {
+                    Object(X.jsxs)('div', {
                       className: Qe.a.topWrapper,
                       children: [
-                        Object(V.jsxs)('div', {
+                        Object(X.jsxs)('div', {
                           className: Qe.a.topTextWrapper,
                           children: [
-                            Object(V.jsx)('div', {
+                            Object(X.jsx)('div', {
                               className: Qe.a.nameText,
                               children: t.name,
                             }),
-                            Object(V.jsxs)('div', {
+                            Object(X.jsxs)('div', {
                               className: Qe.a.idTimeText,
                               children: ['@', t.id, ' \xb7 ', t.time],
                             }),
                           ],
                         }),
-                        Object(V.jsx)('button', {
+                        Object(X.jsx)('button', {
                           className: Qe.a.moreButton,
-                          children: Object(V.jsx)(wt, {
+                          children: Object(X.jsx)(_t, {
                             className: Qe.a.moreButtonImg,
                           }),
                         }),
                       ],
                     }),
-                    Object(V.jsxs)('div', {
+                    Object(X.jsxs)('div', {
                       className: Qe.a.middleWrapper,
                       children: [
-                        Object(V.jsx)('div', {
+                        Object(X.jsx)('div', {
                           className: Qe.a.mainText,
                           children: t.text,
                         }),
                         t.images.map(function (e) {
-                          return Object(V.jsx)(
+                          return Object(X.jsx)(
                             'img',
                             {
                               className: Qe.a.mainImg,
@@ -2422,56 +2422,56 @@
                         }),
                       ],
                     }),
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       className: Qe.a.bottomWrapper,
-                      children: Object(V.jsxs)('div', {
+                      children: Object(X.jsxs)('div', {
                         className: Qe.a.buttonWrapper,
                         children: [
-                          Object(V.jsxs)('button', {
+                          Object(X.jsxs)('button', {
                             className: Qe.a.commentButton,
                             onClick: function (e) {
                               console.log('Comment Clicked');
                             },
                             children: [
-                              Object(V.jsx)(at, { className: Qe.a.commentImg }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)(at, { className: Qe.a.commentImg }),
+                              Object(X.jsx)('div', {
                                 className: Qe.a.commentButtonText,
                                 children: t.commentNumber,
                               }),
                             ],
                           }),
-                          Object(V.jsxs)('button', {
+                          Object(X.jsxs)('button', {
                             className: Qe.a.retweetButton,
                             onClick: function (e) {
                               console.log('Retweet Clicked');
                             },
                             children: [
-                              Object(V.jsx)(mt, { className: Qe.a.retweetImg }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)(mt, { className: Qe.a.retweetImg }),
+                              Object(X.jsx)('div', {
                                 className: Qe.a.retweetButtonText,
                                 children: t.retweetNumber,
                               }),
                             ],
                           }),
-                          Object(V.jsxs)('button', {
+                          Object(X.jsxs)('button', {
                             className: Qe.a.likeButton,
                             onClick: function (e) {
                               console.log('Like Clicked');
                             },
                             children: [
-                              Object(V.jsx)(lt, { className: Qe.a.likeImg }),
-                              Object(V.jsx)('div', {
+                              Object(X.jsx)(lt, { className: Qe.a.likeImg }),
+                              Object(X.jsx)('div', {
                                 className: Qe.a.likeButtonText,
                                 children: t.likeNumber,
                               }),
                             ],
                           }),
-                          Object(V.jsx)('button', {
+                          Object(X.jsx)('button', {
                             className: Qe.a.shareButton,
                             onClick: function (e) {
                               console.log('Share Clicked');
                             },
-                            children: Object(V.jsx)(ft, {
+                            children: Object(X.jsx)(ht, {
                               className: Qe.a.shareImg,
                             }),
                           }),
@@ -2539,10 +2539,10 @@
             a = Object(u.a)(t, 2),
             n = a[0];
           a[1];
-          return Object(V.jsx)('ul', {
+          return Object(X.jsx)('ul', {
             className: It.a.tweetsItems,
             children: n.map(function (e) {
-              return Object(V.jsx)(_t, { item: e }, e.key);
+              return Object(X.jsx)(wt, { item: e }, e.key);
             }),
           });
         },
@@ -2602,16 +2602,16 @@
             a = Object(u.a)(t, 2),
             n = a[0];
           a[1];
-          return Object(V.jsx)('ul', {
+          return Object(X.jsx)('ul', {
             className: Ct.a.tweetsItems,
             children: n.map(function (e) {
-              return Object(V.jsx)(_t, { item: e }, e.key);
+              return Object(X.jsx)(wt, { item: e }, e.key);
             }),
           });
         },
         Tt = a(69),
         Et = a.n(Tt),
-        St = [
+        Wt = [
           {
             name: '\uac10\uc790\ud280\uae40',
             id: 'FrenchFries',
@@ -2659,16 +2659,16 @@
             key: '3',
           },
         ],
-        Wt = function (e) {
+        St = function (e) {
           e.loadNext;
-          var t = Object(r.useState)(St),
+          var t = Object(r.useState)(Wt),
             a = Object(u.a)(t, 2),
             n = a[0];
           a[1];
-          return Object(V.jsx)('ul', {
+          return Object(X.jsx)('ul', {
             className: Et.a.tweetsItems,
             children: n.map(function (e) {
-              return Object(V.jsx)(_t, { item: e }, e.key);
+              return Object(X.jsx)(wt, { item: e }, e.key);
             }),
           });
         },
@@ -2728,10 +2728,10 @@
             a = Object(u.a)(t, 2),
             n = a[0];
           a[1];
-          return Object(V.jsx)('ul', {
+          return Object(X.jsx)('ul', {
             className: Mt.a.tweetsItems,
             children: n.map(function (e) {
-              return Object(V.jsx)(_t, { item: e }, e.key);
+              return Object(X.jsx)(wt, { item: e }, e.key);
             }),
           });
         },
@@ -2743,31 +2743,31 @@
             n = Object(u.a)(a, 2),
             i = n[0],
             o = n[1];
-          return Object(V.jsxs)('div', {
+          return Object(X.jsxs)('div', {
             className: Dt.a.ProfilePage,
             children: [
-              Object(V.jsx)(Xe, { isChosen: i, setIsChosen: o }),
-              Object(V.jsxs)(d.d, {
+              Object(X.jsx)(Ve, { isChosen: i, setIsChosen: o }),
+              Object(X.jsxs)(d.d, {
                 children: [
-                  Object(V.jsx)(d.b, {
+                  Object(X.jsx)(d.b, {
                     path: '/',
-                    element: Object(V.jsx)(Bt, { loadNext: t }),
+                    element: Object(X.jsx)(Bt, { loadNext: t }),
                   }),
-                  Object(V.jsx)(d.b, {
+                  Object(X.jsx)(d.b, {
                     path: '/with_replies',
-                    element: Object(V.jsx)(Pt, { loadNext: t }),
+                    element: Object(X.jsx)(Pt, { loadNext: t }),
                   }),
-                  Object(V.jsx)(d.b, {
+                  Object(X.jsx)(d.b, {
                     path: '/media',
-                    element: Object(V.jsx)(Wt, { loadNext: t }),
+                    element: Object(X.jsx)(St, { loadNext: t }),
                   }),
-                  Object(V.jsx)(d.b, {
+                  Object(X.jsx)(d.b, {
                     path: '/likes',
-                    element: Object(V.jsx)(Ft, { loadNext: t }),
+                    element: Object(X.jsx)(Ft, { loadNext: t }),
                   }),
                 ],
               }),
-              Object(V.jsx)('div', {
+              Object(X.jsx)('div', {
                 className: Dt.a.Footer,
                 children: 'Footer',
               }),
@@ -2777,31 +2777,31 @@
         zt = a(71),
         Jt = a.n(zt);
       var Yt = function () {
-          return Object(V.jsx)('div', {
+          return Object(X.jsx)('div', {
             className: Jt.a.HomePage,
             children: 'this is homePage',
           });
         },
-        qt = a(72),
-        Gt = a.n(qt);
+        Gt = a(72),
+        qt = a.n(Gt);
       var Zt = function () {
-          return Object(V.jsx)('div', {
-            className: Gt.a.NotificationsPage,
+          return Object(X.jsx)('div', {
+            className: qt.a.NotificationsPage,
             children: 'this is NotificationsPage',
           });
         },
-        Xt = a(73),
-        Vt = a.n(Xt);
+        Vt = a(73),
+        Xt = a.n(Vt);
       var Qt = function () {
-          return Object(V.jsx)('div', {
-            className: Vt.a.ExplorePage,
+          return Object(X.jsx)('div', {
+            className: Xt.a.ExplorePage,
             children: 'this is explore.',
           });
         },
         Kt = a(74),
         $t = a.n(Kt);
       var ea = function () {
-          return Object(V.jsx)('div', {
+          return Object(X.jsx)('div', {
             className: $t.a.SettingPage,
             children: 'this is SettingPage.',
           });
@@ -2833,12 +2833,12 @@
             s = function () {
               n('followers'), o('/'.concat(i.nowUserID, '/followers'));
             };
-          return Object(V.jsxs)(V.Fragment, {
+          return Object(X.jsxs)(X.Fragment, {
             children: [
-              Object(V.jsxs)('header', {
+              Object(X.jsxs)('header', {
                 className: aa.a.UserProfileHeader,
                 children: [
-                  Object(V.jsx)('img', {
+                  Object(X.jsx)('img', {
                     className: aa.a.UserProfileHeaderButton,
                     src: Pe,
                     width: 25,
@@ -2848,13 +2848,13 @@
                       o(-1);
                     },
                   }),
-                  Object(V.jsxs)('div', {
+                  Object(X.jsxs)('div', {
                     children: [
-                      Object(V.jsx)('div', {
+                      Object(X.jsx)('div', {
                         className: aa.a.UserProfileHeaderName,
                         children: 'id.name',
                       }),
-                      Object(V.jsx)('div', {
+                      Object(X.jsx)('div', {
                         className: aa.a.UserProfileHeaderID,
                         children: '@user_id',
                       }),
@@ -2862,74 +2862,74 @@
                   }),
                 ],
               }),
-              Object(V.jsxs)('div', {
+              Object(X.jsxs)('div', {
                 className: aa.a.UserProfileRouterButtonWrapper,
                 children: [
                   'followers' === a
-                    ? Object(V.jsx)('button', {
+                    ? Object(X.jsx)('button', {
                         className: aa.a.UserProfileRouterButtonClicked,
                         onClick: s,
                         children: 'followers',
                       })
-                    : Object(V.jsx)('button', {
+                    : Object(X.jsx)('button', {
                         className: aa.a.UserProfileRouterButtonUnclicked,
                         onClick: s,
                         children: 'followers',
                       }),
                   'following' === a
-                    ? Object(V.jsx)('button', {
+                    ? Object(X.jsx)('button', {
                         className: aa.a.UserProfileRouterButtonClicked,
                         onClick: c,
                         children: 'following',
                       })
-                    : Object(V.jsx)('button', {
+                    : Object(X.jsx)('button', {
                         className: aa.a.UserProfileRouterButtonUnclicked,
                         onClick: c,
                         children: 'following',
                       }),
                 ],
               }),
-              Object(V.jsx)('ul', {}),
+              Object(X.jsx)('ul', {}),
             ],
           });
         },
         na = function (e) {
           var t = e.loadNext;
-          return Object(V.jsx)('div', {
+          return Object(X.jsx)('div', {
             className: je.a.MainBlock,
-            children: Object(V.jsxs)(d.d, {
+            children: Object(X.jsxs)(d.d, {
               children: [
-                Object(V.jsx)(d.b, {
+                Object(X.jsx)(d.b, {
                   path: '/home',
-                  element: Object(V.jsx)(Yt, {}),
+                  element: Object(X.jsx)(Yt, {}),
                 }),
-                Object(V.jsx)(d.b, {
+                Object(X.jsx)(d.b, {
                   path: '/explore',
-                  element: Object(V.jsx)(Qt, {}),
+                  element: Object(X.jsx)(Qt, {}),
                 }),
-                Object(V.jsx)(d.b, {
+                Object(X.jsx)(d.b, {
                   path: '/notifications',
-                  element: Object(V.jsx)(Zt, {}),
+                  element: Object(X.jsx)(Zt, {}),
                 }),
-                Object(V.jsx)(d.b, {
+                Object(X.jsx)(d.b, {
                   path: '/:id/*',
-                  element: Object(V.jsx)(Ht, { loadNext: t }),
+                  element: Object(X.jsx)(Ht, { loadNext: t }),
                 }),
-                Object(V.jsx)(d.b, {
+                Object(X.jsx)(d.b, {
                   path: '/:id/following',
-                  element: Object(V.jsx)(ra, {}),
+                  element: Object(X.jsx)(ra, {}),
                 }),
-                Object(V.jsx)(d.b, {
+                Object(X.jsx)(d.b, {
                   path: '/:id/followers',
-                  element: Object(V.jsx)(ra, {}),
+                  element: Object(X.jsx)(ra, {}),
                 }),
-                Object(V.jsx)(d.b, {
+                Object(X.jsx)(d.b, {
                   path: '/setting/',
-                  element: Object(V.jsx)(ea, {}),
+                  element: Object(X.jsx)(ea, {}),
                 }),
-                Object(V.jsx)(d.b, {
+                Object(X.jsx)(d.b, {
                   path: '/*',
-                  element: Object(V.jsx)(d.a, { to: '/home' }),
+                  element: Object(X.jsx)(d.a, { to: '/home' }),
                 }),
               ],
             }),
@@ -2943,18 +2943,18 @@
       var da = function (e) {
           return (
             Object(d.g)(),
-            Object(V.jsxs)('div', {
+            Object(X.jsxs)('div', {
               className: sa.a.TrendWrapper,
               children: [
-                Object(V.jsxs)('div', {
+                Object(X.jsxs)('div', {
                   className: sa.a.TrendHeader,
                   children: [
-                    Object(V.jsx)('span', {
+                    Object(X.jsx)('span', {
                       className: sa.a.TrendHeaderText,
                       children: 'Trending in South Korea',
                     }),
-                    Object(V.jsx)('span', {
-                      children: Object(V.jsx)('img', {
+                    Object(X.jsx)('span', {
+                      children: Object(X.jsx)('img', {
                         src: le,
                         alt: 'no img',
                         onClick: function () {
@@ -2964,7 +2964,7 @@
                     }),
                   ],
                 }),
-                Object(V.jsx)('div', {
+                Object(X.jsx)('div', {
                   className: sa.a.TrendContent,
                   children: e.text,
                 }),
@@ -2993,7 +2993,7 @@
                   : l(!0);
               })
               .catch(function () {
-                X.b.error(
+                V.b.error(
                   '\ud314\ub85c\uc6b0 \ubaa9\ub85d \uc694\uccad \uc2e4\ud328',
                 );
               });
@@ -3002,13 +3002,13 @@
             m = Object(u.a)(s, 2),
             p = m[0],
             j = m[1];
-          return Object(V.jsxs)('div', {
+          return Object(X.jsxs)('div', {
             onClick: function () {
               c('/' + e.id);
             },
             className: ma.a.FollowWrapper,
             children: [
-              Object(V.jsxs)(x.a, {
+              Object(X.jsxs)(x.a, {
                 ariaHideApp: !1,
                 style: {
                   overlay: {
@@ -3038,20 +3038,20 @@
                 },
                 isOpen: p,
                 children: [
-                  Object(V.jsxs)('header', {
+                  Object(X.jsxs)('header', {
                     children: [' Unfollow @', e.id, '? '],
                   }),
-                  Object(V.jsx)('br', {}),
-                  Object(V.jsx)('br', {}),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('br', {}),
+                  Object(X.jsx)('br', {}),
+                  Object(X.jsx)('div', {
                     children:
                       'Their Tweets will no longer show up in your home timeline. You can still view their profile, unless their Tweets are protected.',
                   }),
-                  Object(V.jsx)('br', {}),
-                  Object(V.jsx)('footer', {
-                    children: Object(V.jsxs)('div', {
+                  Object(X.jsx)('br', {}),
+                  Object(X.jsx)('footer', {
+                    children: Object(X.jsxs)('div', {
                       children: [
-                        Object(V.jsx)('button', {
+                        Object(X.jsx)('button', {
                           onClick: function () {
                             Z.a
                               .delete('/unfollow/' + e.id)
@@ -3059,7 +3059,7 @@
                                 l(!1), j(!1);
                               })
                               .catch(function () {
-                                X.b.error(
+                                V.b.error(
                                   '\uc5b8\ud314\ub85c\uc6b0 \uc694\uccad \uc2e4\ud328',
                                 );
                               });
@@ -3067,7 +3067,7 @@
                           className: ma.a.UnfollowButton,
                           children: 'UnFollow',
                         }),
-                        Object(V.jsx)('button', {
+                        Object(X.jsx)('button', {
                           onClick: function () {
                             j(!1);
                           },
@@ -3079,46 +3079,46 @@
                   }),
                 ],
               }),
-              Object(V.jsxs)('div', {
+              Object(X.jsxs)('div', {
                 className: ma.a.FollowInside,
                 children: [
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: ma.a.FollowImg,
-                    children: Object(V.jsx)('span', {
-                      children: Object(V.jsx)('img', {
+                    children: Object(X.jsx)('span', {
+                      children: Object(X.jsx)('img', {
                         src: e.img,
                         alt: 'no img',
                         width: '40px',
                       }),
                     }),
                   }),
-                  Object(V.jsxs)('div', {
+                  Object(X.jsxs)('div', {
                     className: ma.a.FollowTextButton,
                     children: [
-                      Object(V.jsxs)('div', {
+                      Object(X.jsxs)('div', {
                         className: ma.a.FollowNameID,
                         children: [
-                          Object(V.jsx)('span', {
+                          Object(X.jsx)('span', {
                             className: ma.a.FollowName,
                             children: e.name,
                           }),
-                          Object(V.jsx)('span', {
+                          Object(X.jsx)('span', {
                             className: ma.a.FollowID,
                             children: '@' + e.id,
                           }),
                         ],
                       }),
-                      Object(V.jsx)('div', {
+                      Object(X.jsx)('div', {
                         className: ma.a.FollowButtonWrapper,
                         children: o
-                          ? Object(V.jsx)('button', {
+                          ? Object(X.jsx)('button', {
                               onClick: function () {
                                 j(!0);
                               },
                               className: ma.a.FollowingButton,
                               children: 'Following',
                             })
-                          : Object(V.jsx)('button', {
+                          : Object(X.jsx)('button', {
                               onClick: function () {
                                 Z.a
                                   .post('/follow/', { user_id: e.id })
@@ -3126,7 +3126,7 @@
                                     l(!0);
                                   })
                                   .catch(function () {
-                                    X.b.error(
+                                    V.b.error(
                                       '\ud314\ub85c\uc6b0 \uc694\uccad \uc2e4\ud328',
                                     );
                                   });
@@ -3159,26 +3159,26 @@
                   l(e.data);
                 })
                 .catch(function () {
-                  X.b.error(
+                  V.b.error(
                     '\ud314\ub85c\uc6cc \ucd94\ucc9c\uc744 \ubc1b\uc544\uc624\ub294\ub370 \uc2e4\ud328\ud558\uc600\uc2b5\ub2c8\ub2e4.',
                   );
                 });
             }, []),
-            Object(V.jsx)('div', {
+            Object(X.jsx)('div', {
               className: oa.a.RightBlock,
-              children: Object(V.jsxs)('div', {
+              children: Object(X.jsxs)('div', {
                 className: oa.a.RightInside,
                 ref: t,
                 children: [
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: oa.a.SearchWrapper,
-                    children: Object(V.jsxs)('form', {
+                    children: Object(X.jsxs)('form', {
                       className: oa.a.SearchLabel,
                       action: '',
                       children: [
-                        Object(V.jsx)('div', {
+                        Object(X.jsx)('div', {
                           className: oa.a.MagnifierWrapper,
-                          children: Object(V.jsx)('img', {
+                          children: Object(X.jsx)('img', {
                             className: oa.a.Magnifier,
                             src: la,
                             width: '20px',
@@ -3186,7 +3186,7 @@
                             alt: 'no img',
                           }),
                         }),
-                        Object(V.jsx)('input', {
+                        Object(X.jsx)('input', {
                           className: oa.a.SearchInput,
                           placeholder: 'Search Twitter',
                           type: 'text',
@@ -3194,22 +3194,22 @@
                       ],
                     }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: oa.a.TrendsWrapper,
-                    children: Object(V.jsxs)('div', {
+                    children: Object(X.jsxs)('div', {
                       className: oa.a.TrendsInside,
                       children: [
-                        Object(V.jsxs)('div', {
+                        Object(X.jsxs)('div', {
                           className: oa.a.TrendHeader,
                           children: [
-                            Object(V.jsx)('span', {
+                            Object(X.jsx)('span', {
                               children: 'Trends for you',
                             }),
-                            Object(V.jsx)('span', {
+                            Object(X.jsx)('span', {
                               className: oa.a.ButtonWrapper,
-                              children: Object(V.jsx)('a', {
+                              children: Object(X.jsx)('a', {
                                 href: '',
-                                children: Object(V.jsx)('img', {
+                                children: Object(X.jsx)('img', {
                                   src: K,
                                   width: 22,
                                   height: 22,
@@ -3219,14 +3219,14 @@
                             }),
                           ],
                         }),
-                        Object(V.jsx)(da, { text: 'Trend1' }),
-                        Object(V.jsx)(da, { text: 'Trend2' }),
-                        Object(V.jsx)(da, { text: 'Trend3' }),
-                        Object(V.jsx)(da, { text: 'Trend4' }),
-                        Object(V.jsx)(da, { text: 'Trend5' }),
-                        Object(V.jsx)('button', {
+                        Object(X.jsx)(da, { text: 'Trend1' }),
+                        Object(X.jsx)(da, { text: 'Trend2' }),
+                        Object(X.jsx)(da, { text: 'Trend3' }),
+                        Object(X.jsx)(da, { text: 'Trend4' }),
+                        Object(X.jsx)(da, { text: 'Trend5' }),
+                        Object(X.jsx)('button', {
                           className: oa.a.TrendFooter,
-                          children: Object(V.jsx)('span', {
+                          children: Object(X.jsx)('span', {
                             className: oa.a.TrendFooterText,
                             children: 'Show more',
                           }),
@@ -3234,30 +3234,30 @@
                       ],
                     }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: oa.a.WhoToFollowWrapper,
-                    children: Object(V.jsxs)('div', {
+                    children: Object(X.jsxs)('div', {
                       className: oa.a.WhoToFollowInside,
                       children: [
-                        Object(V.jsx)('div', {
+                        Object(X.jsx)('div', {
                           className: oa.a.WhoToFollowHeader,
-                          children: Object(V.jsx)('span', {
+                          children: Object(X.jsx)('span', {
                             children: 'Who to follow',
                           }),
                         }),
-                        Object(V.jsx)(pa, {
+                        Object(X.jsx)(pa, {
                           id: o[0].user_id,
                           name: o[0].username,
                           img: o[0].profile_img,
                         }),
-                        Object(V.jsx)(pa, {
+                        Object(X.jsx)(pa, {
                           id: o[1].user_id,
                           name: o[1].username,
                           img: o[1].profile_img,
                         }),
-                        Object(V.jsx)('button', {
+                        Object(X.jsx)('button', {
                           className: oa.a.FollowFooter,
-                          children: Object(V.jsx)('span', {
+                          children: Object(X.jsx)('span', {
                             children: 'Show more',
                           }),
                         }),
@@ -3271,7 +3271,7 @@
         },
         ga = a(75),
         ba = a.n(ga);
-      var fa = function () {
+      var ha = function () {
           var e = Object(r.useRef)(null),
             t = Object(r.useRef)(null),
             a = Object(r.useState)(0),
@@ -3314,26 +3314,26 @@
                 }
               );
             }),
-            Object(V.jsx)(V.Fragment, {
-              children: Object(V.jsxs)('div', {
+            Object(X.jsx)(X.Fragment, {
+              children: Object(X.jsxs)('div', {
                 className: p.a.MainPage,
                 ref: e,
                 children: [
-                  Object(V.jsx)(me, {}),
-                  Object(V.jsx)(na, { loadNext: l }),
-                  Object(V.jsx)(ja, { rightRef: t }),
+                  Object(X.jsx)(me, {}),
+                  Object(X.jsx)(na, { loadNext: l }),
+                  Object(X.jsx)(ja, { rightRef: t }),
                 ],
               }),
             })
           );
         },
-        ha = a.p + 'static/media/LoginBackground.cde2abfb.png',
+        fa = a.p + 'static/media/LoginBackground.cde2abfb.png',
         xa = a(13),
         Oa = a.n(xa),
         va = a(29),
-        wa = a(26),
-        _a = a(19),
-        Na = a.n(_a),
+        _a = a(26),
+        wa = a(19),
+        Na = a.n(wa),
         Ia = 'https://kauth.kakao.com/oauth/authorize?client_id='
           .concat('2a67f6f860f8158c7115a3b3bfc90be0', '&redirect_uri=')
           .concat(
@@ -3350,7 +3350,7 @@
             n = Object(u.a)(a, 2),
             i = n[0],
             o = n[1];
-          return Object(V.jsx)(ka.Provider, {
+          return Object(X.jsx)(ka.Provider, {
             value: { token: i, setToken: o },
             children: t,
           });
@@ -3368,14 +3368,14 @@
             c = o[1],
             s = function (e) {
               c(
-                Object(wa.a)(
-                  Object(wa.a)({}, l),
+                Object(_a.a)(
+                  Object(_a.a)({}, l),
                   {},
                   Object(va.a)({}, e.target.name, e.target.value),
                 ),
               );
             };
-          return Object(V.jsx)(x.a, {
+          return Object(X.jsx)(x.a, {
             ariaHideApp: !1,
             style: {
               overlay: {
@@ -3402,50 +3402,50 @@
               },
             },
             isOpen: e.isOpen,
-            children: Object(V.jsxs)('div', {
+            children: Object(X.jsxs)('div', {
               className: Na.a.ModalWrapper,
               children: [
-                Object(V.jsxs)('header', {
+                Object(X.jsxs)('header', {
                   className: Na.a.ModalHeader,
                   children: [
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       onClick: function () {
                         e.setLoginIsOpen(!1);
                       },
                       className: Na.a.XWrapper,
-                      children: Object(V.jsx)('img', {
+                      children: Object(X.jsx)('img', {
                         src: O,
                         width: 25,
                         height: 25,
                         alt: 'no img',
                       }),
                     }),
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       className: Na.a.LogoWrapper,
-                      children: Object(V.jsx)('img', {
+                      children: Object(X.jsx)('img', {
                         src: v,
                         width: 30,
                         height: 30,
                         alt: 'no img',
                       }),
                     }),
-                    Object(V.jsx)('div', {}),
+                    Object(X.jsx)('div', {}),
                   ],
                 }),
-                Object(V.jsxs)('div', {
+                Object(X.jsxs)('div', {
                   className: Na.a.ModalContent,
                   children: [
-                    Object(V.jsx)('span', {
+                    Object(X.jsx)('span', {
                       className: Na.a.ContentMessage,
                       children:
                         '\ud2b8\uc704\ud130\uc5d0 \ub85c\uadf8\uc778\ud558\uae30',
                     }),
-                    Object(V.jsx)('button', {
+                    Object(X.jsx)('button', {
                       className: Na.a.Button,
                       children:
                         'Google \uacc4\uc815\uc73c\ub85c \ub85c\uadf8\uc778\ud558\uae30',
                     }),
-                    Object(V.jsx)('button', {
+                    Object(X.jsx)('button', {
                       onClick: function () {
                         window.location.href = Ia;
                       },
@@ -3458,15 +3458,15 @@
                         backgroundSize: '100% 100%',
                       },
                     }),
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       className: Na.a.BorderWrapper,
                       children: '\ub610\ub294',
                     }),
-                    Object(V.jsxs)('form', {
+                    Object(X.jsxs)('form', {
                       onSubmit: function (r) {
                         r.preventDefault(),
                           Z.a
-                            .post('/login/', Object(wa.a)({}, l), {
+                            .post('/login/', Object(_a.a)({}, l), {
                               headers: { Authorization: '' },
                             })
                             .then(function (r) {
@@ -3479,28 +3479,28 @@
                                 a('/');
                             })
                             .catch(function (e) {
-                              X.b.error(
+                              V.b.error(
                                 '\uc62c\ubc14\ub978 \uc785\ub825\uc815\ubcf4\uac00 \uc544\ub2d9\ub2c8\ub2e4.',
                               );
                             });
                       },
                       className: Na.a.InputWrapper,
                       children: [
-                        Object(V.jsx)('input', {
+                        Object(X.jsx)('input', {
                           onChange: s,
                           name: 'user_id',
                           className: Na.a.Input,
                           placeholder: '\uc0ac\uc6a9\uc790 \uc544\uc774\ub514',
                           type: 'text',
                         }),
-                        Object(V.jsx)('input', {
+                        Object(X.jsx)('input', {
                           onChange: s,
                           className: Na.a.Input,
                           name: 'password',
                           placeholder: '\ube44\ubc00\ubc88\ud638',
                           type: 'password',
                         }),
-                        Object(V.jsx)('button', {
+                        Object(X.jsx)('button', {
                           className: Na.a.BlackButton,
                           children: '\ub2e4\uc74c',
                         }),
@@ -3536,14 +3536,14 @@
             j = ya(),
             g = function (e) {
               s(
-                Object(wa.a)(
-                  Object(wa.a)({}, c),
+                Object(_a.a)(
+                  Object(_a.a)({}, c),
                   {},
                   Object(va.a)({}, e.target.name, e.target.value),
                 ),
               );
             };
-          return Object(V.jsx)(x.a, {
+          return Object(X.jsx)(x.a, {
             ariaHideApp: !1,
             isOpen: e.isOpen,
             style: {
@@ -3570,55 +3570,55 @@
                 padding: '0 15px 20px 15px',
               },
             },
-            children: Object(V.jsxs)('div', {
+            children: Object(X.jsxs)('div', {
               className: Pa.a.ModalWrapper,
               children: [
-                Object(V.jsxs)('header', {
+                Object(X.jsxs)('header', {
                   className: Pa.a.ModalHeader,
                   children: [
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       onClick: function () {
                         e.setSignUpIsOpen(!1);
                       },
                       className: Pa.a.XWrapper,
-                      children: Object(V.jsx)('img', {
+                      children: Object(X.jsx)('img', {
                         src: O,
                         width: 25,
                         height: 25,
                         alt: 'no img',
                       }),
                     }),
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       className: Pa.a.LogoWrapper,
-                      children: Object(V.jsx)('img', {
+                      children: Object(X.jsx)('img', {
                         src: v,
                         width: 30,
                         height: 30,
                         alt: 'no img',
                       }),
                     }),
-                    Object(V.jsx)('div', {}),
+                    Object(X.jsx)('div', {}),
                   ],
                 }),
-                Object(V.jsxs)('div', {
+                Object(X.jsxs)('div', {
                   className: Pa.a.ModalContent,
                   children: [
-                    Object(V.jsx)('span', {
+                    Object(X.jsx)('span', {
                       className: Pa.a.ContentMessage,
                       children:
                         '\uacc4\uc815\uc744 \uc0dd\uc131\ud558\uc138\uc694',
                     }),
-                    Object(V.jsxs)('form', {
+                    Object(X.jsxs)('form', {
                       className: Pa.a.InputWrapper,
                       children: [
-                        Object(V.jsx)('input', {
+                        Object(X.jsx)('input', {
                           onChange: g,
                           className: Pa.a.Input,
                           name: 'username',
                           placeholder: '\uc774\ub984',
                           type: 'text',
                         }),
-                        Object(V.jsx)('input', {
+                        Object(X.jsx)('input', {
                           onChange: g,
                           className: Pa.a.Input,
                           name: n ? 'email' : 'phone_number',
@@ -3627,14 +3627,14 @@
                             : '\ud734\ub300\ud3f0',
                           type: 'text',
                         }),
-                        Object(V.jsx)('input', {
+                        Object(X.jsx)('input', {
                           onChange: g,
                           className: Pa.a.Input,
                           name: 'user_id',
                           placeholder: '\uc544\uc774\ub514',
                           type: 'text',
                         }),
-                        Object(V.jsx)('input', {
+                        Object(X.jsx)('input', {
                           onChange: g,
                           className: Pa.a.Input,
                           name: 'password',
@@ -3643,11 +3643,11 @@
                         }),
                       ],
                     }),
-                    Object(V.jsx)('span', {
+                    Object(X.jsx)('span', {
                       onClick: function () {
                         s(
-                          Object(wa.a)(
-                            Object(wa.a)({}, c),
+                          Object(_a.a)(
+                            Object(_a.a)({}, c),
                             {},
                             Object(va.a)({}, n ? 'email' : 'phone_number', ''),
                           ),
@@ -3659,31 +3659,31 @@
                         ? '\ub300\uc2e0 \ud734\ub300\ud3f0 \uc0ac\uc6a9\ud558\uae30'
                         : '\ub300\uc2e0 \uc774\uba54\uc77c \uc0ac\uc6a9\ud558\uae30',
                     }),
-                    Object(V.jsxs)('div', {
+                    Object(X.jsxs)('div', {
                       className: Pa.a.BirthdayNotificationWrapper,
                       children: [
-                        Object(V.jsx)('span', {
+                        Object(X.jsx)('span', {
                           className: Pa.a.BirthdayNotificationHeader,
                           children: '\uc0dd\ub144\uc6d4\uc77c',
                         }),
-                        Object(V.jsx)('br', {}),
-                        Object(V.jsx)('span', {
+                        Object(X.jsx)('br', {}),
+                        Object(X.jsx)('span', {
                           className: Pa.a.BirthdayNotificationContent,
                           children:
                             '\uc774 \uc815\ubcf4\ub294 \uacf5\uac1c\uc801\uc73c\ub85c \ud45c\uc2dc\ub418\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \ube44\uc988\ub2c8\uc2a4, \ubc18\ub824\ub3d9\ubb3c \ub4f1 \uacc4\uc815 \uc8fc\uc81c\uc5d0 \uc0c1\uad00 \uc5c6\uc774 \ub098\uc758 \uc5f0\ub839\uc744 \ud655\uc778\ud558\uc138\uc694.',
                         }),
                       ],
                     }),
-                    Object(V.jsx)('div', {
+                    Object(X.jsx)('div', {
                       className: Pa.a.BirthdayInputWrapper,
-                      children: Object(V.jsx)('input', {
+                      children: Object(X.jsx)('input', {
                         onChange: g,
                         name: 'birth_date',
                         className: Pa.a.BirthdayInput,
                         type: 'date',
                       }),
                     }),
-                    Object(V.jsx)('button', {
+                    Object(X.jsx)('button', {
                       onClick: function () {
                         Z.a
                           .post('/signup/', c, {
@@ -3699,7 +3699,7 @@
                               p('/');
                           })
                           .catch(function (e) {
-                            X.b.error(
+                            V.b.error(
                               '\uc62c\ubc14\ub978 \uc785\ub825\uc815\ubcf4\uac00 \uc544\ub2d9\ub2c8\ub2e4.',
                             );
                           });
@@ -3722,51 +3722,51 @@
             o = Object(u.a)(i, 2),
             l = o[0],
             c = o[1];
-          return Object(V.jsxs)('div', {
+          return Object(X.jsxs)('div', {
             className: Oa.a.LoginPageWrapper,
             children: [
-              Object(V.jsx)(Ca, { setLoginIsOpen: n, isOpen: a }),
-              Object(V.jsx)(Ta, { setSignUpIsOpen: c, isOpen: l }),
-              Object(V.jsx)('div', {
+              Object(X.jsx)(Ca, { setLoginIsOpen: n, isOpen: a }),
+              Object(X.jsx)(Ta, { setSignUpIsOpen: c, isOpen: l }),
+              Object(X.jsx)('div', {
                 className: Oa.a.Left,
-                children: Object(V.jsx)('img', {
+                children: Object(X.jsx)('img', {
                   className: Oa.a.Background,
-                  src: ha,
+                  src: fa,
                   alt: 'No Image',
                 }),
               }),
-              Object(V.jsxs)('div', {
+              Object(X.jsxs)('div', {
                 className: Oa.a.Right,
                 children: [
-                  Object(V.jsx)('img', {
+                  Object(X.jsx)('img', {
                     src: v,
                     alt: 'No Image',
                     height: 40,
                     width: 40,
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: Oa.a.Text1,
-                    children: Object(V.jsx)('span', {
+                    children: Object(X.jsx)('span', {
                       children:
                         '\uc9c0\uae08 \uc77c\uc5b4\ub098\uace0 \uc788\ub294 \uc77c',
                     }),
                   }),
-                  Object(V.jsx)('div', {
+                  Object(X.jsx)('div', {
                     className: Oa.a.Text2,
-                    children: Object(V.jsx)('span', {
+                    children: Object(X.jsx)('span', {
                       children:
                         '\uc624\ub298 \ud2b8\uc704\ud130\uc5d0 \uac00\uc785\ud558\uc138\uc694.',
                     }),
                   }),
-                  Object(V.jsxs)('div', {
+                  Object(X.jsxs)('div', {
                     className: Oa.a.SignUpWrapper,
                     children: [
-                      Object(V.jsx)('button', {
+                      Object(X.jsx)('button', {
                         className: Oa.a.Button,
                         children:
                           'Google \uacc4\uc815\uc73c\ub85c \uac00\uc785\ud558\uae30',
                       }),
-                      Object(V.jsx)('button', {
+                      Object(X.jsx)('button', {
                         onClick: function () {
                           window.location.href = Ia;
                         },
@@ -3779,11 +3779,11 @@
                           backgroundSize: '100% 100%',
                         },
                       }),
-                      Object(V.jsx)('div', {
+                      Object(X.jsx)('div', {
                         className: Oa.a.BorderWrapper,
                         children: '\ub610\ub294',
                       }),
-                      Object(V.jsx)('button', {
+                      Object(X.jsx)('button', {
                         onClick: function () {
                           c(!0);
                         },
@@ -3791,19 +3791,19 @@
                         children:
                           '\ud734\ub300\ud3f0 \ubc88\ud638\ub098 \uc774\uba54\uc77c \uc8fc\uc18c\ub85c \uac00\uc785\ud558\uae30',
                       }),
-                      Object(V.jsxs)('div', {
+                      Object(X.jsxs)('div', {
                         className: Oa.a.Text3,
                         children: [
                           'By signing up, you agree to the',
                           ' ',
-                          Object(V.jsxs)('a', {
+                          Object(X.jsxs)('a', {
                             className: Oa.a.Link,
                             href: '',
                             children: ['Terms of Service', ' '],
                           }),
                           'and',
                           ' ',
-                          Object(V.jsx)('a', {
+                          Object(X.jsx)('a', {
                             className: Oa.a.Link,
                             href: '',
                             children: 'Privacy Policy',
@@ -3814,15 +3814,15 @@
                       }),
                     ],
                   }),
-                  Object(V.jsxs)('div', {
+                  Object(X.jsxs)('div', {
                     className: Oa.a.LoginWrapper,
                     children: [
-                      Object(V.jsx)('span', {
+                      Object(X.jsx)('span', {
                         className: Oa.a.Text4,
                         children:
                           '\uc774\ubbf8 \ud2b8\uc704\ud130\uc5d0 \uac00\uc785\ud558\uc168\ub098\uc694?',
                       }),
-                      Object(V.jsx)('button', {
+                      Object(X.jsx)('button', {
                         onClick: function () {
                           n(!0);
                         },
@@ -3836,8 +3836,8 @@
             ],
           });
         },
-        Sa = a(76);
-      var Wa = function () {
+        Wa = a(76);
+      var Sa = function () {
         var e = ue(),
           t = Object(d.g)(),
           a = ya(),
@@ -3846,7 +3846,7 @@
         return (
           n.a.useEffect(function () {
             'null' === r
-              ? (X.b.error(
+              ? (V.b.error(
                   '\ub85c\uadf8\uc778\uc5d0 \uc2e4\ud328\ud558\uc600\uc2b5\ub2c8\ub2e4',
                 ),
                 t('/'))
@@ -3856,7 +3856,7 @@
                 e.setNowUserID(i || ''),
                 t('/'));
           }, []),
-          Object(V.jsx)('div', {
+          Object(X.jsx)('div', {
             style: {
               position: 'absolute',
               top: '50px',
@@ -3866,7 +3866,7 @@
               display: 'flex',
               justifyContent: 'center',
             },
-            children: Object(V.jsx)(Sa.BeatLoader, { loading: !0 }),
+            children: Object(X.jsx)(Wa.BeatLoader, { loading: !0 }),
           })
         );
       };
@@ -3878,33 +3878,33 @@
             null !== e &&
               (Z.a.defaults.headers.common.Authorization = 'JWT ' + e.token),
             'undefined' === e.token || void 0 === e.token
-              ? Object(V.jsx)('div', {
-                  children: Object(V.jsx)(s.a, {
-                    children: Object(V.jsxs)(d.d, {
+              ? Object(X.jsx)('div', {
+                  children: Object(X.jsx)(s.a, {
+                    children: Object(X.jsxs)(d.d, {
                       children: [
-                        Object(V.jsx)(d.b, {
+                        Object(X.jsx)(d.b, {
                           path: '/',
-                          element: Object(V.jsx)(Ea, {}),
+                          element: Object(X.jsx)(Ea, {}),
                         }),
-                        Object(V.jsx)(d.b, {
+                        Object(X.jsx)(d.b, {
                           path: '/oauth/callback/kakao',
-                          element: Object(V.jsx)(Wa, {}),
+                          element: Object(X.jsx)(Sa, {}),
                         }),
-                        Object(V.jsx)(d.b, {
+                        Object(X.jsx)(d.b, {
                           path: '*',
-                          element: Object(V.jsx)(d.a, { to: '/' }),
+                          element: Object(X.jsx)(d.a, { to: '/' }),
                         }),
                       ],
                     }),
                   }),
                 })
-              : Object(V.jsx)('div', {
+              : Object(X.jsx)('div', {
                   className: c.a.App,
-                  children: Object(V.jsx)(s.a, {
-                    children: Object(V.jsx)(d.d, {
-                      children: Object(V.jsx)(d.b, {
+                  children: Object(X.jsx)(s.a, {
+                    children: Object(X.jsx)(d.d, {
+                      children: Object(X.jsx)(d.b, {
                         path: '/*',
-                        element: Object(V.jsx)(fa, {}),
+                        element: Object(X.jsx)(ha, {}),
                       }),
                     }),
                   }),
@@ -3928,12 +3928,12 @@
         };
       a(161);
       o.a.render(
-        Object(V.jsx)(Ba, {
-          children: Object(V.jsx)(de, {
-            children: Object(V.jsxs)(n.a.StrictMode, {
+        Object(X.jsx)(Ba, {
+          children: Object(X.jsx)(de, {
+            children: Object(X.jsxs)(n.a.StrictMode, {
               children: [
-                Object(V.jsx)(Ra, {}),
-                Object(V.jsx)(X.a, { position: 'bottom-right' }),
+                Object(X.jsx)(Ra, {}),
+                Object(X.jsx)(V.a, { position: 'bottom-right' }),
               ],
             }),
           }),
@@ -3944,245 +3944,245 @@
     },
     18: function (e, t, a) {
       e.exports = {
-        modalStyle: 'CropImageModal_modalStyle__ndrbJ',
-        overlayStyle: 'CropImageModal_overlayStyle__VSXO9',
-        modalHeader: 'CropImageModal_modalHeader__ZPUzt',
-        backButton: 'CropImageModal_backButton__1E6sb',
-        backButtonImage: 'CropImageModal_backButtonImage__aeJ0r',
-        headText: 'CropImageModal_headText__3nkTI',
-        applyButton: 'CropImageModal_applyButton__1R1uF',
-        cropContainer: 'CropImageModal_cropContainer__2hypC',
+        modalStyle: 'CropImageModal_modalStyle__38R-v',
+        overlayStyle: 'CropImageModal_overlayStyle__1CgZ5',
+        modalHeader: 'CropImageModal_modalHeader__2EICU',
+        backButton: 'CropImageModal_backButton__Dl6pK',
+        backButtonImage: 'CropImageModal_backButtonImage__3Gq_Z',
+        headText: 'CropImageModal_headText__1wkB-',
+        applyButton: 'CropImageModal_applyButton__3oAcb',
+        cropContainer: 'CropImageModal_cropContainer__3PB4O',
         cropControllerConatiner:
-          'CropImageModal_cropControllerConatiner__27k0r',
-        zoomController: 'CropImageModal_zoomController__1XwDh',
-        fillTrackColor: 'CropImageModal_fillTrackColor__2TRBm',
-        magnifyImage: 'CropImageModal_magnifyImage__2O5fK',
+          'CropImageModal_cropControllerConatiner__28Y5r',
+        zoomController: 'CropImageModal_zoomController__3sFX8',
+        fillTrackColor: 'CropImageModal_fillTrackColor__WZ6AC',
+        magnifyImage: 'CropImageModal_magnifyImage__3d7rs',
       };
     },
     19: function (e, t, a) {
       e.exports = {
-        ModalWrapper: 'LoginModal_ModalWrapper__2wm_Y',
-        ModalHeader: 'LoginModal_ModalHeader__3EQDr',
-        XWrapper: 'LoginModal_XWrapper__26gIB',
-        ModalContent: 'LoginModal_ModalContent__3oDS9',
-        ContentMessage: 'LoginModal_ContentMessage__2ij79',
-        Button: 'LoginModal_Button__3gpgV',
-        BorderWrapper: 'LoginModal_BorderWrapper__2N0Yx',
-        InputWrapper: 'LoginModal_InputWrapper__Hd9J-',
-        Input: 'LoginModal_Input__KGAQA',
-        BlackButton: 'LoginModal_BlackButton__4HGI4',
+        ModalWrapper: 'LoginModal_ModalWrapper__1Q3HB',
+        ModalHeader: 'LoginModal_ModalHeader__2E3SD',
+        XWrapper: 'LoginModal_XWrapper__2V6NE',
+        ModalContent: 'LoginModal_ModalContent__334t1',
+        ContentMessage: 'LoginModal_ContentMessage__2TTG-',
+        Button: 'LoginModal_Button__2U6Pu',
+        BorderWrapper: 'LoginModal_BorderWrapper__2VAb0',
+        InputWrapper: 'LoginModal_InputWrapper__3x34w',
+        Input: 'LoginModal_Input__3VvPz',
+        BlackButton: 'LoginModal_BlackButton__2G1Js',
       };
     },
     22: function (e, t, a) {
       e.exports = {
-        FollowWrapper: 'SideFollow_FollowWrapper__3pZSl',
-        FollowInside: 'SideFollow_FollowInside__ISY2a',
-        FollowImg: 'SideFollow_FollowImg__3yrKg',
-        FollowTextButton: 'SideFollow_FollowTextButton__35A3a',
-        FollowNameID: 'SideFollow_FollowNameID__2PxTx',
-        FollowButtonWrapper: 'SideFollow_FollowButtonWrapper__3K4Dv',
-        FollowButton: 'SideFollow_FollowButton__1yMW5',
-        FollowingButton: 'SideFollow_FollowingButton__10P84',
-        UnfollowButton: 'SideFollow_UnfollowButton__3LbRv',
-        CancelButton: 'SideFollow_CancelButton__3svwo',
-        FollowName: 'SideFollow_FollowName__2hOG2',
-        FollowID: 'SideFollow_FollowID__2czg2',
+        FollowWrapper: 'SideFollow_FollowWrapper__2CXYh',
+        FollowInside: 'SideFollow_FollowInside__3G206',
+        FollowImg: 'SideFollow_FollowImg__37RtW',
+        FollowTextButton: 'SideFollow_FollowTextButton__1UNxD',
+        FollowNameID: 'SideFollow_FollowNameID__3R8WJ',
+        FollowButtonWrapper: 'SideFollow_FollowButtonWrapper__3sNUF',
+        FollowButton: 'SideFollow_FollowButton__esj8d',
+        FollowingButton: 'SideFollow_FollowingButton__hl9RX',
+        UnfollowButton: 'SideFollow_UnfollowButton__2rcEc',
+        CancelButton: 'SideFollow_CancelButton__198tO',
+        FollowName: 'SideFollow_FollowName__2pZy7',
+        FollowID: 'SideFollow_FollowID__1TA9J',
       };
     },
     24: function (e, t, a) {
       e.exports = {
-        inputWrapper: 'CustomInput_inputWrapper__31RaA',
-        inputBox: 'CustomInput_inputBox__eMoC7',
-        inputBoxWarning: 'CustomInput_inputBoxWarning__1M88g',
-        inputTitle: 'CustomInput_inputTitle__2RWij',
-        inputTitleFilled: 'CustomInput_inputTitleFilled__33I6k',
-        inputTitleOnfocus: 'CustomInput_inputTitleOnfocus__Qmj-T',
-        inputTitleOnfocusWarning: 'CustomInput_inputTitleOnfocusWarning__Ye5ec',
-        lengthText: 'CustomInput_lengthText__2qt8h',
-        lengthTextOnblur: 'CustomInput_lengthTextOnblur__1IgYU',
-        warningText: 'CustomInput_warningText__1uRY_',
-        warningTextInvisible: 'CustomInput_warningTextInvisible__Ht872',
+        inputWrapper: 'CustomInput_inputWrapper__2DqLk',
+        inputBox: 'CustomInput_inputBox__wAwe_',
+        inputBoxWarning: 'CustomInput_inputBoxWarning__1uZrq',
+        inputTitle: 'CustomInput_inputTitle__1jo91',
+        inputTitleFilled: 'CustomInput_inputTitleFilled__21unk',
+        inputTitleOnfocus: 'CustomInput_inputTitleOnfocus__2GmI5',
+        inputTitleOnfocusWarning: 'CustomInput_inputTitleOnfocusWarning__1k6hW',
+        lengthText: 'CustomInput_lengthText__1Ga50',
+        lengthTextOnblur: 'CustomInput_lengthTextOnblur__31moC',
+        warningText: 'CustomInput_warningText__1aKrb',
+        warningTextInvisible: 'CustomInput_warningTextInvisible__2Ja24',
       };
     },
     25: function (e, t, a) {
       e.exports = {
-        UserProfileHeader: 'FollowPage_UserProfileHeader__3nTQs',
-        UserProfileHeaderButton: 'FollowPage_UserProfileHeaderButton__2dvtv',
-        UserProfileHeaderName: 'FollowPage_UserProfileHeaderName__CVaqM',
-        UserProfileHeaderID: 'FollowPage_UserProfileHeaderID__iJFWV',
+        UserProfileHeader: 'FollowPage_UserProfileHeader__246Dn',
+        UserProfileHeaderButton: 'FollowPage_UserProfileHeaderButton__aKchv',
+        UserProfileHeaderName: 'FollowPage_UserProfileHeaderName__3gtYl',
+        UserProfileHeaderID: 'FollowPage_UserProfileHeaderID__1OcpO',
         UserProfileRouterButtonWrapper:
-          'FollowPage_UserProfileRouterButtonWrapper__uwpRX',
+          'FollowPage_UserProfileRouterButtonWrapper__1ZreZ',
         UserProfileRouterButtonUnclicked:
-          'FollowPage_UserProfileRouterButtonUnclicked__34pAC',
+          'FollowPage_UserProfileRouterButtonUnclicked__sKogD',
         UserProfileRouterButtonClicked:
-          'FollowPage_UserProfileRouterButtonClicked__2iCZ1',
+          'FollowPage_UserProfileRouterButtonClicked__sqa0F',
       };
     },
     28: function (e, t, a) {
       e.exports = {
-        inputWrapper: 'CustomTextarea_inputWrapper__3gI_2',
-        inputBox: 'CustomTextarea_inputBox__10jq2',
-        inputTitle: 'CustomTextarea_inputTitle__QqsN0',
-        inputTitleFilled: 'CustomTextarea_inputTitleFilled__2H6AN',
-        inputTitleOnfocus: 'CustomTextarea_inputTitleOnfocus__17iBB',
-        lengthText: 'CustomTextarea_lengthText__24oXh',
-        lengthTextOnblur: 'CustomTextarea_lengthTextOnblur__3-Opy',
+        inputWrapper: 'CustomTextarea_inputWrapper__1CEj6',
+        inputBox: 'CustomTextarea_inputBox__1ktm0',
+        inputTitle: 'CustomTextarea_inputTitle__3M7HH',
+        inputTitleFilled: 'CustomTextarea_inputTitleFilled__39BHr',
+        inputTitleOnfocus: 'CustomTextarea_inputTitleOnfocus__YqBTW',
+        lengthText: 'CustomTextarea_lengthText__1Obok',
+        lengthTextOnblur: 'CustomTextarea_lengthTextOnblur__3pDGI',
       };
     },
     35: function (e, t, a) {
       e.exports = {
-        TrendWrapper: 'Trend_TrendWrapper__jvNcc',
-        TrendHeader: 'Trend_TrendHeader__qS5tO',
-        TrendHeaderText: 'Trend_TrendHeaderText__3fuKG',
-        TrendContent: 'Trend_TrendContent__2Yl44',
+        TrendWrapper: 'Trend_TrendWrapper__M6HGk',
+        TrendHeader: 'Trend_TrendHeader__3-ieA',
+        TrendHeaderText: 'Trend_TrendHeaderText__1a2hp',
+        TrendContent: 'Trend_TrendContent__36gvo',
       };
     },
     4: function (e, t, a) {
       e.exports = {
-        LeftBlock: 'LeftBlock_LeftBlock__1lGAX',
-        NavigatorBlock: 'LeftBlock_NavigatorBlock__3MC0o',
-        NavigatorWrapper: 'LeftBlock_NavigatorWrapper__1Ydtb',
-        NavigatorButton: 'LeftBlock_NavigatorButton__1_ehu',
-        NavigatorHeader: 'LeftBlock_NavigatorHeader__1fZHs',
-        NavigatorHeaderImg: 'LeftBlock_NavigatorHeaderImg__1LQ-c',
-        NavigatorImg: 'LeftBlock_NavigatorImg__3AxgL',
-        NavigatorText: 'LeftBlock_NavigatorText__DSHz6',
-        NavigatorTextBolder: 'LeftBlock_NavigatorTextBolder__vVpL8',
-        TweetButton: 'LeftBlock_TweetButton__1Szit',
-        TweetButtonSmall: 'LeftBlock_TweetButtonSmall__15UhX',
-        LogoutModal: 'LeftBlock_LogoutModal__ZRsJq',
-        ProfileBlock: 'LeftBlock_ProfileBlock__1vezr',
-        ProfileWrapper: 'LeftBlock_ProfileWrapper__x3OgG',
-        ProfileImgWrapper: 'LeftBlock_ProfileImgWrapper__3LwHp',
-        ProfileTextWrapper: 'LeftBlock_ProfileTextWrapper__1esDb',
-        ProfileImg: 'LeftBlock_ProfileImg__3P9hQ',
-        ProfileText: 'LeftBlock_ProfileText__1YL52',
-        ProfileImgMore: 'LeftBlock_ProfileImgMore__2XxxY',
+        LeftBlock: 'LeftBlock_LeftBlock__1_vnS',
+        NavigatorBlock: 'LeftBlock_NavigatorBlock__3B2Ml',
+        NavigatorWrapper: 'LeftBlock_NavigatorWrapper__13tKy',
+        NavigatorButton: 'LeftBlock_NavigatorButton__tw5--',
+        NavigatorHeader: 'LeftBlock_NavigatorHeader__Y1N3t',
+        NavigatorHeaderImg: 'LeftBlock_NavigatorHeaderImg__2OkqL',
+        NavigatorImg: 'LeftBlock_NavigatorImg__qiih5',
+        NavigatorText: 'LeftBlock_NavigatorText__1B4xy',
+        NavigatorTextBolder: 'LeftBlock_NavigatorTextBolder__1vRFq',
+        TweetButton: 'LeftBlock_TweetButton__N3UOy',
+        TweetButtonSmall: 'LeftBlock_TweetButtonSmall__vONEM',
+        LogoutModal: 'LeftBlock_LogoutModal__1Hu53',
+        ProfileBlock: 'LeftBlock_ProfileBlock__dWAox',
+        ProfileWrapper: 'LeftBlock_ProfileWrapper__ei8xX',
+        ProfileImgWrapper: 'LeftBlock_ProfileImgWrapper__2beQh',
+        ProfileTextWrapper: 'LeftBlock_ProfileTextWrapper__2hiRn',
+        ProfileImg: 'LeftBlock_ProfileImg__DJ_-n',
+        ProfileText: 'LeftBlock_ProfileText__2Rk1W',
+        ProfileImgMore: 'LeftBlock_ProfileImgMore__1IdEB',
       };
     },
     47: function (e, t, a) {
       e.exports = {
-        ProfilePage: 'ProfilePage_ProfilePage__1TiRY',
-        Footer: 'ProfilePage_Footer__zbZ3N',
+        ProfilePage: 'ProfilePage_ProfilePage__2Tz2Y',
+        Footer: 'ProfilePage_Footer__31beY',
       };
     },
     5: function (e, t, a) {
       e.exports = {
-        modalStyle: 'EditProfileModal_modalStyle__3nECj',
-        hideOverflow: 'EditProfileModal_hideOverflow__1ck5q',
-        overlayStyle: 'EditProfileModal_overlayStyle__2Xfas',
-        modalHeader: 'EditProfileModal_modalHeader__2kDay',
-        exitButton: 'EditProfileModal_exitButton__1v0fn',
-        exitButtonImg: 'EditProfileModal_exitButtonImg__3PFdv',
-        headText: 'EditProfileModal_headText__1YpbY',
-        saveButton: 'EditProfileModal_saveButton__3iSyr',
-        contentWrapper: 'EditProfileModal_contentWrapper__3ptrn',
-        profileImgWrapper: 'EditProfileModal_profileImgWrapper__3eyyl',
-        profileImgNull: 'EditProfileModal_profileImgNull__2EdBd',
-        profileImg: 'EditProfileModal_profileImg__xI1nW',
-        profileImgShade: 'EditProfileModal_profileImgShade__3zo5X',
-        profileImgButton: 'EditProfileModal_profileImgButton__2pSdg',
-        profileImageInput: 'EditProfileModal_profileImageInput__2N8PH',
-        cameraImg: 'EditProfileModal_cameraImg__vrboK',
-        backgroundImgWrapper: 'EditProfileModal_backgroundImgWrapper__1LByQ',
-        backgroundImg: 'EditProfileModal_backgroundImg__3K3Ez',
-        backgroundImgNull: 'EditProfileModal_backgroundImgNull__ihsmU',
-        xImg: 'EditProfileModal_xImg__3VUBT',
-        backgroundImgShade: 'EditProfileModal_backgroundImgShade__2JXJ0',
-        birthDateWrapper: 'EditProfileModal_birthDateWrapper__2jGUW',
-        birthDateHeader: 'EditProfileModal_birthDateHeader__f8ur_',
-        birthDateHeaderText: 'EditProfileModal_birthDateHeaderText__2jmpX',
-        birthDateHeaderButton: 'EditProfileModal_birthDateHeaderButton__1G9vA',
-        birthDateContent: 'EditProfileModal_birthDateContent__29RC7',
+        modalStyle: 'EditProfileModal_modalStyle__2Hp9J',
+        hideOverflow: 'EditProfileModal_hideOverflow__20O2U',
+        overlayStyle: 'EditProfileModal_overlayStyle__3Gn13',
+        modalHeader: 'EditProfileModal_modalHeader__10OsM',
+        exitButton: 'EditProfileModal_exitButton__1kgfq',
+        exitButtonImg: 'EditProfileModal_exitButtonImg__zkb7b',
+        headText: 'EditProfileModal_headText__syf3A',
+        saveButton: 'EditProfileModal_saveButton__Crh2W',
+        contentWrapper: 'EditProfileModal_contentWrapper__18jIR',
+        profileImgWrapper: 'EditProfileModal_profileImgWrapper__38exK',
+        profileImgNull: 'EditProfileModal_profileImgNull__1sVjB',
+        profileImg: 'EditProfileModal_profileImg__1133C',
+        profileImgShade: 'EditProfileModal_profileImgShade__2GELV',
+        profileImgButton: 'EditProfileModal_profileImgButton__2Kr1T',
+        profileImageInput: 'EditProfileModal_profileImageInput__qleg0',
+        cameraImg: 'EditProfileModal_cameraImg__24ioC',
+        backgroundImgWrapper: 'EditProfileModal_backgroundImgWrapper__3GVMd',
+        backgroundImg: 'EditProfileModal_backgroundImg__1P7Da',
+        backgroundImgNull: 'EditProfileModal_backgroundImgNull__CBm2h',
+        xImg: 'EditProfileModal_xImg__37bgK',
+        backgroundImgShade: 'EditProfileModal_backgroundImgShade__3FOYk',
+        birthDateWrapper: 'EditProfileModal_birthDateWrapper__3xN1D',
+        birthDateHeader: 'EditProfileModal_birthDateHeader__1uGoZ',
+        birthDateHeaderText: 'EditProfileModal_birthDateHeaderText__uPJmZ',
+        birthDateHeaderButton: 'EditProfileModal_birthDateHeaderButton__1zdsr',
+        birthDateContent: 'EditProfileModal_birthDateContent__2CSaF',
         birthDateWrapperOnEdit:
-          'EditProfileModal_birthDateWrapperOnEdit__2uTwn',
+          'EditProfileModal_birthDateWrapperOnEdit__3MmAO',
         birthDateEditHeaderText:
-          'EditProfileModal_birthDateEditHeaderText__3wnPm',
+          'EditProfileModal_birthDateEditHeaderText__p99GM',
         birthDateEditExplainText:
-          'EditProfileModal_birthDateEditExplainText__qbBcF',
-        selectTitleWrapper: 'EditProfileModal_selectTitleWrapper__2Nxc1',
-        selectWrapper: 'EditProfileModal_selectWrapper__3oNwk',
-        monthSelect: 'EditProfileModal_monthSelect__3zNq7',
-        daySelect: 'EditProfileModal_daySelect__2wUVz',
-        yearSelect: 'EditProfileModal_yearSelect__incXz',
+          'EditProfileModal_birthDateEditExplainText__3pf1D',
+        selectTitleWrapper: 'EditProfileModal_selectTitleWrapper__3eAQM',
+        selectWrapper: 'EditProfileModal_selectWrapper__3U-Sq',
+        monthSelect: 'EditProfileModal_monthSelect__1nJac',
+        daySelect: 'EditProfileModal_daySelect__oOmar',
+        yearSelect: 'EditProfileModal_yearSelect__2CKDK',
       };
     },
     63: function (e, t, a) {
-      e.exports = { App: 'App_App__15LM-' };
+      e.exports = { App: 'App_App__ynFYj' };
     },
     64: function (e, t, a) {
-      e.exports = { MainPage: 'MainPage_MainPage__3ArfK' };
+      e.exports = { MainPage: 'MainPage_MainPage__TOM8P' };
     },
     65: function (e, t, a) {
-      e.exports = { MainBlock: 'MainBlock_MainBlock__2bQvD' };
+      e.exports = { MainBlock: 'MainBlock_MainBlock__1S8Ff' };
     },
     67: function (e, t, a) {
-      e.exports = { tweetsItems: 'Tweets_tweetsItems__3qR5v' };
+      e.exports = { tweetsItems: 'Tweets_tweetsItems__3x1az' };
     },
     68: function (e, t, a) {
-      e.exports = { tweetsItems: 'TweetsAndReplies_tweetsItems__1r8Tr' };
+      e.exports = { tweetsItems: 'TweetsAndReplies_tweetsItems__2n_6Z' };
     },
     69: function (e, t, a) {
-      e.exports = { tweetsItems: 'Media_tweetsItems__2KsNv' };
+      e.exports = { tweetsItems: 'Media_tweetsItems__MooIf' };
     },
     7: function (e, t, a) {
       e.exports = {
-        wrapper: 'Tweet_wrapper__1BYn1',
-        leftWrapper: 'Tweet_leftWrapper__1rDZi',
-        profileImage: 'Tweet_profileImage__taCBf',
-        rightWrapper: 'Tweet_rightWrapper__fpJA1',
-        topWrapper: 'Tweet_topWrapper__TNwWq',
-        topTextWrapper: 'Tweet_topTextWrapper__3Mn0t',
-        nameText: 'Tweet_nameText__3rgFE',
-        idTimeText: 'Tweet_idTimeText__1C5U5',
-        moreButton: 'Tweet_moreButton__3mazr',
-        moreButtonImg: 'Tweet_moreButtonImg__24a6K',
-        middleWrapper: 'Tweet_middleWrapper__3CZEB',
-        mainText: 'Tweet_mainText__p9a4f',
-        mainImg: 'Tweet_mainImg__2yJPd',
-        bottomWrapper: 'Tweet_bottomWrapper__1P5x0',
-        buttonWrapper: 'Tweet_buttonWrapper__x4Dt3',
-        commentButton: 'Tweet_commentButton__nyiEe',
-        commentImg: 'Tweet_commentImg__VY1LT',
-        commentButtonText: 'Tweet_commentButtonText__kyFmM',
-        likeButton: 'Tweet_likeButton__1Ve_s',
-        likeImg: 'Tweet_likeImg__3cKFT',
-        likeButtonText: 'Tweet_likeButtonText__3QEaN',
-        retweetButton: 'Tweet_retweetButton__1wljL',
-        retweetImg: 'Tweet_retweetImg__1eCxy',
-        retweetButtonText: 'Tweet_retweetButtonText__Lu70I',
-        shareButton: 'Tweet_shareButton__2Xur5',
-        shareImg: 'Tweet_shareImg__ppth6',
+        wrapper: 'Tweet_wrapper__2hZd3',
+        leftWrapper: 'Tweet_leftWrapper__2ATO8',
+        profileImage: 'Tweet_profileImage__3_dMI',
+        rightWrapper: 'Tweet_rightWrapper__ScX4V',
+        topWrapper: 'Tweet_topWrapper__3fEU8',
+        topTextWrapper: 'Tweet_topTextWrapper__3B5tY',
+        nameText: 'Tweet_nameText__1Sy0c',
+        idTimeText: 'Tweet_idTimeText__ALMQR',
+        moreButton: 'Tweet_moreButton__1Gj8Z',
+        moreButtonImg: 'Tweet_moreButtonImg___J5cx',
+        middleWrapper: 'Tweet_middleWrapper__n4zFc',
+        mainText: 'Tweet_mainText__2_0p1',
+        mainImg: 'Tweet_mainImg__2WQgf',
+        bottomWrapper: 'Tweet_bottomWrapper__3gH6s',
+        buttonWrapper: 'Tweet_buttonWrapper__2VtkF',
+        commentButton: 'Tweet_commentButton__tHk0M',
+        commentImg: 'Tweet_commentImg__11ca0',
+        commentButtonText: 'Tweet_commentButtonText__xy9WQ',
+        likeButton: 'Tweet_likeButton__3J4im',
+        likeImg: 'Tweet_likeImg__1LPxy',
+        likeButtonText: 'Tweet_likeButtonText__kEI0C',
+        retweetButton: 'Tweet_retweetButton__1_qtz',
+        retweetImg: 'Tweet_retweetImg__1CbQ8',
+        retweetButtonText: 'Tweet_retweetButtonText__wLq9u',
+        shareButton: 'Tweet_shareButton__3_rnW',
+        shareImg: 'Tweet_shareImg__2n2_X',
       };
     },
     70: function (e, t, a) {
-      e.exports = { tweetsItems: 'Likes_tweetsItems__tGbY9' };
+      e.exports = { tweetsItems: 'Likes_tweetsItems__1MXEU' };
     },
     71: function (e, t, a) {},
     72: function (e, t, a) {
       e.exports = {
-        NotificationsPage: 'NotificationsPage_NotificationsPage__1iMeu',
+        NotificationsPage: 'NotificationsPage_NotificationsPage__3TW7V',
       };
     },
     73: function (e, t, a) {},
     74: function (e, t, a) {},
     8: function (e, t, a) {
       e.exports = {
-        tweetModalWrapper: 'TweetModal_tweetModalWrapper__av1UK',
-        ModalContent: 'TweetModal_ModalContent__1pbVn',
-        ModalHeader: 'TweetModal_ModalHeader__3n-uF',
-        XWrapper: 'TweetModal_XWrapper__2C0WP',
-        ModalContentLeft: 'TweetModal_ModalContentLeft__1qo1l',
-        ModalContentRight: 'TweetModal_ModalContentRight__3lJ-E',
-        ModalContentInput: 'TweetModal_ModalContentInput__27IaS',
-        BorderWrapper: 'TweetModal_BorderWrapper__3Wn4P',
-        ModalContentRightFooter: 'TweetModal_ModalContentRightFooter__1D_qn',
+        tweetModalWrapper: 'TweetModal_tweetModalWrapper__2jyPR',
+        ModalContent: 'TweetModal_ModalContent__3lK9C',
+        ModalHeader: 'TweetModal_ModalHeader__1Md3p',
+        XWrapper: 'TweetModal_XWrapper__2oqpB',
+        ModalContentLeft: 'TweetModal_ModalContentLeft__3FnjQ',
+        ModalContentRight: 'TweetModal_ModalContentRight__3eTf8',
+        ModalContentInput: 'TweetModal_ModalContentInput__9i_S6',
+        BorderWrapper: 'TweetModal_BorderWrapper__2Gq12',
+        ModalContentRightFooter: 'TweetModal_ModalContentRightFooter__2yhK5',
         ModalContentButtonWrapper:
-          'TweetModal_ModalContentButtonWrapper__3pP7f',
-        Icon: 'TweetModal_Icon__3BZuI',
-        IconWrapper: 'TweetModal_IconWrapper__18HJX',
-        TweetButtonWrapper: 'TweetModal_TweetButtonWrapper__1A_uf',
-        Button: 'TweetModal_Button__1f11N',
+          'TweetModal_ModalContentButtonWrapper__3O-fD',
+        Icon: 'TweetModal_Icon__1Z0Ut',
+        IconWrapper: 'TweetModal_IconWrapper__2_HOc',
+        TweetButtonWrapper: 'TweetModal_TweetButtonWrapper__1eBNz',
+        Button: 'TweetModal_Button__32m-Q',
       };
     },
     82: function (e, t, a) {},

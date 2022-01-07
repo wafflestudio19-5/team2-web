@@ -52,6 +52,15 @@ function LeftBlock() {
     setIsLogoutModalOpen(false);
   };
 
+  const SocialLogout = () => {
+    localStorage.removeItem('JWT');
+    localStorage.removeItem('user_id');
+    console.log('logout');
+    window.location.replace('/');
+    userContext.setNowUserID('undefined');
+    setIsLogoutModalOpen(false);
+  };
+
   const HomeClicked = () => {
     if (whichNavigatorClicked != 'home') {
       navigate('/home');
@@ -242,8 +251,13 @@ function LeftBlock() {
         />
       </div>
       {isLogoutModalOpen ? (
-        <div className={styles.LogoutModal} onClick={logOut}>
-          Logout @id
+        <div className={styles.LogoutModalWrapper}>
+          <div className={styles.LogoutModal} onClick={logOut}>
+            Logout @id
+          </div>
+          <div className={styles.SocialLogoutModal} onClick={SocialLogout}>
+            Social Logout @id
+          </div>
         </div>
       ) : null}
       <button className={styles.ProfileBlock} onClick={logoutModalToggle}>

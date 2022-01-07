@@ -19,8 +19,14 @@ const MainBlock = ({ loadNext }: Props) => {
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
         <Route path="/:id/*" element={<ProfilePage loadNext={loadNext} />} />
-        <Route path="/:id/following" element={<FollowPage />} />
-        <Route path="/:id/followers" element={<FollowPage />} />
+        <Route
+          path="/:id/following"
+          element={<FollowPage loadNext={loadNext} />}
+        />
+        <Route
+          path="/:id/followers"
+          element={<FollowPage loadNext={loadNext} />}
+        />
         <Route path="/setting/" element={<SettingPage />} />
         <Route path="/*" element={<Navigate to="/home" />} />
       </Routes>

@@ -93,17 +93,39 @@
   opacity: 0;
 }
 
-.LogoutModal {
-  border-radius: 10px;
+.LogoutModalWrapper {
   bottom: 70px;
-  border: 1px solid black;
-  padding: 20px 0px;
+  padding: 0px 0px;
   background: white;
   position: fixed;
   width: 14%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   color: red;
+}
+
+.LogoutModal {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  border: black 1px solid;
+  height: 50px;
+  margin-bottom: 10px;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+    background-color: #f7f9f9;
+  }
+}
+
+.SocialLogoutModal {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  border: black 1px solid;
+  justify-content: center;
+  height: 50px;
   &:hover {
     cursor: pointer;
     background-color: #f7f9f9;

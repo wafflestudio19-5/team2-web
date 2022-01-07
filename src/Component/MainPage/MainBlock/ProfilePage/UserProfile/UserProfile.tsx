@@ -1,5 +1,5 @@
-import React, { MouseEventHandler, useContext, useState } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
 import arrow_left from '../../../../../Images/arrow-left.svg';
@@ -27,19 +27,19 @@ function UserProfile(props: {
 
   const switchToTweets = () => {
     props.setIsChosen('tweets');
-    navigate(`/${userContext.nowUserID}`);
+    navigate(`/${params.id}`);
   };
   const switchToTweetsAndReplies = () => {
     props.setIsChosen('tweetsandreplies');
-    navigate(`/${userContext.nowUserID}/with_replies`);
+    navigate(`/${params.id}/with_replies`);
   };
   const switchToMedia = () => {
     props.setIsChosen('media');
-    navigate(`/${userContext.nowUserID}/media`);
+    navigate(`/${params.id}/media`);
   };
   const switchToLikes = () => {
     props.setIsChosen('likes');
-    navigate(`/${userContext.nowUserID}/likes`);
+    navigate(`/${params.id}/likes`);
   };
 
   return (
@@ -145,14 +145,14 @@ function UserProfile(props: {
             >
               <div
                 onClick={() => {
-                  navigate(`/${userContext.nowUserID}/following`);
+                  navigate(`/${params.id}/following`);
                 }}
               >
                 ($id.following.count)following
               </div>
               <div
                 onClick={() => {
-                  navigate(`/${userContext.nowUserID}/followers`);
+                  navigate(`/${params.id}/followers`);
                 }}
               >
                 ($id.follower.count)follower

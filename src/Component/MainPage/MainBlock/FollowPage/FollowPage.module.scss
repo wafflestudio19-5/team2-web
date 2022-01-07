@@ -1,15 +1,24 @@
+.allWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: left;
+}
+
 .UserProfileHeader {
-  position: absolute;
   height: 55px;
-  width: 35.06%;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding-left: 5px;
   border-bottom: 1px solid black;
+  padding-bottom: 5px;
   background-color: white;
   opacity: 0.95;
-  position: fixed;
+  position: sticky;
+  top: 0;
   z-index: 1;
 }
 
@@ -38,9 +47,8 @@
 
 .UserProfileRouterButtonWrapper {
   position: relative;
-  top: 55px;
-  width: 448px;
-  height: 55px;
+  width: 100%;
+  height: 50px;
   display: flex;
 }
 
@@ -70,4 +78,9 @@
     cursor: pointer;
     background-color: #e6e7e7;
   }
+}
+
+.FollowList {
+  padding: 0;
+  width: 100%;
 }
