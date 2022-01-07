@@ -48,24 +48,12 @@ const dummyData = [
   },
 ];
 
-interface Data {
-  name: string;
-  id: string;
-  time: string;
-  profileImg: string;
-  text: string;
-  images: string[];
-  commentNumber: string;
-  retweetNumber: string;
-  likeNumber: string;
-  key: string;
-}
-
 interface Props {
   loadNext: boolean;
 }
 
 const TweetsAndReplies = ({ loadNext }: Props) => {
+
   const [tweetList, setTweetList] = useState<Data[]>(dummyData);
   useEffect(() => {
     if (loadNext) {

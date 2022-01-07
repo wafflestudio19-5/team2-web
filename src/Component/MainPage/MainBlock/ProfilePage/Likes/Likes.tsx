@@ -4,7 +4,7 @@ import styles from './Likes.module.scss';
 
 const dummyData = [
   {
-    name: '감자튀김',
+    name: 'Likes',
     id: 'FrenchFries',
     time: '10h',
     profileImg:

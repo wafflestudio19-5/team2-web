@@ -14,21 +14,57 @@ import logo_blue from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Lo
 import more from '../../../Images/more.svg';
 import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-
 import { useUserContext } from '../../../UserContext';
+import axios from 'axios';
+
+interface UserData {
+  username: string;
+  user_id: string;
+  bio: string;
+  created_at: string;
+  birth_date: string;
+  tweets: string;
+  tweets_num: string;
+  following: string;
+  follower: string;
+}
 
 function LeftBlock() {
   const params = useParams();
+  const loc = useLocation();
   const navigate = useNavigate();
   const userContext = useUserContext();
   const [isTweetModalOpen, setIsTweetModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [whichNavigatorClicked, setWhichNavigatorClicked] = useState('home');
+  const [userData, setUserData] = useState<UserData>({
+    username: '',
+    user_id: userContext.nowUserID,
+    bio: '',
+    created_at: '',
+    birth_date: '',
+    tweets: '',
+    tweets_num: '',
+    following: '',
+    follower: '',
+  });
+
+  const getUserProfile = async () => {
+    await axios
+      .get(`/user/${localStorage.user_id}`)
+      .then(response => {
+        setUserData(response.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     if (params.id !== localStorage.getItem('user_id')) {
       setWhichNavigatorClicked('');
     }
+    getUserProfile();
   }, []);
 
   const handleTweetClick = () => {
@@ -62,35 +98,35 @@ function LeftBlock() {
   };
 
   const HomeClicked = () => {
-    if (whichNavigatorClicked != 'home') {
+    if (whichNavigatorClicked !== 'home') {
       navigate('/home');
       setWhichNavigatorClicked('home');
     }
   };
 
   const ExploreClicked = () => {
-    if (whichNavigatorClicked != 'explore') {
+    if (whichNavigatorClicked !== 'explore') {
       navigate('/explore');
       setWhichNavigatorClicked('explore');
     }
   };
 
   const NotificationsClicked = () => {
-    if (whichNavigatorClicked != 'notifications') {
+    if (whichNavigatorClicked !== 'notifications') {
       navigate('/notifications');
       setWhichNavigatorClicked('notifications');
     }
   };
 
   const ProfileClicked = () => {
-    if (whichNavigatorClicked != 'profile') {
+    if (whichNavigatorClicked !== 'profile') {
       navigate(`/${userContext.nowUserID}`);
       setWhichNavigatorClicked('profile');
     }
   };
 
   const SettingClicked = () => {
-    if (whichNavigatorClicked != 'setting') {
+    if (whichNavigatorClicked !== 'setting') {
       navigate('/setting');
       setWhichNavigatorClicked('setting');
     }
@@ -110,7 +146,7 @@ function LeftBlock() {
           />
         </header>
         <div className={styles.NavigatorWrapper} onClick={HomeClicked}>
-          {whichNavigatorClicked == 'home' ? (
+          {whichNavigatorClicked === 'home' ? (
             <span className={styles.NavigatorButton}>
               <img
                 className={styles.NavigatorImg}
@@ -135,7 +171,7 @@ function LeftBlock() {
           )}
         </div>
         <div className={styles.NavigatorWrapper} onClick={ExploreClicked}>
-          {whichNavigatorClicked == 'explore' ? (
+          {whichNavigatorClicked === 'explore' ? (
             <span className={styles.NavigatorButton}>
               <img
                 className={styles.NavigatorImg}
@@ -160,7 +196,7 @@ function LeftBlock() {
           )}
         </div>
         <div className={styles.NavigatorWrapper} onClick={NotificationsClicked}>
-          {whichNavigatorClicked == 'notifications' ? (
+          {whichNavigatorClicked === 'notifications' ? (
             <span className={styles.NavigatorButton}>
               <img
                 className={styles.NavigatorImg}
@@ -185,7 +221,7 @@ function LeftBlock() {
           )}
         </div>
         <div className={styles.NavigatorWrapper} onClick={ProfileClicked}>
-          {whichNavigatorClicked == 'profile' ? (
+          {whichNavigatorClicked === 'profile' ? (
             <span className={styles.NavigatorButton}>
               <img
                 className={styles.NavigatorImg}
@@ -210,7 +246,7 @@ function LeftBlock() {
           )}
         </div>
         <div className={styles.NavigatorWrapper} onClick={SettingClicked}>
-          {whichNavigatorClicked == 'setting' ? (
+          {whichNavigatorClicked === 'setting' ? (
             <span className={styles.NavigatorButton}>
               <img
                 className={styles.NavigatorImg}
@@ -272,8 +308,8 @@ function LeftBlock() {
             />
           </div>
           <div className={styles.ProfileTextWrapper}>
-            <div className={styles.ProfileText}>id.name</div>
-            <div className={styles.ProfileText}>@id</div>
+            <div className={styles.ProfileText}>{userData.username}</div>
+            <div className={styles.ProfileText}>@{userData.user_id}</div>
           </div>
           <img className={styles.ProfileImgMore} src={more} alt="no img" />
         </div>

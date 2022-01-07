@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+
+import React, {
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
 import arrow_left from '../../../../../Images/arrow-left.svg';
 import calendar from '../../../../../Images/calendar.svg';
 import { useUserContext } from '../../../../../UserContext';
+import { TweetData, UserData } from '../../ProfilePage/Tweets/Tweets';
 
 function UserProfile(props: {
   isChosen: string;
   setIsChosen: (value: string) => void;
+  userData: UserData;
+  month: string;
 }) {
   const userContext = useUserContext();
   const navigate = useNavigate();
@@ -40,6 +49,7 @@ function UserProfile(props: {
   const switchToLikes = () => {
     props.setIsChosen('likes');
     navigate(`/${params.id}/likes`);
+
   };
 
   return (
@@ -60,9 +70,11 @@ function UserProfile(props: {
           }}
         />
         <div>
-          <div className={styles.UserProfileHeaderName}>id.name</div>
+          <div className={styles.UserProfileHeaderName}>
+            {props.userData.username}
+          </div>
           <div className={styles.UserProfileHeaderTweetsCount}>
-            ($id.tweet.count)Tweets
+            {props.userData.tweets_num} Tweets
           </div>
         </div>
       </header>
@@ -105,7 +117,7 @@ function UserProfile(props: {
                 fontWeight: 'bolder',
               }}
             >
-              이재민/학생/컴퓨터공학부
+              {props.userData.username}
             </div>
             <div
               style={{
@@ -119,7 +131,7 @@ function UserProfile(props: {
                 marginTop: '20px',
               }}
             >
-              text
+              {props.userData.bio}
             </div>
             <div
               style={{
@@ -135,27 +147,31 @@ function UserProfile(props: {
                   marginLeft: '5px',
                 }}
               >
-                join date
+                Joined {props.month ? props.month : ''}{' '}
+                {props.userData.created_at.slice(0, 4)}
               </div>
             </div>
             <div
               style={{
                 marginTop: '10px',
+                display: 'flex',
               }}
             >
               <div
                 onClick={() => {
                   navigate(`/${params.id}/following`);
                 }}
+                className={styles.UserFollowNumberButton}
               >
-                ($id.following.count)following
+                {props.userData.following} following
               </div>
               <div
                 onClick={() => {
                   navigate(`/${params.id}/followers`);
                 }}
+                className={styles.UserFollowNumberButton}
               >
-                ($id.follower.count)follower
+                {props.userData.follower} follower
               </div>
             </div>
           </div>

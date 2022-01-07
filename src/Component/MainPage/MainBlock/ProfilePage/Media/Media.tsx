@@ -4,7 +4,7 @@ import styles from './Media.module.scss';
 
 const dummyData = [
   {
-    name: '감자튀김',
+    name: 'Media',
     id: 'FrenchFries',
     time: '10h',
     profileImg:

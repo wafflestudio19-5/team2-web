@@ -89,6 +89,13 @@
   margin-top: 10px;
 }
 
+.UserFollowNumberButton {
+  margin-left: 20px;
+  &:hover {
+    text-decoration-line: underline;
+  }
+}
+
 .UserProfileRouterButtonWrapper {
   width: 100%;
   height: 55px;
