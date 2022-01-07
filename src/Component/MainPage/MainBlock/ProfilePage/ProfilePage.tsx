@@ -60,7 +60,6 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
       .then(response => {
         console.log(response.data);
         setUserData(response.data);
-        console.log(userData);
         setIsLoading(false);
       })
       .catch(err => {
@@ -112,7 +111,6 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
 
   useEffect(() => {
     getUserProfile();
-    console.log(userData);
   }, [params.id]);
 
   useEffect(() => {
@@ -122,7 +120,6 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
   useEffect(() => {
     getUserProfile();
     userContext.setIsChange(false);
-    console.log(userContext.isChange);
   }, [userContext.isChange]);
 
   if (isLoading) {
@@ -147,10 +144,18 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
             />
             <Route
               path="/with_replies"
-              element={<TweetsAndReplies loadNext={loadNext} userData={userData}/>}
+              element={
+                <TweetsAndReplies loadNext={loadNext} userData={userData} />
+              }
             />
-            <Route path="/media" element={<Media loadNext={loadNext} userData={userData}/>} />
-            <Route path="/likes" element={<Likes loadNext={loadNext} userData={userData} />} />
+            <Route
+              path="/media"
+              element={<Media loadNext={loadNext} userData={userData} />}
+            />
+            <Route
+              path="/likes"
+              element={<Likes loadNext={loadNext} userData={userData} />}
+            />
           </Routes>
           <div className={styles.Footer}>Footer</div>
         </div>
