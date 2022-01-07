@@ -33,7 +33,7 @@ const RightBlock = ({ rightRef }: Props) => {
         setRecommendData(response.data);
       })
       .catch(error => {
-        toast.error('팔로워 추천을 받아오는데 실패하였습니다.');
+        toast.error(error);
         setRecommendData(dummyData);
       });
   }, []);
@@ -64,9 +64,9 @@ const RightBlock = ({ rightRef }: Props) => {
             <div className={styles.TrendHeader}>
               <span>Trends for you</span>
               <span className={styles.ButtonWrapper}>
-                <a href="">
+                <div>
                   <img src={Setting} width={22} height={22} alt="No img" />
-                </a>
+                </div>
               </span>
             </div>
             <Trend text={'Trend1'}></Trend>
