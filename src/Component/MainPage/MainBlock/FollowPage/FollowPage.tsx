@@ -15,6 +15,7 @@ interface User {
   bio: string;
   follows_me: boolean;
   profile_img: string;
+  i_follow: boolean;
 }
 
 interface Props {
@@ -70,7 +71,7 @@ function FollowPage({ loadNext }: Props) {
               return (
                 <li style={{ listStyle: 'none' }} key={follow.id}>
                   <Follow
-                    I_follow={/*follow.I_follow*/ false}
+                    i_follow={follow.i_follow}
                     bio={follow.bio}
                     img={follow.profile_img}
                     id={follow.user_id}
@@ -105,7 +106,7 @@ function FollowPage({ loadNext }: Props) {
               return (
                 <li style={{ listStyle: 'none' }} key={follow.id}>
                   <Follower
-                    I_follow={false}
+                    i_follow={follow.i_follow}
                     bio={follow.bio}
                     img={follow.profile_img}
                     id={follow.user_id}
@@ -162,7 +163,7 @@ function FollowPage({ loadNext }: Props) {
         />
         <div>
           <div className={styles.UserProfileHeaderName}></div>
-          <div className={styles.UserProfileHeaderID}>@user_id</div>
+          <div className={styles.UserProfileHeaderID}>{params.id}</div>
         </div>
       </header>
 
