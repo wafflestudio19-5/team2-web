@@ -16,12 +16,22 @@ const Likes = ({ loadNext, userData }: Props) => {
     }
   }, [loadNext]);
 
+  const filteredTweets = userData.tweets.filter(item => item.user_like===true)
+
   return (
     <ul className={styles.tweetsItems}>
-      {userData ? (
-        userData.tweets.map(item => <Tweet key={item.id} item={item} />)
+      {filteredTweets.length>0 ? (
+        filteredTweets.map(item => <Tweet key={item.id} item={item} />)
       ) : (
-        <div className={styles.NoTweets}>Not Tweets yet</div>
+        <div className={styles.NoTweetsBlock}>
+          <div className={styles.BigNoTweets}>
+            @{userData.user_id} hasn’t liked any Tweets
+          </div>
+          <br />
+          <div className={styles.SmallNoTweets}>
+            When they do, those Tweets will show up here.
+          </div>
+        </div>
       )}
     </ul>
   );
