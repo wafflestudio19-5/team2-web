@@ -55,9 +55,9 @@ const CropImageModal = ({
   };
 
   const handleBackButtonOnClick = () => {
-    clearModal();
-    setImageFileList([]);
-    setImageUrlList([]);
+    // clearModal();
+    // setImageFileList([]);
+    // setImageUrlList([]);
     setIsOpen(false);
   };
 

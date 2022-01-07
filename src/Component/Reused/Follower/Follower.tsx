@@ -12,7 +12,7 @@ interface props {
   img: string;
   bio: string;
   follows_me: boolean;
-  I_follow: boolean;
+  i_follow: boolean;
 }
 
 interface User {
@@ -25,7 +25,7 @@ interface User {
 
 function Follower(props: props) {
   const userContext = useUserContext();
-  const [following, setFollowing] = useState(false);
+  const [following, setFollowing] = useState<boolean>(true);
   const navigate = useNavigate();
 
   const follow = () => {
@@ -51,8 +51,8 @@ function Follower(props: props) {
       });
   };
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  useEffect(() => {
-    setFollowing(props.I_follow);
+  React.useEffect(() => {
+    setFollowing(props.i_follow);
   }, []);
   return (
     <div

@@ -247,6 +247,17 @@
   }
 }
 
+.likeButtonClicked {
+  @include buttonWrapper;
+  .likeImg {
+    color: #ff0000;
+    background-color: #ff000015;
+  }
+  .likeButtonText {
+    color: #ff0000;
+  }
+}
+
 .likeImg {
   @include buttonImg;
 
