@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import X from '../../../Images/X.svg';
 import twitter from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg';
 import KaKaoLogin from '../../../Images/kakao_login.png';
-import React, {MouseEventHandler, useContext, useRef, useState} from 'react';
+import React, { MouseEventHandler, useContext, useRef, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useNetworkContext } from '../../../Auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +32,7 @@ function SignUpModal(props: props) {
     user_id: '',
     bio: 'null',
   });
-  const inputRef = useRef<HTMLInputElement | null>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const userContext = useUserContext();
   const Navigate = useNavigate();
   const networkContext = useNetworkContext();
@@ -54,7 +54,7 @@ function SignUpModal(props: props) {
         props.setSignUpIsOpen(false);
         localStorage.setItem('user_id', response.data.user_id);
         userContext.setNowUserID(response.data.user_id);
-        window.location.href = "/";
+        window.location.href = '/';
         /*Navigate('/');*/
       })
       .catch(error => {
@@ -114,7 +114,6 @@ function SignUpModal(props: props) {
               name={'username'}
               placeholder="이름"
               type="text"
-
             />
             <input
               onChange={onChange}
@@ -146,7 +145,9 @@ function SignUpModal(props: props) {
                 ...userData,
                 [emailUse ? 'email' : 'phone_number']: '',
               });
-              if(inputRef.current!==null) {inputRef.current.value = ''}
+              if (inputRef.current !== null) {
+                inputRef.current.value = '';
+              }
               setEmailUse(!emailUse);
             }}
             className={styles.EmailOrPhone}

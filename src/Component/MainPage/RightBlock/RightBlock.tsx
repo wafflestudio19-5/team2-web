@@ -22,16 +22,19 @@ const RightBlock = ({ rightRef }: Props) => {
     { user_id: '', username: '', profile_img: '' },
     { user_id: '', username: '', profile_img: '' },
   ]);
-  const dummyData = [{user_id: 'ABC', username: '이하동', profile_img: 'none'}, {user_id: 'ABC', username: '이하동', profile_img: 'none'}]
+  const dummyData = [
+    { user_id: 'ABC', username: '이하동', profile_img: 'none' },
+    { user_id: 'ABC', username: '이하동', profile_img: 'none' },
+  ];
   React.useEffect(() => {
     axios
       .get('/recommend/')
       .then(response => {
         setRecommendData(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         toast.error('팔로워 추천을 받아오는데 실패하였습니다.');
-        setRecommendData(dummyData)
+        setRecommendData(dummyData);
       });
   }, []);
 

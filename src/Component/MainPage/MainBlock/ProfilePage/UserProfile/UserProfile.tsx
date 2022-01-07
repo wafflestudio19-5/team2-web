@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';

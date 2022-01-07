@@ -44,7 +44,7 @@ function LoginModal(props: props) {
         props.setLoginIsOpen(false);
         networkContext.setToken(response.data.token);
         userContext.setNowUserID(response.data.user_id);
-        window.location.href = "/";
+        window.location.href = '/';
         /*navigate('/');*/
       })
       .catch(error => {
