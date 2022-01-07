@@ -87,6 +87,7 @@ interface Data {
 }
 
 interface HomeTweetData {
+
   tweets: {
     id: number;
     tweet_type: string;
@@ -118,6 +119,7 @@ interface Props {
 }
 
 const HomePage = ({ loadNext }: Props) => {
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const getHomeTweet = async () => {
@@ -160,8 +162,10 @@ const HomePage = ({ loadNext }: Props) => {
   }, [loadNext]);
 
   useEffect(() => {
+
     getHomeTweet();
     console.log(homeTweetData);
+
   }, []);
 
   if (isLoading) {

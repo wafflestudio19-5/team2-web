@@ -40,7 +40,7 @@ const RightBlock = ({ rightRef }: Props) => {
         setRecommendData(response.data);
       })
       .catch(error => {
-        toast.error(error);
+        toast.error(error.response.data.message);
         setRecommendData(dummyData);
       });
   }, []);
