@@ -92,20 +92,17 @@ const TweetModal = ({
 
   const submitTweet = async () => {
     try {
-      const formdata = new FormData();
+      const submitDataFormdata = new FormData();
       imageFileList.map(item => {
-        formdata.append(`uploadImage${imageFileList.indexOf(item)}`, item);
+        submitDataFormdata.append(`media`, item);
       });
       const config: AxiosRequestConfig = {
         headers: {
           'content-type': 'multipart/form-data',
         },
       };
-      const submitData = {
-        content: typedText,
-        media: formdata,
-      };
-      const response = await axios.post('/tweet/', submitData, config);
+      submitDataFormdata.append('content', typedText);
+      const response = await axios.post('/tweet/', submitDataFormdata);
       console.log(response);
     } catch (e) {
       console.log(e);
