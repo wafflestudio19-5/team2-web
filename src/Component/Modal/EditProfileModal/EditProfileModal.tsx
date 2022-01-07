@@ -3,12 +3,14 @@ import xImage from '../../../Images/X.svg';
 import xImageWhite from '../../../Images/Xwhite.svg';
 import cameraImage from '../../../Images/cameraImg.svg';
 import Modal from 'react-modal';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CustomInput from './CustomInput/CustomInput';
 import CustomTextarea from './CustomTextarea/CustomTextarea';
-import Select from 'react-select';
-import { ActionMeta } from 'react-select';
+import Select, { ActionMeta } from 'react-select';
 import CropImageModal from './CropImageModal/CropImageModal';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 interface Props {
   isOpen: boolean;
@@ -67,6 +69,7 @@ const yearOptions = Array.from(Array(122).keys())
   .reverse();
 
 const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
+  const params = useParams();
   const [profileImageFile, setProfileImageFile] = useState<File | null>(null);
   const [profileImageUrl, setProfileImageUrl] = useState<string | null>(null);
   const [backgroundImageFile, setBackgroundImageFile] = useState<File | null>(
@@ -89,6 +92,45 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
   const [birthDateYear, setBirthDateYear] = useState<number | null>(null);
   const [isBrithDateOnEdit, setIsBrithDateOnEdit] = useState<boolean>(false);
 
+  const getProfile = async () => {
+    const response = await axios.get(`/user/${params.id}/profile/`);
+    console.log(response.data);
+    setNameValue(response.data.username);
+    setBioValue(response.data.bio);
+    setProfileImageUrl(response.data.profile_img);
+    setBackgroundImageUrl(response.data.header_img);
+    setBirthDateYear(Number(response.data.birth_date.slice(0, 4)));
+    setBirthDateMonth(Number(response.data.birth_date.slice(5, 7)));
+    setBirthDateDay(Number(response.data.birth_date.slice(8, 10)));
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, [isOpen]);
+
+  useEffect(() => {
+    console.log(
+      'nameValue :',
+      nameValue,
+      'bioValue :',
+      bioValue,
+      'profileImgURL :',
+      profileImageUrl,
+      'headerImgURL :',
+      backgroundImageUrl,
+      'profileImgFile :',
+      profileImageFile,
+      'headerImgFile :',
+      backgroundImageFile,
+      'birthDayMonth :',
+      birthDateMonth,
+      'birthDayDay :',
+      birthDateDay,
+      'birthDayYear :',
+      birthDateYear,
+    );
+  });
+
   const loadModalDate = () => {
     console.log('Loading Modal Data...');
   };
@@ -108,7 +150,36 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
     setIsBrithDateOnEdit(false);
   };
 
+  const patchProfile = () => {
+    axios
+      .patch(`/user/profile/`, {
+        username: nameValue,
+        profile_img: profileImageFile,
+        header_img: backgroundImageFile,
+        bio: bioValue,
+        birth_date: BirthDateValue(birthDateYear, birthDateMonth, birthDateDay),
+      })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(err => {
+        console.log(err);
+        console.log({
+          username: nameValue,
+          profile_img: profileImageFile,
+          header_img: backgroundImageFile,
+          bio: bioValue,
+          birth_date: BirthDateValue(
+            birthDateYear,
+            birthDateMonth,
+            birthDateDay,
+          ),
+        });
+      });
+  };
+
   const handleSaveOnClick = () => {
+    patchProfile();
     console.log('Saving Modal Data...');
     clearModal();
     setIsOpen(false);
@@ -178,6 +249,58 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
   ) => {
     if (option !== null) {
       setBirthDateYear(option.value);
+    }
+  };
+
+  const BirthDateValue = (
+    birthDateYear: number | null,
+    birthDateMonth: number | null,
+    birthDateDay: number | null,
+  ) => {
+    if (
+      birthDateYear !== null &&
+      birthDateMonth !== null &&
+      birthDateDay !== null
+    ) {
+      if (birthDateMonth.toString().length > 1) {
+        if (birthDateDay.toString().length > 1) {
+          return (
+            birthDateYear?.toString() +
+            '-' +
+            birthDateMonth?.toString() +
+            '-' +
+            birthDateDay?.toString()
+          );
+        } else {
+          return (
+            birthDateYear?.toString() +
+            '-' +
+            birthDateMonth?.toString() +
+            '-0' +
+            birthDateDay?.toString()
+          );
+        }
+      } else {
+        if (birthDateDay.toString().length > 1) {
+          return (
+            birthDateYear.toString() +
+            '-0' +
+            birthDateMonth.toString() +
+            '-' +
+            birthDateDay.toString()
+          );
+        } else {
+          return (
+            birthDateYear?.toString() +
+            '-0' +
+            birthDateMonth?.toString() +
+            '-0' +
+            birthDateDay?.toString()
+          );
+        }
+      }
+    } else {
+      return '';
     }
   };
 

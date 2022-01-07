@@ -51,6 +51,8 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
     tweets_num: '',
     following: '',
     follower: '',
+    profile_img: '',
+    header_img: '',
   });
 
   const getUserProfile = async () => {
@@ -120,12 +122,18 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
   }, [userData]);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className={styles.Loading}>
+        <h1>Loading...</h1>
+      </div>
+    );
   }
   return (
     <div className={styles.ProfilePage}>
       {userData === undefined ? (
-        <h1>Loading...</h1>
+        <div className={styles.Loading}>
+          <h1>Loading...</h1>
+        </div>
       ) : (
         <div>
           <UserProfile

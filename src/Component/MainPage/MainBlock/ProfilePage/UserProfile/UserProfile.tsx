@@ -77,16 +77,18 @@ function UserProfile(props: {
         </div>
       </header>
       <div className={styles.UserProfileBody}>
-        <img
-          className={styles.UserProfileBackground}
-          src={arrow_left}
-          alt="background"
-        />
+        <div className={styles.UserProfileBackground}>
+          {props.userData.header_img ? (
+            <img src={props.userData.header_img} alt="background" />
+          ) : (
+            <div></div>
+          )}
+        </div>
         <div className={styles.UserProfileBox}>
           <div className={styles.UserProfileBanner}>
             <img
               className={styles.UserProfileImg}
-              src={arrow_left}
+              src={props.userData.profile_img}
               alt="profileImg"
               width={140}
               height={140}

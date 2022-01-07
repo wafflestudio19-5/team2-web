@@ -5,7 +5,7 @@ import twitter from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo
 import X from '../../../Images/X.svg';
 import KaKaoLogin from '../../../Images/kakao_login.png';
 import React, { useContext, useState } from 'react';
-import { KAKAO_AUTH_URL } from '../../../Auth/KakaoAuth';
+import { KAKAO_AUTH_URL } from '../../../Auth/KakaoAuth.js';
 import axios, { AxiosResponse } from 'axios';
 import { useNetworkContext } from '../../../Auth/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';

@@ -1,4 +1,4 @@
-.NotificationsPage {
+.TweetPage {
   display: flex;
   justify-content: center;
   height: 100%;
@@ -7,7 +7,7 @@
   border-right: 1px solid rgb(236, 236, 236);
 }
 
-.Loading {
+.TweetBody {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.NotificationsHeader {
+.TweetHeader {
   position: sticky;
   top: 0;
   height: 55px;

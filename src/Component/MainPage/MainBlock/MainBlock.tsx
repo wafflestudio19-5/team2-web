@@ -6,6 +6,7 @@ import NotificationsPage from './NotificationsPage/NotificationsPage';
 import ExplorePage from './ExplorePage/ExplorePage';
 import SettingPage from './SettingPage/SettingPage';
 import FollowPage from './FollowPage/FollowPage';
+import TweetPage from './TweetPage/TweetPage';
 
 interface Props {
   loadNext: boolean;
@@ -28,6 +29,7 @@ const MainBlock = ({ loadNext }: Props) => {
           element={<FollowPage loadNext={loadNext} />}
         />
         <Route path="/setting/" element={<SettingPage />} />
+        <Route path="/status/:tweet" element={<TweetPage />} />
         <Route path="/*" element={<Navigate to="/home" />} />
       </Routes>
     </div>

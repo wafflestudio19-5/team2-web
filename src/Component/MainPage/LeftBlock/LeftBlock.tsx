@@ -2,6 +2,7 @@ import styles from './LeftBlock.module.scss';
 import React, { useContext, useEffect, useState } from 'react';
 import TweetModal from '../../Modal/TweetModal/TweetModal';
 import setting from '../../../Images/setting.svg';
+import setting_clicked from '../../../Images/setting_clicked.svg';
 import profile_unclicked from '../../../Images/profile_unclicked.svg';
 import profile_clicked from '../../../Images/profile_clicked.svg';
 import notification_unclicked from '../../../Images/notification_unclicked.svg';
@@ -251,7 +252,7 @@ function LeftBlock() {
             <span className={styles.NavigatorButton}>
               <img
                 className={styles.NavigatorImg}
-                src={setting}
+                src={setting_clicked}
                 width={30}
                 height={30}
                 alt="No img"

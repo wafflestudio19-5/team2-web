@@ -6,12 +6,14 @@ import retweetTopImage from '../../../Images/retweetTop.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import RetweetButtons from '../ButtonGroup/RetweetButtons';
 import ReplyTweetModal from '../../Modal/ReplyModalTweet/ReplyTweetModal';
+
 
 export interface UserData {
   username: string;
@@ -23,6 +25,8 @@ export interface UserData {
   tweets_num: string;
   following: string;
   follower: string;
+  profile_img: string;
+  header_img: string;
 }
 
 export interface TweetData {
@@ -67,6 +71,7 @@ export interface TweetData {
 }
 
 const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
+  const navigate = useNavigate();
   const [month, setMonth] = useState('');
   const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);
   const [isLike, setIsLike] = useState<boolean>(false);
@@ -75,7 +80,6 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   const [retweet, setRetweet] = useState<number>();
   const [display, setDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
-  
   const handleCommentCliecked = (e: React.MouseEvent<HTMLElement>): void => {
     setReplyModalIsOpen(true);
 
@@ -198,7 +202,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   }, []); //like, retweet 초깃값 설정
 
   const handleAllWrapperOnClick = () => {
-    console.log('감자');
+    navigate(`/status/${item.id}`);
   };
 
   return (
