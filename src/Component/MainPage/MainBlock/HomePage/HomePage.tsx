@@ -130,7 +130,6 @@ const HomePage = ({ loadNext }: Props) => {
   const [imageFileList, setImageFileList] = useState<File[]>([]);
   const [imageUrlList, setImageUrlList] = useState<string[]>([]);
   const [addImageCount, setAddImageCount] = useState<number>(0);
-  const [homeTweetData, setHomeTweetData] = useState<HomeTweetData>();
 
   const getHomeTweet = async () => {
     try {
@@ -236,11 +235,6 @@ const HomePage = ({ loadNext }: Props) => {
       console.log(e);
     }
   };
-
-    getHomeTweet();
-    console.log(homeTweetData);
-
-  }, []);
 
   if (isLoading) {
     return <div>Loading...</div>;
