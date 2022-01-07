@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import Tweet, {TweetData, UserData} from '../../../../Reused/Tweet/Tweet';
+import Tweet, { TweetData, UserData } from '../../../../Reused/Tweet/Tweet';
 import styles from './Likes.module.scss';
-
 
 interface Props {
   loadNext: boolean;
@@ -9,18 +8,19 @@ interface Props {
 }
 
 const Likes = ({ loadNext, userData }: Props) => {
-  
   useEffect(() => {
     if (loadNext) {
       console.log('다음 페이지 로딩 Likes');
     }
   }, [loadNext]);
 
-  const filteredTweets = userData.tweets.filter(item => item.user_like===true)
+  const filteredTweets = userData.tweets.filter(
+    item => item.user_like === true,
+  );
 
   return (
     <ul className={styles.tweetsItems}>
-      {filteredTweets.length>0 ? (
+      {filteredTweets.length > 0 ? (
         filteredTweets.map(item => <Tweet key={item.id} item={item} />)
       ) : (
         <div className={styles.NoTweetsBlock}>
