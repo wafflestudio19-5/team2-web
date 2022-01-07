@@ -8,7 +8,7 @@ import styles from './ProfilePage.module.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useUserContext } from '../../../../UserContext';
-import { TweetData, UserData } from './Tweets/Tweets';
+import { TweetData, UserData } from '../../../Reused/Tweet/Tweet';
 
 interface Props {
   loadNext: boolean;
@@ -147,10 +147,10 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
             />
             <Route
               path="/with_replies"
-              element={<TweetsAndReplies loadNext={loadNext} />}
+              element={<TweetsAndReplies loadNext={loadNext} userData={userData}/>}
             />
-            <Route path="/media" element={<Media loadNext={loadNext} />} />
-            <Route path="/likes" element={<Likes loadNext={loadNext} />} />
+            <Route path="/media" element={<Media loadNext={loadNext} userData={userData}/>} />
+            <Route path="/likes" element={<Likes loadNext={loadNext} userData={userData} />} />
           </Routes>
           <div className={styles.Footer}>Footer</div>
         </div>

@@ -5,21 +5,58 @@ import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
 import React, { useEffect, useState } from 'react';
-import { TweetData } from '../../MainPage/MainBlock/ProfilePage/Tweets/Tweets';
 
-interface Props {
-  item: {
-    name: string;
-    id: string;
-    time: string;
-    profileImg: string;
-    text: string;
-    images: string[];
-    commentNumber: string;
-    retweetNumber: string;
-    likeNumber: string;
-    key: string;
+export interface UserData {
+  username: string;
+  user_id: string;
+  bio: string;
+  created_at: string;
+  birth_date: string;
+  tweets: Array<TweetData['TweetType']>;
+  tweets_num: string;
+  following: string;
+  follower: string;
+}
+
+export interface TweetData {
+  TweetType: {
+    id: number;
+    tweet_type: string;
+    author: {
+      username: string;
+      user_id: string;
+      profile_img: string;
+    };
+    retweeting_user: string;
+    reply_to: string;
+    content: string;
+    media: string[];
+    written_at: string;
+    replies: number;
+    retweets: number;
+    likes: number;
+    user_like: boolean;
+    user_retweet: boolean;
   };
+  TweetsType: {
+    id: number;
+    tweet_type: string;
+    author: {
+      username: string;
+      user_id: string;
+      profile_img: string;
+    };
+    retweeting_user: string;
+    reply_to: string;
+    content: string;
+    media: string[];
+    written_at: string;
+    replies: number;
+    retweets: number;
+    likes: number;
+    user_like: boolean;
+    user_retweet: boolean;
+  }[];
 }
 
 const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {

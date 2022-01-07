@@ -11,7 +11,7 @@ import styles from './UserProfile.module.scss';
 import arrow_left from '../../../../../Images/arrow-left.svg';
 import calendar from '../../../../../Images/calendar.svg';
 import { useUserContext } from '../../../../../UserContext';
-import { TweetData, UserData } from '../../ProfilePage/Tweets/Tweets';
+import { TweetData, UserData } from '../../../../Reused/Tweet/Tweet';
 
 function UserProfile(props: {
   isChosen: string;
