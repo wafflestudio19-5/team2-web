@@ -3,19 +3,41 @@ import styles from './SettingPage.module.scss';
 import Modal from 'react-modal';
 import { useUserContext } from '../../../../UserContext';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 function SettingPage() {
   const handleDeactivateClick = () => {
     axios
-      .post('/deactivate/')
-      .then(() => {})
-      .catch(() => {});
+      .post('/deactivate/', { password: password })
+      .then(() => {
+        localStorage.removeItem('JWT');
+        localStorage.removeItem('user_id');
+        window.location.replace('/');
+        userContext.setNowUserID('undefined');
+        setDeactivateIsOpen(false);
+        toast('회원탈퇴가 성공적으로 이뤄졌습니다.');
+      })
+      .catch(error => {
+        toast.error(error.response.data.message);
+      });
   };
   const handleSocialDeactivateClick = () => {
-    return null;
+    axios
+      .post('/kakao/unlink/')
+      .then(() => {
+        localStorage.removeItem('JWT');
+        localStorage.removeItem('user_id');
+        window.location.replace('/');
+        userContext.setNowUserID('undefined');
+        setSocialDeactivateIsOpen(false);
+        toast('회원탈퇴가 성공적으로 이뤄졌습니다.');
+      })
+      .catch(error => {
+        toast.error(error.response.data.message);
+      });
   };
   const [deactivateIsOpen, setDeactivateIsOpen] = useState(false);
   const [socialDeactivateIsOpen, setSocialDeactivateIsOpen] = useState(false);
-  /*const inputRef = useRef<HTMLInputElement | null>(null)*/
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const [password, setPassword] = useState('');
   const userContext = useUserContext();
   return (
@@ -36,10 +58,10 @@ function SettingPage() {
           content: {
             fontWeight: '600',
             position: 'absolute',
-            top: 'calc(50% - 150px)',
-            left: 'calc(50% - 170px)',
-            right: 'calc(50% - 170px)',
-            bottom: 'calc(50% - 150px)',
+            top: 'calc(50% - 200px)',
+            left: 'calc(50% - 190px)',
+            right: 'calc(50% - 190px)',
+            bottom: 'calc(50% - 200px)',
             border: '1px solid #ccc',
             borderRadius: '20px',
             background: '#fff',
@@ -53,10 +75,9 @@ function SettingPage() {
       >
         <header>Will you Deactivate Account {userContext.nowUserID}?</header>
         <br />
-        <br />
         <div>
-          Their Tweets will no longer show up in your home timeline. You can
-          still view their profile, unless their Tweets are protected.
+          계정을 탈퇴하시면 다시 가입하실 수 없습니다. 정말로 탈퇴하시려면
+          비밀번호를 한 번 더 입력해주세요.
         </div>
         <br />
         <footer>
@@ -72,10 +93,12 @@ function SettingPage() {
                 onChange={e => {
                   setPassword(e.target.value);
                 }}
+                className={styles.Input}
                 value={password}
+                placeholder="password"
                 type="password"
               />
-              <button className={styles.UnfollowButton}>Deactivate</button>
+              <button className={styles.DeactivateButton}>Deactivate</button>
             </form>
             <button
               onClick={e => {
@@ -89,6 +112,7 @@ function SettingPage() {
           </div>
         </footer>
       </Modal>
+
       <Modal
         ariaHideApp={false}
         style={{
@@ -104,10 +128,10 @@ function SettingPage() {
           content: {
             fontWeight: '600',
             position: 'absolute',
-            top: 'calc(50% - 150px)',
-            left: 'calc(50% - 170px)',
-            right: 'calc(50% - 170px)',
-            bottom: 'calc(50% - 150px)',
+            top: 'calc(50% - 200px)',
+            left: 'calc(50% - 190px)',
+            right: 'calc(50% - 190px)',
+            bottom: 'calc(50% - 200px)',
             border: '1px solid #ccc',
             borderRadius: '20px',
             background: '#fff',
@@ -124,10 +148,14 @@ function SettingPage() {
           Will you Deactivate Social Account {userContext.nowUserID}?
         </header>
         <br />
-        <br />
         <div>
-          Their Tweets will no longer show up in your home timeline. You can
-          still view their profile, unless their Tweets are protected.
+          계정을 탈퇴하시면 다시 가입하실 수 없습니다. 정말로 탈퇴하시려면
+          체크박스를 클릭해주세요.
+        </div>
+        <br />
+        <div className={styles.CheckBoxWrapper}>
+          <span>계정을 탈퇴합니다.</span>
+          <input ref={inputRef} type="checkbox" />
         </div>
         <br />
         <footer>
@@ -135,10 +163,15 @@ function SettingPage() {
             <button
               onClick={e => {
                 e.stopPropagation();
+                if (inputRef.current?.checked) {
+                  handleSocialDeactivateClick();
+                } else {
+                  toast('체크박스를 확인해주세요.');
+                }
               }}
-              className={styles.UnfollowButton}
+              className={styles.DeactivateButton}
             >
-              UnFollow
+              Deactivate
             </button>
             <button
               onClick={e => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Tweet, {TweetData, UserData} from '../../../../Reused/Tweet/Tweet';
+import Tweet, { TweetData, UserData } from '../../../../Reused/Tweet/Tweet';
 import styles from './TweetsAndReplies.module.scss';
 
 interface Props {
@@ -8,20 +8,21 @@ interface Props {
 }
 
 const TweetsAndReplies = ({ loadNext, userData }: Props) => {
-  
   useEffect(() => {
     if (loadNext) {
       console.log('다음 페이지 로딩 TweetsAndReplies');
     }
   }, [loadNext]);
 
-  const filteredTweets = userData.tweets.filter(item => item.replies>0);
+  const filteredTweets = userData.tweets.filter(item => item.replies > 0);
 
   return (
     <div>
-      {filteredTweets.length>0 ? (
+      {filteredTweets.length > 0 ? (
         <ul className={styles.tweetsItems}>
-          {filteredTweets.map(item => <Tweet key={item.id} item={item} />)}
+          {filteredTweets.map(item => (
+            <Tweet key={item.id} item={item} />
+          ))}
         </ul>
       ) : (
         <div className={styles.NoTweets}>No Tweets yet</div>

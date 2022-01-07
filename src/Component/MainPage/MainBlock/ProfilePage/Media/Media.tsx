@@ -2,22 +2,21 @@ import { useEffect, useState } from 'react';
 import Tweet, { TweetData, UserData } from '../../../../Reused/Tweet/Tweet';
 import styles from './Media.module.scss';
 
-
-
 interface Props {
   loadNext: boolean;
   userData: UserData;
 }
 
 const Media = ({ loadNext, userData }: Props) => {
-
   useEffect(() => {
     if (loadNext) {
       console.log('다음 페이지 로딩 Media');
     }
   }, [loadNext]);
 
-  const filteredTweets = userData.tweets.filter(item => item.media.length !== 0)
+  const filteredTweets = userData.tweets.filter(
+    item => item.media.length !== 0,
+  );
 
   return (
     <ul className={styles.tweetsItems}>
