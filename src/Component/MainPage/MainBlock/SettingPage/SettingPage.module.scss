@@ -18,12 +18,13 @@
   font-size: 16px;
   &:hover {
     cursor: pointer;
-    background-color: #1a8cd8;
+    opacity: 0.5;
   }
 }
 .DeactivateButton {
   @include Button_default;
 }
+
 
 .SocialDeactivateButton {
   @include Button_default;
@@ -36,4 +37,16 @@
   color: white;
   background-color: black;
   font-weight: 600;
+}
+.Input {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  border: #00b7ff 1px solid;
+  &:focus {
+    outline: #00b7ff;
+  }
 }

@@ -76,8 +76,8 @@ function SignUpModal(props: props) {
         content: {
           position: 'absolute',
           top: '50px',
-          left: '450px',
-          right: '450px',
+          left: 'calc(50% - 315px)',
+          right: 'calc(50% - 315px)',
           bottom: '50px',
           border: '1px solid #ccc',
           borderRadius: '20px',
