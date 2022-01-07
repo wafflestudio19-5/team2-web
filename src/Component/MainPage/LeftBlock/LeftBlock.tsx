@@ -289,10 +289,10 @@ function LeftBlock() {
       {isLogoutModalOpen ? (
         <div className={styles.LogoutModalWrapper}>
           <div className={styles.LogoutModal} onClick={logOut}>
-            Logout @id
+            Logout {userContext.nowUserID}
           </div>
           <div className={styles.SocialLogoutModal} onClick={SocialLogout}>
-            Social Logout @id
+            Social Logout {userContext.nowUserID}
           </div>
         </div>
       ) : null}
