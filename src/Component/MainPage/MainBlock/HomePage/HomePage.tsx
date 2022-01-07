@@ -237,7 +237,11 @@ const HomePage = ({ loadNext }: Props) => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.Loading}>
+        <h1>Loading...</h1>
+      </div>
+    );
   }
   return (
     <div className={styles.HomePageWrapper}>
@@ -351,25 +355,23 @@ const HomePage = ({ loadNext }: Props) => {
         </div>
       </div>
       <div className={styles.HomePage}>
-        {homeTweetData ? (
-          <ul className={styles.tweetsItems}>
-            {homeTweetData ? (
-              homeTweetData.map(item => (
-                <div>
-                  {item.author ? (
-                    <Tweet key={item.id} item={item} />
-                  ) : (
-                    <div style={{ marginTop: '100px' }}>Loading...</div>
-                  )}
-                </div>
-              ))
-            ) : (
-              <div className={styles.NoTweets}>Not Tweets yet</div>
-            )}
-          </ul>
-        ) : (
-          <div>Loading...</div>
-        )}
+        <ul className={styles.tweetsItems}>
+          {homeTweetData ? (
+            homeTweetData.map(item => (
+              <div>
+                {item.author ? <Tweet key={item.id} item={item} /> : null}
+              </div>
+            ))
+          ) : (
+            <div className={styles.Loading}>
+              <h1>
+                No Tweets!
+                <br />
+                Follow someone or Tweet!
+              </h1>
+            </div>
+          )}
+        </ul>
       </div>
     </div>
   );

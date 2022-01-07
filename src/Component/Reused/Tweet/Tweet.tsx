@@ -5,6 +5,7 @@ import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export interface UserData {
   username: string;
@@ -16,6 +17,8 @@ export interface UserData {
   tweets_num: string;
   following: string;
   follower: string;
+  profile_img: string;
+  header_img: string;
 }
 
 export interface TweetData {
@@ -60,6 +63,8 @@ export interface TweetData {
 }
 
 const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
+  const navigate = useNavigate();
+
   const handleCommentCliecked = (e: React.MouseEvent<HTMLElement>): void => {
     console.log('Comment Clicked');
   };
@@ -123,7 +128,12 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   });
 
   return (
-    <li className={styles.wrapper}>
+    <li
+      className={styles.wrapper}
+      onClick={() => {
+        navigate(`/status/${item.id}`);
+      }}
+    >
       <div className={styles.leftWrapper}>
         <img
           className={styles.profileImage}

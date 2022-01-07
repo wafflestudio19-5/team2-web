@@ -5,7 +5,7 @@ import Twitter from '../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo bl
 import styles from './LoginPage.module.scss';
 import LoginModal from '../Modal/LoginModal/LoginModal';
 import SignUpModal from '../Modal/SignUpModal/SignUpModal';
-import { KAKAO_AUTH_URL } from '../../Auth/KakaoAuth';
+import { KAKAO_AUTH_URL } from '../../Auth/KakaoAuth.js';
 
 const LoginPage = () => {
   const [loginModalOpen, setLoginIsOpen] = useState(false);

@@ -4,18 +4,9 @@
   "private": true,
   "eslintConfig": {
     "extends": [
-      "airbnb",
-      "prettier"
-    ],
-    "rules": {
-      "react/prefer-stateless-function": 0,
-      "react/jsx-filename-extension": 0,
-      "react/jsx-one-expression-per-line": 0,
-      "react/prop-types": 0
-    },
-    "env": {
-      "browser": true
-    }
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -55,12 +46,6 @@
     "eject": "react-scripts eject",
     "deploy": "aws s3 sync ./build s3://team-2-toy-project --profile=ChrisLee02",
     "invalidate": "aws cloudfront create-invalidation --profile=ChrisLee02 --distribution-id EK89KY4GVW9JF --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
