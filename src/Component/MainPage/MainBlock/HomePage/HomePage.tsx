@@ -1,6 +1,9 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import axios, { AxiosRequestConfig } from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
 import Tweet, { TweetData, UserData } from '../../../Reused/Tweet/Tweet';
+import pictureDisabled from '../../../../Images/PictureDisabled.svg';
+import picture from '../../../../Images/Picture.svg';
+import X from '../../../../Images/X.svg';
 import styles from './HomePage.module.scss';
 
 const dummyData = [
@@ -87,7 +90,6 @@ interface Data {
 }
 
 interface HomeTweetData {
-
   tweets: {
     id: number;
     tweet_type: string;
@@ -119,13 +121,22 @@ interface Props {
 }
 
 const HomePage = ({ loadNext }: Props) => {
-
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const [profileImageUrl, setProfileImageUrl] = useState<string | null>(null);
+  const [isEditImageModalOpen, setIsEditImageModalOpen] =
+    useState<boolean>(false);
+  const [typedText, setTypedText] = useState<string>('');
+  const [imageFileList, setImageFileList] = useState<File[]>([]);
+  const [imageUrlList, setImageUrlList] = useState<string[]>([]);
+  const [addImageCount, setAddImageCount] = useState<number>(0);
+  const [homeTweetData, setHomeTweetData] = useState<HomeTweetData>();
 
   const getHomeTweet = async () => {
     try {
       const response = await axios.get(`/home/`);
       setHomeTweetData(response.data.tweets);
+      setProfileImageUrl(response.data.user.profile_img);
       console.log(response.data.tweets);
       setIsLoading(false);
     } catch (err) {
@@ -162,6 +173,69 @@ const HomePage = ({ loadNext }: Props) => {
   }, [loadNext]);
 
   useEffect(() => {
+    getHomeTweet();
+  }, []);
+
+  const handleAddImageOnSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files !== null && e.target.files.length === 1) {
+      setImageFileList([...imageFileList, e.target.files[0]]);
+      setImageUrlList([
+        ...imageUrlList,
+        URL.createObjectURL(e.target.files[0]),
+      ]);
+      setAddImageCount(addImageCount + 1);
+      setIsEditImageModalOpen(true);
+      e.target.value = '';
+    }
+  };
+
+  const handleInputOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (textAreaRef.current !== null) {
+      if (e.target.value.length <= 200) {
+        setTypedText(e.target.value);
+        textAreaRef.current.style.height = '30px';
+        textAreaRef.current.style.height =
+          textAreaRef.current.scrollHeight + 'px';
+      } else {
+        setTypedText(e.target.value.slice(0, 200));
+      }
+    }
+  };
+
+  const deleteThisImage = (index: number) => {
+    setImageFileList([
+      ...imageFileList.slice(0, index),
+      ...imageFileList.slice(index + 1, imageFileList.length),
+    ]);
+    setImageUrlList([
+      ...imageUrlList.slice(0, index),
+      ...imageUrlList.slice(index + 1, imageUrlList.length),
+    ]);
+    setAddImageCount(addImageCount - 1);
+  };
+
+  const submitTweet = async () => {
+    try {
+      const formdata = new FormData();
+      imageFileList.map(item => {
+        formdata.append(`uploadImage${imageFileList.indexOf(item)}`, item);
+      });
+
+      const config: AxiosRequestConfig = {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      };
+      const submitData = {
+        content: typedText,
+        media: formdata,
+      };
+      const response = await axios.post('/tweet/', submitData, config);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
     getHomeTweet();
     console.log(homeTweetData);
@@ -174,7 +248,114 @@ const HomePage = ({ loadNext }: Props) => {
   return (
     <div className={styles.HomePageWrapper}>
       <header className={styles.HomeHeader}>Home</header>
-      <div className={styles.HomeTweetInputWrapper}></div>
+      <div className={styles.homeTweetWriteWrapper}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.contentLeftSide}>
+            <img
+              className={styles.profileImage}
+              src={profileImageUrl === null ? '' : profileImageUrl}
+              alt={'profile Image'}
+            />
+          </div>
+          <div className={styles.contentRightSide}>
+            <textarea
+              className={styles.inputWrapper}
+              onChange={handleInputOnChange}
+              value={typedText}
+              ref={textAreaRef}
+              maxLength={200}
+              placeholder={`What's happening?`}
+            />
+            <div
+              className={styles.lengthText}
+              style={
+                typedText.length === 200
+                  ? { color: 'red' }
+                  : typedText.length >= 150
+                  ? { color: 'orange' }
+                  : undefined
+              }
+            >
+              {typedText.length} / 200
+            </div>
+            <div
+              className={styles.imageNumberText}
+              style={
+                imageUrlList.length === 2
+                  ? { color: 'red' }
+                  : imageUrlList.length === 1
+                  ? { color: 'orange' }
+                  : undefined
+              }
+            >
+              {imageUrlList.length} / 2
+            </div>
+            <div className={styles.inputImagesWrapper}>
+              {imageUrlList.map(item => {
+                return (
+                  <div
+                    className={styles.contentImageWrapper}
+                    key={imageUrlList.indexOf(item)}
+                  >
+                    <button
+                      className={styles.deleteButton}
+                      onClick={() => {
+                        deleteThisImage(imageUrlList.indexOf(item));
+                      }}
+                    >
+                      <img
+                        className={styles.deleteButtonImage}
+                        src={X}
+                        alt="image Delete Button"
+                      />
+                    </button>
+                    <img
+                      className={styles.contentImage}
+                      src={item}
+                      alt="content Image"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <div className={styles.controllerWrapper}>
+              <div
+                className={
+                  imageUrlList.length >= 2
+                    ? styles.addImageButtonDisabled
+                    : styles.addImageButton
+                }
+              >
+                <img
+                  className={styles.addImageImage}
+                  src={imageUrlList.length >= 2 ? pictureDisabled : picture}
+                  alt={'Add Image Button'}
+                />
+                <input
+                  type="file"
+                  accept="image/png, image/jpeg, image/jpg"
+                  className={styles.addImageInput}
+                  onChange={handleAddImageOnSubmit}
+                  disabled={imageUrlList.length >= 2 ? true : false}
+                />
+              </div>
+              <button
+                className={
+                  typedText === '' && imageUrlList.length === 0
+                    ? styles.tweetButtonDisabled
+                    : styles.tweetButton
+                }
+                disabled={
+                  typedText === '' && imageUrlList.length === 0 ? true : false
+                }
+                onClick={submitTweet}
+              >
+                Tweet
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className={styles.HomePage}>
         {homeTweetData ? (
           <ul className={styles.tweetsItems}>
