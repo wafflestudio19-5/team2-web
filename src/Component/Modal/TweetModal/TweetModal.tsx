@@ -4,7 +4,7 @@ import X from '../../../Images/X.svg';
 import picture from '../../../Images/Picture.svg';
 import pictureDisabled from '../../../Images/PictureDisabled.svg';
 import React, { useRef, useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { useUserContext } from '../../../UserContext';
 import CropImageModal from './CropImageModal/CropImageModal';
 
@@ -22,7 +22,7 @@ const TweetModal = ({
   const [profileImageUrl, setProfileImageUrl] = useState<string>('');
   const [isEditImageModalOpen, setIsEditImageModalOpen] =
     useState<boolean>(false);
-  const [typedText, setTypedText] = useState('');
+  const [typedText, setTypedText] = useState<string>('');
   const [imageFileList, setImageFileList] = useState<File[]>([]);
   const [imageUrlList, setImageUrlList] = useState<string[]>([]);
   const [addImageCount, setAddImageCount] = useState<number>(0);
@@ -90,7 +90,27 @@ const TweetModal = ({
     setAddImageCount(addImageCount - 1);
   };
 
-  const submitTweet = async () => {};
+  const submitTweet = async () => {
+    try {
+      const formdata = new FormData();
+      imageFileList.map(item => {
+        formdata.append(`uploadImage${imageFileList.indexOf(item)}`, item);
+      });
+      const config: AxiosRequestConfig = {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      };
+      const submitData = {
+        content: typedText,
+        media: formdata,
+      };
+      const response = await axios.post('/tweet/', submitData, config);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <>
@@ -240,9 +260,7 @@ const TweetModal = ({
                   disabled={
                     typedText === '' && imageUrlList.length === 0 ? true : false
                   }
-                  onClick={() => {
-                    console.log('감자');
-                  }}
+                  onClick={submitTweet}
                 >
                   Tweet
                 </button>
