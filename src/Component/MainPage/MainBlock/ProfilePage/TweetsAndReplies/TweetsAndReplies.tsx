@@ -15,14 +15,18 @@ const TweetsAndReplies = ({ loadNext, userData }: Props) => {
     }
   }, [loadNext]);
 
+  const filteredTweets = userData.tweets.filter(item => item.replies>0);
+
   return (
-    <ul className={styles.tweetsItems}>
-      {userData ? (
-        userData.tweets.map(item => <Tweet key={item.id} item={item} />)
+    <div>
+      {filteredTweets.length>0 ? (
+        <ul className={styles.tweetsItems}>
+          {filteredTweets.map(item => <Tweet key={item.id} item={item} />)}
+        </ul>
       ) : (
-        <div className={styles.NoTweets}>Not Tweets yet</div>
+        <div className={styles.NoTweets}>No Tweets yet</div>
       )}
-    </ul>
+    </div>
   );
 };
 

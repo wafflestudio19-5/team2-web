@@ -17,15 +17,14 @@ interface recommendData {
   profile_img: string;
 }
 
+const dummyData = [
+  { user_id: 'ABC', username: '이하동', profile_img: 'none' },
+  { user_id: 'ABC', username: '이하동', profile_img: 'none' },
+];
 const RightBlock = ({ rightRef }: Props) => {
-  const [recommendData, setRecommendData] = useState<recommendData[]>([
-    { user_id: '', username: '', profile_img: '' },
-    { user_id: '', username: '', profile_img: '' },
-  ]);
-  const dummyData = [
-    { user_id: 'ABC', username: '이하동', profile_img: 'none' },
-    { user_id: 'ABC', username: '이하동', profile_img: 'none' },
-  ];
+  const [recommendData, setRecommendData] = useState<recommendData[]>(
+    dummyData
+  );
   React.useEffect(() => {
     axios
       .get('/recommend/')

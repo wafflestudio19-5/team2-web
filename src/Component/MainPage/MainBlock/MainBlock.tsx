@@ -15,7 +15,7 @@ const MainBlock = ({ loadNext }: Props) => {
   return (
     <div className={styles.MainBlock}>
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<HomePage loadNext={loadNext}/>} />
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
         <Route path="/:id/*" element={<ProfilePage loadNext={loadNext} />} />
