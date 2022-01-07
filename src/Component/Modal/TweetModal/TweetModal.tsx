@@ -2,7 +2,8 @@ import styles from './TweetModal.module.scss';
 import Modal from 'react-modal';
 import X from '../../../Images/X.svg';
 import picture from '../../../Images/Picture.svg';
-import React, { useEffect, useState } from 'react';
+import pictureDisabled from '../../../Images/PictureDisabled.svg';
+import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { useUserContext } from '../../../UserContext';
 import CropImageModal from './CropImageModal/CropImageModal';
@@ -17,6 +18,7 @@ const TweetModal = ({
   setIsTweetModalOpen,
 }: TweetModalProps) => {
   const userContext = useUserContext();
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [profileImageUrl, setProfileImageUrl] = useState<string>('');
   const [isEditImageModalOpen, setIsEditImageModalOpen] =
     useState<boolean>(false);
@@ -38,6 +40,11 @@ const TweetModal = ({
 
   const clearModal = () => {
     setProfileImageUrl('');
+    setIsEditImageModalOpen(false);
+    setTypedText('');
+    setImageFileList([]);
+    setImageUrlList([]);
+    setAddImageCount(0);
   };
 
   const handleExitOnClick = () => {
@@ -59,12 +66,31 @@ const TweetModal = ({
   };
 
   const handleInputOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (e.target.value.length <= 200) {
-      setTypedText(e.target.value);
-    } else {
-      setTypedText(e.target.value.slice(0, 200));
+    if (textAreaRef.current !== null) {
+      if (e.target.value.length <= 200) {
+        setTypedText(e.target.value);
+        textAreaRef.current.style.height = '30px';
+        textAreaRef.current.style.height =
+          textAreaRef.current.scrollHeight + 'px';
+      } else {
+        setTypedText(e.target.value.slice(0, 200));
+      }
     }
   };
+
+  const deleteThisImage = (index: number) => {
+    setImageFileList([
+      ...imageFileList.slice(0, index),
+      ...imageFileList.slice(index + 1, imageFileList.length),
+    ]);
+    setImageUrlList([
+      ...imageUrlList.slice(0, index),
+      ...imageUrlList.slice(index + 1, imageUrlList.length),
+    ]);
+    setAddImageCount(addImageCount - 1);
+  };
+
+  const submitTweet = async () => {};
 
   return (
     <>
@@ -79,11 +105,22 @@ const TweetModal = ({
       />
       <Modal
         isOpen={isTweetModalOpen}
+        style={
+          imageUrlList.length === 0
+            ? undefined
+            : {
+                content: {
+                  top: 'calc(50% - 300px)',
+                  bottom: ' calc(50% - 300px)',
+                },
+              }
+        }
         className={styles.modalStyle}
         overlayClassName={styles.overlayStyle}
         shouldCloseOnOverlayClick={true}
         onRequestClose={() => {
           setIsTweetModalOpen(false);
+          clearModal();
         }}
         onAfterOpen={() => {
           loadImageDate();
@@ -116,7 +153,9 @@ const TweetModal = ({
                 className={styles.inputWrapper}
                 onChange={handleInputOnChange}
                 value={typedText}
+                ref={textAreaRef}
                 maxLength={200}
+                placeholder={`What's happening?`}
               />
               <div
                 className={styles.lengthText}
@@ -130,35 +169,80 @@ const TweetModal = ({
               >
                 {typedText.length} / 200
               </div>
+              <div
+                className={styles.imageNumberText}
+                style={
+                  imageUrlList.length === 2
+                    ? { color: 'red' }
+                    : imageUrlList.length === 1
+                    ? { color: 'orange' }
+                    : undefined
+                }
+              >
+                {imageUrlList.length} / 2
+              </div>
               <div className={styles.inputImagesWrapper}>
                 {imageUrlList.map(item => {
-                  <img
-                    className={styles.contentImage}
-                    key={imageUrlList.indexOf(item)}
-                    src={item}
-                    alt="content Image"
-                  />;
+                  return (
+                    <div
+                      className={styles.contentImageWrapper}
+                      key={imageUrlList.indexOf(item)}
+                    >
+                      <button
+                        className={styles.deleteButton}
+                        onClick={() => {
+                          deleteThisImage(imageUrlList.indexOf(item));
+                        }}
+                      >
+                        <img
+                          className={styles.deleteButtonImage}
+                          src={X}
+                          alt="image Delete Button"
+                        />
+                      </button>
+                      <img
+                        className={styles.contentImage}
+                        src={item}
+                        alt="content Image"
+                      />
+                    </div>
+                  );
                 })}
               </div>
+              <div className={styles.emptyBox}></div>
               <div className={styles.controllerWrapper}>
-                <div className={styles.addImageButton}>
+                <div
+                  className={
+                    imageUrlList.length >= 2
+                      ? styles.addImageButtonDisabled
+                      : styles.addImageButton
+                  }
+                >
                   <img
                     className={styles.addImageImage}
-                    src={picture}
+                    src={imageUrlList.length >= 2 ? pictureDisabled : picture}
                     alt={'Add Image Button'}
                   />
                   <input
                     type="file"
+                    accept="image/png, image/jpeg, image/jpg"
                     className={styles.addImageInput}
                     onChange={handleAddImageOnSubmit}
+                    disabled={imageUrlList.length >= 2 ? true : false}
                   />
                 </div>
                 <button
                   className={
-                    typedText === ''
+                    typedText === '' && imageUrlList.length === 0
                       ? styles.tweetButtonDisabled
                       : styles.tweetButton
                   }
+                  disabled={
+                    typedText === '' && imageUrlList.length === 0 ? true : false
+                  }
+                  onClick={() => {
+                    console.log('감자');
+                  }}
                 >
                   Tweet
                 </button>

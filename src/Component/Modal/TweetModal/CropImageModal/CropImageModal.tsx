@@ -3,6 +3,10 @@ import Modal from 'react-modal';
 import leftArrow from '../../../../Images/arrow-left.svg';
 import minusMagnify from '../../../../Images/minus-magnifying-glass.svg';
 import plusMagnify from '../../../../Images/plus-magnifying-glass.svg';
+import wide from '../../../../Images/wide.svg';
+import wideSelected from '../../../../Images/wideSelected.svg';
+import square from '../../../../Images/square.svg';
+import squareSelected from '../../../../Images/squareSelected.svg';
 import Cropper from 'react-easy-crop';
 import { useState, useCallback } from 'react';
 import { Area } from 'react-easy-crop/types';
@@ -38,6 +42,7 @@ const CropImageModal = ({
   const [zoom, setZoom] = useState<number>(1);
   const [croppedAreaPixels, setCroppedAreaPixels] =
     useState<AreaInterface | null>(null);
+  const [cropType, setCropType] = useState<string>('default');
 
   const clearModal = () => {
     setCrop({ x: 0, y: 0 });
@@ -79,14 +84,6 @@ const CropImageModal = ({
           ...imageUrlList.slice(0, addImageCount - 1),
           URL.createObjectURL(croppedImageFile),
         ]);
-        console.log([
-          ...imageFileList.slice(0, addImageCount - 1),
-          croppedImageFile,
-        ]);
-        console.log([
-          ...imageUrlList.slice(0, addImageCount - 1),
-          URL.createObjectURL(croppedImageFile),
-        ]);
         setIsOpen(false);
         clearModal();
       }
@@ -119,7 +116,7 @@ const CropImageModal = ({
             alt="back Button Image"
           />
         </button>
-        <div className={styles.headText}>Edit Media</div>
+        <div className={styles.headText}>Crop Media</div>
         <button
           className={styles.applyButton}
           onClick={handleApplyButtonOnClick}
@@ -139,7 +136,7 @@ const CropImageModal = ({
           }
           crop={crop}
           zoom={zoom}
-          aspect={1 / 1}
+          aspect={cropType === 'wide' ? 16 / 9 : 1 / 1}
           onCropChange={setCrop}
           onCropComplete={onCropComplete}
           onZoomChange={setZoom}
@@ -147,6 +144,31 @@ const CropImageModal = ({
         />
       </div>
       <div className={styles.cropControllerConatiner}>
+        <button
+          className={styles.cropButton}
+          onClick={() => {
+            setCropType('default');
+          }}
+        >
+          <img
+            className={styles.cropImage}
+            src={cropType === 'default' ? squareSelected : square}
+            alt="square Buttom Image"
+          />
+        </button>
+        <button
+          className={styles.cropButton}
+          onClick={() => {
+            setCropType('wide');
+          }}
+          style={{ margin: '0px 20px 0px 10px' }}
+        >
+          <img
+            className={styles.cropImage}
+            src={cropType === 'wide' ? wideSelected : wide}
+            alt="wide Buttom Image"
+          />
+        </button>
         <img src={minusMagnify} className={styles.magnifyImage} />
         <input
           className={styles.zoomController}
