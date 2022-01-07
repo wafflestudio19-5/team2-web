@@ -2,6 +2,7 @@ import styles from './Tweet.module.scss';
 import { ReactComponent as CommentIcon } from '../../../Images/comment.svg';
 import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
 import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
+import retweetTopImage from '../../../Images/retweetTop.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
 import React, { useEffect, useState } from 'react';
@@ -10,6 +11,8 @@ import { toast } from 'react-toastify';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import RetweetButtons from '../ButtonGroup/RetweetButtons';
+import ReplyTweetModal from '../../Modal/ReplyModalTweet/ReplyTweetModal';
+
 export interface UserData {
   username: string;
   user_id: string;
@@ -64,8 +67,18 @@ export interface TweetData {
 }
 
 const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
-  const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
-    console.log('Comment Clicked');
+  const [month, setMonth] = useState('');
+  const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);
+  const [isLike, setIsLike] = useState<boolean>(false);
+  const [isRetweet, setIsRetweet] = useState<boolean>(false);
+  const [like, setLike] = useState<number>();
+  const [retweet, setRetweet] = useState<number>();
+  const [display, setDisplay] = useState<string>('none');
+  const [month, setMonth] = useState('');
+  
+  const handleCommentCliecked = (e: React.MouseEvent<HTMLElement>): void => {
+    setReplyModalIsOpen(true);
+
   };
 
   const handleRetweetIconClicked = (e: React.MouseEvent<HTMLElement>): void => {
@@ -132,12 +145,6 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
     console.log('Share Clicked');
   };
 
-  const [isLike, setIsLike] = useState<boolean>(false);
-  const [isRetweet, setIsRetweet] = useState<boolean>(false);
-  const [like, setLike] = useState<number>();
-  const [retweet, setRetweet] = useState<number>();
-  const [display, setDisplay] = useState<string>('none');
-  const [month, setMonth] = useState('');
   const create_month = () => {
     switch (item.written_at.slice(5, 7)) {
       case '01':
@@ -190,20 +197,42 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
     setLike(item.likes);
   }, []); //like, retweet 초깃값 설정
 
+  const handleAllWrapperOnClick = () => {
+    console.log('감자');
+  };
+
   return (
-    <li className={styles.wrapper}>
-      <div
-        onBlur={() => {
-          setDisplay('none');
-        }}
-      >
-        <RetweetButtons
-          display={display}
-          function1={handleRetweetClicked}
-          function2={handleQuoteRetweetClicked}
-        ></RetweetButtons>
-      </div>
-      <div className={styles.leftWrapper}>
+    <>
+      <ReplyTweetModal
+        isTweetModalOpen={replyModalIsOpen}
+        setIsTweetModalOpen={setReplyModalIsOpen}
+      />
+      <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
+        {item.user_retweet ? (
+          <div className={styles.topAllWrapper}>
+            <div className={styles.retweetedWrapeer}>
+              <img
+                className={styles.retweetedImage}
+                src={retweetTopImage}
+                alt={retweetTopImage}
+              />
+              <div className={styles.retweetedText}>Retweeted</div>
+            </div>
+          </div>
+        ) : null}
+        <div className={styles.bottomAllWrapper}>
+          <div
+            onBlur={() => {
+              setDisplay('none');
+            }}
+          >
+            <RetweetButtons
+              display={display}
+              function1={handleRetweetClicked}
+              function2={handleQuoteRetweetClicked}
+            ></RetweetButtons>
+          </div>
+          <div className={styles.leftWrapper}>
         <img
           className={styles.profileImage}
           src={item.author.profile_img}
@@ -278,8 +307,8 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
             </button>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
+    </>
   );
 };
 export default Tweet;

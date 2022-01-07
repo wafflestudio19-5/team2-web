@@ -14,7 +14,15 @@ $grey: rgb(239, 243, 244);
   position: sticky;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ff0000;
+  }
 }
 
 .SearchWrapper {

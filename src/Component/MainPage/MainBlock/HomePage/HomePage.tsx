@@ -354,15 +354,13 @@ const HomePage = ({ loadNext }: Props) => {
         {homeTweetData ? (
           <ul className={styles.tweetsItems}>
             {homeTweetData ? (
-              homeTweetData.map(item => (
-                <div>
-                  {item.author ? (
-                    <Tweet key={item.id} item={item} />
-                  ) : (
-                    <div style={{ marginTop: '100px' }}>Loading...</div>
-                  )}
-                </div>
-              ))
+              homeTweetData.map(item =>
+                item.author ? (
+                  <Tweet key={item.id} item={item} />
+                ) : (
+                  <div style={{ marginTop: '100px' }}>Loading...</div>
+                ),
+              )
             ) : (
               <div className={styles.NoTweets}>Not Tweets yet</div>
             )}
