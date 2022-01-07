@@ -72,7 +72,6 @@ export interface TweetData {
 
 const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   const navigate = useNavigate();
-  const [month, setMonth] = useState('');
   const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);
   const [isLike, setIsLike] = useState<boolean>(false);
   const [isRetweet, setIsRetweet] = useState<boolean>(false);
@@ -80,7 +79,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   const [retweet, setRetweet] = useState<number>();
   const [display, setDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
-  const handleCommentCliecked = (e: React.MouseEvent<HTMLElement>): void => {
+  const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
     setReplyModalIsOpen(true);
 
   };
@@ -310,6 +309,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
               <ShareIcon className={styles.shareImg} />
             </button>
           </div>
+        </div>
         </div>
       </li>
     </>
