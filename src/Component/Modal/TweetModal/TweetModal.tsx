@@ -1,150 +1,173 @@
 import styles from './TweetModal.module.scss';
 import Modal from 'react-modal';
 import X from '../../../Images/X.svg';
-import twitter from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg';
-import { ReactComponent as Icon } from '../../../Images/Icon.svg';
-import { ReactComponent as Picture } from '../../../Images/Picture.svg';
-import { ReactComponent as GIF } from '../../../Images/GIF.svg';
-import { ReactComponent as Chart } from '../../../Images/Chart.svg';
-import { ReactComponent as Schedule } from '../../../Images/Schedule.svg';
-import { ReactComponent as GPS } from '../../../Images/GPS.svg';
-import { ReactComponent as Comment } from '../../../Images/comment.svg';
-
-import React, { ChangeEventHandler, useRef, useState } from 'react';
+import picture from '../../../Images/Picture.svg';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { useUserContext } from '../../../UserContext';
+import CropImageModal from './CropImageModal/CropImageModal';
 
 interface TweetModalProps {
   isTweetModalOpen: boolean;
   setIsTweetModalOpen: (value: boolean) => void;
-  //profileImg: string;
 }
+
 const TweetModal = ({
   isTweetModalOpen,
   setIsTweetModalOpen,
-}: //profileImg,
-TweetModalProps) => {
-  const [files, setFiles] = useState<FileList | null>();
-  const [content, setContent] = useState<string>('');
-  const fileChangedHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files;
-    setFiles(file);
+}: TweetModalProps) => {
+  const userContext = useUserContext();
+  const [profileImageUrl, setProfileImageUrl] = useState<string>('');
+  const [isEditImageModalOpen, setIsEditImageModalOpen] =
+    useState<boolean>(false);
+  const [typedText, setTypedText] = useState('');
+  const [imageFileList, setImageFileList] = useState<File[]>([]);
+  const [imageUrlList, setImageUrlList] = useState<string[]>([]);
+  const [addImageCount, setAddImageCount] = useState<number>(0);
+
+  const loadImageDate = async () => {
+    try {
+      const response = await axios.get(
+        `/user/${userContext.nowUserID}/profile/`,
+      );
+      setProfileImageUrl(response.data.profile_img);
+    } catch (e) {
+      console.log(e);
+    }
   };
-  const contentChangedHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value);
+
+  const clearModal = () => {
+    setProfileImageUrl('');
   };
-  const onClick = () => {
-    axios
-      .post('/tweet/', {
-        content: content,
-        media: files,
-      })
-      .then(() => {
-        setIsTweetModalOpen(false);
-      })
-      .catch(() => {
-        toast.error('트윗 올리기에 실패했습니다.');
-      });
+
+  const handleExitOnClick = () => {
+    setIsTweetModalOpen(false);
+    clearModal();
   };
+
+  const handleAddImageOnSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files !== null && e.target.files.length === 1) {
+      setImageFileList([...imageFileList, e.target.files[0]]);
+      setImageUrlList([
+        ...imageUrlList,
+        URL.createObjectURL(e.target.files[0]),
+      ]);
+      setAddImageCount(addImageCount + 1);
+      setIsEditImageModalOpen(true);
+      e.target.value = '';
+    }
+  };
+
+  const handleInputOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (e.target.value.length <= 200) {
+      setTypedText(e.target.value);
+    } else {
+      setTypedText(e.target.value.slice(0, 200));
+    }
+  };
+
   return (
-    <Modal
-      isOpen={isTweetModalOpen}
-      style={{
-        overlay: {
-          position: 'fixed',
-          zIndex: 100,
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0,0,0,0.3)',
-        },
-        content: {
-          top: '50px',
-          left: '450px',
-          right: '450px',
-          bottom: '420px',
-          border: '1px solid #ccc',
-          borderRadius: '20px',
-          background: '#fff',
-          overflow: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          outline: 'none',
-          padding: '0 15px 20px 15px',
-        },
-      }}
-      className={styles.ModalContainer}
-    >
-      <div className={styles.ModalWrapper}>
-        <header className={styles.ModalHeader}>
-          <div
-            onClick={() => {
-              setIsTweetModalOpen(false);
-            }}
-            className={styles.XWrapper}
-          >
-            <img src={X} width={25} height={25} alt="no img" />
-          </div>
-          <div />
-        </header>
-        <div className={styles.ModalContent}>
-          <div className={styles.ModalContentLeft}>
-            <div className={styles.ProfileImgWrapper}>
+    <>
+      <CropImageModal
+        isOpen={isEditImageModalOpen}
+        setIsOpen={setIsEditImageModalOpen}
+        imageFileList={imageFileList}
+        setImageFileList={setImageFileList}
+        imageUrlList={imageUrlList}
+        setImageUrlList={setImageUrlList}
+        addImageCount={addImageCount}
+      />
+      <Modal
+        isOpen={isTweetModalOpen}
+        className={styles.modalStyle}
+        overlayClassName={styles.overlayStyle}
+        shouldCloseOnOverlayClick={true}
+        onRequestClose={() => {
+          setIsTweetModalOpen(false);
+        }}
+        onAfterOpen={() => {
+          loadImageDate();
+        }}
+        onAfterClose={() => {
+          clearModal();
+        }}
+        ariaHideApp={false}
+      >
+        <div className={styles.allWrapper}>
+          <header className={styles.headerWrapper}>
+            <button className={styles.exitButton} onClick={handleExitOnClick}>
               <img
-                width={48}
-                height={48}
-                src={twitter}
-                /*profileImg*/ alt="no img"
+                className={styles.xImage}
+                src={X}
+                alt={'Exit Button Image'}
+              />
+            </button>
+          </header>
+          <div className={styles.contentWrapper}>
+            <div className={styles.contentLeftSide}>
+              <img
+                className={styles.profileImage}
+                src={profileImageUrl}
+                alt={'profile Image'}
               />
             </div>
-          </div>
-          <div className={styles.ModalContentRight}>
-            <div className={styles.ModalContentInputWrapper}>
+            <div className={styles.contentRightSide}>
               <textarea
-                onChange={e => {
-                  contentChangedHandler(e);
-                }}
-                className={styles.ModalContentInput}
-                placeholder="What's happening?"
-              ></textarea>
-            </div>
-            <div className={styles.BorderWrapper} />
-            <div className={styles.ModalContentRightFooter}>
-              <div className={styles.ModalContentButtonWrapper}>
-                <input
-                  onChange={event => {
-                    fileChangedHandler(event);
-                  }}
-                  name="file"
-                  id="file"
-                  type="file"
-                />
-                <div className={styles.IconWrapper}>
-                  <Picture className={styles.Icon} />
-                </div>
-                <div className={styles.IconWrapper}>
-                  <GIF className={styles.Icon} />
-                </div>
-                <div className={styles.IconWrapper}>
-                  <Chart className={styles.Icon} />
-                </div>
-                <div className={styles.IconWrapper}>
-                  <Icon className={styles.Icon} />
-                </div>
-                <div className={styles.IconWrapper}>
-                  <Schedule className={styles.Icon} />
-                </div>
+                className={styles.inputWrapper}
+                onChange={handleInputOnChange}
+                value={typedText}
+                maxLength={200}
+              />
+              <div
+                className={styles.lengthText}
+                style={
+                  typedText.length === 200
+                    ? { color: 'red' }
+                    : typedText.length >= 150
+                    ? { color: 'orange' }
+                    : undefined
+                }
+              >
+                {typedText.length} / 200
               </div>
-              <div className={styles.TweetButtonWrapper}>
-                <button onClick={onClick} className={styles.Button}>
+              <div className={styles.inputImagesWrapper}>
+                {imageUrlList.map(item => {
+                  <img
+                    className={styles.contentImage}
+                    key={imageUrlList.indexOf(item)}
+                    src={item}
+                    alt="content Image"
+                  />;
+                })}
+              </div>
+              <div className={styles.controllerWrapper}>
+                <div className={styles.addImageButton}>
+                  <img
+                    className={styles.addImageImage}
+                    src={picture}
+                    alt={'Add Image Button'}
+                  />
+                  <input
+                    type="file"
+                    className={styles.addImageInput}
+                    onChange={handleAddImageOnSubmit}
+                  />
+                </div>
+                <button
+                  className={
+                    typedText === ''
+                      ? styles.tweetButtonDisabled
+                      : styles.tweetButton
+                  }
+                >
                   Tweet
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </Modal>
+      </Modal>
+    </>
   );
 };
 

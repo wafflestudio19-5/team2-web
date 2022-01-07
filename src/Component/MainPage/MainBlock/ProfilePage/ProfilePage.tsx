@@ -14,7 +14,6 @@ interface Props {
 const ProfilePage = ({ loadNext }: Props): JSX.Element => {
   const [isChosen, setIsChosen] = useState<string>('tweets');
 
-  //사용자 아이디 존재 시 - get 여부 확인
   return (
     <div className={styles.ProfilePage}>
       <UserProfile isChosen={isChosen} setIsChosen={setIsChosen} />

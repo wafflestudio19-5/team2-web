@@ -14,14 +14,7 @@ $grey: rgb(239, 243, 244);
   position: sticky;
   width: 100%;
   height: 100%;
-  overflow: scroll;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  overflow: hidden;
 }
 
 .SearchWrapper {
