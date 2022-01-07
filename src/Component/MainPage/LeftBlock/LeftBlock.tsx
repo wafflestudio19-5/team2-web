@@ -16,6 +16,7 @@ import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useUserContext } from '../../../UserContext';
 import axios from 'axios';
+import TempTweetModal from '../../Modal/TempTweetModal/TempTweetModal';
 
 interface UserData {
   username: string;
