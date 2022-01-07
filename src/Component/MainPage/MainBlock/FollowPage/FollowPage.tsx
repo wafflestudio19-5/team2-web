@@ -9,11 +9,12 @@ import {
 } from 'react-router-dom';
 import styles from './FollowPage.module.scss';
 import arrow_left from '../../../../Images/arrow-left.svg';
-import calendar from '../../../../../Images/calendar.svg';
 import { useUserContext } from '../../../../UserContext';
 import Follow from "../../../Reused/Follow/Follow";
 import axios from "axios";
 import {toast} from "react-toastify";
+import Follower from "../../../Reused/Follower/Follower.module";
+
 
 interface User {
   id: string;
@@ -34,12 +35,16 @@ function FollowPage({loadNext}:Props) {
   const userContext = useUserContext();
   const navigate = useNavigate();
   const params = useParams();
-  const [asyncData, setAsyncData] = useState<User[]>([]);
   const [followings, setFollowings] = useState<JSX.Element[]>([]);
   const [followers, setFollowers] = useState<JSX.Element[]>([]);
   const loc = useLocation();
   const [followingPage, setFollowingPage] = useState<number|null>(1);
   const [followerPage, setFollowerPage] = useState<number|null>(1);
+  const [userFollowingList, setUserFollowingList] = useState<User[] | null>(null);
+  const [userFollowerList, setUserFollowerList] = useState<User[] | null>(null);
+
+
+
   useEffect(() => {
     if (
       loc.pathname.slice(
@@ -57,16 +62,19 @@ function FollowPage({loadNext}:Props) {
       setIsChosen('followers');
     }
   },[]);
+
+
+
   const followingUpdate = () => {
       if(followingPage!==null){
-          axios.get('/follow_list/'+userContext.nowUserID+'/following/?page='+followingPage.toString())
+          axios.get('/follow_list/'+params.id+'/following/?page='+followingPage.toString())
               .then((response)=>{
                   setFollowings([
                       ...followings,
                       response.data.results.map((follow:User) => {
                           return (
                               <li style={{listStyle:"none"}} key={follow.id}>
-                                 <Follow bio={follow.bio} img={follow.profile_img}  id={follow.user_id}
+                                 <Follow I_follow={/*follow.I_follow*/false} bio={follow.bio} img={follow.profile_img}  id={follow.user_id}
                                           follows_me={follow.follows_me} name={follow.username}/>
                                </li>
                           );
@@ -76,7 +84,6 @@ function FollowPage({loadNext}:Props) {
               })
               .catch((error)=>{
                   toast.error("팔로잉 목록을 불러오는 데 실패하였습니다.")
-                  console.log(error)
               })
       }
 
@@ -84,14 +91,15 @@ function FollowPage({loadNext}:Props) {
 
   const followerUpdate = () => {
       if (followerPage !== null) {
-          axios.get('/follow_list/'+userContext.nowUserID+'/follower/?page='+ followerPage.toString())
+          axios.get('/follow_list/'+params.id+'/follower/?page='+ followerPage.toString())
               .then((response)=>{
                   setFollowers([
                       ...followers,
                       response.data.results.map((follow:User) => {
+
                           return (
                               <li style={{listStyle:"none"}} key={follow.id}>
-                                  <Follow bio={follow.bio} img={follow.profile_img}  id={follow.user_id}
+                                  <Follower I_follow={false} bio={follow.bio} img={follow.profile_img}  id={follow.user_id}
                                        follows_me={follow.follows_me} name={follow.username}/>
                               </li>
                           );

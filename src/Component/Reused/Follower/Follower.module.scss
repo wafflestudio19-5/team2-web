@@ -1,0 +1,108 @@
+@mixin button_default {
+  margin-bottom: 8px;
+  margin-right: 20px;
+  width: 80px;
+  height: 30px;
+  border-radius: 999px;
+  border: solid black 1px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+.FollowWrapper {
+  list-style: none;
+  width: 100%;
+  height: auto;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+  }
+  padding-top: 5px;
+  /*padding-left: 16px;
+  padding-right: 16px;*/
+}
+
+.FollowInside {
+  margin-left: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+}
+
+.FollowLeftWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
+
+.FollowImg {
+  margin-right: 10px;
+}
+
+.FollowTextButton {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.FollowNameID {
+  display: flex;
+  flex-direction: column;
+}
+.FollowButtonWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.FollowButton {
+  @include button_default;
+  color: white;
+  background-color: black;
+  font-weight: 600;
+}
+
+.FollowingButton {
+  @include button_default;
+  color: black;
+  background-color: white;
+  font-weight: 600;
+}
+
+.UnfollowButton {
+  @include button_default;
+  width: 100%;
+  height: 30px;
+  color: black;
+  background-color: white;
+  font-weight: 600;
+}
+
+.CancelButton {
+  @include button_default;
+  width: 100%;
+  height: 30px;
+  color: white;
+  background-color: black;
+  font-weight: 600;
+}
+
+.FollowName {
+  font-weight: 800;
+  &:hover {
+    text-decoration-line: underline;
+  }
+}
+
+.FollowID {
+  font-weight: 400;
+  color: rgb(83, 100, 113);
+}
+
+.BioWrapper {
+  padding-bottom: 10px;
+}
+

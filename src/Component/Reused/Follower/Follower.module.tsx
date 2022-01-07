@@ -1,4 +1,4 @@
-import styles from './Follow.module.scss';
+import styles from './Follower.module.scss';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import { toast } from 'react-toastify';
@@ -23,7 +23,7 @@ interface User {
   follows_me: boolean;
 }
 
-function Follow(props: props) {
+function Follower(props: props) {
   const userContext = useUserContext();
   const [following, setFollowing] = useState(false);
   const navigate = useNavigate();
@@ -55,7 +55,6 @@ function Follow(props: props) {
   useEffect(()=>{
     setFollowing(props.I_follow);
   },[])
-
   return (
       <div onClick={(e) => {
         navigate('/' + props.id);
@@ -167,4 +166,4 @@ function Follow(props: props) {
   );
 }
 
-export default Follow;
+export default Follower;
