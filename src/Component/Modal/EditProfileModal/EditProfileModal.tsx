@@ -210,11 +210,9 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
         setIsOpen(false);
       }}
       onAfterOpen={() => {
-        document.body.style.overflow = 'hidden';
         loadModalDate();
       }}
       onAfterClose={() => {
-        document.body.style.overflow = 'scroll';
         clearModal();
       }}
       ariaHideApp={false}
