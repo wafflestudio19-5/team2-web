@@ -18,37 +18,36 @@ function MainPage() {
     return presentRightScrollTop - (lastScrollTop - presentScrollTop) / 3;
   };
 
-  const handleLoadNext = _.throttle(() => {
-    console.log(mainRef.current?.scrollTop);
-    console.log(mainRef.current?.scrollHeight);
-    console.log(mainRef.current?.clientHeight);
-  }, 1000);
-
-  useEffect(() => {
-    let throttled = false;
-    mainRef.current?.addEventListener('scroll', handleLoadNext);
-    return () => {
-      mainRef.current?.removeEventListener('scroll', handleLoadNext);
-    };
-  });
-
-  const handleScroll = () => {
-    console.log('작동');
-    if (mainRef.current !== null) {
-      setLastScrollTop(mainRef.current?.scrollTop);
-      rightRef.current?.scrollTo(
-        0,
-        formatScrollHeight(
-          mainRef.current?.scrollTop,
-          rightRef.current?.scrollTop,
-        ),
-      );
-    }
-  };
+  const handleScroll = _.throttle(
+    () => {
+      if (mainRef.current !== null) {
+        setLastScrollTop(mainRef.current?.scrollTop);
+        rightRef.current?.scrollTo({
+          top: formatScrollHeight(
+            mainRef.current?.scrollTop,
+            rightRef.current?.scrollTop,
+          ),
+          behavior: 'smooth',
+        });
+        if (
+          mainRef.current?.scrollHeight -
+            mainRef.current?.scrollTop -
+            mainRef.current?.clientHeight <
+          500
+        ) {
+          setLoadNext(true);
+        } else {
+          setLoadNext(false);
+        }
+      }
+    },
+    500,
+    { leading: false },
+  );
 
   return (
     <>
-      <div className={styles.MainPage} ref={mainRef}>
+      <div className={styles.MainPage} ref={mainRef} onScroll={handleScroll}>
         <LeftBlock />
         <MainBlock loadNext={loadNext} />
         <RightBlock rightRef={rightRef} />

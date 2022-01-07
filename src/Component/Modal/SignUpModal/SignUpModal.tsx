@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import X from '../../../Images/X.svg';
 import twitter from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg';
 import KaKaoLogin from '../../../Images/kakao_login.png';
-import React, { MouseEventHandler, useContext, useState } from 'react';
+import React, { MouseEventHandler, useContext, useRef, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useNetworkContext } from '../../../Auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +32,7 @@ function SignUpModal(props: props) {
     user_id: '',
     bio: 'null',
   });
-
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const userContext = useUserContext();
   const Navigate = useNavigate();
   const networkContext = useNetworkContext();
@@ -54,8 +54,7 @@ function SignUpModal(props: props) {
         props.setSignUpIsOpen(false);
         localStorage.setItem('user_id', response.data.user_id);
         userContext.setNowUserID(response.data.user_id);
-
-        window.location.replace('/');
+        window.location.href = '/';
       })
       .catch(error => {
         toast.error('올바른 입력정보가 아닙니다.');
@@ -117,6 +116,7 @@ function SignUpModal(props: props) {
             />
             <input
               onChange={onChange}
+              ref={inputRef}
               className={styles.Input}
               name={emailUse ? 'email' : 'phone_number'}
               placeholder={emailUse ? '이메일' : '휴대폰'}
@@ -127,6 +127,7 @@ function SignUpModal(props: props) {
               className={styles.Input}
               name={'user_id'}
               placeholder="아이디"
+              maxLength={14}
               type="text"
             />
             <input
@@ -143,6 +144,9 @@ function SignUpModal(props: props) {
                 ...userData,
                 [emailUse ? 'email' : 'phone_number']: '',
               });
+              if (inputRef.current !== null) {
+                inputRef.current.value = '';
+              }
               setEmailUse(!emailUse);
             }}
             className={styles.EmailOrPhone}

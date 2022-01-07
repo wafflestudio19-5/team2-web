@@ -1,115 +1,257 @@
-.tweetModalWrapper {
-  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  text-align: center;
+.modalStyle {
+  position: absolute;
+  top: calc(40% - 185px);
+  left: calc(50% - 300px);
+  right: calc(50% - 300px);
+  bottom: calc(60% - 185px);
+  border: none;
+  background: #fff;
+  overflow: auto;
+  border-radius: 20px;
+  outline: none;
+  padding: 0px;
+  overflow: hidden;
+
+  z-index: 50;
 }
 
-.ModalContent {
-  display: flex;
+.overlayStyle {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+.hideOverflow {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.ModalHeader {
+.allWrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
   display: flex;
+  flex-flow: column;
   justify-content: space-between;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  align-items: center;
 }
-.XWrapper {
-  width: 34px;
-  height: 34px;
+
+.headerWrapper {
+  width: 100%;
+  height: 40px;
+
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.07);
-    cursor: pointer;
-  }
-}
-.ModalContentLeft {
-  display: flex;
-  flex-direction: column;
   justify-content: left;
 }
 
-.ModalContentRight {
-  width: 100%;
+.exitButton {
   margin-left: 10px;
   margin-top: 10px;
-}
-.ModalContentInput {
-  font: 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
+
   border: none;
-  height: 130px;
+  background-color: white;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 100%;
+  transition: background-color 150ms;
+
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(0, 0, 0, 0.1);
+    transition: background-color 150ms;
+  }
+}
+
+.xImage {
+  width: 100%;
+  height: 100%;
+}
+
+.contentWrapper {
+  width: 100%;
+  height: calc(100% - 40px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentLeftSide {
+  width: 70px;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  margin: 10px 0px 0px 0px;
+
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 100%;
+}
+
+.contentRightSide {
+  width: calc(100% - 80px);
+  height: 100%;
+
+  margin-right: 10px;
+}
+
+.inputWrapper {
+  width: calc(100% - 10px);
+  height: auto;
+
+  padding: 0px;
+  margin: 20px 0px 0px 0px;
+  border: none;
+
   font-size: 20px;
+
+  resize: none;
+
   &:focus {
     outline: none;
   }
-  width: 100%;
-}
-.BorderWrapper {
-  display: flex;
-  flex-basis: 100%;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.35);
-  font-size: 12px;
-  width: 100%;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  content: '';
-  flex-grow: 1;
-  background: rgba(0, 0, 0, 0.35);
-  height: 1px;
-  font-size: 0px;
-  line-height: 0px;
 }
 
-.ModalContentRightFooter {
-  display: flex;
-  justify-content: space-between;
+.lengthText {
+  position: absolute;
+  top: 280px;
+  right: 30px;
+
+  font-size: 15px;
+  color: rgb(114, 114, 114);
 }
 
-.ModalContentButtonWrapper {
+.inputImagesWrapper {
+  width: calc(100% - 10px);
+  height: 400px;
   display: flex;
-}
-.Icon {
-  width: 20px;
-  height: 20px;
-  stroke-width: 1px;
-  stroke: #00b7ff;
-  color: #00b7ff;
-}
-
-.IconWrapper {
-  width: 40px;
-  height: 40px;
-  display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
+}
+
+.contentImage {
+  display: flex;
+  position: relative;
+
+  width: 100%;
+  height: auto;
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 10px;
+}
+
+.controllerWrapper {
+  width: calc(100% - 100px);
+  height: 55px;
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgb(223, 223, 223);
+}
+
+.addImageButton {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 5px;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 100%;
+  border: none;
+
+  background: none;
+  transition: background 150ms;
+
   &:hover {
-    background-color: rgba(0, 183, 255, 0.1);
-    cursor: pointer;
+    background: rgb(0, 0, 0, 0.1);
+    transition: background 150ms;
   }
 }
 
-.TweetButtonWrapper {
+.addImageInput {
+  position: absolute;
   display: flex;
+  justify-content: center;
   align-items: center;
-}
-.Button {
-  background-color: rgb(26, 140, 216);
-  width: 100px;
-  height: 40px;
-  border-radius: 999px;
-  border: solid black 1px;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  border: none;
-}
-.Button:hover {
+
+  width: 80%;
+  height: 80%;
+
+  padding: 0px;
+  margin: 0px;
+
+  opacity: 0%;
+  font-size: 0px;
+
   cursor: pointer;
-  opacity: 0.5;
+}
+
+.addImageImage {
+  position: relative;
+  width: 60%;
+  height: 60%;
+}
+
+.tweetButton {
+  width: 80px;
+  height: 70%;
+  margin-top: 10px;
+
+  border-radius: 200px;
+  border: none;
+
+  background-color: rgb(30, 156, 241);
+
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+
+  cursor: pointer;
+
+  transition: background-color 150ms;
+  &:hover {
+    background-color: rgb(30, 136, 206);
+    transition: background-color 150ms;
+  }
+}
+
+.tweetButtonDisabled {
+  width: 80px;
+  height: 70%;
+  margin-top: 10px;
+
+  border-radius: 200px;
+  border: none;
+
+  background-color: rgb(30, 156, 241);
+
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+
+  cursor: pointer;
+
+  opacity: 0.4;
 }

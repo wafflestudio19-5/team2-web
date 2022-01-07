@@ -1,3 +1,4 @@
+
 import React, {
   MouseEventHandler,
   useContext,
@@ -35,19 +36,20 @@ function UserProfile(props: {
 
   const switchToTweets = () => {
     props.setIsChosen('tweets');
-    navigate(`/${props.userData.user_id}`);
+    navigate(`/${params.id}`);
   };
   const switchToTweetsAndReplies = () => {
     props.setIsChosen('tweetsandreplies');
-    navigate(`/${props.userData.user_id}/with_replies`);
+    navigate(`/${params.id}/with_replies`);
   };
   const switchToMedia = () => {
     props.setIsChosen('media');
-    navigate(`/${props.userData.user_id}/media`);
+    navigate(`/${params.id}/media`);
   };
   const switchToLikes = () => {
     props.setIsChosen('likes');
-    navigate(`/${props.userData.user_id}/likes`);
+    navigate(`/${params.id}/likes`);
+
   };
 
   return (
@@ -157,7 +159,7 @@ function UserProfile(props: {
             >
               <div
                 onClick={() => {
-                  navigate(`/${userContext.nowUserID}/following`);
+                  navigate(`/${params.id}/following`);
                 }}
                 className={styles.UserFollowNumberButton}
               >
@@ -165,7 +167,7 @@ function UserProfile(props: {
               </div>
               <div
                 onClick={() => {
-                  navigate(`/${userContext.nowUserID}/followers`);
+                  navigate(`/${params.id}/followers`);
                 }}
                 className={styles.UserFollowNumberButton}
               >

@@ -41,12 +41,10 @@ function LoginModal(props: props) {
       .then((response: any) => {
         localStorage.setItem('JWT', response.data.token);
         localStorage.setItem('user_id', response.data.user_id);
-        networkContext.setToken(response.data.token);
         props.setLoginIsOpen(false);
-        localStorage.setItem('user_id', response.data.user_id);
+        networkContext.setToken(response.data.token);
         userContext.setNowUserID(response.data.user_id);
-
-        window.location.replace('/');
+        window.location.href = '/';
       })
       .catch(error => {
         toast.error('올바른 입력정보가 아닙니다.');

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Tweet from '../../../../Reused/Tweet/Tweet';
 import styles from './Likes.module.scss';
 
@@ -67,7 +67,19 @@ interface Props {
 
 const Likes = ({ loadNext }: Props) => {
   const [tweetList, setTweetList] = useState<Data[]>(dummyData);
-  return <div>this is likes</div>;
+  useEffect(() => {
+    if (loadNext) {
+      console.log('다음 페이지 로딩 Likes');
+    }
+  }, [loadNext]);
+
+  return (
+    <ul className={styles.tweetsItems}>
+      {tweetList.map(item => (
+        <Tweet key={item.key} item={item} />
+      ))}
+    </ul>
+  );
 };
 
 export default Likes;
