@@ -40,6 +40,11 @@ const TweetModal = ({
 
   const clearModal = () => {
     setProfileImageUrl('');
+    setIsEditImageModalOpen(false);
+    setTypedText('');
+    setImageFileList([]);
+    setImageUrlList([]);
+    setAddImageCount(0);
   };
 
   const handleExitOnClick = () => {
@@ -85,6 +90,8 @@ const TweetModal = ({
     setAddImageCount(addImageCount - 1);
   };
 
+  const submitTweet = async () => {};
+
   return (
     <>
       <CropImageModal
@@ -113,6 +120,7 @@ const TweetModal = ({
         shouldCloseOnOverlayClick={true}
         onRequestClose={() => {
           setIsTweetModalOpen(false);
+          clearModal();
         }}
         onAfterOpen={() => {
           loadImageDate();

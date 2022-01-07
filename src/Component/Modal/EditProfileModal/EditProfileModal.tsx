@@ -110,14 +110,11 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
 
   const handleSaveOnClick = () => {
     console.log('Saving Modal Data...');
-
-    document.body.style.overflow = 'scroll';
     clearModal();
     setIsOpen(false);
   };
 
   const handleExitButtonOnClick = () => {
-    document.body.style.overflow = 'scroll';
     clearModal();
     setIsOpen(false);
   };
