@@ -54,7 +54,7 @@ function SignUpModal(props: props) {
         props.setSignUpIsOpen(false);
         localStorage.setItem('user_id', response.data.user_id);
         userContext.setNowUserID(response.data.user_id);
-        
+
         window.location.replace('/');
       })
       .catch(error => {

@@ -28,19 +28,19 @@ function FollowPage() {
     if (
       loc.pathname.slice(
         userContext.nowUserID.length + 2,
-        userContext.nowUserID.length + 11
+        userContext.nowUserID.length + 11,
       ) === 'following'
     ) {
       setIsChosen('following');
     } else if (
       loc.pathname.slice(
         userContext.nowUserID.length + 2,
-        userContext.nowUserID.length + 11
+        userContext.nowUserID.length + 11,
       ) === 'followers'
     ) {
       setIsChosen('followers');
     }
-  },[]);
+  }, []);
 
   const switchToFollowing = () => {
     setIsChosen('following');

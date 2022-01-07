@@ -4,7 +4,7 @@ import styles from './Likes.module.scss';
 
 const dummyData = [
   {
-    name: '감자튀김',
+    name: 'Likes',
     id: 'FrenchFries',
     time: '10h',
     profileImg:
@@ -67,13 +67,7 @@ interface Props {
 
 const Likes = ({ loadNext }: Props) => {
   const [tweetList, setTweetList] = useState<Data[]>(dummyData);
-  return (
-    <ul className={styles.tweetsItems}>
-      {tweetList.map(item => (
-        <Tweet key={item.key} item={item} />
-      ))}
-    </ul>
-  );
+  return <div>this is likes</div>;
 };
 
 export default Likes;

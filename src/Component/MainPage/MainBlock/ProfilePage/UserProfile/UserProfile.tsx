@@ -1,23 +1,16 @@
-import React, { MouseEventHandler, useContext, useEffect, useState } from 'react';
+import React, {
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import EditProfileModal from '../../../../Modal/EditProfileModal/EditProfileModal';
 import styles from './UserProfile.module.scss';
 import arrow_left from '../../../../../Images/arrow-left.svg';
 import calendar from '../../../../../Images/calendar.svg';
 import { useUserContext } from '../../../../../UserContext';
-
-interface UserData {
-
-  username:	string
-  user_id:	string
-  bio:	string
-  created_at:	string
-  birth_date:	string
-  tweets: string
-  tweets_num: string
-  following: string
-  follower: string
-}
+import { TweetData, UserData } from '../../ProfilePage/Tweets/Tweets';
 
 function UserProfile(props: {
   isChosen: string;
@@ -57,11 +50,6 @@ function UserProfile(props: {
     navigate(`/${props.userData.user_id}/likes`);
   };
 
-console.log(Number(props.userData.created_at.slice(5,7)));
-
-  
-
-
   return (
     <>
       <EditProfileModal
@@ -80,9 +68,11 @@ console.log(Number(props.userData.created_at.slice(5,7)));
           }}
         />
         <div>
-          <div className={styles.UserProfileHeaderName}>{props.userData.username}</div>
+          <div className={styles.UserProfileHeaderName}>
+            {props.userData.username}
+          </div>
           <div className={styles.UserProfileHeaderTweetsCount}>
-          {props.userData.tweets_num} Tweets
+            {props.userData.tweets_num} Tweets
           </div>
         </div>
       </header>
@@ -155,7 +145,8 @@ console.log(Number(props.userData.created_at.slice(5,7)));
                   marginLeft: '5px',
                 }}
               >
-                Joined {props.month ? props.month : ''} {props.userData.created_at.slice(0,4)}
+                Joined {props.month ? props.month : ''}{' '}
+                {props.userData.created_at.slice(0, 4)}
               </div>
             </div>
             <div
@@ -167,19 +158,18 @@ console.log(Number(props.userData.created_at.slice(5,7)));
               <div
                 onClick={() => {
                   navigate(`/${userContext.nowUserID}/following`);
-                }} 
+                }}
+                className={styles.UserFollowNumberButton}
               >
-                {props.userData.following}following
+                {props.userData.following} following
               </div>
               <div
                 onClick={() => {
                   navigate(`/${userContext.nowUserID}/followers`);
                 }}
-                style={{
-                  marginLeft: '20px'
-              }}
+                className={styles.UserFollowNumberButton}
               >
-                {props.userData.follower}follower
+                {props.userData.follower} follower
               </div>
             </div>
           </div>

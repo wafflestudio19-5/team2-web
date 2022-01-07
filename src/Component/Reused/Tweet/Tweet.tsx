@@ -4,7 +4,8 @@ import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
 import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { TweetData } from '../../MainPage/MainBlock/ProfilePage/Tweets/Tweets';
 
 interface Props {
   item: {
@@ -21,7 +22,7 @@ interface Props {
   };
 }
 
-const Tweet = ({ item }: Props): JSX.Element => {
+const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   const handleCommentCliecked = (e: React.MouseEvent<HTMLElement>): void => {
     console.log('Comment Clicked');
   };
@@ -38,21 +39,67 @@ const Tweet = ({ item }: Props): JSX.Element => {
     console.log('Share Clicked');
   };
 
+  const [month, setMonth] = useState('');
+  const create_month = () => {
+    switch (item.written_at.slice(5, 7)) {
+      case '01':
+        setMonth('Jan');
+        break;
+      case '02':
+        setMonth('Feb');
+        break;
+      case '03':
+        setMonth('Mar');
+        break;
+      case '04':
+        setMonth('Apr');
+        break;
+      case '05':
+        setMonth('May');
+        break;
+      case '06':
+        setMonth('Jun');
+        break;
+      case '07':
+        setMonth('Jul');
+        break;
+      case '08':
+        setMonth('Aug');
+        break;
+      case '09':
+        setMonth('Sep');
+        break;
+      case '10':
+        setMonth('Oct');
+        break;
+      case '11':
+        setMonth('Nov');
+        break;
+      case '12':
+        setMonth('Dec');
+        break;
+    }
+  };
+
+  useEffect(() => {
+    create_month();
+  });
+
   return (
     <li className={styles.wrapper}>
       <div className={styles.leftWrapper}>
         <img
           className={styles.profileImage}
-          src={item.profileImg}
+          src={item.author.profile_img}
           alt="tweet Profile Image"
         />
       </div>
       <div className={styles.rightWrapper}>
         <div className={styles.topWrapper}>
           <div className={styles.topTextWrapper}>
-            <div className={styles.nameText}>{item.name}</div>
+            <div className={styles.nameText}>{item.author.username}</div>
             <div className={styles.idTimeText}>
-              @{item.id} · {item.time}
+              @{item.author.user_id} · {month} {item.written_at.slice(8, 10)}
             </div>
           </div>
           <button className={styles.moreButton}>
@@ -60,8 +107,8 @@ const Tweet = ({ item }: Props): JSX.Element => {
           </button>
         </div>
         <div className={styles.middleWrapper}>
-          <div className={styles.mainText}>{item.text}</div>
-          {item.images.map(imgUrl => {
+          <div className={styles.mainText}>{item.content}</div>
+          {item.media.map(imgUrl => {
             return (
               <img
                 key={Math.random()}
@@ -79,22 +126,18 @@ const Tweet = ({ item }: Props): JSX.Element => {
               onClick={handleCommentCliecked}
             >
               <CommentIcon className={styles.commentImg} />
-              <div className={styles.commentButtonText}>
-                {item.commentNumber}
-              </div>
+              <div className={styles.commentButtonText}>{item.replies}</div>
             </button>
             <button
               className={styles.retweetButton}
               onClick={handleRetweetCliecked}
             >
               <RetweetIcon className={styles.retweetImg} />
-              <div className={styles.retweetButtonText}>
-                {item.retweetNumber}
-              </div>
+              <div className={styles.retweetButtonText}>{item.retweets}</div>
             </button>
             <button className={styles.likeButton} onClick={handleLikeCliecked}>
               <LikeIcon className={styles.likeImg} />
-              <div className={styles.likeButtonText}>{item.likeNumber}</div>
+              <div className={styles.likeButtonText}>{item.likes}</div>
             </button>
             <button
               className={styles.shareButton}

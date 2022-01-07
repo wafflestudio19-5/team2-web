@@ -14,9 +14,9 @@ const dummyData = [
       'http://www.dailygaewon.com/news/photo/201906/4510_5372_5434.JPG',
       'https://src.hidoc.co.kr/image/lib/2019/3/21/20190321174958927_0.jpg',
     ],
-    commentNumber: '100',
-    retweetNumber: '2.5k',
-    likeNumber: '4.5k',
+    commentnumber: '100',
+    retweetnumber: '2.5k',
+    likenumber: '4.5k',
     key: '1',
   },
   {
@@ -29,9 +29,9 @@ const dummyData = [
     images: [
       'https://w.namu.la/s/82db436174608ea71ccd15413a8307e01043e361ec2255cd7589aa736321cd49c3908d06726749612d942c807b265ee737013cf6ecbe722063695a84507acc93d8fd48a04f61eeda3d13d039dd38ec134259c039ca2872e7f5557e19cc27a088',
     ],
-    commentNumber: '1.8k',
-    retweetNumber: '7.5k',
-    likeNumber: '45.6k',
+    commentnumber: '1.8k',
+    retweetnumber: '7.5k',
+    likenumber: '45.6k',
     key: '2',
   },
   {
@@ -41,9 +41,9 @@ const dummyData = [
     profileImg: 'https://cdn.kado.net/news/photo/201911/996781_433270_1949.jpg',
     text: '#안녕하세요 #소통해요 #북평고등학교 #화이팅',
     images: ['https://cdn.kado.net/news/photo/201911/996781_433270_1949.jpg'],
-    commentNumber: '1',
-    retweetNumber: '0',
-    likeNumber: '4',
+    commentnumber: '1',
+    retweetnumber: '0',
+    likenumber: '4',
     key: '3',
   },
 ];
@@ -55,23 +55,78 @@ interface Data {
   profileImg: string;
   text: string;
   images: string[];
-  commentNumber: string;
-  retweetNumber: string;
-  likeNumber: string;
+  commentnumber: string;
+  retweetnumber: string;
+  likenumber: string;
   key: string;
+}
+
+export interface UserData {
+  username: string;
+  user_id: string;
+  bio: string;
+  created_at: string;
+  birth_date: string;
+  tweets: Array<TweetData['TweetType']>;
+  tweets_num: string;
+  following: string;
+  follower: string;
+}
+
+export interface TweetData {
+  TweetType: {
+    id: number;
+    tweet_type: string;
+    author: {
+      username: string;
+      user_id: string;
+      profile_img: string;
+    };
+    retweeting_user: string;
+    reply_to: string;
+    content: string;
+    media: string[];
+    written_at: string;
+    replies: number;
+    retweets: number;
+    likes: number;
+    user_like: boolean;
+    user_retweet: boolean;
+  };
+  TweetsType: {
+    id: number;
+    tweet_type: string;
+    author: {
+      username: string;
+      user_id: string;
+      profile_img: string;
+    };
+    retweeting_user: string;
+    reply_to: string;
+    content: string;
+    media: string[];
+    written_at: string;
+    replies: number;
+    retweets: number;
+    likes: number;
+    user_like: boolean;
+    user_retweet: boolean;
+  }[];
 }
 
 interface Props {
   loadNext: boolean;
+  userData: UserData;
 }
 
-const Tweets = ({ loadNext }: Props) => {
-  const [tweetList, setTweetList] = useState<Data[]>(dummyData);
+const Tweets = ({ loadNext, userData }: Props): JSX.Element => {
   return (
     <ul className={styles.tweetsItems}>
-      {tweetList.map(item => (
-        <Tweet key={item.key} item={item} />
-      ))}
+      {userData ? (
+        userData.tweets.map(item => <Tweet key={item.id} item={item} />)
+      ) : (
+        <div>Not Tweets yet</div>
+      )}
     </ul>
   );
 };

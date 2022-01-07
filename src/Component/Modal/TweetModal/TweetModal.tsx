@@ -13,6 +13,8 @@ import { ReactComponent as Comment } from '../../../Images/comment.svg';
 import React, { ChangeEventHandler, useRef, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useLocation, useParams } from 'react-router-dom';
+import { useUserContext } from '../../../UserContext';
 
 interface TweetModalProps {
   isTweetModalOpen: boolean;
@@ -33,6 +35,8 @@ TweetModalProps) => {
   const contentChangedHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.target.value);
   };
+  const userContext = useUserContext();
+  const loc = useLocation();
   const onClick = () => {
     axios
       .post('/tweet/', {
@@ -40,6 +44,8 @@ TweetModalProps) => {
         media: files,
       })
       .then(() => {
+        window.location.replace(`/${loc.pathname}`);
+        console.log('hi my name is yuna');
         setIsTweetModalOpen(false);
       })
       .catch(() => {

@@ -48,32 +48,12 @@ const dummyData = [
   },
 ];
 
-interface Data {
-  name: string;
-  id: string;
-  time: string;
-  profileImg: string;
-  text: string;
-  images: string[];
-  commentNumber: string;
-  retweetNumber: string;
-  likeNumber: string;
-  key: string;
-}
-
 interface Props {
   loadNext: boolean;
 }
 
 const TweetsAndReplies = ({ loadNext }: Props) => {
-  const [tweetList, setTweetList] = useState<Data[]>(dummyData);
-  return (
-    <ul className={styles.tweetsItems}>
-      {tweetList.map(item => (
-        <Tweet key={item.key} item={item} />
-      ))}
-    </ul>
-  );
+  return <div>this is</div>;
 };
 
 export default TweetsAndReplies;

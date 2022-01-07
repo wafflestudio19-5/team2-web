@@ -9,6 +9,8 @@ import React from 'react';
 const userContext = createContext({
   nowUserID: '',
   setNowUserID: (state: string) => {},
+  isChange: false,
+  setIsChange: (state: boolean) => {},
 });
 
 export const UserContextProvider = ({
@@ -17,12 +19,15 @@ export const UserContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [nowUserID, setNowUserID] = useState(localStorage.user_id);
+  const [isChange, setIsChange] = useState(false);
 
   return (
     <userContext.Provider
       value={{
         nowUserID,
         setNowUserID,
+        isChange,
+        setIsChange,
       }}
     >
       {children}
