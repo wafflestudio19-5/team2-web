@@ -38,61 +38,72 @@ function FollowPage({loadNext}:Props) {
   const [followings, setFollowings] = useState<JSX.Element[]>([]);
   const [followers, setFollowers] = useState<JSX.Element[]>([]);
   const loc = useLocation();
-  const [followingPage, setFollowingPage] = useState(1);
-  const [followerPage, setFollowerPage] = useState(1);
+  const [followingPage, setFollowingPage] = useState<number|null>(1);
+  const [followerPage, setFollowerPage] = useState<number|null>(1);
   useEffect(() => {
     if (
       loc.pathname.slice(
-        'following' ? userContext.nowUserID.length + 2 : 0,
-        'g' ? userContext.nowUserID.length + 11 : 0,
+          params.id ? params.id.length + 2 : 0,
+          params.id ? params.id.length + 11 : 0,
       ) === 'following'
     ) {
       setIsChosen('following');
     } else if (
       loc.pathname.slice(
-        'follower' ? userContext.nowUserID.length + 2 : 0,
-        'g' ? userContext.nowUserID.length + 11 : 0,
+          params.id ? params.id.length + 2 : 0,
+          params.id ? params.id.length + 11 : 0,
       ) === 'followers'
     ) {
       setIsChosen('followers');
     }
   },[]);
   const followingUpdate = () => {
-      axios.get('/follow_list/'+userContext.nowUserID+'/following/?page='+followerPage.toString())
-          .then((response)=>{
-              setFollowings([
-                  ...followings,
-                  response.data.results.map((follow:User) => {
-                      return (
-                          <Follow bio={follow.bio} img={follow.profile_img} key={follow.id} id={follow.user_id}
-                                  follows_me={follow.follows_me} name={follow.username}/>
-                      );
-                  }),
-              ]);
-              setFollowingPage(followingPage+1);
-          })
-          .catch((error)=>{
-              toast.error("팔로워 목록을 불러오는 데 실패하였습니다.")
-          })
+      if(followingPage!==null){
+          axios.get('/follow_list/'+userContext.nowUserID+'/following/?page='+followingPage.toString())
+              .then((response)=>{
+                  setFollowings([
+                      ...followings,
+                      response.data.results.map((follow:User) => {
+                          return (
+                              <li style={{listStyle:"none"}} key={follow.id}>
+                                 <Follow bio={follow.bio} img={follow.profile_img}  id={follow.user_id}
+                                          follows_me={follow.follows_me} name={follow.username}/>
+                               </li>
+                          );
+                      }),
+                  ]);
+                  setFollowingPage(response.data.next);
+              })
+              .catch((error)=>{
+                  toast.error("팔로잉 목록을 불러오는 데 실패하였습니다.")
+                  console.log(error)
+              })
+      }
+
   }
 
   const followerUpdate = () => {
-      axios.get('/follow_list/'+userContext.nowUserID+'/follower/?page='+followerPage.toString())
-          .then((response)=>{
-              setFollowers([
-                  ...followers,
-                  response.data.results.map((follow:User) => {
-                      return (
-                          <Follow bio={follow.bio} img={follow.profile_img} key={follow.id} id={follow.user_id}
-                                  follows_me={follow.follows_me} name={follow.username}/>
-                      );
-                  }),
-              ]);
-              setFollowerPage(followerPage+1);
-          })
-          .catch((error)=>{
-              toast.error("팔로워 목록을 불러오는 데 실패하였습니다.")
-          })
+      if (followerPage !== null) {
+          axios.get('/follow_list/'+userContext.nowUserID+'/follower/?page='+ followerPage.toString())
+              .then((response)=>{
+                  setFollowers([
+                      ...followers,
+                      response.data.results.map((follow:User) => {
+                          return (
+                              <li style={{listStyle:"none"}} key={follow.id}>
+                                  <Follow bio={follow.bio} img={follow.profile_img}  id={follow.user_id}
+                                       follows_me={follow.follows_me} name={follow.username}/>
+                              </li>
+                          );
+                      }),
+                  ]);
+                  setFollowerPage(response.data.next);
+              })
+              .catch((error)=>{
+                  toast.error("팔로워 목록을 불러오는 데 실패하였습니다.")
+              })
+      }
+
   }
 
   useEffect(() => {
@@ -110,11 +121,11 @@ function FollowPage({loadNext}:Props) {
   },[loadNext])
   const switchToFollowing = () => {
     setIsChosen('following');
-    navigate(`/${userContext.nowUserID}/following`);
+    navigate(`/${params.id}/following`);
   };
   const switchToFollowers = () => {
     setIsChosen('followers');
-    navigate(`/${userContext.nowUserID}/followers`);
+    navigate(`/${params.id}/followers`);
   };
 
   return (

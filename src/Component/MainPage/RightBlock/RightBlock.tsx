@@ -29,7 +29,7 @@ const RightBlock = ({ rightRef }: Props) => {
       .then(response => {
         setRecommendData(response.data);
       })
-      .catch(() => {
+      .catch((error) => {
         toast.error('팔로워 추천을 받아오는데 실패하였습니다.');
         setRecommendData(dummyData)
       });

@@ -12,7 +12,6 @@ interface props {
   img: string;
   bio: string;
   follows_me: boolean;
-  key:string
 }
 
 interface User {
@@ -21,7 +20,6 @@ interface User {
   user_id: string;
   bio: string;
   follows_me: boolean;
-  key:string
 }
 
 function Follow(props: props) {
@@ -54,16 +52,10 @@ function Follow(props: props) {
   };
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-
-    <li
-      onClick={(e) => {
-        /*if(e.currentTarget !== e.target) return;*/
+      <div onClick={(e) => {
         navigate('/' + props.id);
       }}
-      key={props.key}
-      className={styles.FollowWrapper}
-    >
-      <div>
+           className={styles.FollowWrapper}>
         <Modal
             ariaHideApp={false}
             style={{
@@ -167,7 +159,6 @@ function Follow(props: props) {
           </div>
         </div>
       </div>
-    </li>
   );
 }
 
