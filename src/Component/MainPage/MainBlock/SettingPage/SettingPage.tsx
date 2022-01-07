@@ -3,15 +3,35 @@ import styles from './SettingPage.module.scss';
 import Modal from 'react-modal';
 import { useUserContext } from '../../../../UserContext';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 function SettingPage() {
   const handleDeactivateClick = () => {
     axios
-      .post('/deactivate/')
-      .then(() => {})
-      .catch(() => {});
+      .post('/deactivate/', { password: password })
+      .then(() => {
+        localStorage.removeItem('JWT');
+        localStorage.removeItem('user_id');
+        window.location.replace('/');
+        userContext.setNowUserID('undefined');
+        setDeactivateIsOpen(false);
+      })
+      .catch(() => {
+        toast.error('패스워드가 틀렸습니다.');
+      });
   };
   const handleSocialDeactivateClick = () => {
-    return null;
+    axios
+      .post('/kakao/unlink/')
+      .then(() => {
+        localStorage.removeItem('JWT');
+        localStorage.removeItem('user_id');
+        window.location.replace('/');
+        userContext.setNowUserID('undefined');
+        setSocialDeactivateIsOpen(false);
+      })
+      .catch(() => {
+        toast.error('회원탈퇴 실패');
+      });
   };
   const [deactivateIsOpen, setDeactivateIsOpen] = useState(false);
   const [socialDeactivateIsOpen, setSocialDeactivateIsOpen] = useState(false);
@@ -55,8 +75,8 @@ function SettingPage() {
         <br />
         <br />
         <div>
-          Their Tweets will no longer show up in your home timeline. You can
-          still view their profile, unless their Tweets are protected.
+          계정을 탈퇴하시면 다시 가입하실 수 없습니다. 정말로 탈퇴하시려면
+          비밀번호를 한 번 더 입력해주세요.
         </div>
         <br />
         <footer>
@@ -75,7 +95,7 @@ function SettingPage() {
                 value={password}
                 type="password"
               />
-              <button className={styles.UnfollowButton}>Deactivate</button>
+              <button className={styles.DeactivateButton}>Deactivate</button>
             </form>
             <button
               onClick={e => {
@@ -89,6 +109,7 @@ function SettingPage() {
           </div>
         </footer>
       </Modal>
+
       <Modal
         ariaHideApp={false}
         style={{
@@ -126,8 +147,8 @@ function SettingPage() {
         <br />
         <br />
         <div>
-          Their Tweets will no longer show up in your home timeline. You can
-          still view their profile, unless their Tweets are protected.
+          계정을 탈퇴하시면 다시 가입하실 수 없습니다. 정말로 탈퇴하시려면
+          비밀번호를 한 번 더 입력해주세요.
         </div>
         <br />
         <footer>
@@ -135,10 +156,11 @@ function SettingPage() {
             <button
               onClick={e => {
                 e.stopPropagation();
+                handleSocialDeactivateClick();
               }}
-              className={styles.UnfollowButton}
+              className={styles.DeactivateButton}
             >
-              UnFollow
+              Deactivate
             </button>
             <button
               onClick={e => {
