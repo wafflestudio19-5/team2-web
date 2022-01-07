@@ -60,6 +60,7 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
       .then(response => {
         console.log(response.data);
         setUserData(response.data);
+        console.log(userData);
         setIsLoading(false);
       })
       .catch(err => {
@@ -111,16 +112,12 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
 
   useEffect(() => {
     getUserProfile();
+    console.log(userData);
   }, [params.id]);
 
   useEffect(() => {
     create_month();
   }, [userData]);
-
-  useEffect(() => {
-    getUserProfile();
-    userContext.setIsChange(false);
-  }, [userContext.isChange]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;

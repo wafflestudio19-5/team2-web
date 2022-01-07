@@ -87,7 +87,8 @@ interface Data {
 }
 
 interface HomeTweetData {
-  tweet: {
+
+  tweets: {
     id: number;
     tweet_type: string;
     author: {
@@ -118,52 +119,41 @@ interface Props {
 }
 
 const HomePage = ({ loadNext }: Props) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const getUserProfile = async () => {
-    setIsLoading(true);
-    await axios
-      .get(`/home/`)
-      .then(response => {
-        setUserData(response.data);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const getHomeTweet = async () => {
+    try {
+      const response = await axios.get(`/home/`);
+      setHomeTweetData(response.data.tweets);
+      console.log(response.data.tweets);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const [userData, setUserData] = useState<HomeTweetData>();
-  /*
-{
-    tweets:
-      [{
-        id: 0,
-        tweet_type: '',
-        author: {
-          username: '',
-          user_id: '',
-          profile_img: '',
-        },
-        retweeting_user: '',
-        reply_to: '',
-        content: '',
-        media: [],
-        written_at: '',
-        replies: 0,
-        retweets: 0,
-        likes: 0,
-        user_like: false,
-        user_retweet: false,
-      }],
-    user: {
-      profile_img: '',
-      user_id: '',
-      username: ''
+  const [homeTweetData, setHomeTweetData] = useState<TweetData['TweetsType']>([
+    {
+      id: 0,
+      tweet_type: '',
+      author: {
+        username: '',
+        user_id: '',
+        profile_img: '',
+      },
+      retweeting_user: '',
+      reply_to: '',
+      content: '',
+      media: [],
+      written_at: '',
+      replies: 0,
+      retweets: 0,
+      likes: 0,
+      user_like: false,
+      user_retweet: false,
     },
-
-  }
-*/
+  ]);
 
   useEffect(() => {
     if (loadNext) {
@@ -172,22 +162,39 @@ const HomePage = ({ loadNext }: Props) => {
   }, [loadNext]);
 
   useEffect(() => {
-    getUserProfile();
-    console.log(userData);
+
+    getHomeTweet();
+    console.log(homeTweetData);
+
   }, []);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className={styles.HomePageWrapper}>
       <header className={styles.HomeHeader}>Home</header>
       <div className={styles.HomeTweetInputWrapper}></div>
       <div className={styles.HomePage}>
-        <ul className={styles.tweetsItems}>
-          {dummyData ? (
-            dummyData.map(item => <Tweet key={item.id} item={item} />)
-          ) : (
-            <div className={styles.NoTweets}>Not Tweets yet</div>
-          )}
-        </ul>
+        {homeTweetData ? (
+          <ul className={styles.tweetsItems}>
+            {homeTweetData ? (
+              homeTweetData.map(item => (
+                <div>
+                  {item.author ? (
+                    <Tweet key={item.id} item={item} />
+                  ) : (
+                    <div style={{ marginTop: '100px' }}>Loading...</div>
+                  )}
+                </div>
+              ))
+            ) : (
+              <div className={styles.NoTweets}>Not Tweets yet</div>
+            )}
+          </ul>
+        ) : (
+          <div>Loading...</div>
+        )}
       </div>
     </div>
   );
