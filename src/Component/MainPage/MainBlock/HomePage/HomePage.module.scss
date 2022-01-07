@@ -9,7 +9,7 @@
 }
 
 .HomeHeader {
-  position: sticky;
+  position: fixed;
   top: 0;
   height: 55px;
   width: 100%;
@@ -26,6 +26,7 @@
 .HomePage {
   width: 100%;
   height: calc(100% - 55px);
+  margin-top: 55px;
 }
 
 .tweetsItems {

@@ -145,6 +145,7 @@ function UserProfile(props: {
               <div
                 style={{
                   marginLeft: '5px',
+                  color: '#586875'
                 }}
               >
                 Joined {props.month ? props.month : ''}{' '}
@@ -163,15 +164,40 @@ function UserProfile(props: {
                 }}
                 className={styles.UserFollowNumberButton}
               >
-                {props.userData.following} following
+              <span
+                style={{
+                  fontWeight: 'bolder'
+                }}
+              >{props.userData.following}</span>
+              &nbsp;
+              <div
+              style={{
+                color: '#586875'
+              }}>
+                Following
+              </div>
               </div>
               <div
                 onClick={() => {
                   navigate(`/${params.id}/followers`);
                 }}
+                style={{
+                  marginLeft: '10px'
+                }}
                 className={styles.UserFollowNumberButton}
               >
-                {props.userData.follower} follower
+                <span
+                  style={{
+                    fontWeight: 'bolder'
+                  }}
+                >{props.userData.follower}</span>
+                &nbsp;
+              <div
+              style={{
+                color: '#586875'
+              }}>
+                Follower
+              </div>
               </div>
             </div>
           </div>

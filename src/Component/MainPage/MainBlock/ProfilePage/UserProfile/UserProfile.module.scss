@@ -90,9 +90,11 @@
 }
 
 .UserFollowNumberButton {
-  margin-left: 20px;
+  display: flex;
+  word-spacing: -1px;
   &:hover {
     text-decoration-line: underline;
+    cursor: pointer;
   }
 }
 

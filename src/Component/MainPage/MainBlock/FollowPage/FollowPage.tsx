@@ -161,7 +161,7 @@ function FollowPage({ loadNext }: Props) {
           }}
         />
         <div>
-          <div className={styles.UserProfileHeaderName}>id.name</div>
+          <div className={styles.UserProfileHeaderName}></div>
           <div className={styles.UserProfileHeaderID}>@user_id</div>
         </div>
       </header>
