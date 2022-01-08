@@ -14,6 +14,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import RetweetButtons from '../ButtonGroup/RetweetButtons';
 import ReplyTweetModal from '../../Modal/ReplyModalTweet/ReplyTweetModal';
+import MoreButtons from '../ButtonGroup/MoreButtons';
 
 export interface UserData {
   username: string;
@@ -70,14 +71,23 @@ export interface TweetData {
   }[];
 }
 
-const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
+const Tweet = ({
+  item,
+  setLoadAgain,
+  loadAgain,
+}: {
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
+  item: TweetData['TweetType'];
+}): JSX.Element => {
   const navigate = useNavigate();
   const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);
   const [isLike, setIsLike] = useState<boolean>(false);
   const [isRetweet, setIsRetweet] = useState<boolean>(false);
-  const [like, setLike] = useState<number>();
-  const [retweet, setRetweet] = useState<number>();
+  const [like, setLike] = useState<number>(0);
+  const [retweet, setRetweet] = useState<number>(0);
   const [display, setDisplay] = useState<string>('none');
+  const [moreDisplay, setMoreDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
   const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
@@ -98,7 +108,9 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
         .then(() => {
           toast('Retweet clicked');
           setIsRetweet(true);
+          setRetweet(retweet + 1);
           setDisplay('none');
+          setLoadAgain(!loadAgain);
         })
         .catch(() => {
           toast.error('Retweet을 남기는 데 실패하였습니다.');
@@ -108,7 +120,10 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
         .delete('/retweet/' + item.id)
         .then(() => {
           toast('Undo Retweet clicked');
+          setRetweet(retweet - 1);
           setIsRetweet(false);
+          setDisplay('none');
+          setLoadAgain(!loadAgain);
         })
         .catch(() => {
           toast.error('Retweet을 취소하는 데 실패하였습니다.');
@@ -131,6 +146,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
         .then(() => {
           toast('like clicked');
           setIsLike(true);
+          setLike(like + 1);
         })
         .catch(() => {
           toast.error('Like를 남기는 데 실패하였습니다.');
@@ -140,6 +156,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
         .delete('/like/' + item.id)
         .then(() => {
           toast('unlike clicked');
+          setLike(like - 1);
           setIsLike(false);
         })
         .catch(() => {
@@ -148,7 +165,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
     }
   };
 
-  const handleShareCliecked = (e: React.MouseEvent<HTMLElement>): void => {
+  const handleShareClicked = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
     console.log('Share Clicked');
   };
@@ -204,7 +221,39 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
     setRetweet(item.retweets);
     setLike(item.likes);
   }, []); //like, retweet 초깃값 설정
-
+  const handleMoreButtonClicked = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    if (moreDisplay === 'none') setMoreDisplay('flex');
+    else setMoreDisplay('none');
+  };
+  const handleDeleteClicked = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    if (item.tweet_type === 'REPLY' || item.tweet_type === 'GENERAL') {
+      const tweetType = 'tweet';
+      axios
+        .delete('/' + tweetType + '/' + item.id)
+        .then(() => {
+          toast('트윗이 삭제되었습니다.');
+          setLoadAgain(!loadAgain);
+          setMoreDisplay('none');
+        })
+        .catch(error => {
+          toast('트윗 삭제 실패');
+        });
+    } else {
+      const tweetType = item.tweet_type.toLowerCase();
+      axios
+        .delete('/' + 'tweet' + '/' + item.id)
+        .then(() => {
+          toast('리트윗이 삭제되었습니다.');
+          setLoadAgain(!loadAgain);
+          setMoreDisplay('none');
+        })
+        .catch(error => {
+          toast('리트윗 삭제 실패');
+        });
+    }
+  };
   const handleAllWrapperOnClick = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     navigate(`/status/${item.id}`);
@@ -220,7 +269,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
       <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
         {item.user_retweet ? (
           <div className={styles.topAllWrapper}>
-            <div className={styles.retweetedWrapeer}>
+            <div className={styles.retweetedWrapper}>
               <img
                 className={styles.retweetedImage}
                 src={retweetTopImage}
@@ -237,10 +286,23 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
             }}
           >
             <RetweetButtons
+              text={isRetweet ? 'Undo Retweet' : 'Retweet'}
               display={display}
               function1={handleRetweetClicked}
               function2={handleQuoteRetweetClicked}
             ></RetweetButtons>
+          </div>
+          <div
+            onBlur={() => {
+              setDisplay('none');
+            }}
+          >
+            <MoreButtons
+              text={'DELETE'}
+              display={moreDisplay}
+              function1={handleDeleteClicked}
+              //function2={handleQuoteRetweetClicked}
+            ></MoreButtons>
           </div>
           <div className={styles.leftWrapper}>
             <img
@@ -258,7 +320,10 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
                   {item.written_at.slice(8, 10)}
                 </div>
               </div>
-              <button className={styles.moreButton}>
+              <button
+                onClick={handleMoreButtonClicked}
+                className={styles.moreButton}
+              >
                 <More className={styles.moreButtonImg} />
               </button>
             </div>
@@ -285,13 +350,24 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
                   <div className={styles.commentButtonText}>{item.replies}</div>
                 </button>
 
-                <button
-                  className={styles.retweetButton}
-                  onClick={handleRetweetIconClicked}
-                >
-                  <RetweetIcon className={styles.retweetImg} />
-                  <div className={styles.retweetButtonText}>{retweet}</div>
-                </button>
+                {!isRetweet ? (
+                  <button
+                    className={styles.retweetButton}
+                    onClick={handleRetweetIconClicked}
+                  >
+                    <RetweetIcon className={styles.retweetImg} />
+                    <div className={styles.retweetButtonText}>{retweet}</div>
+                  </button>
+                ) : (
+                  <button
+                    className={styles.retweetButtonClicked}
+                    onClick={handleRetweetIconClicked}
+                  >
+                    <RetweetIcon className={styles.retweetImg} />
+                    <div className={styles.retweetButtonText}>{retweet}</div>
+                  </button>
+                )}
+
                 {!isLike ? (
                   <button //하트 안차있는 ver.
                     className={styles.likeButton}
@@ -312,7 +388,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
 
                 <button
                   className={styles.shareButton}
-                  onClick={handleShareCliecked}
+                  onClick={handleShareClicked}
                 >
                   <ShareIcon className={styles.shareImg} />
                 </button>

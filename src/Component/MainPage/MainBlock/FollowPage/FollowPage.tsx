@@ -19,10 +19,12 @@ interface User {
 }
 
 interface Props {
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
   loadNext: boolean;
 }
 
-function FollowPage({ loadNext }: Props) {
+function FollowPage({ loadNext, setLoadAgain, loadAgain }: Props) {
   const [isChosen, setIsChosen] = useState<string>('');
   const userContext = useUserContext();
   const navigate = useNavigate();

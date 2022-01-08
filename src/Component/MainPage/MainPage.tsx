@@ -10,7 +10,7 @@ function MainPage() {
   const rightRef = useRef<HTMLDivElement>(null);
   const [lastScrollTop, setLastScrollTop] = useState<number>(0);
   const [loadNext, setLoadNext] = useState<boolean>(false);
-
+  const [loadAgain, setLoadAgain] = useState<boolean>(false);
   const formatScrollHeight = (
     presentScrollTop: number,
     presentRightScrollTop: number,
@@ -48,9 +48,17 @@ function MainPage() {
   return (
     <>
       <div className={styles.MainPage} ref={mainRef} onScroll={handleScroll}>
-        <LeftBlock />
-        <MainBlock loadNext={loadNext} />
-        <RightBlock rightRef={rightRef} />
+        <LeftBlock loadAgain={loadAgain} setLoadAgain={setLoadAgain} />
+        <MainBlock
+          loadAgain={loadAgain}
+          setLoadAgain={setLoadAgain}
+          loadNext={loadNext}
+        />
+        <RightBlock
+          loadAgain={loadAgain}
+          setLoadAgain={setLoadAgain}
+          rightRef={rightRef}
+        />
       </div>
     </>
   );

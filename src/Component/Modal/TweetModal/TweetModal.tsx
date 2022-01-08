@@ -11,11 +11,15 @@ import CropImageModal from './CropImageModal/CropImageModal';
 interface TweetModalProps {
   isTweetModalOpen: boolean;
   setIsTweetModalOpen: (value: boolean) => void;
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
 }
 
 const TweetModal = ({
   isTweetModalOpen,
   setIsTweetModalOpen,
+  loadAgain,
+  setLoadAgain,
 }: TweetModalProps) => {
   const userContext = useUserContext();
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -103,6 +107,8 @@ const TweetModal = ({
       };
       submitDataFormdata.append('content', typedText);
       const response = await axios.post('/tweet/', submitDataFormdata);
+      setLoadAgain(!loadAgain);
+      handleExitOnClick();
       console.log(response);
     } catch (e) {
       console.log(e);

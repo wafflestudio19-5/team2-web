@@ -105,12 +105,19 @@ function UserProfile(props: {
               >
                 Edit profile
               </button>
-            ) : (
+            ) : false ? (
               <button
-                className={styles.UserProfileEditButton}
+                className={styles.FollowButton}
                 onClick={handleFollowClick}
               >
                 Follow
+              </button>
+            ) : (
+              <button
+                className={styles.FollowingButton}
+                onClick={handleFollowClick}
+              >
+                Following
               </button>
             )}
           </div>

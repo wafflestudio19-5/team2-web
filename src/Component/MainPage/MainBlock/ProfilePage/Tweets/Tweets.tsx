@@ -3,13 +3,17 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Tweet, { UserData, TweetData } from '../../../../Reused/Tweet/Tweet';
 import styles from './Tweets.module.scss';
+import { slice } from 'lodash';
 
 interface Props {
   loadNext: boolean;
   userData: UserData;
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
 }
 
-const Tweets = ({ loadNext, userData }: Props) => {
+
+const Tweets = ({ loadNext, userData, setLoadAgain, loadAgain }: Props) => {
   const [page, setPage] = useState<number>(1);
   const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
   const [tweetData, setTweetData] = useState<TweetData['TweetsType']>(
@@ -50,7 +54,6 @@ const Tweets = ({ loadNext, userData }: Props) => {
   useEffect(() => {
     if (loadNext && Number(userData.tweets_num) > 10) {
       getTweet();
-      console.log('다음 페이지 로딩 Tweets');
     }
   }, [loadNext]);
 
@@ -58,7 +61,12 @@ const Tweets = ({ loadNext, userData }: Props) => {
     <ul className={styles.tweetsItems}>
       {tweetData ? (
         tweetData.map(item =>
-          item.author ? <Tweet key={item.id} item={item} /> : <div></div>,
+          item.author ? (<Tweet
+                setLoadAgain={setLoadAgain}
+                loadAgain={loadAgain}
+                key={item.id}
+                item={item}
+              />) : <div>loading</div>,
         )
       ) : (
         <div className={styles.NoTweets}>Not Tweets yet</div>

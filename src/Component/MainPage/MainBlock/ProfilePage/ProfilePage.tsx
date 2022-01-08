@@ -11,10 +11,16 @@ import { useUserContext } from '../../../../UserContext';
 import { TweetData, UserData } from '../../../Reused/Tweet/Tweet';
 
 interface Props {
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
   loadNext: boolean;
 }
 
-const ProfilePage = ({ loadNext }: Props): JSX.Element => {
+const ProfilePage = ({
+  loadNext,
+  setLoadAgain,
+  loadAgain,
+}: Props): JSX.Element => {
   const [isChosen, setIsChosen] = useState<string>('tweets');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const params = useParams();
@@ -114,8 +120,7 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
 
   useEffect(() => {
     getUserProfile();
-    console.log(userData);
-  }, [params.id]);
+  }, [params.id, loadAgain]);
 
   useEffect(() => {
     create_month();
@@ -145,21 +150,47 @@ const ProfilePage = ({ loadNext }: Props): JSX.Element => {
           <Routes>
             <Route
               path="/"
-              element={<Tweets loadNext={loadNext} userData={userData} />}
+              element={
+                <Tweets
+                  setLoadAgain={setLoadAgain}
+                  loadAgain={loadAgain}
+                  loadNext={loadNext}
+                  userData={userData}
+                />
+              }
             />
             <Route
               path="/with_replies"
               element={
-                <TweetsAndReplies loadNext={loadNext} userData={userData} />
+                <TweetsAndReplies
+                  setLoadAgain={setLoadAgain}
+                  loadAgain={loadAgain}
+                  loadNext={loadNext}
+                  userData={userData}
+                />
               }
             />
             <Route
               path="/media"
-              element={<Media loadNext={loadNext} userData={userData} />}
+              element={
+                <Media
+                  setLoadAgain={setLoadAgain}
+                  loadAgain={loadAgain}
+                  loadNext={loadNext}
+                  userData={userData}
+                />
+              }
             />
             <Route
               path="/likes"
-              element={<Likes loadNext={loadNext} userData={userData} />}
+              element={
+                <Likes
+                  setLoadAgain={setLoadAgain}
+                  loadAgain={loadAgain}
+                  loadNext={loadNext}
+                  userData={userData}
+                />
+              }
             />
           </Routes>
           <div className={styles.Footer}>Footer</div>

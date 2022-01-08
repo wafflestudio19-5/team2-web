@@ -86,6 +86,37 @@
   }
 }
 
+.FollowingButton {
+  border: 2px solid #e7ecee;
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  margin-right: 30px;
+  height: 40px;
+  width: 120px;
+  font-weight: bolder;
+  &:hover {
+    cursor: pointer;
+    background-color: #e6e7e7;
+  }
+}
+
+.FollowButton {
+  border: 2px solid #e7ecee;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  margin-right: 30px;
+  height: 40px;
+  width: 120px;
+  font-weight: bolder;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
 .UserProfileInfoBox {
   display: flex;
   flex-direction: column;

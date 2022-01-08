@@ -141,10 +141,11 @@ interface HomeTweetData {
 }
 
 interface Props {
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
   loadNext: boolean;
 }
-
-const HomePage = ({ loadNext }: Props) => {
+const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [profileImageUrl, setProfileImageUrl] = useState<string | null>(null);
@@ -199,7 +200,7 @@ const HomePage = ({ loadNext }: Props) => {
 
   useEffect(() => {
     getHomeTweet();
-  }, []);
+  }, [loadAgain]);
 
   const handleAddImageOnSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files !== null && e.target.files.length === 1) {
@@ -239,11 +240,11 @@ const HomePage = ({ loadNext }: Props) => {
     setAddImageCount(addImageCount - 1);
   };
 
-  const submitTweet = async () => {
+  /*const submitTweet = async () => {
     try {
       const formdata = new FormData();
       imageFileList.map(item => {
-        formdata.append(`uploadImage${imageFileList.indexOf(item)}`, item);
+        formdata.append(`media`, item);
       });
 
       const config: AxiosRequestConfig = {
@@ -256,6 +257,32 @@ const HomePage = ({ loadNext }: Props) => {
         media: formdata,
       };
       const response = await axios.post('/tweet/', submitData, config);
+      setLoadAgain(!loadAgain);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };*/
+  const submitTweet = async () => {
+    try {
+      const submitDataFormdata = new FormData();
+      imageFileList.map(item => {
+        submitDataFormdata.append(`media`, item);
+      });
+      const config: AxiosRequestConfig = {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      };
+      submitDataFormdata.append('content', typedText);
+      const response = await axios.post('/tweet/', submitDataFormdata);
+      setLoadAgain(!loadAgain);
+      setProfileImageUrl('');
+      setIsEditImageModalOpen(false);
+      setTypedText('');
+      setImageFileList([]);
+      setImageUrlList([]);
+      setAddImageCount(0);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -386,19 +413,13 @@ const HomePage = ({ loadNext }: Props) => {
             homeTweetData.map(item => (
               <div>
                 {item.author ? (
-                  <Tweet key={item.id} item={item} />
-                ) : (
-                  <div
-                    style={{
-                      justifyContent: 'center',
-                      alignContent: 'center',
-                      textAlign: 'center',
-                      height: '30px',
-                    }}
-                  >
-                    CloneTwitter_WaffleStudio_19.5
-                  </div>
-                )}
+                  <Tweet
+                    setLoadAgain={setLoadAgain}
+                    loadAgain={loadAgain}
+                    key={item.id}
+                    item={item}
+                  />
+                ) : null}
               </div>
             ))
           ) : (
@@ -411,21 +432,3 @@ const HomePage = ({ loadNext }: Props) => {
 };
 
 export default HomePage;
-
-/*
-homeTweetData ? (
-            homeTweetData.map(item => (
-              <div>
-                {item.author ? <Tweet key={item.id} item={item} /> : null}
-              </div>
-            ))
-          ) : (
-            <div className={styles.Loading}>
-              <h1>
-                No Tweets!
-                <br />
-                Follow someone or Tweet!
-              </h1>
-            </div>
-          )
-*/

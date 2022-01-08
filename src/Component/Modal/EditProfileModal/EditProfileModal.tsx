@@ -98,6 +98,7 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
     setBioValue(response.data.bio);
     setProfileImageUrl(response.data.profile_img);
     setBackgroundImageUrl(response.data.header_img);
+
     if (response.data.birth_date === null) {
       setBirthDateYear(null);
       setBirthDateMonth(null);
