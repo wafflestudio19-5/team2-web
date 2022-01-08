@@ -7,15 +7,38 @@ import React, { useRef, useState } from 'react';
 import axios, { AxiosRequestConfig } from 'axios';
 import { useUserContext } from '../../../UserContext';
 import CropImageModal from './CropImageModal/CropImageModal';
+import Tweet from '../../Reused/Tweet/Tweet';
+
+interface TweetType {
+  id: number;
+  tweet_type: string;
+  author: {
+    username: string;
+    user_id: string;
+    profile_img: string;
+  };
+  retweeting_user: string;
+  reply_to: string;
+  content: string;
+  media: string[];
+  written_at: string;
+  replies: number;
+  retweets: number;
+  likes: number;
+  user_like: boolean;
+  user_retweet: boolean;
+}
 
 interface TweetModalProps {
   isTweetModalOpen: boolean;
   setIsTweetModalOpen: (value: boolean) => void;
+  item: TweetType;
 }
 
 const ReplyTweetModal = ({
   isTweetModalOpen,
   setIsTweetModalOpen,
+  item,
 }: TweetModalProps) => {
   const userContext = useUserContext();
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -102,7 +125,8 @@ const ReplyTweetModal = ({
         },
       };
       submitDataFormdata.append('content', typedText);
-      const response = await axios.post('/tweet/', submitDataFormdata);
+      submitDataFormdata.append('id', item.id.toString());
+      const response = await axios.post('/reply/', submitDataFormdata);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -137,6 +161,7 @@ const ReplyTweetModal = ({
         }}
         ariaHideApp={false}
       >
+        <div className={styles.hideBox} />
         <div className={styles.allWrapper}>
           <header className={styles.headerWrapper}>
             <button className={styles.exitButton} onClick={handleExitOnClick}>
@@ -147,6 +172,46 @@ const ReplyTweetModal = ({
               />
             </button>
           </header>
+          <div className={styles.replyingWrapper}>
+            <div className={styles.leftReplyingWrapper}>
+              <img
+                className={styles.profileImage}
+                src={item.author.profile_img}
+                alt="tweet Profile Image"
+              />
+              <div className={styles.lineReplyingWrapper}>
+                <svg
+                  height="100%"
+                  width="100%"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M50,4 V600"
+                    stroke="#c0c0c0"
+                    stroke-width="3"
+                    fill="none"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className={styles.rightReplyingWrapper}>
+              <div className={styles.topReplyingWrapper}>
+                <div className={styles.topReplyingTextWrapper}>
+                  <div className={styles.replyingNameText}>
+                    {item.author.username}
+                  </div>
+                  <div className={styles.replyingIdTimeText}>
+                    @{item.author.user_id} · {'oct'}{' '}
+                    {item.written_at.slice(8, 10)}
+                  </div>
+                </div>
+              </div>
+              <div className={styles.middleReplyingWrapper}>
+                <div className={styles.mainReplyingText}>{item.content}</div>
+              </div>
+            </div>
+          </div>
           <div className={styles.contentWrapper}>
             <div className={styles.contentLeftSide}>
               <img
@@ -162,7 +227,7 @@ const ReplyTweetModal = ({
                 value={typedText}
                 ref={textAreaRef}
                 maxLength={200}
-                placeholder={`What's happening?`}
+                placeholder={`Tweet Your Reply`}
               />
               <div
                 className={styles.lengthText}

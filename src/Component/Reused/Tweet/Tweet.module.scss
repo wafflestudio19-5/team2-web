@@ -35,6 +35,16 @@
   color: #536471;
 }
 
+.goBackButton {
+  width: 50px;
+  height: 50px;
+}
+
+.goBackImage {
+  width: 100%;
+  height: 100%;
+}
+
 .allWrapper {
   position: relative;
   display: flex;
@@ -215,6 +225,8 @@
 .mainText {
   font-size: 15px;
   color: #000000;
+
+  white-space: pre-line;
 }
 
 .mainImg {
@@ -310,11 +322,14 @@
 
 .likeButtonClicked {
   @include buttonWrapper;
+  cursor: pointer;
+
   .likeImg {
     color: #ff0000;
-    background-color: #ff000015;
+    stroke: #ff0000;
   }
   .likeButtonText {
+    stroke: #ff0000;
     color: #ff0000;
   }
 }
@@ -322,6 +337,7 @@
 .likeImg {
   @include buttonImg;
 
+  stroke: #ff0000;
   stroke-width: 1.5px;
 }
 
