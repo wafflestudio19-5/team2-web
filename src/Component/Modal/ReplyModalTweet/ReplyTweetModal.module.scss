@@ -1,9 +1,9 @@
 .modalStyle {
   position: absolute;
-  top: calc(50% - 350px);
+  top: calc(50% - 300px);
   left: calc(50% - 300px);
   right: calc(50% - 300px);
-  bottom: calc(50% - 350px);
+  bottom: calc(50% - 300px);
   border: none;
   background: #fff;
   overflow: auto;
@@ -126,7 +126,7 @@
   height: 30px;
 
   padding: 0px;
-  margin: 20px 0px 0px 0px;
+  margin: 20px 0px 20px 0px;
   border: none;
 
   font-size: 20px;
@@ -345,4 +345,122 @@
   cursor: pointer;
 
   opacity: 0.4;
+}
+
+.replyingWrapper {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftReplyingWrapper {
+  width: 70px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.lineReplyingWrapper {
+  width: 100%;
+  height: calc(100% - 40px);
+}
+
+.lineStyle {
+  width: 100%;
+  height: 100%;
+}
+
+.rightReplyingWrapper {
+  width: calc(100% - 70px);
+  height: 100%;
+
+  padding-top: 30px;
+}
+
+.middleReplyingWrapper {
+  width: calc(100% - 70px);
+
+  margin-top: 5px;
+}
+
+.topReplyingWrapper {
+  width: 100%;
+  height: 20px;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.topReplyingTextWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.replyingNameText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+
+  margin-right: 10px;
+}
+
+.replyingNameText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+
+  margin-right: 10px;
+}
+
+.replyingIdTimeText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-size: 15px;
+  color: #536471;
+
+  margin-right: 10px;
+}
+
+.mainReplyingText {
+  font-size: 15px;
+  color: black;
+  white-space: pre-line;
+}
+
+.hideBox {
+  position: absolute;
+
+  bottom: 0px;
+  left: 0px;
+
+  width: 70px;
+  height: 60px;
+
+  background-color: rgb(255, 255, 255);
 }

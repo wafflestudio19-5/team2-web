@@ -1,11 +1,12 @@
 import styles from './Tweet.module.scss';
-import { ReactComponent as CommentIcon } from '../../../Images/comment.svg';
-import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
-import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
+import { ReactComponent as CommentIcon } from '../../../Images/reply.svg';
+import { ReactComponent as LikeIcon } from '../../../Images/heartUnfilled.svg';
+import { ReactComponent as RetweetIcon } from '../../../Images/retweetUnclicked.svg';
 import retweetTopImage from '../../../Images/retweetTop.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
-import React, { useEffect, useState } from 'react';
+import { ReactComponent as HeartFulfilled } from '../../../Images/heartFulfilled.svg';
+import React, { MouseEventHandler, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -263,6 +264,7 @@ const Tweet = ({
       <ReplyTweetModal
         isTweetModalOpen={replyModalIsOpen}
         setIsTweetModalOpen={setReplyModalIsOpen}
+        item={item}
       />
       <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
         {item.user_retweet ? (
@@ -379,8 +381,8 @@ const Tweet = ({
                     className={styles.likeButtonClicked}
                     onClick={handleLikeClicked}
                   >
-                    <LikeIcon className={styles.likeImg} />
-                    <div className={styles.likeButtonText}>{like}</div>
+                    <HeartFulfilled className={styles.likeImg} />
+                    <div className={styles.likeButtonText}>{item.likes}</div>
                   </button>
                 )}
 
