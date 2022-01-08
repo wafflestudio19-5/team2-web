@@ -28,6 +28,7 @@ export interface UserData {
   follower: string;
   profile_img: string;
   header_img: string;
+  i_follow: boolean;
 }
 
 export interface TweetData {
@@ -385,7 +386,7 @@ const Tweet = ({
                     onClick={handleLikeClicked}
                   >
                     <HeartFulfilled className={styles.likeImg} />
-                    <div className={styles.likeButtonText}>{item.likes}</div>
+                    <div className={styles.likeButtonText}>{like}</div>
                   </button>
                 )}
 
