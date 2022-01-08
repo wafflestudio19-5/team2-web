@@ -5,9 +5,11 @@ import styles from './Likes.module.scss';
 interface Props {
   loadNext: boolean;
   userData: UserData;
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
 }
 
-const Likes = ({ loadNext, userData }: Props) => {
+const Likes = ({ loadNext, userData, setLoadAgain, loadAgain }: Props) => {
   useEffect(() => {
     if (loadNext) {
       console.log('다음 페이지 로딩 Likes');
@@ -21,7 +23,14 @@ const Likes = ({ loadNext, userData }: Props) => {
   return (
     <ul className={styles.tweetsItems}>
       {filteredTweets.length > 0 ? (
-        filteredTweets.map(item => <Tweet key={item.id} item={item} />)
+        filteredTweets.map(item => (
+          <Tweet
+            setLoadAgain={setLoadAgain}
+            loadAgain={loadAgain}
+            key={item.id}
+            item={item}
+          />
+        ))
       ) : (
         <div className={styles.NoTweetsBlock}>
           <div className={styles.BigNoTweets}>

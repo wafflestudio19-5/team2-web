@@ -3,7 +3,9 @@
 
   justify-content: space-between;
   align-items: center;
-
+  &:hover{
+    cursor: pointer;
+  }
   width: 70px;
   height: 35px;
 
@@ -70,7 +72,7 @@
   margin: 0px;
 }
 
-.retweetedWrapeer {
+.retweetedWrapper {
   width: 100px;
   height: 100%;
   display: flex;
@@ -297,6 +299,7 @@
 
   &:hover .likeImg {
     color: #ff0000;
+    fill: #ff0000;
     background-color: #ff000015;
   }
 
@@ -339,7 +342,19 @@
     color: #19bb7d;
   }
 }
+.retweetButtonClicked{
+  @include buttonWrapper;
+  cursor: pointer;
 
+  .retweetImg {
+    color: #19bb7d;
+    background-color: #19bb7d20;
+  }
+
+  .retweetButtonText {
+    color: #19bb7d;
+  }
+}
 .retweetImg {
   @include buttonImg;
 

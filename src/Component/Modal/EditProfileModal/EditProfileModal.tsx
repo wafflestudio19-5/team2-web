@@ -99,9 +99,21 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
     setBioValue(response.data.bio);
     setProfileImageUrl(response.data.profile_img);
     setBackgroundImageUrl(response.data.header_img);
-    setBirthDateYear(Number(response.data.birth_date.slice(0, 4)));
-    setBirthDateMonth(Number(response.data.birth_date.slice(5, 7)));
-    setBirthDateDay(Number(response.data.birth_date.slice(8, 10)));
+    setBirthDateYear(
+      response.data.birth_date
+        ? Number(response.data.birth_date.slice(0, 4))
+        : 2002,
+    );
+    setBirthDateMonth(
+      response.data.birth_date
+        ? Number(response.data.birth_date.slice(5, 7))
+        : 12,
+    );
+    setBirthDateDay(
+      response.data.birth_date
+        ? Number(response.data.birth_date.slice(8, 10))
+        : 18,
+    );
   };
 
   useEffect(() => {

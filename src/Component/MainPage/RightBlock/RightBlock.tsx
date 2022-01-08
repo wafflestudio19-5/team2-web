@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 
 interface Props {
   rightRef: RefObject<HTMLDivElement>;
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
 }
 
 interface recommendData {
@@ -21,7 +23,7 @@ const dummyData = [
   { user_id: 'ABC', username: '이하동', profile_img: 'none' },
   { user_id: 'ABC', username: '이하동', profile_img: 'none' },
 ];
-const RightBlock = ({ rightRef }: Props) => {
+const RightBlock = ({ rightRef, loadAgain, setLoadAgain }: Props) => {
   const [recommendData, setRecommendData] = useState<recommendData[]>([
     { user_id: '', username: '', profile_img: '' },
     { user_id: '', username: '', profile_img: '' },

@@ -30,8 +30,12 @@ interface UserData {
   following: string;
   follower: string;
 }
+interface Props {
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
+}
 
-function LeftBlock() {
+function LeftBlock({ loadAgain, setLoadAgain }: Props) {
   const params = useParams();
   const loc = useLocation();
   const navigate = useNavigate();
@@ -67,7 +71,7 @@ function LeftBlock() {
       setWhichNavigatorClicked('');
     }
     getUserProfile();
-  }, []);
+  }, [loadAgain]);
 
   const handleTweetClick = () => {
     setIsTweetModalOpen(!isTweetModalOpen);
@@ -284,6 +288,8 @@ function LeftBlock() {
           onClick={handleTweetClick}
         />
         <TweetModal
+          loadAgain={loadAgain}
+          setLoadAgain={setLoadAgain}
           isTweetModalOpen={isTweetModalOpen}
           setIsTweetModalOpen={setIsTweetModalOpen}
         />
@@ -293,9 +299,9 @@ function LeftBlock() {
           <div className={styles.LogoutModal} onClick={logOut}>
             Logout {userContext.nowUserID}
           </div>
-          <div className={styles.SocialLogoutModal} onClick={SocialLogout}>
+          {/*<div className={styles.SocialLogoutModal} onClick={SocialLogout}>
             Social Logout {userContext.nowUserID}
-          </div>
+          </div>*/}
         </div>
       ) : null}
       <button className={styles.ProfileBlock} onClick={logoutModalToggle}>

@@ -5,18 +5,18 @@ import Box from '@mui/material/Box';
 
 interface props {
   function1: (e: React.MouseEvent<HTMLElement>) => void;
-  function2: (e: React.MouseEvent<HTMLElement>) => void;
+  //function2: (e: React.MouseEvent<HTMLElement>) => void;
   display: string;
   text: string;
 }
 
-function RetweetButtons(props: props) {
+function MoreButtons(props: props) {
   return (
     <Box
       sx={{
         position: 'absolute',
         top: '30px',
-        left: '10px',
+        right: '10px',
         display: props.display,
         zIndex: '99',
         '& > *': {
@@ -32,12 +32,10 @@ function RetweetButtons(props: props) {
         <Button onClick={props.function1} key="one">
           {props.text}
         </Button>
-        <Button onClick={props.function2} key="two">
-          Quote Retweet
-        </Button>
+        {/*<Button key="two">TEMP</Button>*/}
       </ButtonGroup>
     </Box>
   );
 }
 
-export default RetweetButtons;
+export default MoreButtons;

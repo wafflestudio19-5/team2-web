@@ -9,24 +9,56 @@ import FollowPage from './FollowPage/FollowPage';
 import TweetPage from './TweetPage/TweetPage';
 
 interface Props {
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
   loadNext: boolean;
 }
 
-const MainBlock = ({ loadNext }: Props) => {
+const MainBlock = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
   return (
     <div className={styles.MainBlock}>
       <Routes>
-        <Route path="/home" element={<HomePage loadNext={loadNext} />} />
+        <Route
+          path="/home"
+          element={
+            <HomePage
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              loadNext={loadNext}
+            />
+          }
+        />
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
-        <Route path="/:id/*" element={<ProfilePage loadNext={loadNext} />} />
+        <Route
+          path="/:id/*"
+          element={
+            <ProfilePage
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              loadNext={loadNext}
+            />
+          }
+        />
         <Route
           path="/:id/following"
-          element={<FollowPage loadNext={loadNext} />}
+          element={
+            <FollowPage
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              loadNext={loadNext}
+            />
+          }
         />
         <Route
           path="/:id/followers"
-          element={<FollowPage loadNext={loadNext} />}
+          element={
+            <FollowPage
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              loadNext={loadNext}
+            />
+          }
         />
         <Route path="/setting/" element={<SettingPage />} />
         <Route path="/status/:tweet" element={<TweetPage />} />

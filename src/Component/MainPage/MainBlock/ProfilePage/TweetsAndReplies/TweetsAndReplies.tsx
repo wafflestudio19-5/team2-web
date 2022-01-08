@@ -5,9 +5,16 @@ import styles from './TweetsAndReplies.module.scss';
 interface Props {
   loadNext: boolean;
   userData: UserData;
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
 }
 
-const TweetsAndReplies = ({ loadNext, userData }: Props) => {
+const TweetsAndReplies = ({
+  loadNext,
+  userData,
+  setLoadAgain,
+  loadAgain,
+}: Props) => {
   useEffect(() => {
     if (loadNext) {
       console.log('다음 페이지 로딩 TweetsAndReplies');
@@ -21,7 +28,12 @@ const TweetsAndReplies = ({ loadNext, userData }: Props) => {
       {filteredTweets.length > 0 ? (
         <ul className={styles.tweetsItems}>
           {filteredTweets.map(item => (
-            <Tweet key={item.id} item={item} />
+            <Tweet
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              key={item.id}
+              item={item}
+            />
           ))}
         </ul>
       ) : (
