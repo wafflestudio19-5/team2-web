@@ -33,12 +33,16 @@ interface TweetModalProps {
   isTweetModalOpen: boolean;
   setIsTweetModalOpen: (value: boolean) => void;
   item: TweetType;
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
 }
 
 const ReplyTweetModal = ({
   isTweetModalOpen,
   setIsTweetModalOpen,
   item,
+  loadAgain,
+  setLoadAgain,
 }: TweetModalProps) => {
   const userContext = useUserContext();
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -128,6 +132,9 @@ const ReplyTweetModal = ({
       submitDataFormdata.append('id', item.id.toString());
       const response = await axios.post('/reply/', submitDataFormdata);
       console.log(response);
+      setIsTweetModalOpen(false);
+      clearModal();
+      setLoadAgain(!loadAgain);
     } catch (e) {
       console.log(e);
     }

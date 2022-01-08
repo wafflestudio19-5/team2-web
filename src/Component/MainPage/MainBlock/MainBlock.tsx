@@ -61,7 +61,11 @@ const MainBlock = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
           }
         />
         <Route path="/setting/" element={<SettingPage />} />
-        <Route path="/status/:tweet" element={<TweetPage />} />
+        <Route path="/status/:tweet" element={<TweetPage 
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              />
+              } />
         <Route path="/*" element={<Navigate to="/home" />} />
       </Routes>
     </div>

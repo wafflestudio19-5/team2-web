@@ -9,6 +9,7 @@ import { ReactComponent as HeartFulfilled } from '../../../../Images/heartFulfil
 import { ReactComponent as RetweetIcon } from '../../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../../Images/share.svg';
 import styles from './TweetPage.module.scss';
+import Tweet, {TweetData} from '../../../Reused/Tweet/Tweet';
 
 interface dataType {
   author: {
@@ -22,12 +23,23 @@ interface dataType {
   likes: number;
 }
 
-function TweetPage() {
+interface Props {
+
+}
+
+function TweetPage({
+  setLoadAgain,
+  loadAgain,
+}: {
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
+}) {
   const params = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState<dataType>();
   const [liked, setLiked] = useState(false);
   const [likeNumber, setLikeNumber] = useState<number>(0);
+  const [replyTweet, setReplyTweet] = useState<TweetData['TweetsType']>([]);
 
   useEffect(() => {
     loadThread();
@@ -39,6 +51,8 @@ function TweetPage() {
       setData(response.data);
       setLiked(response.data.user_like);
       setLikeNumber(response.data.likes);
+      setReplyTweet(response.data.replying_tweets);
+      console.log(response.data.replying_tweets);
       console.log(response.data);
     } catch (e) {
       console.log(e);
@@ -64,8 +78,9 @@ function TweetPage() {
               className={styles.profileImage}
               src={data?.author.profile_img}
               alt="Author Profile Image"
+              onClick={()=>navigate(`/${data?.author.user_id}`)}
             />
-            <div className={styles.topTextWrapper}>
+            <div className={styles.topTextWrapper} onClick={()=>navigate(`/${data?.author.user_id}`)}>
               <div className={styles.topNameText}>{data?.author.username}</div>
               <div className={styles.topIdText}>@{data?.author.user_id}</div>
             </div>
@@ -123,7 +138,26 @@ function TweetPage() {
             </button>
           </div>
         </div>
-        <div className={styles.tweetsWrapper}>This Page Will Be Made Soon</div>
+        <div className={styles.tweetsWrapper}>
+        <ul className={styles.tweetsItems}>
+          {replyTweet ? (
+            replyTweet.map(item => (
+              <div>
+                {item.author ? (
+                  <Tweet
+                    setLoadAgain={setLoadAgain}
+                    loadAgain={loadAgain}
+                    key={item.id}
+                    item={item}
+                  />
+                ) : null}
+              </div>
+            ))
+          ) : (
+            <div>null</div>
+          )}
+        </ul>
+        </div>
         <div className={styles.footerWrapper}>footer</div>
       </div>
     </div>

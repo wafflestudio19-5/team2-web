@@ -94,6 +94,9 @@
   border: none;
   border-radius: 100%;
   margin-left: 10px;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .topTextWrapper {
@@ -104,6 +107,9 @@
   justify-content: left;
   align-items: center;
   flex-flow: column;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .topNameText {
@@ -345,9 +351,16 @@
   stroke: #ff0000;
 }
 
+.tweetsItems {
+  list-style-type: none;
+  padding-left: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
 .tweetsWrapper {
   width: 100%;
-  height: 200px;
+  height: auto;
   min-height: 30px;
   border-bottom: 1px solid rgb(236, 236, 236);
 
@@ -355,7 +368,8 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
+
 }
 
 .footerWrapper {
