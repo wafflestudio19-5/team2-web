@@ -3,7 +3,7 @@
 
   justify-content: space-between;
   align-items: center;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
   width: 70px;
@@ -342,7 +342,7 @@
     color: #19bb7d;
   }
 }
-.retweetButtonClicked{
+.retweetButtonClicked {
   @include buttonWrapper;
   cursor: pointer;
 
