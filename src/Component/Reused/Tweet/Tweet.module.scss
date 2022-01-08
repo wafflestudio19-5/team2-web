@@ -307,6 +307,8 @@
 
 .likeButton {
   @include buttonWrapper;
+  stroke: 0.5px;
+
   cursor: pointer;
 
   &:hover .likeImg {
@@ -393,6 +395,5 @@
 
 .shareImg {
   @include buttonImg;
-
   stroke-width: 1.5px;
 }

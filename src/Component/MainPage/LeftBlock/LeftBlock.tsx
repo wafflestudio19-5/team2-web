@@ -17,7 +17,6 @@ import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useUserContext } from '../../../UserContext';
 import axios from 'axios';
-import TempTweetModal from '../../Modal/TempTweetModal/TempTweetModal';
 
 interface UserData {
   username: string;
@@ -29,6 +28,7 @@ interface UserData {
   tweets_num: string;
   following: string;
   follower: string;
+  profile_img: string;
 }
 interface Props {
   loadAgain: boolean;
@@ -53,6 +53,7 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
     tweets_num: '',
     following: '',
     follower: '',
+    profile_img: '',
   });
 
   const getUserProfile = async () => {
@@ -299,9 +300,7 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
           <div className={styles.ProfileImgWrapper}>
             <img
               className={styles.ProfileImg}
-              src={setting}
-              width={30}
-              height={30}
+              src={userData.profile_img}
               alt="profile img"
             />
           </div>

@@ -1,7 +1,7 @@
 import styles from './Tweet.module.scss';
-import { ReactComponent as CommentIcon } from '../../../Images/reply.svg';
-import { ReactComponent as LikeIcon } from '../../../Images/heartUnfilled.svg';
-import { ReactComponent as RetweetIcon } from '../../../Images/retweetUnclicked.svg';
+import { ReactComponent as CommentIcon } from '../../../Images/comment.svg';
+import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
+import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
 import retweetTopImage from '../../../Images/retweetTop.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
@@ -107,27 +107,27 @@ const Tweet = ({
       axios
         .post('/retweet/', { id: item.id })
         .then(() => {
-          toast('Retweet clicked');
+          console.log('Retweet clicked');
           setIsRetweet(true);
           setRetweet(retweet + 1);
           setDisplay('none');
           setLoadAgain(!loadAgain);
         })
         .catch(() => {
-          toast.error('Retweet을 남기는 데 실패하였습니다.');
+          console.log('Retweet을 남기는 데 실패하였습니다.');
         });
     } else {
       axios
         .delete('/retweet/' + item.id)
         .then(() => {
-          toast('Undo Retweet clicked');
+          console.log('Undo Retweet clicked');
           setRetweet(retweet - 1);
           setIsRetweet(false);
           setDisplay('none');
           setLoadAgain(!loadAgain);
         })
         .catch(() => {
-          toast.error('Retweet을 취소하는 데 실패하였습니다.');
+          console.log('Retweet을 취소하는 데 실패하였습니다.');
         });
     }
   };
@@ -145,23 +145,23 @@ const Tweet = ({
       axios
         .post('/like/', { id: item.id })
         .then(() => {
-          toast('like clicked');
+          console.log('like clicked');
           setIsLike(true);
           setLike(like + 1);
         })
         .catch(() => {
-          toast.error('Like를 남기는 데 실패하였습니다.');
+          console.log('Like를 남기는 데 실패하였습니다.');
         });
     } else {
       axios
         .delete('/like/' + item.id)
         .then(() => {
-          toast('unlike clicked');
+          console.log('unlike clicked');
           setLike(like - 1);
           setIsLike(false);
         })
         .catch(() => {
-          toast.error('Like를 취소하는 데 실패하였습니다.');
+          console.log('Like를 취소하는 데 실패하였습니다.');
         });
     }
   };
@@ -271,7 +271,7 @@ const Tweet = ({
         
       />
       <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
-        {item.user_retweet ? (
+        {retweet ? (
           <div className={styles.topAllWrapper}>
             <div className={styles.retweetedWrapper}>
               <img
