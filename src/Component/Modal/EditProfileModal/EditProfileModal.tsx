@@ -94,7 +94,6 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
 
   const getProfile = async () => {
     const response = await axios.get(`/user/${params.id}/profile/`);
-    console.log(response.data);
     setNameValue(response.data.username);
     setBioValue(response.data.bio);
     setProfileImageUrl(response.data.profile_img);
@@ -115,28 +114,6 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
     getProfile();
   }, [isOpen]);
 
-  useEffect(() => {
-    console.log(
-      'nameValue :',
-      nameValue,
-      'bioValue :',
-      bioValue,
-      'profileImgURL :',
-      profileImageUrl,
-      'headerImgURL :',
-      backgroundImageUrl,
-      'profileImgFile :',
-      profileImageFile,
-      'headerImgFile :',
-      backgroundImageFile,
-      'birthDayMonth :',
-      birthDateMonth,
-      'birthDayDay :',
-      birthDateDay,
-      'birthDayYear :',
-      birthDateYear,
-    );
-  });
 
   const loadModalDate = () => {
     console.log('Loading Modal Data...');

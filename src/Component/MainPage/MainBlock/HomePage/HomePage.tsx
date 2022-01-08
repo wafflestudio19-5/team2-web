@@ -156,15 +156,20 @@ const HomePage = ({ loadNext }: Props) => {
   const [imageUrlList, setImageUrlList] = useState<string[]>([]);
   const [addImageCount, setAddImageCount] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
+  const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
 
   const getHomeTweet = async () => {
-    await axios.get(`/home?page=${page}/`)
+    if(loadNextOkay){
+      await axios.get(`/home/?page=${page}`)
       .then((response) => {
         if (homeTweetData !== undefined) {
-          const fetchHomeTweetData = response.data.tweets;
+          const fetchHomeTweetData = response.data.tweets.slice(0,10);
           const mergedData = homeTweetData.concat(...fetchHomeTweetData);
           setHomeTweetData(mergedData);
-          setPage(page+1);
+          setPage(response.data.tweets[response.data.tweets.length-1].next);
+          if(response.data.tweets[response.data.tweets.length-1].next === null){
+            setLoadNextOkay(false)
+          }
           console.log(fetchHomeTweetData);
           console.log(mergedData);
           console.log(page);
@@ -176,33 +181,14 @@ const HomePage = ({ loadNext }: Props) => {
       .catch(err => {
         console.log(err);
       })
+    }
+    
   }
 
-  const [homeTweetData, setHomeTweetData] = useState<HomeTweetsData['tweets']>([{
-    id: 0,
-    tweet_type: '',
-    author: {
-      username: '',
-      user_id: '',
-      profile_img: '',
-    },
-    retweeting_user: '',
-    reply_to: '',
-    content: '',
-    media: [],
-    written_at: '',
-    replies: 0,
-    retweets: 0,
-    likes: 0,
-    user_like: false,
-    user_retweet: false,
-    next: 0,
-    previous: 0
-  }]
-  );
+  const [homeTweetData, setHomeTweetData] = useState<HomeTweetsData['tweets']>([]);
 
   useEffect(() => {
-    if (loadNext) {
+    if (loadNext && page!==null) {
       getHomeTweet()
     }
   }, [loadNext]);
@@ -398,7 +384,13 @@ const HomePage = ({ loadNext }: Props) => {
                 {item.author ?
                   <Tweet key={item.id} item={item} />
                   :
-                  <div>loading</div>
+                  <div
+                  style={{
+                    justifyContent:'center',
+                    alignContent:'center',
+                    textAlign:'center',
+                    height:'30px'
+                  }}>CloneTwitter_WaffleStudio_19.5</div>
                 }
               </div>
             ))

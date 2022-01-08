@@ -15,7 +15,7 @@ const Media = ({ loadNext, userData }: Props) => {
   }, [loadNext]);
 
   const filteredTweets = userData.tweets.filter(
-    item => item.media.length !== 0,
+    item => item.media ? item.media.length > 0 : null,
   );
 
   return (
