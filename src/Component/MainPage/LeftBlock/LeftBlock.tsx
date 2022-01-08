@@ -11,7 +11,7 @@ import home_unclicked from '../../../Images/home_unclicked.svg';
 import home_clicked from '../../../Images/home_clicked.svg';
 import explore_unclicked from '../../../Images/explore_unclicked.svg';
 import explore_clicked from '../../../Images/explore_clicked.svg';
-import logo_blue from '../../../Images/twitter-logo-01282021/Twitter logo/SVG/Logo blue.svg';
+import logo from '../../../Images/waffleTwitterIcon.png';
 import more from '../../../Images/more.svg';
 import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -100,38 +100,28 @@ function LeftBlock() {
   };
 
   const HomeClicked = () => {
-    if (whichNavigatorClicked !== 'home') {
-      navigate('/home');
-      setWhichNavigatorClicked('home');
-    }
+    navigate('/home');
+    setWhichNavigatorClicked('home');
   };
 
   const ExploreClicked = () => {
-    if (whichNavigatorClicked !== 'explore') {
-      navigate('/explore');
-      setWhichNavigatorClicked('explore');
-    }
+    navigate('/explore');
+    setWhichNavigatorClicked('explore');
   };
 
   const NotificationsClicked = () => {
-    if (whichNavigatorClicked !== 'notifications') {
-      navigate('/notifications');
-      setWhichNavigatorClicked('notifications');
-    }
+    navigate('/notifications');
+    setWhichNavigatorClicked('notifications');
   };
 
   const ProfileClicked = () => {
-    if (whichNavigatorClicked !== 'profile') {
-      navigate(`/${userContext.nowUserID}`);
-      setWhichNavigatorClicked('profile');
-    }
+    navigate(`/${userContext.nowUserID}`);
+    setWhichNavigatorClicked('profile');
   };
 
   const SettingClicked = () => {
-    if (whichNavigatorClicked !== 'setting') {
-      navigate('/setting');
-      setWhichNavigatorClicked('setting');
-    }
+    navigate('/setting');
+    setWhichNavigatorClicked('setting');
   };
 
   return (
@@ -140,9 +130,9 @@ function LeftBlock() {
         <header className={styles.NavigatorHeader}>
           <img
             className={styles.NavigatorHeaderImg}
-            src={logo_blue}
-            width={30}
-            height={30}
+            src={logo}
+            width={45}
+            height={45}
             alt="No img"
             onClick={() => navigate('/home')}
           />

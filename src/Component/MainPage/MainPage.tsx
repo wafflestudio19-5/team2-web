@@ -41,7 +41,7 @@ function MainPage() {
         }
       }
     },
-    500,
+    250,
     { leading: false },
   );
 

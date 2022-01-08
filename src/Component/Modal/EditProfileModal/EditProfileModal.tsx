@@ -94,42 +94,24 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
 
   const getProfile = async () => {
     const response = await axios.get(`/user/${params.id}/profile/`);
-    console.log(response.data);
     setNameValue(response.data.username);
     setBioValue(response.data.bio);
     setProfileImageUrl(response.data.profile_img);
     setBackgroundImageUrl(response.data.header_img);
-    setBirthDateYear(Number(response.data.birth_date.slice(0, 4)));
-    setBirthDateMonth(Number(response.data.birth_date.slice(5, 7)));
-    setBirthDateDay(Number(response.data.birth_date.slice(8, 10)));
+    if (response.data.birth_date === null) {
+      setBirthDateYear(null);
+      setBirthDateMonth(null);
+      setBirthDateDay(null);
+    } else {
+      setBirthDateYear(Number(response.data.birth_date.slice(0, 4)));
+      setBirthDateMonth(Number(response.data.birth_date.slice(5, 7)));
+      setBirthDateDay(Number(response.data.birth_date.slice(8, 10)));
+    }
   };
 
   useEffect(() => {
     getProfile();
   }, [isOpen]);
-
-  useEffect(() => {
-    console.log(
-      'nameValue :',
-      nameValue,
-      'bioValue :',
-      bioValue,
-      'profileImgURL :',
-      profileImageUrl,
-      'headerImgURL :',
-      backgroundImageUrl,
-      'profileImgFile :',
-      profileImageFile,
-      'headerImgFile :',
-      backgroundImageFile,
-      'birthDayMonth :',
-      birthDateMonth,
-      'birthDayDay :',
-      birthDateDay,
-      'birthDayYear :',
-      birthDateYear,
-    );
-  });
 
   const loadModalDate = () => {
     console.log('Loading Modal Data...');

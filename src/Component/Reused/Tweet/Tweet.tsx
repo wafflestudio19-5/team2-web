@@ -1,11 +1,11 @@
 import styles from './Tweet.module.scss';
-import { ReactComponent as CommentIcon } from '../../../Images/comment.svg';
-import { ReactComponent as LikeIcon } from '../../../Images/like.svg';
-import { ReactComponent as RetweetIcon } from '../../../Images/retweet.svg';
+import { ReactComponent as CommentIcon } from '../../../Images/reply.svg';
+import { ReactComponent as LikeIcon } from '../../../Images/heartUnfilled.svg';
+import { ReactComponent as RetweetIcon } from '../../../Images/retweetUnclicked.svg';
 import retweetTopImage from '../../../Images/retweetTop.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
-import React, { useEffect, useState } from 'react';
+import React, { MouseEventHandler, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -79,6 +79,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   const [display, setDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
   const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
+    e.stopPropagation();
     setReplyModalIsOpen(true);
   };
 
@@ -203,7 +204,8 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
     setLike(item.likes);
   }, []); //like, retweet 초깃값 설정
 
-  const handleAllWrapperOnClick = () => {
+  const handleAllWrapperOnClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     navigate(`/status/${item.id}`);
   };
 
