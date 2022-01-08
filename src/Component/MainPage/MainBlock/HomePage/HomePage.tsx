@@ -188,6 +188,24 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
     }
   };
 
+  const updateHomeTweet = async () => {
+      await axios
+        .get(`/home/?page=1`)
+        .then(response => {
+          if (homeTweetData !== undefined) {
+            setHomeTweetData(response.data.tweets.slice(0, 10));
+            setPage(response.data.tweets[response.data.tweets.length - 1].next);
+            console.log(page);
+          }
+          setProfileImageUrl(response.data.user.profile_img);
+          console.log(response.data.tweets);
+          setIsLoading(false);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+
   const [homeTweetData, setHomeTweetData] = useState<HomeTweetsData['tweets']>(
     [],
   );
@@ -199,7 +217,7 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
   }, [loadNext]);
 
   useEffect(() => {
-    getHomeTweet();
+    updateHomeTweet();
   }, [loadAgain]);
 
   const handleAddImageOnSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {

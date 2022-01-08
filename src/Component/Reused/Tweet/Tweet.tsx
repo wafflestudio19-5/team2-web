@@ -265,6 +265,9 @@ const Tweet = ({
         isTweetModalOpen={replyModalIsOpen}
         setIsTweetModalOpen={setReplyModalIsOpen}
         item={item}
+        loadAgain={loadAgain}
+        setLoadAgain={setLoadAgain}
+        
       />
       <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
         {item.user_retweet ? (
