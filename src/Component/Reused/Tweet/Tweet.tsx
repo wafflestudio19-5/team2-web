@@ -5,6 +5,7 @@ import { ReactComponent as RetweetIcon } from '../../../Images/retweetUnclicked.
 import retweetTopImage from '../../../Images/retweetTop.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
+import { ReactComponent as HeartFulfilled } from '../../../Images/heartFulfilled.svg';
 import React, { MouseEventHandler, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -214,6 +215,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
       <ReplyTweetModal
         isTweetModalOpen={replyModalIsOpen}
         setIsTweetModalOpen={setReplyModalIsOpen}
+        item={item}
       />
       <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
         {item.user_retweet ? (
@@ -303,7 +305,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
                     className={styles.likeButtonClicked}
                     onClick={handleLikeClicked}
                   >
-                    <LikeIcon className={styles.likeImg} />
+                    <HeartFulfilled className={styles.likeImg} />
                     <div className={styles.likeButtonText}>{item.likes}</div>
                   </button>
                 )}
