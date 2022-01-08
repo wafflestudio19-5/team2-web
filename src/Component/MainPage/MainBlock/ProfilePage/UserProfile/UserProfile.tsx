@@ -11,6 +11,9 @@ import arrow_left from '../../../../../Images/arrow-left.svg';
 import calendar from '../../../../../Images/calendar.svg';
 import { useUserContext } from '../../../../../UserContext';
 import { TweetData, UserData } from '../../../../Reused/Tweet/Tweet';
+import Modal from 'react-modal';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function UserProfile(props: {
   isChosen: string;
@@ -21,16 +24,39 @@ function UserProfile(props: {
   const userContext = useUserContext();
   const navigate = useNavigate();
   const params = useParams();
-
+  const [following, setFollowing] = useState(false);
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] =
     useState<boolean>(false);
+  const unfollow = () => {
+    axios
+      .delete('/unfollow/' + props.userData.user_id)
+      .then(() => {
+        setFollowing(false);
+        setIsOpen(false);
+      })
+      .catch(() => {
+        toast.error('언팔로우 요청 실패');
+      });
+  };
 
+  useEffect(() => {
+    setFollowing(props.userData.i_follow);
+  }, []);
+
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleEditProfileClick = () => {
     setIsEditProfileModalOpen(!isEditProfileModalOpen);
   };
 
   const handleFollowClick = () => {
-    console.log('hi');
+    axios
+      .post('/follow/', { user_id: params.id })
+      .then(() => {
+        setFollowing(true);
+      })
+      .catch(() => {
+        toast.error('팔로우 요청 실패');
+      });
   };
 
   const switchToTweets = () => {
@@ -56,6 +82,67 @@ function UserProfile(props: {
         isOpen={isEditProfileModalOpen}
         setIsOpen={setIsEditProfileModalOpen}
       />
+      <Modal
+        ariaHideApp={false}
+        style={{
+          overlay: {
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 999,
+            backgroundColor: 'rgba(0,0,0,0.1)',
+          },
+          content: {
+            fontWeight: '600',
+            position: 'absolute',
+            top: 'calc(50% - 150px)',
+            left: 'calc(50% - 170px)',
+            right: 'calc(50% - 170px)',
+            bottom: 'calc(50% - 150px)',
+            border: '1px solid #ccc',
+            borderRadius: '20px',
+            background: '#fff',
+            overflow: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            outline: 'none',
+            padding: '20px 30px 20px 30px',
+          },
+        }}
+        isOpen={isOpen}
+      >
+        <header> Unfollow @{props.userData.user_id}?</header>
+        <br />
+        <br />
+        <div>
+          Their Tweets will no longer show up in your home timeline. You can
+          still view their profile, unless their Tweets are protected.
+        </div>
+        <br />
+        <footer>
+          <div>
+            <button
+              onClick={e => {
+                e.stopPropagation();
+                unfollow();
+              }}
+              className={styles.UnfollowButton}
+            >
+              UnFollow
+            </button>
+            <button
+              onClick={e => {
+                e.stopPropagation();
+                setIsOpen(false);
+              }}
+              className={styles.CancelButton}
+            >
+              Cancel
+            </button>
+          </div>
+        </footer>
+      </Modal>
       <header className={styles.UserProfileHeader}>
         <img
           className={styles.UserProfileHeaderButton}
@@ -105,7 +192,7 @@ function UserProfile(props: {
               >
                 Edit profile
               </button>
-            ) : false ? (
+            ) : !following ? (
               <button
                 className={styles.FollowButton}
                 onClick={handleFollowClick}
@@ -115,7 +202,9 @@ function UserProfile(props: {
             ) : (
               <button
                 className={styles.FollowingButton}
-                onClick={handleFollowClick}
+                onClick={() => {
+                  setIsOpen(true);
+                }}
               >
                 Following
               </button>

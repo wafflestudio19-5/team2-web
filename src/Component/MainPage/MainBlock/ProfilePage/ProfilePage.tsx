@@ -33,6 +33,7 @@ const ProfilePage = ({
     bio: '',
     created_at: '',
     birth_date: '',
+    i_follow: true,
     tweets: [
       {
         id: 0,
