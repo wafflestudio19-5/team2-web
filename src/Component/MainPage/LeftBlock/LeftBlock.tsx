@@ -100,28 +100,28 @@ function LeftBlock() {
   };
 
   const HomeClicked = () => {
-      navigate('/home');
-      setWhichNavigatorClicked('home');
+    navigate('/home');
+    setWhichNavigatorClicked('home');
   };
 
   const ExploreClicked = () => {
-      navigate('/explore');
-      setWhichNavigatorClicked('explore');
+    navigate('/explore');
+    setWhichNavigatorClicked('explore');
   };
 
   const NotificationsClicked = () => {
-      navigate('/notifications');
-      setWhichNavigatorClicked('notifications');
+    navigate('/notifications');
+    setWhichNavigatorClicked('notifications');
   };
 
   const ProfileClicked = () => {
-      navigate(`/${userContext.nowUserID}`);
-      setWhichNavigatorClicked('profile');
+    navigate(`/${userContext.nowUserID}`);
+    setWhichNavigatorClicked('profile');
   };
 
   const SettingClicked = () => {
-      navigate('/setting');
-      setWhichNavigatorClicked('setting');
+    navigate('/setting');
+    setWhichNavigatorClicked('setting');
   };
 
   return (

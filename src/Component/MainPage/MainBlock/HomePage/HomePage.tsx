@@ -110,7 +110,7 @@ interface HomeTweetsData {
     user_retweet: boolean;
     next: number | null;
     previous: number | null;
-  }[]
+  }[];
   user: {
     profile_img: string;
     user_id: string;
@@ -140,7 +140,6 @@ interface HomeTweetData {
   previous: number | null;
 }
 
-
 interface Props {
   loadNext: boolean;
 }
@@ -159,37 +158,42 @@ const HomePage = ({ loadNext }: Props) => {
   const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
 
   const getHomeTweet = async () => {
-    if(loadNextOkay){
-      await axios.get(`/home/?page=${page}`)
-      .then((response) => {
-        if (homeTweetData !== undefined) {
-          const fetchHomeTweetData = response.data.tweets.slice(0,10);
-          const mergedData = homeTweetData.concat(...fetchHomeTweetData);
-          setHomeTweetData(mergedData);
-          setPage(response.data.tweets[response.data.tweets.length-1].next);
-          if(response.data.tweets[response.data.tweets.length-1].next === null){
-            setLoadNextOkay(false)
+    if (loadNextOkay) {
+      await axios
+        .get(`/home/?page=${page}`)
+        .then(response => {
+          if (homeTweetData !== undefined) {
+            const fetchHomeTweetData = response.data.tweets.slice(0, 10);
+            const mergedData = homeTweetData.concat(...fetchHomeTweetData);
+            setHomeTweetData(mergedData);
+            setPage(response.data.tweets[response.data.tweets.length - 1].next);
+            if (
+              response.data.tweets[response.data.tweets.length - 1].next ===
+              null
+            ) {
+              setLoadNextOkay(false);
+            }
+            console.log(fetchHomeTweetData);
+            console.log(mergedData);
+            console.log(page);
           }
-          console.log(fetchHomeTweetData);
-          console.log(mergedData);
-          console.log(page);
-        }
-        setProfileImageUrl(response.data.user.profile_img);
-        console.log(response.data.tweets);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        console.log(err);
-      })
+          setProfileImageUrl(response.data.user.profile_img);
+          console.log(response.data.tweets);
+          setIsLoading(false);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
-    
-  }
+  };
 
-  const [homeTweetData, setHomeTweetData] = useState<HomeTweetsData['tweets']>([]);
+  const [homeTweetData, setHomeTweetData] = useState<HomeTweetsData['tweets']>(
+    [],
+  );
 
   useEffect(() => {
-    if (loadNext && page!==null) {
-      getHomeTweet()
+    if (loadNext && page !== null) {
+      getHomeTweet();
     }
   }, [loadNext]);
 
@@ -292,8 +296,8 @@ const HomePage = ({ loadNext }: Props) => {
                 typedText.length === 200
                   ? { color: 'red' }
                   : typedText.length >= 150
-                    ? { color: 'orange' }
-                    : undefined
+                  ? { color: 'orange' }
+                  : undefined
               }
             >
               {typedText.length} / 200
@@ -304,8 +308,8 @@ const HomePage = ({ loadNext }: Props) => {
                 imageUrlList.length === 2
                   ? { color: 'red' }
                   : imageUrlList.length === 1
-                    ? { color: 'orange' }
-                    : undefined
+                  ? { color: 'orange' }
+                  : undefined
               }
             >
               {imageUrlList.length} / 2
@@ -378,27 +382,28 @@ const HomePage = ({ loadNext }: Props) => {
       </div>
       <div className={styles.HomePage}>
         <ul className={styles.tweetsItems}>
-          {homeTweetData ?
-            homeTweetData.map((item) => (
+          {homeTweetData ? (
+            homeTweetData.map(item => (
               <div>
-                {item.author ?
+                {item.author ? (
                   <Tweet key={item.id} item={item} />
-                  :
+                ) : (
                   <div
-                  style={{
-                    justifyContent:'center',
-                    alignContent:'center',
-                    textAlign:'center',
-                    height:'30px'
-                  }}>CloneTwitter_WaffleStudio_19.5</div>
-                }
+                    style={{
+                      justifyContent: 'center',
+                      alignContent: 'center',
+                      textAlign: 'center',
+                      height: '30px',
+                    }}
+                  >
+                    CloneTwitter_WaffleStudio_19.5
+                  </div>
+                )}
               </div>
             ))
-            :
-            <div>
-              null
-            </div>
-          }
+          ) : (
+            <div>null</div>
+          )}
         </ul>
       </div>
     </div>

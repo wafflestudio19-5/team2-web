@@ -14,7 +14,6 @@ import 'react-dropdown/style.css';
 import RetweetButtons from '../ButtonGroup/RetweetButtons';
 import ReplyTweetModal from '../../Modal/ReplyModalTweet/ReplyTweetModal';
 
-
 export interface UserData {
   username: string;
   user_id: string;
@@ -80,19 +79,18 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   const [display, setDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
   const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
-    e.stopPropagation()
+    e.stopPropagation();
     setReplyModalIsOpen(true);
-
   };
 
   const handleRetweetIconClicked = (e: React.MouseEvent<HTMLElement>): void => {
-    e.stopPropagation()
+    e.stopPropagation();
     if (display === 'none') setDisplay('flex');
     else setDisplay('none');
   };
 
   const handleRetweetClicked = (e: React.MouseEvent<HTMLElement>): void => {
-    e.stopPropagation()
+    e.stopPropagation();
     if (!isRetweet) {
       axios
         .post('/retweet/', { id: item.id })
@@ -120,12 +118,12 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   const handleQuoteRetweetClicked = (
     e: React.MouseEvent<HTMLElement>,
   ): void => {
-    e.stopPropagation()
+    e.stopPropagation();
     //모달열기
   };
 
   const handleLikeClicked = (e: React.MouseEvent<HTMLElement>): void => {
-    e.stopPropagation()
+    e.stopPropagation();
     if (!isLike) {
       axios
         .post('/like/', { id: item.id })
@@ -150,7 +148,7 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
   };
 
   const handleShareCliecked = (e: React.MouseEvent<HTMLElement>): void => {
-    e.stopPropagation()
+    e.stopPropagation();
     console.log('Share Clicked');
   };
 
@@ -206,8 +204,8 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
     setLike(item.likes);
   }, []); //like, retweet 초깃값 설정
 
-  const handleAllWrapperOnClick = (e:React.MouseEvent<HTMLElement>) => {
-    e.stopPropagation()
+  const handleAllWrapperOnClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     navigate(`/status/${item.id}`);
   };
 
@@ -243,81 +241,82 @@ const Tweet = ({ item }: { item: TweetData['TweetType'] }): JSX.Element => {
             ></RetweetButtons>
           </div>
           <div className={styles.leftWrapper}>
-        <img
-          className={styles.profileImage}
-          src={item.author.profile_img}
-          alt="tweet Profile Image"
-        />
-      </div>
-      <div className={styles.rightWrapper}>
-        <div className={styles.topWrapper}>
-          <div className={styles.topTextWrapper}>
-            <div className={styles.nameText}>{item.author.username}</div>
-            <div className={styles.idTimeText}>
-              @{item.author.user_id} · {month} {item.written_at.slice(8, 10)}
+            <img
+              className={styles.profileImage}
+              src={item.author.profile_img}
+              alt="tweet Profile Image"
+            />
+          </div>
+          <div className={styles.rightWrapper}>
+            <div className={styles.topWrapper}>
+              <div className={styles.topTextWrapper}>
+                <div className={styles.nameText}>{item.author.username}</div>
+                <div className={styles.idTimeText}>
+                  @{item.author.user_id} · {month}{' '}
+                  {item.written_at.slice(8, 10)}
+                </div>
+              </div>
+              <button className={styles.moreButton}>
+                <More className={styles.moreButtonImg} />
+              </button>
+            </div>
+            <div className={styles.middleWrapper}>
+              <div className={styles.mainText}>{item.content}</div>
+              {item.media.map(imgUrl => {
+                return (
+                  <img
+                    key={Math.random()}
+                    className={styles.mainImg}
+                    src={imgUrl}
+                    alt="게시글 이미지 입니다."
+                  />
+                );
+              })}
+            </div>
+            <div className={styles.bottomWrapper}>
+              <div className={styles.buttonWrapper}>
+                <button
+                  className={styles.commentButton}
+                  onClick={handleCommentClicked}
+                >
+                  <CommentIcon className={styles.commentImg} />
+                  <div className={styles.commentButtonText}>{item.replies}</div>
+                </button>
+
+                <button
+                  className={styles.retweetButton}
+                  onClick={handleRetweetIconClicked}
+                >
+                  <RetweetIcon className={styles.retweetImg} />
+                  <div className={styles.retweetButtonText}>{retweet}</div>
+                </button>
+                {!isLike ? (
+                  <button //하트 안차있는 ver.
+                    className={styles.likeButton}
+                    onClick={handleLikeClicked}
+                  >
+                    <LikeIcon className={styles.likeImg} />
+                    <div className={styles.likeButtonText}>{like}</div>
+                  </button>
+                ) : (
+                  <button //하트 차있는 ver.
+                    className={styles.likeButtonClicked}
+                    onClick={handleLikeClicked}
+                  >
+                    <LikeIcon className={styles.likeImg} />
+                    <div className={styles.likeButtonText}>{item.likes}</div>
+                  </button>
+                )}
+
+                <button
+                  className={styles.shareButton}
+                  onClick={handleShareCliecked}
+                >
+                  <ShareIcon className={styles.shareImg} />
+                </button>
+              </div>
             </div>
           </div>
-          <button className={styles.moreButton}>
-            <More className={styles.moreButtonImg} />
-          </button>
-        </div>
-        <div className={styles.middleWrapper}>
-          <div className={styles.mainText}>{item.content}</div>
-          {item.media.map(imgUrl => {
-            return (
-              <img
-                key={Math.random()}
-                className={styles.mainImg}
-                src={imgUrl}
-                alt="게시글 이미지 입니다."
-              />
-            );
-          })}
-        </div>
-        <div className={styles.bottomWrapper}>
-          <div className={styles.buttonWrapper}>
-            <button
-              className={styles.commentButton}
-              onClick={handleCommentClicked}
-            >
-              <CommentIcon className={styles.commentImg} />
-              <div className={styles.commentButtonText}>{item.replies}</div>
-            </button>
-
-            <button
-              className={styles.retweetButton}
-              onClick={handleRetweetIconClicked}
-            >
-              <RetweetIcon className={styles.retweetImg} />
-              <div className={styles.retweetButtonText}>{retweet}</div>
-            </button>
-            {!isLike ? (
-              <button //하트 안차있는 ver.
-                className={styles.likeButton}
-                onClick={handleLikeClicked}
-              >
-                <LikeIcon className={styles.likeImg} />
-                <div className={styles.likeButtonText}>{like}</div>
-              </button>
-            ) : (
-              <button //하트 차있는 ver.
-                className={styles.likeButtonClicked}
-                onClick={handleLikeClicked}
-              >
-                <LikeIcon className={styles.likeImg} />
-                <div className={styles.likeButtonText}>{item.likes}</div>
-              </button>
-            )}
-
-            <button
-              className={styles.shareButton}
-              onClick={handleShareCliecked}
-            >
-              <ShareIcon className={styles.shareImg} />
-            </button>
-          </div>
-        </div>
-        </div>
         </div>
       </li>
     </>
