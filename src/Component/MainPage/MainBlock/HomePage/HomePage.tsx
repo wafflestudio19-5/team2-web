@@ -89,7 +89,7 @@ interface Data {
   key: string;
 }
 
-interface HomeTweetData {
+interface HomeTweetsData {
   tweets: {
     id: number;
     tweet_type: string;
@@ -108,12 +108,36 @@ interface HomeTweetData {
     likes: number;
     user_like: boolean;
     user_retweet: boolean;
+    next: number | null;
+    previous: number | null;
   }[];
   user: {
     profile_img: string;
     user_id: string;
     username: string;
   };
+}
+
+interface HomeTweetData {
+  id: number;
+  tweet_type: string;
+  author: {
+    username: string;
+    user_id: string;
+    profile_img: string;
+  };
+  retweeting_user: string;
+  reply_to: string;
+  content: string;
+  media: string[];
+  written_at: string;
+  replies: number;
+  retweets: number;
+  likes: number;
+  user_like: boolean;
+  user_retweet: boolean;
+  next: number | null;
+  previous: number | null;
 }
 
 interface Props {
@@ -130,44 +154,46 @@ const HomePage = ({ loadNext }: Props) => {
   const [imageFileList, setImageFileList] = useState<File[]>([]);
   const [imageUrlList, setImageUrlList] = useState<string[]>([]);
   const [addImageCount, setAddImageCount] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
+  const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
 
   const getHomeTweet = async () => {
-    try {
-      const response = await axios.get(`/home/`);
-      setHomeTweetData(response.data.tweets);
-      setProfileImageUrl(response.data.user.profile_img);
-      console.log(response.data.tweets);
-      setIsLoading(false);
-    } catch (err) {
-      console.log(err);
+    if (loadNextOkay) {
+      await axios
+        .get(`/home/?page=${page}`)
+        .then(response => {
+          if (homeTweetData !== undefined) {
+            const fetchHomeTweetData = response.data.tweets.slice(0, 10);
+            const mergedData = homeTweetData.concat(...fetchHomeTweetData);
+            setHomeTweetData(mergedData);
+            setPage(response.data.tweets[response.data.tweets.length - 1].next);
+            if (
+              response.data.tweets[response.data.tweets.length - 1].next ===
+              null
+            ) {
+              setLoadNextOkay(false);
+            }
+            console.log(fetchHomeTweetData);
+            console.log(mergedData);
+            console.log(page);
+          }
+          setProfileImageUrl(response.data.user.profile_img);
+          console.log(response.data.tweets);
+          setIsLoading(false);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   };
 
-  const [homeTweetData, setHomeTweetData] = useState<TweetData['TweetsType']>([
-    {
-      id: 0,
-      tweet_type: '',
-      author: {
-        username: '',
-        user_id: '',
-        profile_img: '',
-      },
-      retweeting_user: '',
-      reply_to: '',
-      content: '',
-      media: [],
-      written_at: '',
-      replies: 0,
-      retweets: 0,
-      likes: 0,
-      user_like: false,
-      user_retweet: false,
-    },
-  ]);
+  const [homeTweetData, setHomeTweetData] = useState<HomeTweetsData['tweets']>(
+    [],
+  );
 
   useEffect(() => {
-    if (loadNext) {
-      console.log('다음 페이지 로딩 HomeTweets');
+    if (loadNext && page !== null) {
+      getHomeTweet();
     }
   }, [loadNext]);
 
@@ -359,6 +385,37 @@ const HomePage = ({ loadNext }: Props) => {
           {homeTweetData ? (
             homeTweetData.map(item => (
               <div>
+                {item.author ? (
+                  <Tweet key={item.id} item={item} />
+                ) : (
+                  <div
+                    style={{
+                      justifyContent: 'center',
+                      alignContent: 'center',
+                      textAlign: 'center',
+                      height: '30px',
+                    }}
+                  >
+                    CloneTwitter_WaffleStudio_19.5
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            <div>null</div>
+          )}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;
+
+/*
+homeTweetData ? (
+            homeTweetData.map(item => (
+              <div>
                 {item.author ? <Tweet key={item.id} item={item} /> : null}
               </div>
             ))
@@ -370,11 +427,5 @@ const HomePage = ({ loadNext }: Props) => {
                 Follow someone or Tweet!
               </h1>
             </div>
-          )}
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-export default HomePage;
+          )
+*/
