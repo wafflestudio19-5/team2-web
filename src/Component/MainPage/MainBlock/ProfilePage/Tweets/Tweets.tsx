@@ -17,7 +17,7 @@ const Tweets = ({ loadNext, userData }: Props) => {
   return (
     <ul className={styles.tweetsItems}>
       {userData ? (
-        userData.tweets.map(item => <Tweet key={item.id} item={item} />)
+        userData.tweets.slice(0,10).map(item => item.author ? <Tweet key={item.id} item={item} /> : <div>loading</div>)
       ) : (
         <div className={styles.NoTweets}>Not Tweets yet</div>
       )}
