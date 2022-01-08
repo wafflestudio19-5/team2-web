@@ -372,7 +372,6 @@ const HomePage = ({ loadNext }: Props) => {
             </div>
           )}
         </ul>
-
       </div>
     </div>
   );
