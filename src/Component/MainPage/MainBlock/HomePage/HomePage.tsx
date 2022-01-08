@@ -426,6 +426,11 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
             <div>null</div>
           )}
         </ul>
+        <div className={styles.Footer}>
+          [Waffle Studio 19.5 rookies | Team 2]
+          <br />
+          FrontEnd: 이승엽, 이하동, 이재민 / BackEnd: 전형민, 이서영, 고계훈
+        </div>
       </div>
     </div>
   );
