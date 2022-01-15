@@ -219,13 +219,16 @@ function UserProfile(props: {
             >
               {props.userData.username}
             </div>
-            <div
-              style={{
-                color: '#62717d',
-              }}
-            >
-              @{params.id}
+            <div>
+              <div
+                style={{
+                  color: '#62717d',
+                }}
+              >
+                @{params.id}
+              </div>
             </div>
+
             <div
               style={{
                 marginTop: '20px',
