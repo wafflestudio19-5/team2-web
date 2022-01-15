@@ -66,7 +66,7 @@ const Tweets = ({ loadNext, userData, setLoadAgain, loadAgain }: Props) => {
                 loadAgain={loadAgain}
                 key={item.id}
                 item={item}
-              />) : <div>loading</div>,
+              />) : <div></div>,
         )
       ) : (
         <div className={styles.NoTweets}>Not Tweets yet</div>
