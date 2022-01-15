@@ -18,6 +18,7 @@ $grey: rgb(239, 243, 244);
 
   &::-webkit-scrollbar {
     width: 0;
+    height: 0;
     background: transparent;
   }
   &::-webkit-scrollbar-thumb {
@@ -42,7 +43,7 @@ $grey: rgb(239, 243, 244);
   border: none;
   background-color: $grey;
   position: sticky;
-  width: 100%;
+  width: 95%;
   height: 44.4px;
   display: flex;
   border-radius: 9999px;
