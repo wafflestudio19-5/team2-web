@@ -13,7 +13,7 @@ function SearchPage() {
   const userContext = useUserContext();
   const navigate = useNavigate();
 
-  const switchToTweets = () => {
+  /*const switchToTweets = () => {
     props.setIsChosen('tweets');
     navigate(`/${params.id}`);
   };
@@ -30,7 +30,7 @@ function SearchPage() {
   const switchToLikes = () => {
     props.setIsChosen('likes');
     navigate(`/${params.id}/likes`);
-  };
+  };*/
 
   return (
     <div className={styles.SearchPage}>
@@ -38,7 +38,7 @@ function SearchPage() {
       <div className={styles.Loading}>
         <h1>No Search</h1>
       </div>
-      <div className={styles.UserProfileRouterButtonWrapper}>
+      {/*<div className={styles.UserProfileRouterButtonWrapper}>
         {props.isChosen === 'tweets' ? (
           <button
             className={styles.UserProfileRouterButtonClicked}
@@ -99,7 +99,7 @@ function SearchPage() {
             Likes
           </button>
         )}
-      </div>
+      </div>*/}
     </div>
   );
 }
