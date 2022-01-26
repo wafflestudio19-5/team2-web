@@ -6,6 +6,7 @@ import styles from './LoginPage.module.scss';
 import LoginModal from '../Modal/LoginModal/LoginModal';
 import SignUpModal from '../Modal/SignUpModal/SignUpModal';
 import { KAKAO_AUTH_URL } from '../../Auth/KakaoAuth.js';
+import axios from 'axios';
 
 const LoginPage = () => {
   const [loginModalOpen, setLoginIsOpen] = useState(false);
@@ -32,7 +33,14 @@ const LoginPage = () => {
           <span>오늘 트위터에 가입하세요.</span>
         </div>
         <div className={styles.SignUpWrapper}>
-          <button className={styles.Button}>Google 계정으로 가입하기</button>
+          <button
+            onClick={() => {
+              axios.get('/google/signup/');
+            }}
+            className={styles.Button}
+          >
+            Google 계정으로 가입하기
+          </button>
 
           <button
             onClick={() => {

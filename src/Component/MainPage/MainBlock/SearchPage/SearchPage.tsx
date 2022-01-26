@@ -35,7 +35,6 @@ function SearchPage(props: Props) {
   const query = queryString.parse(location.search);
 
   const getSearchData = () => {
-    setIsLoading(true);
     switch (isChosen) {
       case 'top':
         axios
@@ -57,11 +56,9 @@ function SearchPage(props: Props) {
             ]);
             setTopPage(response.data.next);
             console.log(tops);
-            setIsLoading(false);
           })
           .catch(err => {
             console.log(err);
-            setIsLoading(false);
           });
         break;
       case 'latest':
@@ -84,11 +81,9 @@ function SearchPage(props: Props) {
             ]);
             setLatestPage(response.data.next);
             console.log(tops);
-            setIsLoading(false);
           })
           .catch(err => {
             console.log(err);
-            setIsLoading(false);
           });
         break;
       case 'people':
@@ -111,16 +106,18 @@ function SearchPage(props: Props) {
             ]);
             setPeoplePage(response.data.next);
             console.log(tops);
-            setIsLoading(false);
           })
           .catch(err => {
             console.log(err);
-            setIsLoading(false);
           });
         break;
     }
   };
-
+  useEffect(() => {
+    setIsLoading(true);
+    getSearchData();
+    setIsLoading(false);
+  }, []);
   useEffect(() => {
     getSearchData();
   }, [isChosen, props.loadNext]);

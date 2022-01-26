@@ -20,7 +20,7 @@ const EditIDModal = ({ isOpen, setIsOpen, user_id }: UnfollowModalProps) => {
         .patch('/user/id/', { user_id: changeID })
         .then(response => {
           // setIsOpen(false);
-          window.location.href = '';
+          //window.location.href = '';
         })
         .catch(error => {
           toast.error(error.message);
