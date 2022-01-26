@@ -30,7 +30,16 @@ const MainBlock = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
           }
         />
         <Route path="/explore" element={<ExplorePage />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route
+          path="/search"
+          element={
+            <SearchPage
+              loadNext={loadNext}
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+            />
+          }
+        />
         <Route path="/notifications" element={<NotificationsPage />} />
         <Route
           path="/:id/*"

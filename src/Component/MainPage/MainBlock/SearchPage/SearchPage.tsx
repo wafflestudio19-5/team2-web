@@ -1,107 +1,185 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SearchPage.module.scss';
-import ExternalStyles from '../ProfilePage/UserProfile/UserProfile.module.scss';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import Tweets from '../ProfilePage/Tweets/Tweets';
-import TweetsAndReplies from '../ProfilePage/TweetsAndReplies/TweetsAndReplies';
-import Media from '../ProfilePage/Media/Media';
-import Likes from '../ProfilePage/Likes/Likes';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+
+import Tweet, { TweetType } from '../../../Reused/Tweet/Tweet';
 import { useUserContext } from '../../../../UserContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-function SearchPage() {
+import SearchPageHeader from './SearchPageHeader/SearchPageHeader';
+import queryString from 'query-string';
+import { divide } from 'lodash';
+import Follow from '../../../Reused/Follow/Follow';
+import { TweetData } from '../../../Reused/Tweet/Tweet';
+
+interface Props {
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
+  loadNext: boolean;
+}
+
+function SearchPage(props: Props) {
   const userContext = useUserContext();
   const navigate = useNavigate();
+  const [isChosen, setIsChosen] = useState('top');
 
-  /*const switchToTweets = () => {
-    props.setIsChosen('tweets');
-    navigate(`/${params.id}`);
+  const [tops, setTops] = useState<JSX.Element[]>([]);
+  const [latestes, setLatestes] = useState<JSX.Element[]>([]);
+  const [people, setPeople] = useState<JSX.Element[]>([]);
+
+  const [topPage, setTopPage] = useState<number | null>(1);
+  const [latestPage, setLatestPage] = useState<number | null>(1);
+  const [peoplePage, setPeoplePage] = useState<number | null>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const location = useLocation();
+  const query = queryString.parse(location.search);
+
+  const getSearchData = () => {
+    setIsLoading(true);
+    switch (isChosen) {
+      case 'top':
+        axios
+          .get(`/search/${isChosen}/?page=${topPage}&query=${query?.q}`)
+          .then(response => {
+            console.log(response.data.results);
+            setTops([
+              ...tops,
+              response.data.results.map((TweetData: TweetType) => {
+                return (
+                  <Tweet
+                    setLoadAgain={props.setLoadAgain}
+                    loadAgain={props.loadAgain}
+                    key={TweetData.id}
+                    item={TweetData}
+                  />
+                );
+              }),
+            ]);
+            setTopPage(response.data.next);
+            console.log(tops);
+            setIsLoading(false);
+          })
+          .catch(err => {
+            console.log(err);
+            setIsLoading(false);
+          });
+        break;
+      case 'latest':
+        axios
+          .get(`/search/${isChosen}/?page=${latestPage}&query=${query?.q}`)
+          .then(response => {
+            console.log(response.data.results);
+            setLatestes([
+              ...latestes,
+              response.data.results.map((TweetData: TweetType) => {
+                return (
+                  <Tweet
+                    setLoadAgain={props.setLoadAgain}
+                    loadAgain={props.loadAgain}
+                    key={TweetData.id}
+                    item={TweetData}
+                  />
+                );
+              }),
+            ]);
+            setLatestPage(response.data.next);
+            console.log(tops);
+            setIsLoading(false);
+          })
+          .catch(err => {
+            console.log(err);
+            setIsLoading(false);
+          });
+        break;
+      case 'people':
+        axios
+          .get(`/search/${isChosen}/?page=${peoplePage}&query=${query?.q}`)
+          .then(response => {
+            console.log(response.data.results);
+            setPeople([
+              ...people,
+              response.data.results.map((TweetData: TweetType) => {
+                return (
+                  <Tweet
+                    setLoadAgain={props.setLoadAgain}
+                    loadAgain={props.loadAgain}
+                    key={TweetData.id}
+                    item={TweetData}
+                  />
+                );
+              }),
+            ]);
+            setPeoplePage(response.data.next);
+            console.log(tops);
+            setIsLoading(false);
+          })
+          .catch(err => {
+            console.log(err);
+            setIsLoading(false);
+          });
+        break;
+    }
   };
 
-  const switchToTweetsAndReplies = () => {
-    props.setIsChosen('tweetsandreplies');
-    navigate(`/${params.id}/with_replies`);
-  };
+  useEffect(() => {
+    getSearchData();
+  }, [isChosen, props.loadNext]);
 
-  const switchToMedia = () => {
-    props.setIsChosen('media');
-    navigate(`/${params.id}/media`);
-  };
-  const switchToLikes = () => {
-    props.setIsChosen('likes');
-    navigate(`/${params.id}/likes`);
-  };*/
-
-  return (
-    <div className={styles.SearchPage}>
-      <header className={styles.SearchHeader}>Notifications</header>
-      <div className={styles.Loading}>
-        <h1>No Search</h1>
+  if (isLoading) {
+    return (
+      <div className={styles.SearchPage}>
+        <SearchPageHeader setIsChosen={setIsChosen} isChosen={isChosen} />
+        <div className={styles.Loading}>
+          <h1>Loading...</h1>
+        </div>
       </div>
-      {/*<div className={styles.UserProfileRouterButtonWrapper}>
-        {props.isChosen === 'tweets' ? (
-          <button
-            className={styles.UserProfileRouterButtonClicked}
-            onClick={switchToTweets}
-          >
-            Top
-          </button>
-        ) : (
-          <button
-            className={styles.UserProfileRouterButtonUnclicked}
-            onClick={switchToTweets}
-          >
-            Latest
-          </button>
-        )}
-        {props.isChosen === 'tweetsandreplies' ? (
-          <button
-            className={styles.UserProfileRouterButtonClicked}
-            onClick={switchToTweetsAndReplies}
-          >
-            people
-          </button>
-        ) : (
-          <button
-            className={styles.UserProfileRouterButtonUnclicked}
-            onClick={switchToTweetsAndReplies}
-          >
-            Tweets & Replies
-          </button>
-        )}
-        {props.isChosen === 'media' ? (
-          <button
-            className={styles.UserProfileRouterButtonClicked}
-            onClick={switchToMedia}
-          >
-            Media
-          </button>
-        ) : (
-          <button
-            className={styles.UserProfileRouterButtonUnclicked}
-            onClick={switchToMedia}
-          >
-            Media
-          </button>
-        )}
-        {props.isChosen === 'likes' ? (
-          <button
-            className={styles.UserProfileRouterButtonClicked}
-            onClick={switchToLikes}
-          >
-            Likes
-          </button>
-        ) : (
-          <button
-            className={styles.UserProfileRouterButtonUnclicked}
-            onClick={switchToLikes}
-          >
-            Likes
-          </button>
-        )}
-      </div>*/}
-    </div>
-  );
+    );
+  } else {
+    switch (isChosen) {
+      case 'top':
+        return (
+          <div className={styles.allWrapper}>
+            <div className={styles.SearchPage}>
+              <SearchPageHeader setIsChosen={setIsChosen} isChosen={isChosen} />
+              {tops}
+            </div>
+          </div>
+        );
+        break;
+      case 'latest':
+        return (
+          <div className={styles.SearchPage}>
+            <SearchPageHeader setIsChosen={setIsChosen} isChosen={isChosen} />
+            {latestes}
+          </div>
+        );
+        break;
+      case 'people':
+        return (
+          <div className={styles.SearchPage}>
+            <SearchPageHeader setIsChosen={setIsChosen} isChosen={isChosen} />
+            {people}
+          </div>
+        );
+        break;
+      case 'photos':
+        return (
+          <div className={styles.SearchPage}>
+            <SearchPageHeader setIsChosen={setIsChosen} isChosen={isChosen} />
+          </div>
+        );
+        break;
+      case 'videos':
+        return (
+          <div className={styles.SearchPage}>
+            <SearchPageHeader setIsChosen={setIsChosen} isChosen={isChosen} />
+          </div>
+        );
+        break;
+      default:
+        return <div></div>;
+    }
+  }
 }
 
 export default SearchPage;
