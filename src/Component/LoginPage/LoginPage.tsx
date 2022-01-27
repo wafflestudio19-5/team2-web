@@ -6,10 +6,14 @@ import styles from './LoginPage.module.scss';
 import LoginModal from '../Modal/LoginModal/LoginModal';
 import SignUpModal from '../Modal/SignUpModal/SignUpModal';
 import { KAKAO_AUTH_URL } from '../../Auth/KakaoAuth.js';
+import axios from 'axios';
+import { GOOGLE_AUTH_URL } from '../../Auth/GoogleAuth';
 
 const LoginPage = () => {
   const [loginModalOpen, setLoginIsOpen] = useState(false);
   const [signUpModalOpen, setSignUpModalOpen] = useState(false);
+  const instance = axios.create();
+
   return (
     <div className={styles.LoginPageWrapper}>
       <LoginModal
@@ -32,7 +36,14 @@ const LoginPage = () => {
           <span>오늘 트위터에 가입하세요.</span>
         </div>
         <div className={styles.SignUpWrapper}>
-          <button className={styles.Button}>Google 계정으로 가입하기</button>
+          <button
+            onClick={() => {
+              window.location.href = GOOGLE_AUTH_URL;
+            }}
+            className={styles.Button}
+          >
+            Google 계정으로 가입하기
+          </button>
 
           <button
             onClick={() => {

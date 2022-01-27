@@ -142,7 +142,7 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
             width={45}
             height={45}
             alt="No img"
-            onClick={() => navigate('/home')}
+            onClick={HomeClicked}
           />
         </header>
         <div className={styles.NavigatorWrapper} onClick={HomeClicked}>

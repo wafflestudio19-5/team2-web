@@ -8,7 +8,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import Follower from '../../../Reused/Follower/Follower';
 
-interface User {
+export interface User {
   id: string;
   username: string;
   user_id: string;

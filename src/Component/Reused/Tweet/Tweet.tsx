@@ -15,6 +15,7 @@ import 'react-dropdown/style.css';
 import RetweetButtons from '../ButtonGroup/RetweetButtons';
 import ReplyTweetModal from '../../Modal/ReplyModalTweet/ReplyTweetModal';
 import MoreButtons from '../ButtonGroup/MoreButtons';
+import { useUserContext } from '../../../UserContext';
 
 export interface UserData {
   username: string;
@@ -29,6 +30,26 @@ export interface UserData {
   profile_img: string;
   header_img: string;
   i_follow: boolean;
+}
+
+export interface TweetType {
+  id: number;
+  tweet_type: string;
+  author: {
+    username: string;
+    user_id: string;
+    profile_img: string;
+  };
+  retweeting_user: string;
+  reply_to: string;
+  content: string;
+  media: string[];
+  written_at: string;
+  replies: number;
+  retweets: number;
+  likes: number;
+  user_like: boolean;
+  user_retweet: boolean;
 }
 
 export interface TweetData {
@@ -76,10 +97,12 @@ const Tweet = ({
   item,
   setLoadAgain,
   loadAgain,
-}: {
+}: //isClicked
+{
   loadAgain: boolean;
   setLoadAgain: (boolean: boolean) => void;
   item: TweetData['TweetType'];
+  //isClicked: boolean;
 }): JSX.Element => {
   const navigate = useNavigate();
   const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);
@@ -90,6 +113,7 @@ const Tweet = ({
   const [display, setDisplay] = useState<string>('none');
   const [moreDisplay, setMoreDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
+  const userContext = useUserContext();
   const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
     setReplyModalIsOpen(true);
@@ -261,7 +285,7 @@ const Tweet = ({
   };
 
   return (
-    <>
+    <div>
       <ReplyTweetModal
         isTweetModalOpen={replyModalIsOpen}
         setIsTweetModalOpen={setReplyModalIsOpen}
@@ -270,7 +294,7 @@ const Tweet = ({
         setLoadAgain={setLoadAgain}
       />
       <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
-        {retweet ? (
+        {item.retweeting_user !== '' ? (
           <div className={styles.topAllWrapper}>
             <div className={styles.retweetedWrapper}>
               <img
@@ -278,7 +302,13 @@ const Tweet = ({
                 src={retweetTopImage}
                 alt={retweetTopImage}
               />
-              <div className={styles.retweetedText}>Retweeted</div>
+              {item.retweeting_user === userContext.nowUserID ? (
+                <div className={styles.retweetedText}>You Retweeted</div>
+              ) : (
+                <div
+                  className={styles.retweetedText}
+                >{`${item.retweeting_user} Retweeted`}</div> // retweeting_username 추가되면 그걸로 수정
+              )}
             </div>
           </div>
         ) : null}
@@ -400,7 +430,7 @@ const Tweet = ({
           </div>
         </div>
       </li>
-    </>
+    </div>
   );
 };
 export default Tweet;

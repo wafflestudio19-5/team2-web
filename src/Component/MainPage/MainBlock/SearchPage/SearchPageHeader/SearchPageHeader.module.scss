@@ -1,0 +1,141 @@
+$grey: rgb(239, 243, 244);
+.SearchPageHeader {
+  position: sticky;
+  top: 0;
+  height: auto;
+  min-height: 113px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  opacity: 0.95;
+  z-index: 1;
+  font-weight: normal;
+  font-size: 13px;
+  text-indent: 20px;
+
+  border-bottom: 1px solid rgb(236, 236, 236);
+
+}
+.SearchPageHeaderUp {
+  position: sticky;
+  top: 0;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(236, 236, 236);
+  background-color: white;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.SearchPageHeaderButton {
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  padding: 6px;
+  margin-right: 17px;
+  margin-left: 7px;
+  &:hover {
+    cursor: pointer;
+    background-color: #e6e7e7;
+  }
+}
+
+
+.SearchPageRouterButtonWrapper {
+  width: 100%;
+  height: 55px;
+  display: flex;
+
+  border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.SearchPageRouterButtonUnclicked {
+  width: 20%;
+  height: 100%;
+  border: 0;
+  background-color: white;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #546572;
+  &:hover {
+    cursor: pointer;
+    background-color: #e6e7e7;
+  }
+}
+
+.SearchPageRouterButtonClicked {
+  width: 20%;
+  height: 100%;
+  border: 0;
+  border-bottom: 2px solid #1d9bf0;
+  background-color: white;
+  font-size: 15px;
+  font-weight: bolder;
+  &:hover {
+    cursor: pointer;
+    background-color: #e6e7e7;
+  }
+}
+
+
+.SearchWrapper {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 45px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+}
+
+.SearchLabel {
+  border: none;
+  background-color: $grey;
+  position: sticky;
+  width: 95%;
+  height: 44.4px;
+  display: flex;
+  border-radius: 9999px;
+
+  &:focus-within::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    outline: #00b7ff 1px solid;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.MagnifierWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.SearchInput {
+  width: calc(100% - 40px);
+  height: 100%;
+  font-size: 16px;
+  align-items: center;
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  line-height: 50px;
+  z-index: -1;
+}
