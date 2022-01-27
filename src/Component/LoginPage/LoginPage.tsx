@@ -7,10 +7,13 @@ import LoginModal from '../Modal/LoginModal/LoginModal';
 import SignUpModal from '../Modal/SignUpModal/SignUpModal';
 import { KAKAO_AUTH_URL } from '../../Auth/KakaoAuth.js';
 import axios from 'axios';
+import { GOOGLE_AUTH_URL } from '../../Auth/GoogleAuth';
 
 const LoginPage = () => {
   const [loginModalOpen, setLoginIsOpen] = useState(false);
   const [signUpModalOpen, setSignUpModalOpen] = useState(false);
+  const instance = axios.create();
+
   return (
     <div className={styles.LoginPageWrapper}>
       <LoginModal
@@ -35,7 +38,7 @@ const LoginPage = () => {
         <div className={styles.SignUpWrapper}>
           <button
             onClick={() => {
-              axios.get('/google/signup/');
+              window.location.href = GOOGLE_AUTH_URL;
             }}
             className={styles.Button}
           >

@@ -97,10 +97,12 @@ const Tweet = ({
   item,
   setLoadAgain,
   loadAgain,
-}: {
+}: //isClicked
+{
   loadAgain: boolean;
   setLoadAgain: (boolean: boolean) => void;
   item: TweetData['TweetType'];
+  //isClicked: boolean;
 }): JSX.Element => {
   const navigate = useNavigate();
   const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);

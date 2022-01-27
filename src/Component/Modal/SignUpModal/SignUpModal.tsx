@@ -167,6 +167,7 @@ function SignUpModal(props: props) {
               name={'birth_date'}
               className={styles.BirthdayInput}
               type="date"
+              max="9999-12-31"
             />
           </div>
 
