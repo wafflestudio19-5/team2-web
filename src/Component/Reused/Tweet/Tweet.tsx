@@ -43,7 +43,7 @@ export interface TweetData {
     retweeting_user: string;
     reply_to: string;
     content: string;
-    media: string[];
+    media: { media: string }[];
     written_at: string;
     replies: number;
     retweets: number;
@@ -62,7 +62,7 @@ export interface TweetData {
     retweeting_user: string;
     reply_to: string;
     content: string;
-    media: string[];
+    media: { media: string }[];
     written_at: string;
     replies: number;
     retweets: number;
@@ -268,7 +268,6 @@ const Tweet = ({
         item={item}
         loadAgain={loadAgain}
         setLoadAgain={setLoadAgain}
-        
       />
       <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
         {retweet ? (
@@ -333,12 +332,12 @@ const Tweet = ({
             </div>
             <div className={styles.middleWrapper}>
               <div className={styles.mainText}>{item.content}</div>
-              {item.media.map(imgUrl => {
+              {item.media.map(mediaObject => {
                 return (
                   <img
                     key={Math.random()}
                     className={styles.mainImg}
-                    src={imgUrl}
+                    src={mediaObject.media}
                     alt="게시글 이미지 입니다."
                   />
                 );

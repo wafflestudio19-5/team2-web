@@ -3,78 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import Tweet, { TweetData, UserData } from '../../../Reused/Tweet/Tweet';
 import pictureDisabled from '../../../../Images/PictureDisabled.svg';
 import picture from '../../../../Images/Picture.svg';
+import defaultProfileImage from '../../../../Images/defaultProfileImage.jpeg';
 import X from '../../../../Images/X.svg';
 import styles from './HomePage.module.scss';
-
-const dummyData = [
-  {
-    id: 1,
-    tweet_type: 'GENERAL',
-    author: {
-      username: '감자튀김',
-      user_id: 'FrenchFries',
-      profile_img:
-        'https://img.sbs.co.kr/newsnet/etv/upload/2014/12/11/30000443115_700.jpg',
-    },
-    retweeting_user: '10',
-    reply_to: '100',
-    written_at: '2022-07-08T09:21:27.488585Z',
-    content:
-      '감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아.감.자.튀.김.조.아',
-    media: [
-      'http://www.dailygaewon.com/news/photo/201906/4510_5372_5434.JPG',
-      'https://src.hidoc.co.kr/image/lib/2019/3/21/20190321174958927_0.jpg',
-    ],
-    replies: 5,
-    retweets: 6,
-    likes: 1000,
-    user_like: false,
-    user_retweet: false,
-  },
-  {
-    id: 2,
-    tweet_type: 'GENERAL',
-    author: {
-      username: '징버거',
-      user_id: 'JingBurger',
-      profile_img:
-        'https://w.namu.la/s/ec5be7fbad71fb5dfc41fb21f5eae44f43ab629b0a5f8629d0c57f56a64ea35bdff4fe23ad35ff158fff1e672efc44565ee9ac9195050491411b0a982a8dea985e9bb3d80a1c93e0e99af626eaa3f3e793d111c28106a94cc96dcbd44459a638',
-    },
-    retweeting_user: '10',
-    reply_to: '100',
-    written_at: '2022-07-08T09:21:27.488585Z',
-    content:
-      '안녕하세요~ 징~버거입니다~ 해냈다~ 해냈어~ 버거가 해냈어~ 징버거! 해냈다~ 해냈어~ 버거가 해냈어~ 징버거!해냈다~ 해냈어~ 버거가 해냈어~ 징버거!',
-    media: [
-      'https://w.namu.la/s/82db436174608ea71ccd15413a8307e01043e361ec2255cd7589aa736321cd49c3908d06726749612d942c807b265ee737013cf6ecbe722063695a84507acc93d8fd48a04f61eeda3d13d039dd38ec134259c039ca2872e7f5557e19cc27a088',
-    ],
-    replies: 5,
-    retweets: 6,
-    likes: 1032100,
-    user_like: false,
-    user_retweet: false,
-  },
-  {
-    id: 3,
-    tweet_type: 'GENERAL',
-    author: {
-      username: '이재민',
-      user_id: 'JaeminLee',
-      profile_img:
-        'https://cdn.kado.net/news/photo/201911/996781_433270_1949.jpg',
-    },
-    retweeting_user: '10',
-    reply_to: '100',
-    written_at: '2022-07-08T09:21:27.488585Z',
-    content: '#안녕하세요 #소통해요 #북평고등학교 #화이팅',
-    media: ['https://cdn.kado.net/news/photo/201911/996781_433270_1949.jpg'],
-    replies: 17,
-    retweets: 63,
-    likes: 0,
-    user_like: false,
-    user_retweet: false,
-  },
-];
+import CropImageModal from '../../../Modal/TweetModal/CropImageModal/CropImageModal';
+import { MoonLoader } from 'react-spinners';
 
 interface Data {
   name: string;
@@ -101,7 +34,7 @@ interface HomeTweetsData {
     retweeting_user: string;
     reply_to: string;
     content: string;
-    media: string[];
+    media: { media: string }[];
     written_at: string;
     replies: number;
     retweets: number;
@@ -129,7 +62,7 @@ interface HomeTweetData {
   retweeting_user: string;
   reply_to: string;
   content: string;
-  media: string[];
+  media: { media: string }[];
   written_at: string;
   replies: number;
   retweets: number;
@@ -146,9 +79,10 @@ interface Props {
   loadNext: boolean;
 }
 const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const [profileImageUrl, setProfileImageUrl] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [profileImageUrl, setProfileImageUrl] =
+    useState<string>(defaultProfileImage);
   const [isEditImageModalOpen, setIsEditImageModalOpen] =
     useState<boolean>(false);
   const [typedText, setTypedText] = useState<string>('');
@@ -189,22 +123,22 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
   };
 
   const updateHomeTweet = async () => {
-      await axios
-        .get(`/home/?page=1`)
-        .then(response => {
-          if (homeTweetData !== undefined) {
-            setHomeTweetData(response.data.tweets.slice(0, 10));
-            setPage(response.data.tweets[response.data.tweets.length - 1].next);
-            console.log(page);
-          }
-          setProfileImageUrl(response.data.user.profile_img);
-          console.log(response.data.tweets);
-          setIsLoading(false);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    };
+    await axios
+      .get(`/home/?page=1`)
+      .then(response => {
+        if (homeTweetData !== undefined) {
+          setHomeTweetData(response.data.tweets.slice(0, 10));
+          setPage(response.data.tweets[response.data.tweets.length - 1].next);
+          console.log(page);
+        }
+        setProfileImageUrl(response.data.user.profile_img);
+        console.log(response.data.tweets);
+        setIsLoading(false);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   const [homeTweetData, setHomeTweetData] = useState<HomeTweetsData['tweets']>(
     [],
@@ -258,29 +192,14 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
     setAddImageCount(addImageCount - 1);
   };
 
-  /*const submitTweet = async () => {
-    try {
-      const formdata = new FormData();
-      imageFileList.map(item => {
-        formdata.append(`media`, item);
-      });
+  const clearTweetBox = () => {
+    setIsEditImageModalOpen(false);
+    setTypedText('');
+    setImageFileList([]);
+    setImageUrlList([]);
+    setAddImageCount(0);
+  };
 
-      const config: AxiosRequestConfig = {
-        headers: {
-          'content-type': 'multipart/form-data',
-        },
-      };
-      const submitData = {
-        content: typedText,
-        media: formdata,
-      };
-      const response = await axios.post('/tweet/', submitData, config);
-      setLoadAgain(!loadAgain);
-      console.log(response);
-    } catch (e) {
-      console.log(e);
-    }
-  };*/
   const submitTweet = async () => {
     try {
       const submitDataFormdata = new FormData();
@@ -293,29 +212,27 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
         },
       };
       submitDataFormdata.append('content', typedText);
-      const response = await axios.post('/tweet/', submitDataFormdata);
+      const response = await axios.post('/tweet/', submitDataFormdata, config);
       setLoadAgain(!loadAgain);
-      setProfileImageUrl('');
-      setIsEditImageModalOpen(false);
-      setTypedText('');
-      setImageFileList([]);
-      setImageUrlList([]);
-      setAddImageCount(0);
+      clearTweetBox();
       console.log(response);
     } catch (e) {
       console.log(e);
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className={styles.Loading}>
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
   return (
     <div className={styles.HomePageWrapper}>
+      <CropImageModal
+        isOpen={isEditImageModalOpen}
+        setIsOpen={setIsEditImageModalOpen}
+        imageFileList={imageFileList}
+        setImageFileList={setImageFileList}
+        imageUrlList={imageUrlList}
+        setImageUrlList={setImageUrlList}
+        addImageCount={addImageCount}
+        deleteThisImage={deleteThisImage}
+      />
       <header className={styles.HomeHeader}>Home</header>
       <div className={styles.homeTweetWriteWrapper}>
         <div className={styles.contentWrapper}>
@@ -425,31 +342,37 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
           </div>
         </div>
       </div>
-      <div className={styles.HomePage}>
-        <ul className={styles.tweetsItems}>
-          {homeTweetData ? (
-            homeTweetData.map(item => (
-              <div>
-                {item.author ? (
-                  <Tweet
-                    setLoadAgain={setLoadAgain}
-                    loadAgain={loadAgain}
-                    key={item.id}
-                    item={item}
-                  />
-                ) : null}
-              </div>
-            ))
-          ) : (
-            <div>null</div>
-          )}
-        </ul>
-        <div className={styles.Footer}>
-          [Waffle Studio 19.5 rookies | Team 2]
-          <br />
-          FrontEnd: 이승엽, 이하동, 이재민 / BackEnd: 전형민, 이서영, 고계훈
+      {isLoading ? (
+        <div className={styles.loadingWrapper}>
+          <MoonLoader color="#1c9bf0" size="40" speedMultiplier={1} />
         </div>
-      </div>
+      ) : (
+        <div className={styles.HomePage}>
+          <ul className={styles.tweetsItems}>
+            {homeTweetData ? (
+              homeTweetData.map(item => (
+                <div>
+                  {item.author ? (
+                    <Tweet
+                      setLoadAgain={setLoadAgain}
+                      loadAgain={loadAgain}
+                      key={item.id}
+                      item={item}
+                    />
+                  ) : null}
+                </div>
+              ))
+            ) : (
+              <div>null</div>
+            )}
+          </ul>
+          <div className={styles.Footer}>
+            [Waffle Studio 19.5 rookies | Team 2]
+            <br />
+            FrontEnd: 이승엽, 이하동, 이재민 / BackEnd: 전형민, 이서영, 고계훈
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -20,7 +20,7 @@ interface TweetType {
   retweeting_user: string;
   reply_to: string;
   content: string;
-  media: string[];
+  media: { media: string }[];
   written_at: string;
   replies: number;
   retweets: number;
@@ -57,7 +57,7 @@ const ReplyTweetModal = ({
   const loadImageDate = async () => {
     try {
       const response = await axios.get(
-        `/user/${userContext.nowUserID}/profile/`,
+        `/user/${userContext?.userData.userID}/profile/`,
       );
       setProfileImageUrl(response.data.profile_img);
     } catch (e) {

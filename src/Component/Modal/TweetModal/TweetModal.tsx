@@ -34,7 +34,7 @@ const TweetModal = ({
   const loadImageDate = async () => {
     try {
       const response = await axios.get(
-        `/user/${userContext.nowUserID}/profile/`,
+        `/user/${userContext?.userData.userID}/profile/`,
       );
       setProfileImageUrl(response.data.profile_img);
     } catch (e) {
@@ -106,7 +106,7 @@ const TweetModal = ({
         },
       };
       submitDataFormdata.append('content', typedText);
-      const response = await axios.post('/tweet/', submitDataFormdata);
+      const response = await axios.post('/tweet/', submitDataFormdata, config);
       setLoadAgain(!loadAgain);
       handleExitOnClick();
       console.log(response);
@@ -125,6 +125,7 @@ const TweetModal = ({
         imageUrlList={imageUrlList}
         setImageUrlList={setImageUrlList}
         addImageCount={addImageCount}
+        deleteThisImage={deleteThisImage}
       />
       <Modal
         isOpen={isTweetModalOpen}
