@@ -27,13 +27,13 @@ function UserProfile(props: {
   const navigate = useNavigate();
   const params = useParams();
   const [following, setFollowing] = useState(false);
+  const [iFollow, setIFollow] = useState(false);
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] =
     useState<boolean>(false);
 
   useEffect(() => {
     setFollowing(props.userData.i_follow);
   }, []);
-
   const [isUnfollowModalOpen, setIsUnfollowModalOpen] =
     useState<boolean>(false);
   const [isEditIDModalOpen, setIsEditIDModalOpen] = useState<boolean>(false);
@@ -76,6 +76,7 @@ function UserProfile(props: {
         setIsOpen={setIsEditProfileModalOpen}
       />
       <UnfollowModal
+        //setIFollow={setIFollow}
         user_id={props.userData.user_id}
         setIsOpen={setIsUnfollowModalOpen}
         isOpen={isUnfollowModalOpen}

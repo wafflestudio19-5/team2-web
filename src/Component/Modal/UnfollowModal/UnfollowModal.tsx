@@ -9,6 +9,7 @@ interface UnfollowModalProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
   setFollowing: (value: boolean) => void;
+  //setIFollow: (value: boolean) => void;
   user_id: string;
 }
 
@@ -17,7 +18,8 @@ const UnfollowModal = ({
   setIsOpen,
   user_id,
   setFollowing,
-}: UnfollowModalProps) => {
+}: //setIFollow,
+UnfollowModalProps) => {
   const unfollow = () => {
     axios
       .delete('/unfollow/' + user_id)

@@ -14,6 +14,7 @@ interface props {
   bio: string;
   follows_me: boolean;
   i_follow: boolean;
+  isChosen: string;
 }
 
 interface User {
@@ -28,12 +29,13 @@ function Follow(props: props) {
   const userContext = useUserContext();
   const [following, setFollowing] = useState(false);
   const navigate = useNavigate();
-
+  const [iFollow, setIFollow] = useState(false);
   const follow = () => {
     axios
       .post('/follow/', { user_id: props.id })
       .then(() => {
         setFollowing(true);
+        setIFollow(true);
       })
       .catch(() => {
         toast.error('팔로우 요청 실패');
@@ -43,7 +45,11 @@ function Follow(props: props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   useEffect(() => {
     setFollowing(props.i_follow);
+    //setIFollow(props.i_follow);
   }, []);
+  useEffect(() => {
+    setFollowing(props.i_follow);
+  }, [props.isChosen]);
 
   return (
     <div
@@ -53,6 +59,7 @@ function Follow(props: props) {
       className={styles.FollowWrapper}
     >
       <UnfollowModal
+        // setIFollow={setIFollow}
         user_id={props.id}
         setIsOpen={setIsOpen}
         isOpen={isOpen}

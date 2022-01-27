@@ -14,6 +14,7 @@ interface props {
   bio: string;
   follows_me: boolean;
   i_follow: boolean;
+  isChosen: string;
 }
 
 interface User {
@@ -27,6 +28,7 @@ interface User {
 function Follower(props: props) {
   const userContext = useUserContext();
   const [following, setFollowing] = useState<boolean>(true);
+  const [iFollow, setIFollow] = useState(false);
   const navigate = useNavigate();
 
   const follow = () => {
@@ -34,6 +36,7 @@ function Follower(props: props) {
       .post('/follow/', { user_id: props.id })
       .then(() => {
         setFollowing(true);
+        setIFollow(true);
       })
       .catch(() => {
         toast.error('팔로우 요청 실패');
@@ -41,9 +44,14 @@ function Follower(props: props) {
   };
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  useEffect(() => {
+    setFollowing(props.i_follow);
+    //setIFollow(props.i_follow);
+  }, []);
   React.useEffect(() => {
     setFollowing(props.i_follow);
-  }, []);
+    //console.log('팔로워 업뎃');
+  }, [props.isChosen]);
   return (
     <div
       onClick={e => {
@@ -52,6 +60,7 @@ function Follower(props: props) {
       className={styles.FollowWrapper}
     >
       <UnfollowModal
+        //setIFollow={setIFollow}
         user_id={props.id}
         setIsOpen={setIsOpen}
         isOpen={isOpen}

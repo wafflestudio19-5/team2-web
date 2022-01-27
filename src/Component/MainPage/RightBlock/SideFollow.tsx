@@ -48,6 +48,7 @@ function SideFollow(props: props) {
       });
   };
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [iFollow, setIFollow] = useState(false);
   return (
     <div
       onClick={e => {
@@ -56,6 +57,7 @@ function SideFollow(props: props) {
       className={styles.FollowWrapper}
     >
       <UnfollowModal
+        //setIFollow={setIFollow}
         user_id={props.id}
         setIsOpen={setIsOpen}
         isOpen={isOpen}

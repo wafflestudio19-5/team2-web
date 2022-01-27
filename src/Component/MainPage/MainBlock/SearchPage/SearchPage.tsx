@@ -98,6 +98,7 @@ function SearchPage(props: Props) {
                 return (
                   <li style={{ listStyle: 'none' }} key={follow.id}>
                     <Follower
+                      isChosen={isChosen}
                       i_follow={follow.i_follow}
                       bio={follow.bio}
                       img={follow.profile_img}
