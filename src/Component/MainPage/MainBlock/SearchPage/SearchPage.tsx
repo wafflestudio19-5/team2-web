@@ -11,6 +11,8 @@ import queryString from 'query-string';
 import { divide } from 'lodash';
 import Follow from '../../../Reused/Follow/Follow';
 import { TweetData } from '../../../Reused/Tweet/Tweet';
+import Follower from '../../../Reused/Follower/Follower';
+import { User } from '../FollowPage/FollowPage';
 
 interface Props {
   loadAgain: boolean;
@@ -90,22 +92,24 @@ function SearchPage(props: Props) {
         axios
           .get(`/search/${isChosen}/?page=${peoplePage}&query=${query?.q}`)
           .then(response => {
-            console.log(response.data.results);
             setPeople([
               ...people,
-              response.data.results.map((TweetData: TweetType) => {
+              response.data.results.map((follow: User) => {
                 return (
-                  <Tweet
-                    setLoadAgain={props.setLoadAgain}
-                    loadAgain={props.loadAgain}
-                    key={TweetData.id}
-                    item={TweetData}
-                  />
+                  <li style={{ listStyle: 'none' }} key={follow.id}>
+                    <Follower
+                      i_follow={follow.i_follow}
+                      bio={follow.bio}
+                      img={follow.profile_img}
+                      id={follow.user_id}
+                      follows_me={follow.follows_me}
+                      name={follow.username}
+                    />
+                  </li>
                 );
               }),
             ]);
             setPeoplePage(response.data.next);
-            console.log(tops);
           })
           .catch(err => {
             console.log(err);
