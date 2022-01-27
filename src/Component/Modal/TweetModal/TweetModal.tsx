@@ -23,7 +23,6 @@ const TweetModal = ({
 }: TweetModalProps) => {
   const userContext = useUserContext();
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const [profileImageUrl, setProfileImageUrl] = useState<string>('');
   const [isEditImageModalOpen, setIsEditImageModalOpen] =
     useState<boolean>(false);
   const [typedText, setTypedText] = useState<string>('');
@@ -31,19 +30,7 @@ const TweetModal = ({
   const [imageUrlList, setImageUrlList] = useState<string[]>([]);
   const [addImageCount, setAddImageCount] = useState<number>(0);
 
-  const loadImageDate = async () => {
-    try {
-      const response = await axios.get(
-        `/user/${userContext?.userData.userID}/profile/`,
-      );
-      setProfileImageUrl(response.data.profile_img);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   const clearModal = () => {
-    setProfileImageUrl('');
     setIsEditImageModalOpen(false);
     setTypedText('');
     setImageFileList([]);
@@ -146,9 +133,6 @@ const TweetModal = ({
           setIsTweetModalOpen(false);
           clearModal();
         }}
-        onAfterOpen={() => {
-          loadImageDate();
-        }}
         onAfterClose={() => {
           clearModal();
         }}
@@ -168,7 +152,7 @@ const TweetModal = ({
             <div className={styles.contentLeftSide}>
               <img
                 className={styles.profileImage}
-                src={profileImageUrl}
+                src={userContext?.userData.profileImageURL}
                 alt={'profile Image'}
               />
             </div>

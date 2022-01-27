@@ -9,7 +9,8 @@ import { ReactComponent as HeartFulfilled } from '../../../../Images/heartFulfil
 import { ReactComponent as RetweetIcon } from '../../../../Images/retweet.svg';
 import { ReactComponent as ShareIcon } from '../../../../Images/share.svg';
 import styles from './TweetPage.module.scss';
-import Tweet, {TweetData} from '../../../Reused/Tweet/Tweet';
+import Tweet, { TweetData } from '../../../Reused/Tweet/Tweet';
+import { MoonLoader } from 'react-spinners';
 
 interface dataType {
   author: {
@@ -23,9 +24,7 @@ interface dataType {
   likes: number;
 }
 
-interface Props {
-
-}
+interface Props {}
 
 function TweetPage({
   setLoadAgain,
@@ -40,6 +39,7 @@ function TweetPage({
   const [liked, setLiked] = useState(false);
   const [likeNumber, setLikeNumber] = useState<number>(0);
   const [replyTweet, setReplyTweet] = useState<TweetData['TweetsType']>([]);
+  const [isLodaing, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     loadThread();
@@ -52,8 +52,7 @@ function TweetPage({
       setLiked(response.data.user_like);
       setLikeNumber(response.data.likes);
       setReplyTweet(response.data.replying_tweets);
-      console.log(response.data.replying_tweets);
-      console.log(response.data);
+      setIsLoading(false);
     } catch (e) {
       console.log(e);
     }
@@ -71,95 +70,108 @@ function TweetPage({
         </button>
         <div>Thread</div>
       </header>
-      <div className={styles.TweetBody}>
-        <div className={styles.authorTweetWrapper}>
-          <div className={styles.topWrapper}>
-            <img
-              className={styles.profileImage}
-              src={data?.author.profile_img}
-              alt="Author Profile Image"
-              onClick={()=>navigate(`/${data?.author.user_id}`)}
-            />
-            <div className={styles.topTextWrapper} onClick={()=>navigate(`/${data?.author.user_id}`)}>
-              <div className={styles.topNameText}>{data?.author.username}</div>
-              <div className={styles.topIdText}>@{data?.author.user_id}</div>
-            </div>
+      {isLodaing ? (
+        <div className={styles.loadingWrapper}>
+          <div className={styles.loadingInsideWrapper}>
+            <MoonLoader color="#1c9bf0" size="40" speedMultiplier={1} />
           </div>
-          <div className={styles.middleWrapper}>
-            <div className={styles.contentWrapper}>{data?.content}</div>
-            <div className={styles.mediaWrapper}>
-              {data?.media.map(item => {
-                <img
-                  className={styles.mediaImages}
-                  src={item}
-                  alt="media item"
-                />;
-              })}
-            </div>
-            <div className={styles.informationWrapper}>
-              <div className={styles.informationText}>
-                {dayjs(data?.written_at).format('h:m A · MMM D, YYYY')}
-              </div>
-              {likeNumber === 0 ? null : likeNumber === 1 ? (
-                <div className={styles.likesNumberText}>
-                  {likeNumber} <div className={styles.likesText}>like</div>
+        </div>
+      ) : (
+        <div className={styles.TweetBody}>
+          <div className={styles.authorTweetWrapper}>
+            <div className={styles.topWrapper}>
+              <img
+                className={styles.profileImage}
+                src={data?.author.profile_img}
+                alt="Author Profile Image"
+                onClick={() => navigate(`/${data?.author.user_id}`)}
+              />
+              <div
+                className={styles.topTextWrapper}
+                onClick={() => navigate(`/${data?.author.user_id}`)}
+              >
+                <div className={styles.topNameText}>
+                  {data?.author.username}
                 </div>
+                <div className={styles.topIdText}>@{data?.author.user_id}</div>
+              </div>
+            </div>
+            <div className={styles.middleWrapper}>
+              <div className={styles.contentWrapper}>{data?.content}</div>
+              <div className={styles.mediaWrapper}>
+                {data?.media.map(item => {
+                  <img
+                    className={styles.mediaImages}
+                    src={item}
+                    alt="media item"
+                  />;
+                })}
+              </div>
+              <div className={styles.informationWrapper}>
+                <div className={styles.informationText}>
+                  {dayjs(data?.written_at).format('h:m A · MMM D, YYYY')}
+                </div>
+                {likeNumber === 0 ? null : likeNumber === 1 ? (
+                  <div className={styles.likesNumberText}>
+                    {likeNumber} <div className={styles.likesText}>like</div>
+                  </div>
+                ) : (
+                  <div className={styles.likesNumberText}>
+                    {likeNumber} <div className={styles.likesText}>likes</div>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className={styles.bottomWrapper}>
+              <button className={styles.commentButton}>
+                <CommentIcon className={styles.commentImg} />
+              </button>
+
+              <button className={styles.retweetButton}>
+                <RetweetIcon className={styles.retweetImg} />
+              </button>
+              {!liked ? (
+                <button //하트 안차있는 ver.
+                  className={styles.likeButton}
+                >
+                  <HeartUnfilled className={styles.likeImg} />
+                </button>
               ) : (
-                <div className={styles.likesNumberText}>
-                  {likeNumber} <div className={styles.likesText}>likes</div>
-                </div>
+                <button //하트 차있는 ver.
+                  className={styles.heartFilledButton}
+                >
+                  <HeartFulfilled className={styles.heartFilled} />
+                </button>
               )}
+
+              <button className={styles.shareButton}>
+                <ShareIcon className={styles.shareImg} />
+              </button>
             </div>
           </div>
-          <div className={styles.bottomWrapper}>
-            <button className={styles.commentButton}>
-              <CommentIcon className={styles.commentImg} />
-            </button>
-
-            <button className={styles.retweetButton}>
-              <RetweetIcon className={styles.retweetImg} />
-            </button>
-            {!liked ? (
-              <button //하트 안차있는 ver.
-                className={styles.likeButton}
-              >
-                <HeartUnfilled className={styles.likeImg} />
-              </button>
-            ) : (
-              <button //하트 차있는 ver.
-                className={styles.heartFilledButton}
-              >
-                <HeartFulfilled className={styles.heartFilled} />
-              </button>
-            )}
-
-            <button className={styles.shareButton}>
-              <ShareIcon className={styles.shareImg} />
-            </button>
+          <div className={styles.tweetsWrapper}>
+            <ul className={styles.tweetsItems}>
+              {replyTweet ? (
+                replyTweet.map(item => (
+                  <div>
+                    {item.author ? (
+                      <Tweet
+                        setLoadAgain={setLoadAgain}
+                        loadAgain={loadAgain}
+                        key={item.id}
+                        item={item}
+                      />
+                    ) : null}
+                  </div>
+                ))
+              ) : (
+                <div>null</div>
+              )}
+            </ul>
           </div>
+          <div className={styles.footerWrapper}>footer</div>
         </div>
-        <div className={styles.tweetsWrapper}>
-        <ul className={styles.tweetsItems}>
-          {replyTweet ? (
-            replyTweet.map(item => (
-              <div>
-                {item.author ? (
-                  <Tweet
-                    setLoadAgain={setLoadAgain}
-                    loadAgain={loadAgain}
-                    key={item.id}
-                    item={item}
-                  />
-                ) : null}
-              </div>
-            ))
-          ) : (
-            <div>null</div>
-          )}
-        </ul>
-        </div>
-        <div className={styles.footerWrapper}>footer</div>
-      </div>
+      )}
     </div>
   );
 }
