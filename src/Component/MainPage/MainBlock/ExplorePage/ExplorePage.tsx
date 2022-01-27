@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './ExplorePage.module.scss';
 function ExplorePage() {
+  const navigate = useNavigate();
   return (
     <div className={styles.ExplorePage}>
       <header className={styles.ExploreHeader}>Explore</header>

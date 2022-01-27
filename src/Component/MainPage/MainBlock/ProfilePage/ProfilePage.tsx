@@ -1,4 +1,4 @@
-import { Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes, useLocation, useParams } from 'react-router-dom';
 import UserProfile from './UserProfile/UserProfile';
 import Tweets from './Tweets/Tweets';
 import TweetsAndReplies from './TweetsAndReplies/TweetsAndReplies';
