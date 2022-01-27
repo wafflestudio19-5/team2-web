@@ -12,7 +12,6 @@ interface Props {
   setLoadAgain: (boolean: boolean) => void;
 }
 
-
 const Tweets = ({ loadNext, userData, setLoadAgain, loadAgain }: Props) => {
   const [page, setPage] = useState<number>(1);
   const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
@@ -61,12 +60,16 @@ const Tweets = ({ loadNext, userData, setLoadAgain, loadAgain }: Props) => {
     <ul className={styles.tweetsItems}>
       {tweetData ? (
         tweetData.map(item =>
-          item.author ? (<Tweet
-                setLoadAgain={setLoadAgain}
-                loadAgain={loadAgain}
-                key={item.id}
-                item={item}
-              />) : <div></div>,
+          item.author ? (
+            <Tweet
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              key={item.id}
+              item={item}
+            />
+          ) : (
+            <div key={'loading'}>loading</div>
+          ),
         )
       ) : (
         <div className={styles.NoTweets}>Not Tweets yet</div>

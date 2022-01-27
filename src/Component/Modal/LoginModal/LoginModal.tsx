@@ -43,7 +43,10 @@ function LoginModal(props: props) {
         localStorage.setItem('user_id', response.data.user_id);
         props.setLoginIsOpen(false);
         networkContext.setToken(response.data.token);
-        userContext.setNowUserID(response.data.user_id);
+        userContext?.setUserData({
+          ...userContext.userData,
+          userID: response.data.user_id,
+        });
         window.location.href = '/';
       })
       .catch(error => {

@@ -89,7 +89,10 @@ function SignUpModal(props: props) {
         networkContext.setToken(response.data.token);
         props.setSignUpIsOpen(false);
         localStorage.setItem('user_id', response.data.user_id);
-        userContext.setNowUserID(response.data.user_id);
+        userContext?.setUserData({
+          ...userContext.userData,
+          userID: response.data.user_id,
+        });
         window.location.href = '/';
       })
       .catch(error => {

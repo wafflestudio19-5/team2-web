@@ -30,20 +30,21 @@
 .NavigatorHeader {
   margin-top: 5px;
   margin-left: 0px;
+  width: 65px;
+  height: 65px;
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
+    border-radius: 100%;
     cursor: pointer;
+    background-color: #e8f5fe;
   }
 }
 
 .NavigatorHeaderImg {
-  border-radius: 100%;
   padding: 10px 10px;
   margin: 5px 0px 0px 0px;
-  &:hover {
-    cursor: pointer;
-    background-color: #e8f5fe;
-  }
 }
 
 .NavigatorButton {
@@ -54,18 +55,25 @@
 }
 
 .NavigatorImg {
-  margin-right: 10px;
-  padding: 2px 4px;
+  padding: 2px 10px;
+  align-self: center;
+  justify-self: center;
 }
 
 .NavigatorText {
   margin-right: 10px;
   padding: 2px 10px;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
 }
 
 .NavigatorTextBolder {
   margin-right: 10px;
   padding: 2px 10px;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
   font-weight: bolder;
 }
 
@@ -190,133 +198,133 @@
   padding: 2px 10px;
 }
 
-@media screen and (max-width: 1200px) {
-  .LeftBlock {
-    height: 695px;
-    width: 150px;
-    position: fixed;
-    display: flex;
-    justify-self: flex-end;
-    flex-direction: column;
-  }
+// @media screen and (max-width: 1200px) {
+//   .LeftBlock {
+//     height: 695px;
+//     width: 150px;
+//     position: fixed;
+//     display: flex;
+//     justify-self: flex-end;
+//     flex-direction: column;
+//   }
 
-  .NavigatorBlock {
-    display: block;
-  }
+//   .NavigatorBlock {
+//     display: block;
+//   }
 
-  .NavigatorHeader {
-    margin-top: 20px;
-    margin-left: 20px;
-    display: inline-flex;
-    justify-content: center;
-    &:hover {
-      cursor: pointer;
-    }
-  }
+//   .NavigatorHeader {
+//     margin-top: 20px;
+//     margin-left: 20px;
+//     display: inline-flex;
+//     justify-content: center;
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
 
-  .NavigatorWrapper {
-    padding: 15px 20px;
-    width: 100%;
-    display: flex;
-    &:hover {
-      cursor: pointer;
-      .NavigatorButton {
-        cursor: pointer;
-        background-color: #e9e9ea;
-      }
-    }
-  }
+//   .NavigatorWrapper {
+//     padding: 15px 20px;
+//     width: 100%;
+//     display: flex;
+//     &:hover {
+//       cursor: pointer;
+//       .NavigatorButton {
+//         cursor: pointer;
+//         background-color: #e9e9ea;
+//       }
+//     }
+//   }
 
-  .NavigatorButton {
-    border-radius: 30px;
-    padding: 5px 0px;
-    font-size: 20px;
-    display: inline-flex;
-  }
+//   .NavigatorButton {
+//     border-radius: 30px;
+//     padding: 5px 0px;
+//     font-size: 20px;
+//     display: inline-flex;
+//   }
 
-  .NavigatorImg {
-    margin-right: 10px;
-    padding: 2px 4px;
-  }
+//   .NavigatorImg {
+//     margin-right: 10px;
+//     padding: 2px 4px;
+//   }
 
-  .NavigatorText {
-    display: none;
-  }
-  .NavigatorTextBolder {
-    display: none;
-  }
+//   .NavigatorText {
+//     display: none;
+//   }
+//   .NavigatorTextBolder {
+//     display: none;
+//   }
 
-  .TweetButton {
-    display: none;
-  }
+//   .TweetButton {
+//     display: none;
+//   }
 
-  .TweetButtonSmall {
-    margin: 40px 21px;
-    opacity: 1;
-  }
+//   .TweetButtonSmall {
+//     margin: 40px 21px;
+//     opacity: 1;
+//   }
 
-  .LogoutModal {
-    border-radius: 10px;
-    bottom: 70px;
-    border: 1px solid black;
-    padding: 20px 0px;
-    background: white;
-    position: fixed;
-    width: 14%;
-    display: flex;
-    justify-content: center;
-    color: red;
-    &:hover {
-      cursor: pointer;
-      background-color: #f7f9f9;
-    }
-  }
+//   .LogoutModal {
+//     border-radius: 10px;
+//     bottom: 70px;
+//     border: 1px solid black;
+//     padding: 20px 0px;
+//     background: white;
+//     position: fixed;
+//     width: 14%;
+//     display: flex;
+//     justify-content: center;
+//     color: red;
+//     &:hover {
+//       cursor: pointer;
+//       background-color: #f7f9f9;
+//     }
+//   }
 
-  .ProfileBlock {
-    border-radius: 60px;
-    bottom: 10px;
-    border: 0;
-    background: white;
-    position: fixed;
-    width: auto;
-    align-items: center;
-    display: flex;
-    &:hover {
-      cursor: pointer;
-      background-color: #e9e9ea;
-    }
-  }
+//   .ProfileBlock {
+//     border-radius: 60px;
+//     bottom: 10px;
+//     border: 0;
+//     background: white;
+//     position: fixed;
+//     width: auto;
+//     align-items: center;
+//     display: flex;
+//     &:hover {
+//       cursor: pointer;
+//       background-color: #e9e9ea;
+//     }
+//   }
 
-  .ProfileWrapper {
-    display: flex;
-    justify-content: flex-start;
-    padding: 5px 10px;
-    width: 100%;
-    position: relative;
-  }
+//   .ProfileWrapper {
+//     display: flex;
+//     justify-content: flex-start;
+//     padding: 5px 10px;
+//     width: 100%;
+//     position: relative;
+//   }
 
-  .ProfileImgWrapper {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 100%;
-    border: 1px black solid;
-  }
+//   .ProfileImgWrapper {
+//     align-items: center;
+//     justify-content: center;
+//     display: flex;
+//     border-radius: 100%;
+//     border: 1px black solid;
+//   }
 
-  .ProfileTextWrapper {
-    display: none;
-  }
+//   .ProfileTextWrapper {
+//     display: none;
+//   }
 
-  .ProfileImg {
-    margin-right: 10px;
-    padding: 2px 4px;
-  }
+//   .ProfileImg {
+//     margin-right: 10px;
+//     padding: 2px 4px;
+//   }
 
-  .ProfileText {
-    display: none;
-  }
+//   .ProfileText {
+//     display: none;
+//   }
 
-  .ProfileImgMore {
-    display: none;
-  }
-}
+//   .ProfileImgMore {
+//     display: none;
+//   }
+// }

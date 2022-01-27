@@ -7,7 +7,7 @@ import ExplorePage from './ExplorePage/ExplorePage';
 import SettingPage from './SettingPage/SettingPage';
 import FollowPage from './FollowPage/FollowPage';
 import TweetPage from './TweetPage/TweetPage';
-import SearchPage from './SearchPage/SearchPage';
+// import SearchPage from './SearchPage/SearchPage';
 
 interface Props {
   loadAgain: boolean;
@@ -30,7 +30,6 @@ const MainBlock = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
           }
         />
         <Route path="/explore" element={<ExplorePage />} />
-
         <Route
           path="/search"
           element={
@@ -53,8 +52,6 @@ const MainBlock = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
               loadNext={loadNext}/>} />
               
         <Route path="notifications/*" element={<Navigate to="/notifications" />} />
-
-
         <Route
           path="/:id/*"
           element={

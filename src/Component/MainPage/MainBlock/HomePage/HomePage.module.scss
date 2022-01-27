@@ -1,21 +1,3 @@
-.Loading {
-  position: absolute;
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.NoTweets {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
 .HomePageWrapper {
   position: absolute;
   border-left: 1px solid rgb(236, 236, 236);
@@ -48,6 +30,15 @@
 .HomePage {
   width: 100%;
   height: calc(100% - 55px);
+}
+
+.loadingWrapper {
+  display: flex;
+  width: 100%;
+  height: 150px;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .tweetsItems {
@@ -100,9 +91,6 @@
 }
 
 .inputWrapper {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 

@@ -184,5 +184,3 @@ function SearchPage(props: Props) {
   }
 
 }
-
-export default SearchPage;

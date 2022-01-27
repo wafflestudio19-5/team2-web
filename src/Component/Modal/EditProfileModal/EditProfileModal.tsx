@@ -8,9 +8,8 @@ import CustomInput from './CustomInput/CustomInput';
 import CustomTextarea from './CustomTextarea/CustomTextarea';
 import Select, { ActionMeta } from 'react-select';
 import CropImageModal from './CropImageModal/CropImageModal';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { useParams } from 'react-router-dom';
-import { useLocation } from 'react-router';
 
 interface Props {
   isOpen: boolean;
@@ -111,7 +110,9 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
   };
 
   useEffect(() => {
-    getProfile();
+    if (isOpen === true) {
+      getProfile();
+    }
   }, [isOpen]);
 
   const loadModalDate = () => {
@@ -133,32 +134,32 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
     setIsBrithDateOnEdit(false);
   };
 
-  const patchProfile = () => {
-    axios
-      .patch(`/user/profile/`, {
-        username: nameValue,
-        profile_img: profileImageFile,
-        header_img: backgroundImageFile,
-        bio: bioValue,
-        birth_date: BirthDateValue(birthDateYear, birthDateMonth, birthDateDay),
-      })
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(err => {
-        console.log(err);
-        console.log({
-          username: nameValue,
-          profile_img: profileImageFile,
-          header_img: backgroundImageFile,
-          bio: bioValue,
-          birth_date: BirthDateValue(
-            birthDateYear,
-            birthDateMonth,
-            birthDateDay,
-          ),
-        });
-      });
+  const patchProfile = async () => {
+    try {
+      const formData = new FormData();
+      formData.append(`usename`, nameValue);
+      // if (profileImageFile !== null) {
+      //   formData.append(`profile_img`, profileImageFile);
+      // }
+      // if (backgroundImageFile !== null) {
+      //   formData.append(`header_img`, backgroundImageFile);
+      // }
+      formData.append(`bio`, bioValue);
+      formData.append(
+        `birth_date`,
+        BirthDateValue(birthDateYear, birthDateMonth, birthDateDay),
+      );
+      const config: AxiosRequestConfig = {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      };
+      console.log(formData.getAll);
+      const response = await axios.patch(`/user/profile/`, formData, config);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleSaveOnClick = () => {

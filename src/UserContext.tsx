@@ -1,35 +1,37 @@
-import {
-  useContext,
-  createContext,
-  useState,
-  Dispatch,
-  useEffect,
-} from 'react';
+import { useContext, createContext, useState } from 'react';
 import React from 'react';
-const userContext = createContext({
-  nowUserID: '',
-  setNowUserID: (state: string) => {},
-  isChange: false,
-  setIsChange: (state: boolean) => {},
-});
+import defualtProfileImage from '../src/Images/defaultProfileImage.jpeg';
+
+interface userDataType {
+  userID: string;
+  profileImageURL: string;
+}
+
+interface contextType {
+  userData: userDataType;
+  setUserData: (props: userDataType) => void;
+  setUserDataDefault: () => void;
+}
+
+const userContext = createContext<contextType | null>(null);
 
 export const UserContextProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [nowUserID, setNowUserID] = useState(localStorage.user_id);
-  const [isChange, setIsChange] = useState(false);
-
+  const [userData, setUserData] = useState<userDataType>({
+    userID: '',
+    profileImageURL: defualtProfileImage,
+  });
+  const setUserDataDefault = () => {
+    setUserData({
+      userID: '',
+      profileImageURL: defualtProfileImage,
+    });
+  };
   return (
-    <userContext.Provider
-      value={{
-        nowUserID,
-        setNowUserID,
-        isChange,
-        setIsChange,
-      }}
-    >
+    <userContext.Provider value={{ userData, setUserData, setUserDataDefault }}>
       {children}
     </userContext.Provider>
   );

@@ -16,6 +16,7 @@ import more from '../../../Images/more.svg';
 import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useUserContext } from '../../../UserContext';
+import defaultProfileImage from '../../../Images/defaultProfileImage.jpeg';
 import axios from 'axios';
 
 interface UserData {
@@ -45,7 +46,7 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
   const [whichNavigatorClicked, setWhichNavigatorClicked] = useState('home');
   const [userData, setUserData] = useState<UserData>({
     username: '',
-    user_id: userContext.nowUserID,
+    user_id: userContext ? userContext.userData.userID : '',
     bio: '',
     created_at: '',
     birth_date: '',
@@ -53,7 +54,9 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
     tweets_num: '',
     following: '',
     follower: '',
-    profile_img: '',
+    profile_img: userContext
+      ? userContext.userData.profileImageURL
+      : defaultProfileImage,
   });
 
   const getUserProfile = async () => {
@@ -91,7 +94,7 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
     localStorage.removeItem('user_id');
     console.log('logout');
     window.location.replace('/');
-    userContext.setNowUserID('undefined');
+    userContext?.setUserDataDefault();
     setIsLogoutModalOpen(false);
   };
 
@@ -100,7 +103,7 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
     localStorage.removeItem('user_id');
     console.log('logout');
     window.location.replace('/');
-    userContext.setNowUserID('undefined');
+    userContext?.setUserDataDefault();
     setIsLogoutModalOpen(false);
   };
 
@@ -120,7 +123,7 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
   };
 
   const ProfileClicked = () => {
-    navigate(`/${userContext.nowUserID}`);
+    navigate(`/${userContext?.userData.userID}`);
     setWhichNavigatorClicked('profile');
   };
 
@@ -288,7 +291,7 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
       {isLogoutModalOpen ? (
         <div className={styles.LogoutModalWrapper}>
           <div className={styles.LogoutModal} onClick={logOut}>
-            Logout {userContext.nowUserID}
+            Logout {userContext?.userData.userID}
           </div>
           {/*<div className={styles.SocialLogoutModal} onClick={SocialLogout}>
             Social Logout {userContext.nowUserID}

@@ -48,10 +48,10 @@ const CropImageModal = ({
   };
 
   const handleBackButtonOnClick = () => {
-    clearModal();
     setImageFile(null);
     setImageFileUrl(null);
     setIsOpen(false);
+    clearModal();
   };
 
   const handleApplyButtonOnClick = async () => {
@@ -67,8 +67,8 @@ const CropImageModal = ({
         });
         setImageFile(croppedImageFile);
         setImageFileUrl(URL.createObjectURL(croppedImageFile));
-        setIsOpen(false);
         clearModal();
+        setIsOpen(false);
       }
     }
   };

@@ -20,6 +20,7 @@ interface Props {
   imageUrlList: string[];
   setImageUrlList: (prop: string[]) => void;
   addImageCount: number;
+  deleteThisImage: (index: number) => void;
 }
 
 interface crop {
@@ -37,6 +38,7 @@ const CropImageModal = ({
   imageUrlList,
   setImageUrlList,
   addImageCount,
+  deleteThisImage,
 }: Props) => {
   const [crop, setCrop] = useState<crop>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState<number>(1);
@@ -55,9 +57,8 @@ const CropImageModal = ({
   };
 
   const handleBackButtonOnClick = () => {
-    // clearModal();
-    // setImageFileList([]);
-    // setImageUrlList([]);
+    clearModal();
+    deleteThisImage(imageUrlList.length - 1);
     setIsOpen(false);
   };
 

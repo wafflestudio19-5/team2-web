@@ -12,7 +12,7 @@ function SettingPage() {
         localStorage.removeItem('JWT');
         localStorage.removeItem('user_id');
         window.location.replace('/');
-        userContext.setNowUserID('undefined');
+        userContext?.setUserDataDefault();
         setDeactivateIsOpen(false);
         toast('회원탈퇴가 성공적으로 이뤄졌습니다.');
       })
@@ -27,7 +27,7 @@ function SettingPage() {
         localStorage.removeItem('JWT');
         localStorage.removeItem('user_id');
         window.location.replace('/');
-        userContext.setNowUserID('undefined');
+        userContext?.setUserDataDefault();
         setSocialDeactivateIsOpen(false);
         toast('회원탈퇴가 성공적으로 이뤄졌습니다.');
       })
@@ -73,7 +73,9 @@ function SettingPage() {
         }}
         isOpen={deactivateIsOpen}
       >
-        <header>Will you Deactivate Account {userContext.nowUserID}?</header>
+        <header>
+          Will you Deactivate Account {userContext?.userData.userID}?
+        </header>
         <br />
         <div>
           계정을 탈퇴하시면 다시 가입하실 수 없습니다. 정말로 탈퇴하시려면
@@ -145,7 +147,7 @@ function SettingPage() {
         className={styles.socialDeactivateModal}
       >
         <header>
-          Will you Deactivate Social Account {userContext.nowUserID}?
+          Will you Deactivate Social Account {userContext?.userData.userID}?
         </header>
         <br />
         <div>
