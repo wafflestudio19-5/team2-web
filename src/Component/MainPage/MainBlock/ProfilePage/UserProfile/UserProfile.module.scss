@@ -162,6 +162,16 @@
   margin-top: 10px;
 }
 
+
+.UserIDWrapper {
+  &:hover {
+    text-decoration: underline #62717d;
+    text-underline-position: under;
+    cursor: pointer;
+  }
+}
+
+
 .UserFollowNumberButton {
   display: flex;
   word-spacing: -1px;

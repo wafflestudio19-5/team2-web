@@ -42,6 +42,42 @@ function SignUpModal(props: props) {
       [e.target.name]: e.target.value,
     });
   };
+  const setPhoneNum = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!/[^0-9-]/.test(e.target.value)) {
+      setUserData({
+        ...userData,
+        [e.target.name]: e.target.value,
+      });
+      if (e.target.value.length === 4) {
+        if (e.target.value[3] === '-') {
+          setUserData({
+            ...userData,
+            [e.target.name]: e.target.value.slice(0, 3),
+          });
+        } else {
+          setUserData({
+            ...userData,
+            [e.target.name]:
+              e.target.value.slice(0, 3) + '-' + e.target.value[3],
+          });
+        }
+      }
+      if (e.target.value.length === 9) {
+        if (e.target.value[8] === '-') {
+          setUserData({
+            ...userData,
+            [e.target.name]: e.target.value.slice(0, 8),
+          });
+        } else {
+          setUserData({
+            ...userData,
+            [e.target.name]:
+              e.target.value.slice(0, 8) + '-' + e.target.value[8],
+          });
+        }
+      }
+    }
+  };
   const onClick = () => {
     axios
       .post<{ success: boolean }>('/signup/', userData, {
@@ -115,8 +151,10 @@ function SignUpModal(props: props) {
               type="text"
             />
             <input
-              onChange={onChange}
+              onChange={emailUse ? onChange : setPhoneNum}
               ref={inputRef}
+              value={emailUse ? userData.email : userData.phone_number}
+              maxLength={emailUse ? 100 : 13}
               className={styles.Input}
               name={emailUse ? 'email' : 'phone_number'}
               placeholder={emailUse ? '이메일' : '휴대폰'}
@@ -167,9 +205,9 @@ function SignUpModal(props: props) {
               name={'birth_date'}
               className={styles.BirthdayInput}
               type="date"
+              max="9999-12-31"
             />
           </div>
-
           <button onClick={onClick} className={styles.BlackButton}>
             다음
           </button>

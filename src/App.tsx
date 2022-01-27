@@ -14,6 +14,7 @@ import axios from 'axios';
 import { useNetworkContext } from './Auth/AuthContext';
 import useEffect from 'react';
 import KakaoAuthRedirect from './Auth/KakaoAuthRedirect';
+import GoogleAuthRedirect from './Auth/GoogleAuthRedirect';
 
 function App() {
   const networkContext = useNetworkContext();
@@ -37,6 +38,10 @@ function App() {
             <Route
               path={'/oauth/callback/kakao'}
               element={<KakaoAuthRedirect />}
+            />
+            <Route
+              path={'/oauth/callback/google'}
+              element={<GoogleAuthRedirect />}
             />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

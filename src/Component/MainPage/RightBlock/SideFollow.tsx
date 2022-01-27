@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { useUserContext } from '../../../UserContext';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
+import UnfollowModal from '../../Modal/UnfollowModal/UnfollowModal';
 
 interface props {
   name: string;
@@ -54,67 +55,12 @@ function SideFollow(props: props) {
       }}
       className={styles.FollowWrapper}
     >
-      <Modal
-        ariaHideApp={false}
-        style={{
-          overlay: {
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 999,
-            backgroundColor: 'rgba(0,0,0,0.1)',
-          },
-          content: {
-            fontWeight: '600',
-            position: 'absolute',
-            top: 'calc(50% - 150px)',
-            left: 'calc(50% - 170px)',
-            right: 'calc(50% - 170px)',
-            bottom: 'calc(50% - 150px)',
-            border: '1px solid #ccc',
-            borderRadius: '20px',
-            background: '#fff',
-            overflow: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            outline: 'none',
-            padding: '20px 30px 20px 30px',
-          },
-        }}
+      <UnfollowModal
+        user_id={props.id}
+        setIsOpen={setIsOpen}
         isOpen={isOpen}
-      >
-        <header> Unfollow @{props.id}? </header>
-        <br />
-        <br />
-        <div>
-          Their Tweets will no longer show up in your home timeline. You can
-          still view their profile, unless their Tweets are protected.
-        </div>
-        <br />
-        <footer>
-          <div>
-            <button
-              onClick={e => {
-                e.stopPropagation();
-                unfollow();
-              }}
-              className={styles.UnfollowButton}
-            >
-              UnFollow
-            </button>
-            <button
-              onClick={e => {
-                e.stopPropagation();
-                setIsOpen(false);
-              }}
-              className={styles.CancelButton}
-            >
-              Cancel
-            </button>
-          </div>
-        </footer>
-      </Modal>
+        setFollowing={setFollowing}
+      />
       <div className={styles.FollowInside}>
         <div className={styles.FollowImg}>
           <span>

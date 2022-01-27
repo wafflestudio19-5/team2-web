@@ -3,9 +3,11 @@ import Magnifier from '../../../Images/magnifier.svg';
 import Setting from '../../../Images/setting.svg';
 import Trend from './Trend';
 import SideFollow from './SideFollow';
-import React, { RefObject, useState } from 'react';
+import React, { RefObject, useRef, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useLocation, useNavigate } from 'react-router-dom';
+import queryString from 'query-string';
 
 interface Props {
   rightRef: RefObject<HTMLDivElement>;
@@ -34,7 +36,10 @@ const RightBlock = ({ rightRef, loadAgain, setLoadAgain }: Props) => {
     { user_id: 'ABC', username: '이하동', profile_img: 'none' },
     { user_id: 'ABC', username: '이하동', profile_img: 'none' },
   ];
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const query = queryString.parse(location.search);
   React.useEffect(() => {
     axios
       .get('/recommend/')
@@ -46,12 +51,23 @@ const RightBlock = ({ rightRef, loadAgain, setLoadAgain }: Props) => {
         setRecommendData(dummyData);
       });
   }, []);
-
+  React.useEffect(() => {
+    if (typeof query.q == 'string') setSearchInput(query.q);
+  }, []);
+  const [searchInput, setSearchInput] = useState<string>('');
   return (
     <div className={styles.RightBlock}>
       <div className={styles.RightInside} ref={rightRef}>
         <div className={styles.SearchWrapper}>
-          <form className={styles.SearchLabel} action="">
+          <form
+            onSubmit={e => {
+              if (inputRef.current?.value === '') {
+                e.preventDefault();
+              } else navigate('/search/');
+            }}
+            className={styles.SearchLabel}
+            action=""
+          >
             <div className={styles.MagnifierWrapper}>
               <img
                 className={styles.Magnifier}
@@ -65,6 +81,12 @@ const RightBlock = ({ rightRef, loadAgain, setLoadAgain }: Props) => {
               className={styles.SearchInput}
               placeholder="Search Twitter"
               type="text"
+              name="q"
+              value={searchInput}
+              ref={inputRef}
+              onChange={e => {
+                setSearchInput(e.target.value);
+              }}
             />
           </form>
         </div>
