@@ -70,29 +70,31 @@ function Follow(props: props) {
               <span className={styles.FollowName}>{props.name}</span>
               <span className={styles.FollowID}>{'@' + props.id}</span>
             </div>
-            <div className={styles.FollowButtonWrapper}>
-              {following ? (
-                <button
-                  onClick={e => {
-                    e.stopPropagation();
-                    setIsOpen(true);
-                  }}
-                  className={styles.FollowingButton}
-                >
-                  Following
-                </button>
-              ) : (
-                <button
-                  onClick={e => {
-                    e.stopPropagation();
-                    follow();
-                  }}
-                  className={styles.FollowButton}
-                >
-                  Follow
-                </button>
-              )}
-            </div>
+            {props.id !== userContext.nowUserID ? (
+              <div className={styles.FollowButtonWrapper}>
+                {following ? (
+                  <button
+                    onClick={e => {
+                      e.stopPropagation();
+                      setIsOpen(true);
+                    }}
+                    className={styles.FollowingButton}
+                  >
+                    Following
+                  </button>
+                ) : (
+                  <button
+                    onClick={e => {
+                      e.stopPropagation();
+                      follow();
+                    }}
+                    className={styles.FollowButton}
+                  >
+                    Follow
+                  </button>
+                )}
+              </div>
+            ) : null}
           </div>
           <div className={styles.BioWrapper}>{props.bio}</div>
         </div>

@@ -170,7 +170,6 @@ function SignUpModal(props: props) {
               max="9999-12-31"
             />
           </div>
-
           <button onClick={onClick} className={styles.BlackButton}>
             다음
           </button>
