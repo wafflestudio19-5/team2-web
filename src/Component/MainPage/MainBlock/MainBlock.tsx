@@ -30,6 +30,7 @@ const MainBlock = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
           }
         />
         <Route path="/explore" element={<ExplorePage />} />
+
         <Route
           path="/search"
           element={
@@ -40,7 +41,20 @@ const MainBlock = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
             />
           }
         />
-        <Route path="/notifications" element={<NotificationsPage />} />
+
+        <Route path="/notifications" element={<NotificationsPage 
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              loadNext={loadNext}/>} />
+
+        <Route path="/notifications/mentions" element={<NotificationsPage 
+              setLoadAgain={setLoadAgain}
+              loadAgain={loadAgain}
+              loadNext={loadNext}/>} />
+              
+        <Route path="notifications/*" element={<Navigate to="/notifications" />} />
+
+
         <Route
           path="/:id/*"
           element={

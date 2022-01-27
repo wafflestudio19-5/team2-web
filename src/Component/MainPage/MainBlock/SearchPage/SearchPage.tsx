@@ -6,6 +6,7 @@ import Tweet, { TweetType } from '../../../Reused/Tweet/Tweet';
 import { useUserContext } from '../../../../UserContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+
 import SearchPageHeader from './SearchPageHeader/SearchPageHeader';
 import queryString from 'query-string';
 import { divide } from 'lodash';
@@ -182,6 +183,7 @@ function SearchPage(props: Props) {
         return <div></div>;
     }
   }
+
 }
 
 export default SearchPage;
