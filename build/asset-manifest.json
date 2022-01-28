@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.f2bdbf02.chunk.css",
-    "main.js": "/static/js/main.f8aab96f.chunk.js",
+    "main.css": "/static/css/main.64e8af12.chunk.css",
+    "main.js": "/static/js/main.0928e434.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.90993f3d.js",
     "static/css/2.41577412.chunk.css": "/static/css/2.41577412.chunk.css",
-    "static/js/2.fbcd44a9.chunk.js": "/static/js/2.fbcd44a9.chunk.js",
+    "static/js/2.8750f639.chunk.js": "/static/js/2.8750f639.chunk.js",
     "static/js/3.0d8b0cde.chunk.js": "/static/js/3.0d8b0cde.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.fbcd44a9.chunk.js.LICENSE.txt": "/static/js/2.fbcd44a9.chunk.js.LICENSE.txt",
+    "static/js/2.8750f639.chunk.js.LICENSE.txt": "/static/js/2.8750f639.chunk.js.LICENSE.txt",
     "static/media/LoginBackground.cde2abfb.png": "/static/media/LoginBackground.cde2abfb.png",
     "static/media/Logo blue.33f1fdd4.svg": "/static/media/Logo blue.33f1fdd4.svg",
     "static/media/Picture.70ca7361.svg": "/static/media/Picture.70ca7361.svg",
@@ -48,8 +48,8 @@
   "entrypoints": [
     "static/js/runtime-main.90993f3d.js",
     "static/css/2.41577412.chunk.css",
-    "static/js/2.fbcd44a9.chunk.js",
-    "static/css/main.f2bdbf02.chunk.css",
-    "static/js/main.f8aab96f.chunk.js"
+    "static/js/2.8750f639.chunk.js",
+    "static/css/main.64e8af12.chunk.css",
+    "static/js/main.0928e434.chunk.js"
   ]
 }
