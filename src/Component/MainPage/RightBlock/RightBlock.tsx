@@ -100,11 +100,11 @@ const RightBlock = ({ rightRef, loadAgain, setLoadAgain }: Props) => {
                 </div>
               </span>
             </div>
-            <Trend text={'Trend1'}></Trend>
-            <Trend text={'Trend2'}></Trend>
-            <Trend text={'Trend3'}></Trend>
-            <Trend text={'Trend4'}></Trend>
-            <Trend text={'Trend5'}></Trend>
+            <Trend text={'서울대학교'}></Trend>
+            <Trend text={'와플'}></Trend>
+            <Trend text={'React'}></Trend>
+            <Trend text={'django'}></Trend>
+            <Trend text={'경남 하동군'}></Trend>
 
             <button className={styles.TrendFooter}>
               <span className={styles.TrendFooterText}>Show more</span>
