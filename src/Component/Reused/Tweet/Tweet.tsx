@@ -362,16 +362,18 @@ const Tweet = ({
             </div>
             <div className={styles.middleWrapper}>
               <div className={styles.mainText}>{item.content}</div>
-              {item.media.map(mediaObject => {
-                return (
-                  <img
-                    key={Math.random()}
-                    className={styles.mainImg}
-                    src={mediaObject.media}
-                    alt="게시글 이미지 입니다."
-                  />
-                );
-              })}
+              {item.media
+                ? item.media.map(mediaObject => {
+                    return (
+                      <img
+                        key={Math.random()}
+                        className={styles.mainImg}
+                        src={mediaObject.media}
+                        alt="게시글 이미지 입니다."
+                      />
+                    );
+                  })
+                : null}
             </div>
             <div className={styles.bottomWrapper}>
               <div className={styles.buttonWrapper}>
