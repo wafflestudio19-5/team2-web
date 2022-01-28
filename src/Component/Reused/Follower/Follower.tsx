@@ -69,7 +69,7 @@ function Follower(props: props) {
               <span className={styles.FollowName}>{props.name}</span>
               <span className={styles.FollowID}>{'@' + props.id}</span>
             </div>
-            {props.id !== userContext.nowUserID ? (
+            {props.id !== userContext?.userData.userID ? (
               <div className={styles.FollowButtonWrapper}>
                 {following ? (
                   <button

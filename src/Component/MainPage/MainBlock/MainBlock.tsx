@@ -7,7 +7,7 @@ import ExplorePage from './ExplorePage/ExplorePage';
 import SettingPage from './SettingPage/SettingPage';
 import FollowPage from './FollowPage/FollowPage';
 import TweetPage from './TweetPage/TweetPage';
-// import SearchPage from './SearchPage/SearchPage';
+import SearchPage from './SearchPage/SearchPage';
 
 interface Props {
   loadAgain: boolean;
@@ -41,17 +41,32 @@ const MainBlock = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
           }
         />
 
-        <Route path="/notifications" element={<NotificationsPage 
+        <Route
+          path="/notifications"
+          element={
+            <NotificationsPage
               setLoadAgain={setLoadAgain}
               loadAgain={loadAgain}
-              loadNext={loadNext}/>} />
+              loadNext={loadNext}
+            />
+          }
+        />
 
-        <Route path="/notifications/mentions" element={<NotificationsPage 
+        <Route
+          path="/notifications/mentions"
+          element={
+            <NotificationsPage
               setLoadAgain={setLoadAgain}
               loadAgain={loadAgain}
-              loadNext={loadNext}/>} />
-              
-        <Route path="notifications/*" element={<Navigate to="/notifications" />} />
+              loadNext={loadNext}
+            />
+          }
+        />
+
+        <Route
+          path="notifications/*"
+          element={<Navigate to="/notifications" />}
+        />
         <Route
           path="/:id/*"
           element={

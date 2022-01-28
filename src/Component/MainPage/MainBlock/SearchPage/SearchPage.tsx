@@ -46,7 +46,7 @@ function SearchPage(props: Props) {
             console.log(response.data.results);
             setTops([
               ...tops,
-              response.data.results.map((TweetData: TweetType) => {
+              response.data.results.map((TweetData: TweetData['TweetType']) => {
                 return (
                   <Tweet
                     setLoadAgain={props.setLoadAgain}
@@ -71,7 +71,7 @@ function SearchPage(props: Props) {
             console.log(response.data.results);
             setLatestes([
               ...latestes,
-              response.data.results.map((TweetData: TweetType) => {
+              response.data.results.map((TweetData: TweetData['TweetType']) => {
                 return (
                   <Tweet
                     setLoadAgain={props.setLoadAgain}
@@ -182,5 +182,6 @@ function SearchPage(props: Props) {
         return <div></div>;
     }
   }
-
 }
+
+export default SearchPage;
