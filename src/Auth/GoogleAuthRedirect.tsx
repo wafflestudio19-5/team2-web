@@ -21,7 +21,9 @@ function GoogleAuthRedirect() {
       networkContext.setToken(code ? code : '');
       localStorage.setItem('JWT', code ? code : '');
       localStorage.setItem('user_id', user_id ? user_id : '');
-      userContext.setNowUserID(user_id ? user_id : '');
+      if (user_id) {
+        userContext?.setUserData({ ...userContext.userData, userID: user_id });
+      }
       Navigate('/');
     }
   }, []);

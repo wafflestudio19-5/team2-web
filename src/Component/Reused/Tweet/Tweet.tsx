@@ -302,7 +302,7 @@ const Tweet = ({
                 src={retweetTopImage}
                 alt={retweetTopImage}
               />
-              {item.retweeting_user === userContext.nowUserID ? (
+              {item.retweeting_user === userContext?.userData.userID ? (
                 <div className={styles.retweetedText}>You Retweeted</div>
               ) : (
                 <div
