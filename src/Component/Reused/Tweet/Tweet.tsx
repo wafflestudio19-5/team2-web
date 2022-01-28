@@ -47,6 +47,7 @@ export interface TweetType {
     profile_img: string;
   };
   retweeting_user: string;
+  retweeting_user_name: string;
   reply_to: string;
   content: string;
   media: string[];
@@ -68,6 +69,7 @@ export interface TweetData {
       profile_img: string;
     };
     retweeting_user: string;
+    retweeting_user_name: string;
     reply_to: string;
     content: string;
     media: { media: string }[];
@@ -87,6 +89,7 @@ export interface TweetData {
       profile_img: string;
     };
     retweeting_user: string;
+    retweeting_user_name: string;
     reply_to: string;
     content: string;
     media: { media: string }[];
@@ -119,6 +122,7 @@ const Tweet = ({
   const [display, setDisplay] = useState<string>('none');
   const [moreDisplay, setMoreDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
+  const [deleteActivated, setDeleteActivated] = useState<boolean>(false);
   const userContext = useUserContext();
   const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
@@ -241,6 +245,13 @@ const Tweet = ({
         break;
     }
   };
+  useEffect(() => {
+    if (item.tweet_type === 'GENERAL') {
+      setDeleteActivated(item.author.user_id === userContext?.userData.userID);
+    } else {
+      setDeleteActivated(item.retweeting_user === userContext?.userData.userID);
+    }
+  }, []);
 
   useEffect(() => {
     create_month();
@@ -313,7 +324,7 @@ const Tweet = ({
               ) : (
                 <div
                   className={styles.retweetedText}
-                >{`${item.retweeting_user} Retweeted`}</div> // retweeting_username 추가되면 그걸로 수정
+                >{`${item.retweeting_user_name} Retweeted`}</div> // retweeting_username 추가되면 그걸로 수정
               )}
             </div>
           </div>
@@ -338,6 +349,7 @@ const Tweet = ({
             }}
           >
             <MoreButtons
+              deleteActivated={deleteActivated}
               text={'DELETE'}
               display={moreDisplay}
               setDisplay={setMoreDisplay}

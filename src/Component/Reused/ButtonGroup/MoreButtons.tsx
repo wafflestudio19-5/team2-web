@@ -10,6 +10,7 @@ interface props {
   function1: (e: React.MouseEvent<HTMLElement>) => void;
   function2: (e: React.MouseEvent<HTMLElement>) => void;
   display: string;
+  deleteActivated: boolean;
   setDisplay: (string: string) => void;
   text: string;
 }
@@ -40,9 +41,11 @@ function MoreButtons(props: props) {
           aria-label="vertical contained button group"
           variant="contained"
         >
-          <Button onClick={props.function1} key="one">
-            {props.text}
-          </Button>
+          {props.deleteActivated ? (
+            <Button onClick={props.function1} key="one">
+              {props.text}
+            </Button>
+          ) : null}
           <Button onClick={props.function2} key="two">
             TEMP
           </Button>

@@ -44,6 +44,7 @@ const ProfilePage = ({
           profile_img: '',
         },
         retweeting_user: '',
+        retweeting_user_name: '',
         reply_to: '',
         content: '',
         media: [],
