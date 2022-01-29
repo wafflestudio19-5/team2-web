@@ -8,7 +8,6 @@ import Notification from '../../../Reused/Notification/Notification';
 
 import Tweet, { TweetData } from '../../../Reused/Tweet/Tweet';
 
-
 export interface NotificationData {
   NotificationType: {
     id: string;
@@ -46,10 +45,16 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
   const userContext = useUserContext();
   const navigate = useNavigate();
   const loc = useLocation();
-  const [allNotificationsPage, setAllNotificationsPage] = useState<number | null>(1);
-  const [mentionsNotificationsPage, setMentionsNotificationsPage] = useState<number | null>(1);
-  const [allNotificationsList, setAllNotificationsList] = useState<NotificationData['NotificationsType']>(
-    [{
+  const [allNotificationsPage, setAllNotificationsPage] = useState<
+    number | null
+  >(1);
+  const [mentionsNotificationsPage, setMentionsNotificationsPage] = useState<
+    number | null
+  >(1);
+  const [allNotificationsList, setAllNotificationsList] = useState<
+    NotificationData['NotificationsType']
+  >([
+    {
       id: '',
       noti_type: '',
       tweet: {
@@ -61,6 +66,7 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
           profile_img: '',
         },
         retweeting_user: '',
+        retweeting_user_name: '',
         reply_to: '',
         content: '',
         media: [],
@@ -77,26 +83,22 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
         username: '',
       },
       written_by_me: false,
-    }]
-  );
-  const [mentions1NotificationsList, setMentionsotificationsList] = useState<NotificationData['NotificationsType']>();
+    },
+  ]);
+  const [mentions1NotificationsList, setMentionsotificationsList] =
+    useState<NotificationData['NotificationsType']>();
   const [page, setPage] = useState<number>(1);
   const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
   const [tweetData, setTweetData] = useState<TweetData['TweetsType']>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const params = useParams();
 
-
   useEffect(() => {
-    console.log(loc.pathname.slice(1, 14
-    ))
-    console.log(loc.pathname.slice(15, 24
-    ))
+    console.log(loc.pathname.slice(1, 14));
+    console.log(loc.pathname.slice(15, 24));
     if (loc.pathname.slice(1, 14) === 'notifications') {
-      if (loc.pathname.slice(15, 24
-      )) {
-        if (loc.pathname.slice(15, 24
-        ) === 'mentions') {
+      if (loc.pathname.slice(15, 24)) {
+        if (loc.pathname.slice(15, 24) === 'mentions') {
           setIsChosen('Mentions');
           allUpdate();
           console.log('hello');
@@ -109,24 +111,30 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
     }
   }, []);
 
-
   const allUpdate = () => {
-    if (allNotificationsPage !== null) {{
+    if (allNotificationsPage !== null) {
+      {
         axios
-          .get(
-            `/notification/?page=${allNotificationsPage}`
-          )
+          .get(`/notification/?page=${allNotificationsPage}`)
           .then(response => {
             console.log(response.data);
             console.log(allNotificationsList);
-            const fetchNotificationData = response.data.notification.slice(0, 10);
-            const mergedData = allNotificationsList.concat(...fetchNotificationData);
+            const fetchNotificationData = response.data.notification.slice(
+              0,
+              10,
+            );
+            const mergedData = allNotificationsList.concat(
+              ...fetchNotificationData,
+            );
             setAllNotificationsList(mergedData);
-            setAllNotificationsPage(response.data.notification[response.data.notification.length - 1].next);
+            setAllNotificationsPage(
+              response.data.notification[response.data.notification.length - 1]
+                .next,
+            );
           })
           .catch(error => {
             toast.error('알림 목록을 불러오는 데 실패하였습니다.');
-            console.log('npe')
+            console.log('npe');
           });
       }
     }
@@ -163,15 +171,13 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
       }
     };*/
 
-  
-    useEffect(() => {
-        if (isChosen === 'All') {
-          allUpdate();
-        } else {
-          console.log('mention update')
-        }
-    }, [isChosen]);
-  
+  useEffect(() => {
+    if (isChosen === 'All') {
+      allUpdate();
+    } else {
+      console.log('mention update');
+    }
+  }, [isChosen]);
 
   const switchToMentions = () => {
     setIsChosen('Mentions');
@@ -223,24 +229,17 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
       {isChosen === 'All' ? (
         <ul className={styles.NotificationList}>
           {allNotificationsList ? (
-            allNotificationsList.map(item =>
-              (<Notification
-                key={item.id}
-                item={item}
-              />)
-            )
+            allNotificationsList.map(item => (
+              <Notification key={item.id} item={item} />
+            ))
           ) : (
             <div className={styles.NoTweets}>Not Tweets yet</div>
           )}
         </ul>
       ) : (
         <ul className={styles.NotificationList}>
-
-          <li>
-            mentions
-          </li><li>
-            mentions2
-          </li>
+          <li>mentions</li>
+          <li>mentions2</li>
         </ul>
       )}
     </div>
