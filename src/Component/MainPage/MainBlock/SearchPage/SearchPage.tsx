@@ -41,7 +41,7 @@ function SearchPage(props: Props) {
     switch (isChosen) {
       case 'top':
         axios
-          .get(`/search/${isChosen}/?page=${topPage}&query=${query?.q}`)
+          .get(`/search/${isChosen}/?query=${query?.q}&page=${topPage}`)
           .then(response => {
             console.log(response.data.results);
             setTops([

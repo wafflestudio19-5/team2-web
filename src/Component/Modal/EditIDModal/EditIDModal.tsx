@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useUserContext } from '../../../UserContext';
 
 interface UnfollowModalProps {
   isOpen: boolean;
@@ -12,15 +13,20 @@ interface UnfollowModalProps {
 
 const EditIDModal = ({ isOpen, setIsOpen, user_id }: UnfollowModalProps) => {
   const [changeID, setChangeID] = useState('');
-
+  const userContext = useUserContext();
   const handleIDPatch = () => {
     if (changeID.length < 4) toast('4자 이상으로 입력해주세요');
     else {
       axios
         .patch('/user/id/', { user_id: changeID })
         .then(response => {
-          // setIsOpen(false);
-          //window.location.href = '';
+          localStorage.removeItem('JWT');
+          localStorage.removeItem('user_id');
+          console.log('logout');
+          window.location.replace('/');
+          userContext?.setUserDataDefault();
+          setIsOpen(false);
+          window.alert('새로운 아이디로 다시 로그인해주세요.');
         })
         .catch(error => {
           toast.error(error.message);
@@ -64,7 +70,7 @@ const EditIDModal = ({ isOpen, setIsOpen, user_id }: UnfollowModalProps) => {
       <br />
       <div>
         유저 아이디는 중복될 수 없습니다. 4~15자 이내의 새 아이디로 변경할 수
-        있습니다.
+        있습니다. (변경 시, 자동으로 로그아웃됩니다.)
       </div>
       <br />
       <footer>
@@ -78,6 +84,12 @@ const EditIDModal = ({ isOpen, setIsOpen, user_id }: UnfollowModalProps) => {
           >
             <input
               onChange={e => {
+                if (
+                  e.target.value !==
+                  e.target.value.replace(/[^A-Za-z0-9]/gi, '')
+                ) {
+                  toast('숫자와 영어만 입력 가능합니다.');
+                }
                 setChangeID(e.target.value.replace(/[^A-Za-z0-9]/gi, ''));
               }}
               className={styles.Input}

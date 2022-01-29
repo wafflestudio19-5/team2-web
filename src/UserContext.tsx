@@ -1,6 +1,6 @@
 import { useContext, createContext, useState } from 'react';
 import React from 'react';
-import defualtProfileImage from '../src/Images/defaultProfileImage.jpeg';
+import defaultProfileImage from '../src/Images/defaultProfileImage.jpeg';
 
 interface userDataType {
   userID: string;
@@ -22,12 +22,12 @@ export const UserContextProvider = ({
 }) => {
   const [userData, setUserData] = useState<userDataType>({
     userID: '',
-    profileImageURL: defualtProfileImage,
+    profileImageURL: defaultProfileImage,
   });
   const setUserDataDefault = () => {
     setUserData({
       userID: '',
-      profileImageURL: defualtProfileImage,
+      profileImageURL: defaultProfileImage,
     });
   };
   return (

@@ -6,7 +6,12 @@ function Trend(props: { text: string }) {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.TrendWrapper}>
+    <div
+      onClick={() => {
+        window.location.href = '/search/?q=' + props.text;
+      }}
+      className={styles.TrendWrapper}
+    >
       <div className={styles.TrendHeader}>
         <span className={styles.TrendHeaderText}>Trending in South Korea</span>
         <span>
