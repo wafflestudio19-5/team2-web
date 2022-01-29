@@ -128,7 +128,7 @@ function UserProfile(props: {
               height={140}
             />
 
-            {params.id === localStorage.getItem('user_id') ? (
+            {params.id === userContext?.userData.userID ? (
               <button
                 className={styles.UserProfileEditButton}
                 onClick={handleEditProfileClick}

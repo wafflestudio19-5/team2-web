@@ -6,7 +6,6 @@ import { useUserContext } from '../../../../UserContext';
 import styles from './NotificationsPage.module.scss';
 import Notification from '../../../Reused/Notification/Notification';
 
-
 /*function NotificationsPage() {
   return (
     <div className={styles.NotificationsPage}>
@@ -17,7 +16,6 @@ import Notification from '../../../Reused/Notification/Notification';
     </div>
   );
 }*/
-
 
 interface User {
   id: string;
@@ -41,29 +39,26 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
   const params = useParams();
   const navigate = useNavigate();
   const loc = useLocation();
-  const [allNotificationsPage, setAllNotificationsPage] = useState<number | null>(1);
-  const [mentionsNotificationsPage, setMentionsNotificationsPage] = useState<number | null>(1);
-  const [allNotificationsList, setAllNotificationsList] = useState<User[] | null>(
-    null,
-  );
-  const [mentions1NotificationsList, setMentionsotificationsList] = useState<User[] | null>(null);
-
-  console.log(params);
+  const [allNotificationsPage, setAllNotificationsPage] = useState<
+    number | null
+  >(1);
+  const [mentionsNotificationsPage, setMentionsNotificationsPage] = useState<
+    number | null
+  >(1);
+  const [allNotificationsList, setAllNotificationsList] = useState<
+    User[] | null
+  >(null);
+  const [mentions1NotificationsList, setMentionsotificationsList] = useState<
+    User[] | null
+  >(null);
 
   useEffect(() => {
-    console.log(loc.pathname.slice(1, 14
-      ))
-    console.log(loc.pathname.slice(15, 24
-      ))
     if (loc.pathname.slice(1, 14) === 'notifications') {
-      if(loc.pathname.slice(15, 24
-        )){
-        if(loc.pathname.slice(15, 24
-          )==='mentions'){
+      if (loc.pathname.slice(15, 24)) {
+        if (loc.pathname.slice(15, 24) === 'mentions') {
           setIsChosen('Mentions');
         }
-      }
-      else{
+      } else {
         setIsChosen('All');
       }
     }
@@ -158,9 +153,7 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
 
   return (
     <div className={styles.allWrapper}>
-      <header className={styles.NotificationsHeader}>
-        Notifications
-      </header>
+      <header className={styles.NotificationsHeader}>Notifications</header>
 
       <div className={styles.UserProfileRouterButtonWrapper}>
         {isChosen === 'All' ? (
@@ -196,20 +189,13 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
       </div>
       {isChosen === 'All' ? (
         <ul className={styles.FollowList}>
-          <li>
-            all
-          </li><li>
-            all2
-          </li>
+          <li>all</li>
+          <li>all2</li>
         </ul>
       ) : (
         <ul className={styles.FollowList}>
-
-          <li>
-            mentions
-          </li><li>
-            mentions2
-          </li>
+          <li>mentions</li>
+          <li>mentions2</li>
         </ul>
       )}
     </div>

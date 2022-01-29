@@ -47,7 +47,6 @@ function LoginModal(props: props) {
           ...userContext.userData,
           userID: response.data.user_id,
         });
-        window.location.href = '/';
       })
       .catch(error => {
         toast.error('올바른 입력정보가 아닙니다.');

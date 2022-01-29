@@ -19,7 +19,7 @@ interface dataType {
     profile_img: string;
   };
   content: string;
-  media: string[];
+  media: { media: string }[];
   written_at: string;
   likes: number;
 }
@@ -53,6 +53,7 @@ function TweetPage({
       setLikeNumber(response.data.likes);
       setReplyTweet(response.data.replying_tweets);
       setIsLoading(false);
+      console.log(response.data);
     } catch (e) {
       console.log(e);
     }
@@ -73,7 +74,7 @@ function TweetPage({
       {isLodaing ? (
         <div className={styles.loadingWrapper}>
           <div className={styles.loadingInsideWrapper}>
-            <MoonLoader color="#1c9bf0" size="40" speedMultiplier={1} />
+            <MoonLoader color="#1c9bf0" size="40px" speedMultiplier={1} />
           </div>
         </div>
       ) : (
@@ -102,7 +103,8 @@ function TweetPage({
                 {data?.media.map(item => {
                   <img
                     className={styles.mediaImages}
-                    src={item}
+                    src={item.media}
+                    key={data.media.indexOf(item)}
                     alt="media item"
                   />;
                 })}
