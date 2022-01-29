@@ -138,23 +138,23 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
     try {
       const formData = new FormData();
       formData.append(`usename`, nameValue);
-      // if (profileImageFile !== null) {
-      //   formData.append(`profile_img`, profileImageFile);
-      // }
-      // if (backgroundImageFile !== null) {
-      //   formData.append(`header_img`, backgroundImageFile);
-      // }
       formData.append(`bio`, bioValue);
       formData.append(
         `birth_date`,
         BirthDateValue(birthDateYear, birthDateMonth, birthDateDay),
       );
+      if (profileImageFile !== null) {
+        formData.append(`profile_img`, profileImageFile);
+      }
+      if (backgroundImageFile !== null) {
+        formData.append(`header_img`, backgroundImageFile);
+      }
       const config: AxiosRequestConfig = {
         headers: {
           'content-type': 'multipart/form-data',
         },
       };
-      console.log(formData.getAll);
+      console.log(formData);
       const response = await axios.patch(`/user/profile/`, formData, config);
       console.log(response);
     } catch (err) {
@@ -455,7 +455,7 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
             margin="30px 0px 0px 0px"
             height="150px"
           />
-          <CustomInput
+          {/* <CustomInput
             value={locationValue}
             setValue={setLocationValue}
             maxLength={30}
@@ -468,7 +468,7 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
             maxLength={100}
             titleName="Website"
             margin="30px 0px 0px 0px"
-          />
+          /> */}
           {isBrithDateOnEdit ? (
             <div className={styles.birthDateWrapperOnEdit}>
               <div className={styles.birthDateHeader}>

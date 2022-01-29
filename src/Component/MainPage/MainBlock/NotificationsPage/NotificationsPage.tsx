@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { useUserContext } from '../../../../UserContext';
 import styles from './NotificationsPage.module.scss';
 import Notification from '../../../Reused/Notification/Notification';
+
 import Tweet, { TweetData } from '../../../Reused/Tweet/Tweet';
 
 
@@ -100,8 +101,7 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
           allUpdate();
           console.log('hello');
         }
-      }
-      else {
+      } else {
         setIsChosen('All');
         allUpdate();
         console.log('nothello');
@@ -186,9 +186,7 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
 
   return (
     <div className={styles.allWrapper}>
-      <header className={styles.NotificationsHeader}>
-        Notifications
-      </header>
+      <header className={styles.NotificationsHeader}>Notifications</header>
 
       <div className={styles.UserProfileRouterButtonWrapper}>
         {isChosen === 'All' ? (
@@ -248,6 +246,5 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
     </div>
   );
 }
-
 
 export default NotificationsPage;

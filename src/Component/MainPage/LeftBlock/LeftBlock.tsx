@@ -14,68 +14,58 @@ import explore_clicked from '../../../Images/explore_clicked.svg';
 import logo from '../../../Images/waffleTwitterIcon.png';
 import more from '../../../Images/more.svg';
 import tweetButtonSmall from '../../../Images/SimplifiedTweet.svg';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from 'react-router-dom';
 import { useUserContext } from '../../../UserContext';
 import defaultProfileImage from '../../../Images/defaultProfileImage.jpeg';
 import axios from 'axios';
+import { MoonLoader } from 'react-spinners';
 
-interface UserData {
-  username: string;
-  user_id: string;
-  bio: string;
-  created_at: string;
-  birth_date: string;
-  tweets: string;
-  tweets_num: string;
-  following: string;
-  follower: string;
-  profile_img: string;
-}
 interface Props {
   loadAgain: boolean;
   setLoadAgain: (boolean: boolean) => void;
 }
 
 function LeftBlock({ loadAgain, setLoadAgain }: Props) {
-  const params = useParams();
-  const loc = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
   const userContext = useUserContext();
   const [isTweetModalOpen, setIsTweetModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [whichNavigatorClicked, setWhichNavigatorClicked] = useState('home');
-  const [userData, setUserData] = useState<UserData>({
-    username: '',
-    user_id: userContext ? userContext.userData.userID : '',
-    bio: '',
-    created_at: '',
-    birth_date: '',
-    tweets: '',
-    tweets_num: '',
-    following: '',
-    follower: '',
-    profile_img: userContext
-      ? userContext.userData.profileImageURL
-      : defaultProfileImage,
-  });
+  const [userName, setUserName] = useState<string>('');
+  const [isNameLoading, setIsNameLoading] = useState<boolean>(true);
 
   const getUserProfile = async () => {
-    await axios
-      .get(`/user/${localStorage.user_id}`)
-      .then(response => {
-        setUserData(response.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    if (userContext?.userData.userID !== '') {
+      await axios
+        .get(`/user/${userContext?.userData.userID}/profile/`)
+        .then(response => {
+          setUserName(response.data.username);
+          setIsNameLoading(false);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   };
 
   useEffect(() => {
-    if (params.id !== localStorage.getItem('user_id')) {
-      setWhichNavigatorClicked('');
-    }
     getUserProfile();
-  }, [loadAgain]);
+  }, [userContext?.userData]);
+
+  useEffect(() => {
+    const selectedPage = location.pathname.split('/')[1];
+    if (selectedPage === userContext?.userData.userID) {
+      setWhichNavigatorClicked('profile');
+    } else {
+      setWhichNavigatorClicked(selectedPage);
+    }
+  }, [userContext?.userData]);
 
   const handleTweetClick = () => {
     setIsTweetModalOpen(!isTweetModalOpen);
@@ -303,14 +293,22 @@ function LeftBlock({ loadAgain, setLoadAgain }: Props) {
           <div className={styles.ProfileImgWrapper}>
             <img
               className={styles.ProfileImg}
-              src={userData.profile_img}
+              src={userContext?.userData.profileImageURL}
               alt="profile img"
             />
           </div>
-          <div className={styles.ProfileTextWrapper}>
-            <div className={styles.ProfileText}>{userData.username}</div>
-            <div className={styles.ProfileText}>@{userData.user_id}</div>
-          </div>
+          {isNameLoading ? (
+            <div className={styles.loadingWrapper}>
+              <MoonLoader color="#1c9bf0" size="25px" speedMultiplier={1} />
+            </div>
+          ) : (
+            <div className={styles.ProfileTextWrapper}>
+              <div className={styles.ProfileText}>{userName}</div>
+              <div className={styles.ProfileText}>
+                @{userContext?.userData.userID}
+              </div>
+            </div>
+          )}
           <img className={styles.ProfileImgMore} src={more} alt="no img" />
         </div>
       </button>

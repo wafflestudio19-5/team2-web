@@ -12,14 +12,14 @@ import styles from './TweetPage.module.scss';
 import Tweet, { TweetData } from '../../../Reused/Tweet/Tweet';
 import { MoonLoader } from 'react-spinners';
 
-interface dataType {
+interface userDataType {
   author: {
     username: string;
     user_id: string;
     profile_img: string;
   };
   content: string;
-  media: string[];
+  media: { media: string }[];
   written_at: string;
   likes: number;
 }
@@ -35,7 +35,7 @@ function TweetPage({
 }) {
   const params = useParams();
   const navigate = useNavigate();
-  const [data, setData] = useState<dataType>();
+  const [userData, setUsetData] = useState<userDataType>();
   const [liked, setLiked] = useState(false);
   const [likeNumber, setLikeNumber] = useState<number>(0);
   const [replyTweet, setReplyTweet] = useState<TweetData['TweetsType']>([]);
@@ -48,11 +48,12 @@ function TweetPage({
   const loadThread = async () => {
     try {
       const response = await axios.get(`/tweet/${params.tweet}/`);
-      setData(response.data);
+      setUsetData(response.data);
       setLiked(response.data.user_like);
       setLikeNumber(response.data.likes);
       setReplyTweet(response.data.replying_tweets);
       setIsLoading(false);
+      console.log(response.data.replying_tweets);
     } catch (e) {
       console.log(e);
     }
@@ -73,7 +74,7 @@ function TweetPage({
       {isLodaing ? (
         <div className={styles.loadingWrapper}>
           <div className={styles.loadingInsideWrapper}>
-            <MoonLoader color="#1c9bf0" size="40" speedMultiplier={1} />
+            <MoonLoader color="#1c9bf0" size="40px" speedMultiplier={1} />
           </div>
         </div>
       ) : (
@@ -82,34 +83,39 @@ function TweetPage({
             <div className={styles.topWrapper}>
               <img
                 className={styles.profileImage}
-                src={data?.author.profile_img}
+                src={userData?.author.profile_img}
                 alt="Author Profile Image"
-                onClick={() => navigate(`/${data?.author.user_id}`)}
+                onClick={() => navigate(`/${userData?.author.user_id}`)}
               />
               <div
                 className={styles.topTextWrapper}
-                onClick={() => navigate(`/${data?.author.user_id}`)}
+                onClick={() => navigate(`/${userData?.author.user_id}`)}
               >
                 <div className={styles.topNameText}>
-                  {data?.author.username}
+                  {userData?.author.username}
                 </div>
-                <div className={styles.topIdText}>@{data?.author.user_id}</div>
+                <div className={styles.topIdText}>
+                  @{userData?.author.user_id}
+                </div>
               </div>
             </div>
             <div className={styles.middleWrapper}>
-              <div className={styles.contentWrapper}>{data?.content}</div>
+              <div className={styles.contentWrapper}>{userData?.content}</div>
               <div className={styles.mediaWrapper}>
-                {data?.media.map(item => {
-                  <img
-                    className={styles.mediaImages}
-                    src={item}
-                    alt="media item"
-                  />;
+                {userData?.media.map(item => {
+                  return (
+                    <img
+                      className={styles.mediaImages}
+                      src={item.media}
+                      key={userData.media.indexOf(item)}
+                      alt="media item"
+                    />
+                  );
                 })}
               </div>
               <div className={styles.informationWrapper}>
                 <div className={styles.informationText}>
-                  {dayjs(data?.written_at).format('h:m A · MMM D, YYYY')}
+                  {dayjs(userData?.written_at).format('h:m A · MMM D, YYYY')}
                 </div>
                 {likeNumber === 0 ? null : likeNumber === 1 ? (
                   <div className={styles.likesNumberText}>
@@ -151,25 +157,19 @@ function TweetPage({
           </div>
           <div className={styles.tweetsWrapper}>
             <ul className={styles.tweetsItems}>
-              {replyTweet ? (
-                replyTweet.map(item => (
-                  <div>
-                    {item.author ? (
-                      <Tweet
-                        setLoadAgain={setLoadAgain}
-                        loadAgain={loadAgain}
-                        key={item.id}
-                        item={item}
-                      />
-                    ) : null}
-                  </div>
-                ))
-              ) : (
-                <div>null</div>
-              )}
+              {replyTweet.slice(0, replyTweet.length - 1).map(item => {
+                return (
+                  <Tweet
+                    loadAgain={loadAgain}
+                    setLoadAgain={setLoadAgain}
+                    item={item}
+                    key={replyTweet.indexOf(item)}
+                  />
+                );
+              })}
             </ul>
           </div>
-          <div className={styles.footerWrapper}>footer</div>
+          {/* <div className={styles.footerWrapper}>footer</div> */}
         </div>
       )}
     </div>

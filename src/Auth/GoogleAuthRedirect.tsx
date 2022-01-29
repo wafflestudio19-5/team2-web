@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
-
 import { BeatLoader } from 'react-spinners';
-import axios from 'axios';
 import { useNetworkContext } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';

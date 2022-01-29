@@ -8,6 +8,8 @@ import X from '../../../../Images/X.svg';
 import styles from './HomePage.module.scss';
 import CropImageModal from '../../../Modal/TweetModal/CropImageModal/CropImageModal';
 import { MoonLoader } from 'react-spinners';
+import { useUserContext } from '../../../../UserContext';
+import { width } from '@mui/system';
 
 interface Data {
   name: string;
@@ -93,6 +95,8 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
   const [page, setPage] = useState<number>(1);
   const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
 
+  const userContext = useUserContext();
+
   const getHomeTweet = async () => {
     if (loadNextOkay) {
       await axios
@@ -109,12 +113,8 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
             ) {
               setLoadNextOkay(false);
             }
-            console.log(fetchHomeTweetData);
-            console.log(mergedData);
-            console.log(page);
           }
           setProfileImageUrl(response.data.user.profile_img);
-          console.log(response.data.tweets);
           setIsLoading(false);
         })
         .catch(err => {
@@ -345,27 +345,23 @@ const HomePage = ({ loadNext, setLoadAgain, loadAgain }: Props) => {
       </div>
       {isLoading ? (
         <div className={styles.loadingWrapper}>
-          <MoonLoader color="#1c9bf0" size="40" speedMultiplier={1} />
+          <MoonLoader color="#1c9bf0" size="40px" speedMultiplier={1} />
         </div>
       ) : (
         <div className={styles.HomePage}>
           <ul className={styles.tweetsItems}>
-            {homeTweetData ? (
-              homeTweetData.map(item => (
-                <div>
-                  {item.author ? (
+            {homeTweetData
+              ? homeTweetData
+                  .filter(item => item.author)
+                  .map(item => (
                     <Tweet
                       setLoadAgain={setLoadAgain}
                       loadAgain={loadAgain}
                       key={item.id}
                       item={item}
                     />
-                  ) : null}
-                </div>
-              ))
-            ) : (
-              <div>null</div>
-            )}
+                  ))
+              : null}
           </ul>
           <div className={styles.Footer}>
             [Waffle Studio 19.5 rookies | Team 2]

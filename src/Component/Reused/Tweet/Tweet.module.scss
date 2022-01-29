@@ -226,7 +226,9 @@
   font-size: 15px;
   color: #000000;
 
-  white-space: pre-line;
+  white-space: pre-wrap;
+  word-break: break-all;
+  text-align: left;
 }
 
 .mainImg {

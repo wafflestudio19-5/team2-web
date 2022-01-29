@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useUserContext } from '../../../../UserContext';
 import { TweetData, UserData } from '../../../Reused/Tweet/Tweet';
+import { MoonLoader } from 'react-spinners';
 
 interface Props {
   loadAgain: boolean;
@@ -130,78 +131,72 @@ const ProfilePage = ({
 
   if (isLoading) {
     return (
-      <div className={styles.Loading}>
-        <h1>Loading...</h1>
+      <div className={styles.loadingWrapper}>
+        <MoonLoader color="#1c9bf0" size="40px" speedMultiplier={1} />
       </div>
     );
   }
   return (
     <div className={styles.ProfilePage}>
-      {userData === undefined ? (
-        <div className={styles.Loading}>
-          <h1>Loading...</h1>
-        </div>
-      ) : (
-        <div>
-          <UserProfile
-            isChosen={isChosen}
-            setIsChosen={setIsChosen}
-            userData={userData}
-            month={month}
+      <div>
+        <UserProfile
+          isChosen={isChosen}
+          setIsChosen={setIsChosen}
+          userData={userData}
+          month={month}
+        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Tweets
+                setLoadAgain={setLoadAgain}
+                loadAgain={loadAgain}
+                loadNext={loadNext}
+                userData={userData}
+              />
+            }
           />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Tweets
-                  setLoadAgain={setLoadAgain}
-                  loadAgain={loadAgain}
-                  loadNext={loadNext}
-                  userData={userData}
-                />
-              }
-            />
-            <Route
-              path="/with_replies"
-              element={
-                <TweetsAndReplies
-                  setLoadAgain={setLoadAgain}
-                  loadAgain={loadAgain}
-                  loadNext={loadNext}
-                  userData={userData}
-                />
-              }
-            />
-            <Route
-              path="/media"
-              element={
-                <Media
-                  setLoadAgain={setLoadAgain}
-                  loadAgain={loadAgain}
-                  loadNext={loadNext}
-                  userData={userData}
-                />
-              }
-            />
-            <Route
-              path="/likes"
-              element={
-                <Likes
-                  setLoadAgain={setLoadAgain}
-                  loadAgain={loadAgain}
-                  loadNext={loadNext}
-                  userData={userData}
-                />
-              }
-            />
-          </Routes>
-          <div className={styles.Footer}>
-            [Waffle Studio 19.5 rookies | Team 2]
-            <br />
-            FrontEnd: 이승엽, 이하동, 이재민 / BackEnd: 전형민, 이서영, 고계훈
-          </div>
+          <Route
+            path="/with_replies"
+            element={
+              <TweetsAndReplies
+                setLoadAgain={setLoadAgain}
+                loadAgain={loadAgain}
+                loadNext={loadNext}
+                userData={userData}
+              />
+            }
+          />
+          <Route
+            path="/media"
+            element={
+              <Media
+                setLoadAgain={setLoadAgain}
+                loadAgain={loadAgain}
+                loadNext={loadNext}
+                userData={userData}
+              />
+            }
+          />
+          <Route
+            path="/likes"
+            element={
+              <Likes
+                setLoadAgain={setLoadAgain}
+                loadAgain={loadAgain}
+                loadNext={loadNext}
+                userData={userData}
+              />
+            }
+          />
+        </Routes>
+        <div className={styles.Footer}>
+          [Waffle Studio 19.5 rookies | Team 2]
+          <br />
+          FrontEnd: 이승엽, 이하동, 이재민 / BackEnd: 전형민, 이서영, 고계훈
         </div>
-      )}
+      </div>
     </div>
   );
 };
