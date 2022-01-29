@@ -1,4 +1,7 @@
 import styles from './App.module.scss';
+//    "deploy": "aws s3 sync ./build s3://waffletwitter.shop --profile=ChrisLee02",
+//    "invalidate": "aws cloudfront create-invalidation --profile=ChrisLee02 --distribution-id EK89KY4GVW9JF --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico",
+
 import * as React from 'react';
 import {
   useNavigate,

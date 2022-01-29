@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { useUserContext } from '../../../../UserContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import VerifyModal from '../../../Modal/EmailVerifyModal/VerifyModal';
 function SettingPage() {
   const handleDeactivateClick = () => {
     axios
@@ -35,8 +36,10 @@ function SettingPage() {
         toast.error(error.response.data.message);
       });
   };
+
   const [deactivateIsOpen, setDeactivateIsOpen] = useState(false);
   const [socialDeactivateIsOpen, setSocialDeactivateIsOpen] = useState(false);
+  const [verifyIsOpen, setVerifyIsOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [password, setPassword] = useState('');
   const userContext = useUserContext();
@@ -187,6 +190,7 @@ function SettingPage() {
           </div>
         </footer>
       </Modal>
+      <VerifyModal setIsOpen={setVerifyIsOpen} isOpen={verifyIsOpen} />
       <button
         className={styles.DeactivateButton}
         onClick={() => {
@@ -202,6 +206,14 @@ function SettingPage() {
         }}
       >
         DEACTIVATE for Social User
+      </button>
+      <button
+        className={styles.SocialDeactivateButton}
+        onClick={() => {
+          setVerifyIsOpen(true);
+        }}
+      >
+        Verify for Email/Phone User
       </button>
     </div>
   );
