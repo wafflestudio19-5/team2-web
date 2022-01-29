@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './SettingPage.module.scss';
 import Modal from 'react-modal';
 import { useUserContext } from '../../../../UserContext';
@@ -36,13 +36,32 @@ function SettingPage() {
         toast.error(error.response.data.message);
       });
   };
-
+  const [emailOrPhone, setEmailOrPhone] = useState('');
+  const [isEmail, setIsEmail] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
   const [deactivateIsOpen, setDeactivateIsOpen] = useState(false);
   const [socialDeactivateIsOpen, setSocialDeactivateIsOpen] = useState(false);
   const [verifyIsOpen, setVerifyIsOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [password, setPassword] = useState('');
   const userContext = useUserContext();
+  useEffect(() => {
+    axios
+      .get(`/user/${userContext?.userData.userID}/profile/`)
+      .then(response => {
+        setIsVerified(response.data.isVerified);
+        if (response.data.phone_number === null) {
+          setEmailOrPhone(response.data.email);
+          setIsEmail(true);
+        } else {
+          setEmailOrPhone(response.data.phone_number);
+          setIsEmail(false);
+        }
+      })
+      .catch(() => {
+        toast.error('프로필 정보를 받아오지 못함');
+      });
+  }, []);
   return (
     <div className={styles.SettingPage}>
       <Modal
@@ -190,14 +209,19 @@ function SettingPage() {
           </div>
         </footer>
       </Modal>
-      <VerifyModal setIsOpen={setVerifyIsOpen} isOpen={verifyIsOpen} />
+      <VerifyModal
+        emailOrPhone={emailOrPhone}
+        setIsOpen={setVerifyIsOpen}
+        isEmail={isEmail}
+        isOpen={verifyIsOpen}
+      />
       <button
         className={styles.DeactivateButton}
         onClick={() => {
           setDeactivateIsOpen(true);
         }}
       >
-        DEACTIVATE for Email User
+        DEACTIVATE for Email/Phone User
       </button>
       <button
         className={styles.SocialDeactivateButton}
@@ -207,14 +231,16 @@ function SettingPage() {
       >
         DEACTIVATE for Social User
       </button>
-      <button
-        className={styles.SocialDeactivateButton}
-        onClick={() => {
-          setVerifyIsOpen(true);
-        }}
-      >
-        Verify for Email/Phone User
-      </button>
+      {isVerified ? (
+        <button
+          className={styles.SocialDeactivateButton}
+          onClick={() => {
+            setVerifyIsOpen(true);
+          }}
+        >
+          Verify for Email/Phone User
+        </button>
+      ) : null}
     </div>
   );
 }

@@ -8,18 +8,62 @@ import { useUserContext } from '../../../UserContext';
 interface UnfollowModalProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
+  emailOrPhone: string;
+  isEmail: boolean;
 }
 
-const VerifyModal = ({ isOpen, setIsOpen }: UnfollowModalProps) => {
+const VerifyModal = ({
+  emailOrPhone,
+  isEmail,
+  isOpen,
+  setIsOpen,
+}: UnfollowModalProps) => {
   const [verifyCode, setVerifyCode] = useState('');
   const [isSent, setIsSent] = useState(false);
   const userContext = useUserContext();
   const sendCode = () => {
-    setIsSent(true);
+    axios
+      .post('/verification/sms/')
+      .then(() => {
+        toast('전송되었습니다.');
+        setIsSent(true);
+      })
+      .catch(error => {
+        toast(error.message);
+      });
   };
   const handleCodeSubmit = () => {
     if (verifyCode.length !== 4) toast('인증 코드는 4자리 숫자입니다.');
     else {
+      if (isEmail) {
+        axios
+          .put('/verification/sms/', {
+            phone_number: '010-8673-1756',
+            auth_code: '7802',
+          })
+          .then(() => {
+            toast('인증되었습니다.');
+            setIsOpen(false);
+            window.location.href = '';
+          })
+          .catch(error => {
+            toast(error.message);
+          });
+      } else {
+        axios
+          .put('/verification/sms/', {
+            phone_number: emailOrPhone,
+            auth_code: verifyCode,
+          })
+          .then(() => {
+            window.alert('인증되었습니다.');
+            setIsOpen(false);
+            window.location.href = '';
+          })
+          .catch(error => {
+            toast(error.message);
+          });
+      }
     }
   };
 
@@ -57,7 +101,7 @@ const VerifyModal = ({ isOpen, setIsOpen }: UnfollowModalProps) => {
     >
       {!isSent ? (
         <header className={styles.header}>
-          ~~~로
+          {emailOrPhone}(으)로
           <br />
           <span onClick={sendCode} className={styles.EmailOrPhone}>
             인증코드 보내기
