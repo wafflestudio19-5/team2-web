@@ -68,7 +68,7 @@ const Tweets = ({ loadNext, userData, setLoadAgain, loadAgain }: Props) => {
               item={item}
             />
           ) : (
-            <div key={'loading'}>loading</div>
+            <div key={'loading'}></div>
           ),
         )
       ) : (

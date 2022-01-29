@@ -33,7 +33,6 @@ export interface NotificationData {
     written_by_me: boolean;
   }[];
 }
-/* */
 
 interface Props {
   loadAgain: boolean;
@@ -70,6 +69,7 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
         likes: 0,
         user_like: false,
         user_retweet: false,
+        retweeting_user_name: '',
       },
       user: {
         user_id: '',
@@ -111,7 +111,7 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
 
 
   const allUpdate = () => {
-    if (allNotificationsPage !== null) {{
+    if (loadNextOkay) {
         axios
           .get(
             `/notification/?page=${allNotificationsPage}`
@@ -119,16 +119,21 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
           .then(response => {
             console.log(response.data);
             console.log(allNotificationsList);
-            const fetchNotificationData = response.data.notification.slice(0, 10);
+            const fetchNotificationData = response.data.notifications.slice(0, 10);
             const mergedData = allNotificationsList.concat(...fetchNotificationData);
             setAllNotificationsList(mergedData);
-            setAllNotificationsPage(response.data.notification[response.data.notification.length - 1].next);
+            setAllNotificationsPage(response.data.notifications[response.data.notifications.length - 1].next);
+            if (
+              response.data.notifications[response.data.notifications.length - 1].next ===
+              null
+            ) {
+              setLoadNextOkay(false);
+            }
           })
           .catch(error => {
             toast.error('알림 목록을 불러오는 데 실패하였습니다.');
-            console.log('npe')
+            console.log(error)
           });
-      }
     }
   };
   /*
@@ -163,6 +168,12 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
       }
     };*/
 
+    
+  useEffect(() => {
+    if (loadNext) {
+      allUpdate();
+    }
+  }, [loadNext]);
   
     useEffect(() => {
         if (isChosen === 'All') {
@@ -224,10 +235,12 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
         <ul className={styles.NotificationList}>
           {allNotificationsList ? (
             allNotificationsList.map(item =>
-              (<Notification
+              <Notification
                 key={item.id}
                 item={item}
-              />)
+                loadAgain={loadAgain}
+                setLoadAgain={setLoadAgain}
+              />
             )
           ) : (
             <div className={styles.NoTweets}>Not Tweets yet</div>

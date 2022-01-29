@@ -1,0 +1,412 @@
+@mixin buttonWrapper {
+    display: inline-flex;
+  
+    justify-content: space-between;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
+    width: 70px;
+    height: 35px;
+  
+    padding: 0px;
+  
+    background: none;
+    border: none;
+  }
+  
+  @mixin buttonImg {
+    width: 20px;
+    height: 20px;
+    stroke: #979797;
+    color: #979797;
+    stroke-width: 1px;
+    padding: 6px;
+  
+    border: none;
+    border-radius: 100%;
+  
+    background: none;
+  }
+  
+  @mixin buttonText {
+    width: 40px;
+    font-size: 13px;
+    color: #536471;
+  }
+  
+  .goBackButton {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .goBackImage {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .allWrapper {
+    position: relative;
+    display: flex;
+  
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    height: auto;
+  
+    list-style-type: none;
+  
+    border-bottom: 1px solid rgb(236, 236, 236);
+  
+    cursor: pointer;
+  
+    padding: 0px;
+    margin: 0px;
+  
+    &:hover {
+      background-color: #b1b1b12c;
+    }
+  }
+  
+  .topAllWrapper {
+    width: 100%;
+    height: 20px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .retweetedWrapper {
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    margin: 10px 0px 0px 50px;
+  }
+  
+  .retweetedText {
+    font-size: 14px;
+    font-weight: bold;
+    color: #525252;
+  }
+  
+  .retweetedImage {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bottomAllWrapper {
+    position: relative;
+    display: flex;
+  
+    flex-flow: row;
+  
+    width: 100%;
+    height: 100%;
+  }
+  
+  .leftWrapper {
+    display: flex;
+  
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+  
+    width: 60px;
+    height: auto;
+  
+    margin-left: 10px;
+  
+    color: black;
+  }
+  
+  .profileImage {
+    width: 45px;
+    height: 45px;
+  
+    margin-top: 10px;
+  
+    border-radius: 100%;
+  
+    border: none;
+  }
+  
+  .rightWrapper {
+    display: flex;
+  
+    flex-flow: column;
+  
+    width: calc(100% - 30px);
+    height: 100%;
+  
+    margin-right: 10px;
+    margin: 0px 10px 0px 10px;
+  }
+  
+  .topWrapper {
+    display: flex;
+  
+    justify-content: space-between;
+    align-items: center;
+  
+    margin: 10px 0px 5px 0px;
+  
+    width: 100%;
+    height: 20px;
+  }
+  
+  .topTextWrapper {
+    display: flex;
+    width: auto;
+  
+    align-items: center;
+  }
+  
+  .nameText {
+    font-size: 15px;
+    color: #000000;
+    font-weight: bold;
+    width: auto;
+    margin-right: 5px;
+  }
+  
+  .idTimeText {
+    font-size: 15px;
+    color: #536471;
+  }
+  
+  .moreButton {
+    display: inline-flex;
+  
+    justify-content: right;
+    align-items: center;
+  
+    width: 30px;
+    height: 30px;
+  
+    padding: 0px;
+  
+    background: none;
+    border: none;
+  
+    cursor: pointer;
+  
+    &:hover .moreButtonImg {
+      stroke: #3fa1ee;
+      background-color: #3fa1ee15;
+    }
+  }
+  
+  .moreButtonImg {
+    @include buttonImg;
+  
+    stroke: #525252;
+  }
+  
+  .middleWrapper {
+    display: flex;
+  
+    flex-flow: column;
+  
+    width: 100%;
+    height: calc(100% - 55px);
+  
+    margin-bottom: 10px;
+  }
+
+  .replyNotification{
+    font-size: 15px;
+    color: #000000;
+  
+    white-space: pre-wrap;
+    word-break: break-all;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  
+  .mainText {
+    font-size: 15px;
+    color: #000000;
+  
+    white-space: pre-wrap;
+    word-break: break-all;
+    text-align: left;
+  }
+  
+  .mainImg {
+    width: calc(100% - 5px);
+    height: auto;
+  
+    margin-top: 5px;
+  
+    border: 1px solid #b8bab7;
+    border-radius: 10px;
+  }
+  
+  .bottomWrapper {
+    display: flex;
+  
+    justify-content: space-evenly;
+    align-items: center;
+  
+    width: 100%;
+    height: 35px;
+  }
+  
+  .buttonWrapper {
+    display: inline-flex;
+  
+    justify-content: space-between;
+    align-items: center;
+  
+    width: 100%;
+    height: 100%;
+  
+    background: none;
+  }
+  
+  .commentButton {
+    @include buttonWrapper;
+    cursor: pointer;
+  
+    &:hover .commentImg {
+      stroke: #00b7ff;
+      background-color: #6cd5ff36;
+    }
+  
+    &:hover .commentButtonText {
+      color: #00b7ff;
+    }
+  }
+  
+  .commentImg {
+    @include buttonImg;
+  }
+  
+  .commentButtonText {
+    @include buttonText;
+  }
+  
+  .commentButton {
+    @include buttonWrapper;
+    cursor: pointer;
+  
+    &:hover .commentImg {
+      stroke: #3fa1ee;
+      background-color: #3fa1ee15;
+    }
+  
+    &:hover .commentButtonText {
+      color: #3fa1ee;
+    }
+  }
+  
+  .commentImg {
+    @include buttonImg;
+  }
+  
+  .commentButtonText {
+    @include buttonText;
+  }
+  
+  .likeButton {
+    @include buttonWrapper;
+    stroke: 0.5px;
+  
+    cursor: pointer;
+  
+    &:hover .likeImg {
+      color: #ff0000;
+      fill: #ff0000;
+      background-color: #ff000015;
+    }
+  
+    &:hover .likeButtonText {
+      color: #ff0000;
+    }
+  }
+  
+  .likeButtonClicked {
+    @include buttonWrapper;
+    cursor: pointer;
+  
+    .likeImg {
+      color: #ff0000;
+      stroke: #ff0000;
+    }
+    .likeButtonText {
+      stroke: #ff0000;
+      color: #ff0000;
+    }
+  }
+  
+  .likeImg {
+    @include buttonImg;
+  
+    stroke: #ff0000;
+    stroke-width: 1.5px;
+  }
+  
+  .likeButtonText {
+    @include buttonText;
+  }
+  
+  .retweetButton {
+    @include buttonWrapper;
+    cursor: pointer;
+  
+    &:hover .retweetImg {
+      color: #19bb7d;
+      background-color: #19bb7d20;
+    }
+  
+    &:hover .retweetButtonText {
+      color: #19bb7d;
+    }
+  }
+  .retweetButtonClicked {
+    @include buttonWrapper;
+    cursor: pointer;
+  
+    .retweetImg {
+      color: #19bb7d;
+      background-color: #19bb7d20;
+    }
+  
+    .retweetButtonText {
+      color: #19bb7d;
+    }
+  }
+  .retweetImg {
+    @include buttonImg;
+  
+    stroke-width: 1.5px;
+  }
+  
+  .retweetButtonText {
+    @include buttonText;
+  }
+  
+  .shareButton {
+    @include buttonWrapper;
+    cursor: pointer;
+  
+    &:hover .shareImg {
+      color: #3fa1ee;
+      background-color: #3fa1ee20;
+    }
+  }
+  
+  .shareImg {
+    @include buttonImg;
+    stroke-width: 1.5px;
+  }
+  

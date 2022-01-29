@@ -15,12 +15,17 @@ import 'react-dropdown/style.css';
 import RetweetButtons from '../ButtonGroup/RetweetButtons';
 import ReplyTweetModal from '../../Modal/ReplyModalTweet/ReplyTweetModal';
 import MoreButtons from '../ButtonGroup/MoreButtons';
-import {NotificationData} from '../../MainPage/MainBlock/NotificationsPage/NotificationsPage'; 
+import { NotificationData } from '../../MainPage/MainBlock/NotificationsPage/NotificationsPage';
+import { useUserContext } from '../../../UserContext';
 
 const Notification = ({
   item,
+  loadAgain,
+  setLoadAgain,
 }: {
   item: NotificationData['NotificationType'];
+  loadAgain: boolean;
+  setLoadAgain: (boolean: boolean) => void;
 }): JSX.Element => {
   const navigate = useNavigate();
   const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);
@@ -31,6 +36,8 @@ const Notification = ({
   const [display, setDisplay] = useState<string>('none');
   const [moreDisplay, setMoreDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
+  const userContext = useUserContext();
+  const [deleteActivated, setDeleteActivated] = useState<boolean>(false);
   const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
     setReplyModalIsOpen(true);
@@ -111,7 +118,7 @@ const Notification = ({
   };
 
   const create_month = () => {
-    switch (item.tweet.written_at.slice(5, 7)) {
+    switch (item.tweet?.written_at.slice(5, 7)) {
       case '01':
         setMonth('Jan');
         break;
@@ -156,10 +163,10 @@ const Notification = ({
   }, []);
 
   useEffect(() => {
-    setIsLike(item.tweet.user_like);
-    setIsRetweet(item.tweet.user_retweet);
-    setRetweet(item.tweet.retweets);
-    setLike(item.tweet.likes);
+    setIsLike(item.tweet?.user_like);
+    setIsRetweet(item.tweet?.user_retweet);
+    setRetweet(item.tweet?.retweets);
+    setLike(item.tweet?.likes);
   }, []); //like, retweet 초깃값 설정
   const handleMoreButtonClicked = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
@@ -168,7 +175,7 @@ const Notification = ({
   };
   const handleDeleteClicked = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
-    if (item.tweet.tweet_type === 'REPLY' || item.tweet.tweet_type === 'GENERAL') {
+    if (item.tweet?.tweet_type === 'REPLY' || item.tweet?.tweet_type === 'GENERAL') {
       const tweetType = 'tweet';
       axios
         .delete('/' + tweetType + '/' + item.id)
@@ -180,7 +187,7 @@ const Notification = ({
           toast('트윗 삭제 실패');
         });
     } else {
-      const tweetType = item.tweet.tweet_type.toLowerCase();
+      const tweetType = item.tweet?.tweet_type.toLowerCase();
       axios
         .delete('/' + 'tweet' + '/' + item.id)
         .then(() => {
@@ -197,22 +204,17 @@ const Notification = ({
     navigate(`/status/${item.id}`);
   };
 
-  if(item.noti_type==='REPLY'){
-  return (
-    <>
+  if (item.noti_type === 'REPLY') {
+    return (
       <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
-        {retweet ? (
-          <div className={styles.topAllWrapper}>
-            <div className={styles.retweetedWrapper}>
-              <img
-                className={styles.retweetedImage}
-                src={retweetTopImage}
-                alt={retweetTopImage}
-              />
-              <div className={styles.retweetedText}>Retweeted</div>
-            </div>
-          </div>
-        ) : null}
+        <div style={{width: "100%", height: "100%"}}>
+      <ReplyTweetModal
+        isTweetModalOpen={replyModalIsOpen}
+        setIsTweetModalOpen={setReplyModalIsOpen}
+        item={item.tweet}
+        loadAgain={loadAgain}
+        setLoadAgain={setLoadAgain}
+      />
         <div className={styles.bottomAllWrapper}>
           <div
             onBlur={() => {
@@ -222,6 +224,7 @@ const Notification = ({
             <RetweetButtons
               text={isRetweet ? 'Undo Retweet' : 'Retweet'}
               display={display}
+              setDisplay={setDisplay}
               function1={handleRetweetClicked}
               function2={handleQuoteRetweetClicked}
             ></RetweetButtons>
@@ -231,12 +234,6 @@ const Notification = ({
               setDisplay('none');
             }}
           >
-            <MoreButtons
-              text={'DELETE'}
-              display={moreDisplay}
-              function1={handleDeleteClicked}
-              //function2={handleQuoteRetweetClicked}
-            ></MoreButtons>
           </div>
           <div className={styles.leftWrapper}>
             <img
@@ -262,7 +259,20 @@ const Notification = ({
               </button>
             </div>
             <div className={styles.middleWrapper}>
+              <div className={styles.replyNotification}>Replying to @{userContext?.userData.userID}</div>
               <div className={styles.mainText}>{item.tweet.content}</div>
+              {item.tweet.media
+                ? item.tweet.media.map(mediaObject => {
+                    return (
+                      <img
+                        key={Math.random()}
+                        className={styles.mainImg}
+                        src={mediaObject.media}
+                        alt="게시글 이미지 입니다."
+                      />
+                    );
+                  })
+                : null}
             </div>
             <div className={styles.bottomWrapper}>
               <div className={styles.buttonWrapper}>
@@ -320,92 +330,214 @@ const Notification = ({
             </div>
           </div>
         </div>
+        </div>
       </li>
-    </>
-  );
+    );
   }
 
-  if(item.noti_type==='RETWEET'){
+  if (item.noti_type === 'RETWEET') {
     return (
-      <>
-        <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
-          <div>
-            {item.user.username} retweeted
+      <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
+        <div style={{width: "100%", height: "100%"}}>
+      <ReplyTweetModal
+        isTweetModalOpen={replyModalIsOpen}
+        setIsTweetModalOpen={setReplyModalIsOpen}
+        item={item.tweet}
+        loadAgain={loadAgain}
+        setLoadAgain={setLoadAgain}
+      />
+        <div className={styles.bottomAllWrapper}>
+          
+          <div className={styles.leftWrapper}>
+            <img
+              className={styles.profileImage}
+              src={item.tweet.author.profile_img}
+              alt="tweet Profile Image"
+            />
           </div>
-          {retweet ? (
-            <div className={styles.topAllWrapper}>
-              <div className={styles.retweetedWrapper}>
-                <img
-                  className={styles.retweetedImage}
-                  src={retweetTopImage}
-                  alt={retweetTopImage}
-                />
-                <div className={styles.retweetedText}>Retweeted</div>
-              </div>
-            </div>
-          ) : null}
-          <div className={styles.bottomAllWrapper}>
-            <div
-              onBlur={() => {
-                setDisplay('none');
-              }}
-            >
-              <RetweetButtons
-                text={isRetweet ? 'Undo Retweet' : 'Retweet'}
-                display={display}
-                function1={handleRetweetClicked}
-                function2={handleQuoteRetweetClicked}
-              ></RetweetButtons>
-            </div>
-            <div
-              onBlur={() => {
-                setDisplay('none');
-              }}
-            >
-              <MoreButtons
-                text={'DELETE'}
-                display={moreDisplay}
-                function1={handleDeleteClicked}
-                //function2={handleQuoteRetweetClicked}
-              ></MoreButtons>
-            </div>
-            <div className={styles.leftWrapper}>
-              <img
-                className={styles.profileImage}
-                src={item.tweet.author.profile_img}
-                alt="tweet Profile Image"
-              />
-            </div>
-            <div className={styles.rightWrapper}>
-              <div className={styles.topWrapper}>
-                <div className={styles.topTextWrapper}>
-                  <div className={styles.nameText}>{item.tweet.author.username}</div>
-                  <div className={styles.idTimeText}>
-                    @{item.tweet.author.user_id} · {month}{' '}
-                    {item.tweet.written_at.slice(8, 10)}
-                  </div>
+          <div className={styles.rightWrapper}>
+            <div className={styles.topWrapper}>
+              <div className={styles.topTextWrapper}>
+                <div className={styles.nameText}>{item.tweet.author.username}</div>
+                <div className={styles.idTimeText}>
+                  @{item.tweet.author.user_id} · {month}{' '}
+                  {item.tweet.written_at.slice(8, 10)}
                 </div>
               </div>
-              <div className={styles.middleWrapper}>
-                <div className={styles.mainText}>{item.tweet.content}</div>
-                
-              </div>
-              <div className={styles.bottomWrapper}>
-              </div>
+              <button
+                onClick={handleMoreButtonClicked}
+                className={styles.moreButton}
+              >
+                <More className={styles.moreButtonImg} />
+              </button>
+            </div>
+            <div className={styles.middleWrapper}>
+              <div className={styles.replyNotification}>Retweeted your tweet</div>
+              <div className={styles.mainText}>{item.tweet.content}</div>
+            </div>
+            <div className={styles.bottomWrapper}>
             </div>
           </div>
-        </li>
-      </>
+        </div>
+        </div>
+      </li>
     );
-    }
+  }
 
-    
-return (
-<div>
-  hello
-  </div>
+  if (item.noti_type === 'LIKE') {
+    return (
+      <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
+        <div style={{width: "100%", height: "100%"}}>
+      <ReplyTweetModal
+        isTweetModalOpen={replyModalIsOpen}
+        setIsTweetModalOpen={setReplyModalIsOpen}
+        item={item.tweet}
+        loadAgain={loadAgain}
+        setLoadAgain={setLoadAgain}
+      />
+        <div className={styles.bottomAllWrapper}>
+          
+          <div className={styles.leftWrapper}>
+            <img
+              className={styles.profileImage}
+              src={item.tweet.author.profile_img}
+              alt="tweet Profile Image"
+            />
+          </div>
+          <div className={styles.rightWrapper}>
+            <div className={styles.topWrapper}>
+              <div className={styles.topTextWrapper}>
+                <div className={styles.nameText}>{item.tweet.author.username}</div>
+                <div className={styles.idTimeText}>
+                  @{item.tweet.author.user_id} · {month}{' '}
+                  {item.tweet.written_at.slice(8, 10)}
+                </div>
+              </div>
+              <button
+                onClick={handleMoreButtonClicked}
+                className={styles.moreButton}
+              >
+                <More className={styles.moreButtonImg} />
+              </button>
+            </div>
+            <div className={styles.middleWrapper}>
+              <div className={styles.replyNotification}>Liked your tweet</div>
+              <div className={styles.mainText}>{item.tweet.content}</div>
+            </div>
+            <div className={styles.bottomWrapper}>
+            </div>
+          </div>
+        </div>
+        </div>
+      </li>
+    );
+  }
 
-);
+  
+  if (item.noti_type === 'MENTION') {
+    return (
+      <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
+        <div style={{width: "100%", height: "100%"}}>
+      <ReplyTweetModal
+        isTweetModalOpen={replyModalIsOpen}
+        setIsTweetModalOpen={setReplyModalIsOpen}
+        item={item.tweet}
+        loadAgain={loadAgain}
+        setLoadAgain={setLoadAgain}
+      />
+        <div className={styles.bottomAllWrapper}>
+          
+          <div className={styles.leftWrapper}>
+            <img
+              className={styles.profileImage}
+              src={item.tweet.author.profile_img}
+              alt="tweet Profile Image"
+            />
+          </div>
+          <div className={styles.rightWrapper}>
+            <div className={styles.topWrapper}>
+              <div className={styles.topTextWrapper}>
+                <div className={styles.nameText}>{item.tweet.author.username}</div>
+                <div className={styles.idTimeText}>
+                  @{item.tweet.author.user_id} · {month}{' '}
+                  {item.tweet.written_at.slice(8, 10)}
+                </div>
+              </div>
+              <button
+                onClick={handleMoreButtonClicked}
+                className={styles.moreButton}
+              >
+                <More className={styles.moreButtonImg} />
+              </button>
+            </div>
+            <div className={styles.middleWrapper}>
+              <div className={styles.replyNotification}>Mentioned you</div>
+              <div className={styles.mainText}>{item.tweet.content}</div>
+            </div>
+            <div className={styles.bottomWrapper}>
+            </div>
+          </div>
+        </div>
+        </div>
+      </li>
+    );
+  }
+
+  
+  if (item.noti_type === 'FOLLOW') {
+    return (
+      <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
+        <div style={{width: "100%", height: "100%"}}>
+      <ReplyTweetModal
+        isTweetModalOpen={replyModalIsOpen}
+        setIsTweetModalOpen={setReplyModalIsOpen}
+        item={item.tweet}
+        loadAgain={loadAgain}
+        setLoadAgain={setLoadAgain}
+      />
+        <div className={styles.bottomAllWrapper}>
+          
+          <div className={styles.leftWrapper}>
+            <img
+              className={styles.profileImage}
+              src={item.tweet.author.profile_img}
+              alt="tweet Profile Image"
+            />
+          </div>
+          <div className={styles.rightWrapper}>
+            <div className={styles.topWrapper}>
+              <div className={styles.topTextWrapper}>
+                <div className={styles.nameText}>{item.tweet.author.username}</div>
+                <div className={styles.idTimeText}>
+                  @{item.tweet.author.user_id} · {month}{' '}
+                  {item.tweet.written_at.slice(8, 10)}
+                </div>
+              </div>
+              <button
+                onClick={handleMoreButtonClicked}
+                className={styles.moreButton}
+              >
+                <More className={styles.moreButtonImg} />
+              </button>
+            </div>
+            <div className={styles.middleWrapper}>
+              <div className={styles.replyNotification}>Followed you</div>
+              <div className={styles.mainText}>{item.tweet.content}</div>
+            </div>
+            <div className={styles.bottomWrapper}>
+            </div>
+          </div>
+        </div>
+        </div>
+      </li>
+    );
+  }
+
+  return (
+    <div>
+    </div>
+
+  );
 };
 
 
