@@ -35,6 +35,7 @@ interface HomeTweetsData {
     };
     retweeting_user: string;
     reply_to: string;
+    retweeting_user_name: string;
     content: string;
     media: { media: string }[];
     written_at: string;

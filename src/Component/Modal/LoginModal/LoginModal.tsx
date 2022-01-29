@@ -11,6 +11,7 @@ import { useNetworkContext } from '../../../Auth/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../UserContext';
 import { toast } from 'react-toastify';
+import { GOOGLE_AUTH_URL } from '../../../Auth/GoogleAuth';
 
 interface props {
   isOpen: boolean;
@@ -98,7 +99,14 @@ function LoginModal(props: props) {
         </header>
         <div className={styles.ModalContent}>
           <span className={styles.ContentMessage}>트위터에 로그인하기</span>
-          <button className={styles.Button}>Google 계정으로 로그인하기</button>
+          <button
+            onClick={() => {
+              window.location.href = GOOGLE_AUTH_URL;
+            }}
+            className={styles.Button}
+          >
+            Google 계정으로 로그인하기
+          </button>
 
           <button
             onClick={() => {

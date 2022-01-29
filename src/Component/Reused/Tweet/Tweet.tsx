@@ -6,7 +6,13 @@ import retweetTopImage from '../../../Images/retweetTop.svg';
 import { ReactComponent as ShareIcon } from '../../../Images/share.svg';
 import { ReactComponent as More } from '../../../Images/more.svg';
 import { ReactComponent as HeartFulfilled } from '../../../Images/heartFulfilled.svg';
-import React, { MouseEventHandler, useEffect, useState } from 'react';
+import React, {
+  LegacyRef,
+  MouseEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -41,6 +47,7 @@ export interface TweetType {
     profile_img: string;
   };
   retweeting_user: string;
+  retweeting_user_name: string;
   reply_to: string;
   content: string;
   media: string[];
@@ -62,6 +69,7 @@ export interface TweetData {
       profile_img: string;
     };
     retweeting_user: string;
+    retweeting_user_name: string;
     reply_to: string;
     content: string;
     media: { media: string }[];
@@ -81,6 +89,7 @@ export interface TweetData {
       profile_img: string;
     };
     retweeting_user: string;
+    retweeting_user_name: string;
     reply_to: string;
     content: string;
     media: { media: string }[];
@@ -113,6 +122,7 @@ const Tweet = ({
   const [display, setDisplay] = useState<string>('none');
   const [moreDisplay, setMoreDisplay] = useState<string>('none');
   const [month, setMonth] = useState('');
+  const [deleteActivated, setDeleteActivated] = useState<boolean>(false);
   const userContext = useUserContext();
   const handleCommentClicked = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
@@ -235,6 +245,13 @@ const Tweet = ({
         break;
     }
   };
+  useEffect(() => {
+    if (item.tweet_type === 'GENERAL') {
+      setDeleteActivated(item.author.user_id === userContext?.userData.userID);
+    } else {
+      setDeleteActivated(item.retweeting_user === userContext?.userData.userID);
+    }
+  }, []);
 
   useEffect(() => {
     create_month();
@@ -307,7 +324,7 @@ const Tweet = ({
               ) : (
                 <div
                   className={styles.retweetedText}
-                >{`${item.retweeting_user} Retweeted`}</div> // retweeting_username 추가되면 그걸로 수정
+                >{`${item.retweeting_user_name} Retweeted`}</div> // retweeting_username 추가되면 그걸로 수정
               )}
             </div>
           </div>
@@ -321,6 +338,7 @@ const Tweet = ({
             <RetweetButtons
               text={isRetweet ? 'Undo Retweet' : 'Retweet'}
               display={display}
+              setDisplay={setDisplay}
               function1={handleRetweetClicked}
               function2={handleQuoteRetweetClicked}
             ></RetweetButtons>
@@ -331,10 +349,14 @@ const Tweet = ({
             }}
           >
             <MoreButtons
+              deleteActivated={deleteActivated}
               text={'DELETE'}
               display={moreDisplay}
+              setDisplay={setMoreDisplay}
               function1={handleDeleteClicked}
-              //function2={handleQuoteRetweetClicked}
+              function2={(e: React.MouseEvent<HTMLElement>) => {
+                e.stopPropagation();
+              }}
             ></MoreButtons>
           </div>
           <div className={styles.leftWrapper}>
@@ -362,16 +384,18 @@ const Tweet = ({
             </div>
             <div className={styles.middleWrapper}>
               <div className={styles.mainText}>{item.content}</div>
-              {item.media.map(mediaObject => {
-                return (
-                  <img
-                    key={Math.random()}
-                    className={styles.mainImg}
-                    src={mediaObject.media}
-                    alt="게시글 이미지 입니다."
-                  />
-                );
-              })}
+              {item.media
+                ? item.media.map(mediaObject => {
+                    return (
+                      <img
+                        key={Math.random()}
+                        className={styles.mainImg}
+                        src={mediaObject.media}
+                        alt="게시글 이미지 입니다."
+                      />
+                    );
+                  })
+                : null}
             </div>
             <div className={styles.bottomWrapper}>
               <div className={styles.buttonWrapper}>

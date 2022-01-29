@@ -22,7 +22,7 @@ function KakaoAuthRedirect() {
       localStorage.setItem('JWT', code ? code : '');
       localStorage.setItem('user_id', user_id ? user_id : '');
       userContext?.setUserDataDefault();
-      Navigate('/');
+      Navigate('/home');
     }
   }, []);
   return (

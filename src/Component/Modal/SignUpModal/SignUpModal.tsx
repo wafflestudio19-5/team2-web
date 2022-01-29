@@ -32,6 +32,7 @@ function SignUpModal(props: props) {
     user_id: '',
     bio: 'null',
   });
+  const [page, setPage] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const userContext = useUserContext();
   const Navigate = useNavigate();
@@ -78,7 +79,7 @@ function SignUpModal(props: props) {
       }
     }
   };
-  const onClick = () => {
+  const signUP = () => {
     axios
       .post<{ success: boolean }>('/signup/', userData, {
         headers: { Authorization: '' },
@@ -87,18 +88,22 @@ function SignUpModal(props: props) {
         localStorage.setItem('JWT', response.data.token);
         localStorage.setItem('user_id', response.data.user_id);
         networkContext.setToken(response.data.token);
-        props.setSignUpIsOpen(false);
         localStorage.setItem('user_id', response.data.user_id);
         userContext?.setUserData({
           ...userContext.userData,
           userID: response.data.user_id,
         });
-        window.location.href = '/';
+        window.alert('setting 탭에서 인증을 마무리해주세요.');
       })
       .catch(error => {
         toast.error('올바른 입력정보가 아닙니다.');
       });
   };
+  const prevPage = () => {
+    setPage(0);
+  };
+  const nextPage = () => {};
+
   return (
     <Modal
       ariaHideApp={false}
@@ -211,7 +216,7 @@ function SignUpModal(props: props) {
               max="9999-12-31"
             />
           </div>
-          <button onClick={onClick} className={styles.BlackButton}>
+          <button onClick={signUP} className={styles.BlackButton}>
             다음
           </button>
         </div>
