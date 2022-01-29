@@ -8,7 +8,6 @@ import Notification from '../../../Reused/Notification/Notification';
 
 import Tweet, { TweetData } from '../../../Reused/Tweet/Tweet';
 
-
 export interface NotificationData {
   NotificationType: {
     id: string;
@@ -45,10 +44,16 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
   const userContext = useUserContext();
   const navigate = useNavigate();
   const loc = useLocation();
-  const [allNotificationsPage, setAllNotificationsPage] = useState<number | null>(1);
-  const [mentionsNotificationsPage, setMentionsNotificationsPage] = useState<number | null>(1);
-  const [allNotificationsList, setAllNotificationsList] = useState<NotificationData['NotificationsType']>(
-    [{
+  const [allNotificationsPage, setAllNotificationsPage] = useState<
+    number | null
+  >(1);
+  const [mentionsNotificationsPage, setMentionsNotificationsPage] = useState<
+    number | null
+  >(1);
+  const [allNotificationsList, setAllNotificationsList] = useState<
+    NotificationData['NotificationsType']
+  >([
+    {
       id: '',
       noti_type: '',
       tweet: {
@@ -60,6 +65,7 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
           profile_img: '',
         },
         retweeting_user: '',
+        retweeting_user_name: '',
         reply_to: '',
         content: '',
         media: [],
@@ -77,26 +83,22 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
         username: '',
       },
       written_by_me: false,
-    }]
-  );
-  const [mentions1NotificationsList, setMentionsotificationsList] = useState<NotificationData['NotificationsType']>();
+    },
+  ]);
+  const [mentions1NotificationsList, setMentionsotificationsList] =
+    useState<NotificationData['NotificationsType']>();
   const [page, setPage] = useState<number>(1);
   const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
   const [tweetData, setTweetData] = useState<TweetData['TweetsType']>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const params = useParams();
 
-
   useEffect(() => {
-    console.log(loc.pathname.slice(1, 14
-    ))
-    console.log(loc.pathname.slice(15, 24
-    ))
+    console.log(loc.pathname.slice(1, 14));
+    console.log(loc.pathname.slice(15, 24));
     if (loc.pathname.slice(1, 14) === 'notifications') {
-      if (loc.pathname.slice(15, 24
-      )) {
-        if (loc.pathname.slice(15, 24
-        ) === 'mentions') {
+      if (loc.pathname.slice(15, 24)) {
+        if (loc.pathname.slice(15, 24) === 'mentions') {
           setIsChosen('Mentions');
           allUpdate();
           console.log('hello');
@@ -109,13 +111,10 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
     }
   }, []);
 
-
   const allUpdate = () => {
     if (loadNextOkay) {
         axios
-          .get(
-            `/notification/?page=${allNotificationsPage}`
-          )
+          .get(`/notification/?page=${allNotificationsPage}`)
           .then(response => {
             console.log(response.data);
             console.log(allNotificationsList);
@@ -248,12 +247,8 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
         </ul>
       ) : (
         <ul className={styles.NotificationList}>
-
-          <li>
-            mentions
-          </li><li>
-            mentions2
-          </li>
+          <li>mentions</li>
+          <li>mentions2</li>
         </ul>
       )}
     </div>

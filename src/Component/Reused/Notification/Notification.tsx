@@ -28,6 +28,7 @@ const Notification = ({
   setLoadAgain: (boolean: boolean) => void;
 }): JSX.Element => {
   const navigate = useNavigate();
+  const userContext = useUserContext();
   const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);
   const [isLike, setIsLike] = useState<boolean>(false);
   const [isRetweet, setIsRetweet] = useState<boolean>(false);
@@ -277,55 +278,70 @@ const Notification = ({
             <div className={styles.bottomWrapper}>
               <div className={styles.buttonWrapper}>
                 <button
-                  className={styles.commentButton}
-                  onClick={handleCommentClicked}
+                  onClick={handleMoreButtonClicked}
+                  className={styles.moreButton}
                 >
-                  <CommentIcon className={styles.commentImg} />
-                  <div className={styles.commentButtonText}>{item.tweet.replies}</div>
+                  <More className={styles.moreButtonImg} />
                 </button>
-
-                {!isRetweet ? (
+              </div>
+              <div className={styles.middleWrapper}>
+                <div className={styles.mainText}>{item.tweet.content}</div>
+              </div>
+              <div className={styles.bottomWrapper}>
+                <div className={styles.buttonWrapper}>
                   <button
-                    className={styles.retweetButton}
-                    onClick={handleRetweetIconClicked}
+                    className={styles.commentButton}
+                    onClick={handleCommentClicked}
                   >
-                    <RetweetIcon className={styles.retweetImg} />
-                    <div className={styles.retweetButtonText}>{retweet}</div>
+                    <CommentIcon className={styles.commentImg} />
+                    <div className={styles.commentButtonText}>
+                      {item.tweet.replies}
+                    </div>
                   </button>
-                ) : (
+
+                  {!isRetweet ? (
+                    <button
+                      className={styles.retweetButton}
+                      onClick={handleRetweetIconClicked}
+                    >
+                      <RetweetIcon className={styles.retweetImg} />
+                      <div className={styles.retweetButtonText}>{retweet}</div>
+                    </button>
+                  ) : (
+                    <button
+                      className={styles.retweetButtonClicked}
+                      onClick={handleRetweetIconClicked}
+                    >
+                      <RetweetIcon className={styles.retweetImg} />
+                      <div className={styles.retweetButtonText}>{retweet}</div>
+                    </button>
+                  )}
+
+                  {!isLike ? (
+                    <button //하트 안차있는 ver.
+                      className={styles.likeButton}
+                      onClick={handleLikeClicked}
+                    >
+                      <LikeIcon className={styles.likeImg} />
+                      <div className={styles.likeButtonText}>{like}</div>
+                    </button>
+                  ) : (
+                    <button //하트 차있는 ver.
+                      className={styles.likeButtonClicked}
+                      onClick={handleLikeClicked}
+                    >
+                      <HeartFulfilled className={styles.likeImg} />
+                      <div className={styles.likeButtonText}>{like}</div>
+                    </button>
+                  )}
+
                   <button
-                    className={styles.retweetButtonClicked}
-                    onClick={handleRetweetIconClicked}
+                    className={styles.shareButton}
+                    onClick={handleShareClicked}
                   >
-                    <RetweetIcon className={styles.retweetImg} />
-                    <div className={styles.retweetButtonText}>{retweet}</div>
+                    <ShareIcon className={styles.shareImg} />
                   </button>
-                )}
-
-                {!isLike ? (
-                  <button //하트 안차있는 ver.
-                    className={styles.likeButton}
-                    onClick={handleLikeClicked}
-                  >
-                    <LikeIcon className={styles.likeImg} />
-                    <div className={styles.likeButtonText}>{like}</div>
-                  </button>
-                ) : (
-                  <button //하트 차있는 ver.
-                    className={styles.likeButtonClicked}
-                    onClick={handleLikeClicked}
-                  >
-                    <HeartFulfilled className={styles.likeImg} />
-                    <div className={styles.likeButtonText}>{like}</div>
-                  </button>
-                )}
-
-                <button
-                  className={styles.shareButton}
-                  onClick={handleShareClicked}
-                >
-                  <ShareIcon className={styles.shareImg} />
-                </button>
+                </div>
               </div>
             </div>
           </div>
@@ -539,6 +555,5 @@ const Notification = ({
 
   );
 };
-
 
 export default Notification;
