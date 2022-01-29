@@ -5,29 +5,34 @@ import { toast } from 'react-toastify';
 import { useUserContext } from '../../../../UserContext';
 import styles from './NotificationsPage.module.scss';
 import Notification from '../../../Reused/Notification/Notification';
+import Tweet, { TweetData } from '../../../Reused/Tweet/Tweet';
 
 
-/*function NotificationsPage() {
-  return (
-    <div className={styles.NotificationsPage}>
-      <header className={styles.NotificationsHeader}>Notifications</header>
-      <div className={styles.Loading}>
-        <h1>No Notifications</h1>
-      </div>
-    </div>
-  );
-}*/
-
-
-interface User {
-  id: string;
-  username: string;
-  user_id: string;
-  bio: string;
-  follows_me: boolean;
-  profile_img: string;
-  i_follow: boolean;
+export interface NotificationData {
+  NotificationType: {
+    id: string;
+    noti_type: string;
+    tweet: TweetData['TweetType'];
+    user: {
+      user_id: string;
+      profile_img: string;
+      username: string;
+    };
+    written_by_me: boolean;
+  };
+  NotificationsType: {
+    id: string;
+    noti_type: string;
+    tweet: TweetData['TweetType'];
+    user: {
+      user_id: string;
+      profile_img: string;
+      username: string;
+    };
+    written_by_me: boolean;
+  }[];
 }
+/* */
 
 interface Props {
   loadAgain: boolean;
@@ -38,112 +43,135 @@ interface Props {
 function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
   const [isChosen, setIsChosen] = useState<string>('');
   const userContext = useUserContext();
-  const params = useParams();
   const navigate = useNavigate();
   const loc = useLocation();
   const [allNotificationsPage, setAllNotificationsPage] = useState<number | null>(1);
   const [mentionsNotificationsPage, setMentionsNotificationsPage] = useState<number | null>(1);
-  const [allNotificationsList, setAllNotificationsList] = useState<User[] | null>(
-    null,
+  const [allNotificationsList, setAllNotificationsList] = useState<NotificationData['NotificationsType']>(
+    [{
+      id: '',
+      noti_type: '',
+      tweet: {
+        id: 0,
+        tweet_type: '',
+        author: {
+          username: '',
+          user_id: '',
+          profile_img: '',
+        },
+        retweeting_user: '',
+        reply_to: '',
+        content: '',
+        media: [],
+        written_at: '',
+        replies: 0,
+        retweets: 0,
+        likes: 0,
+        user_like: false,
+        user_retweet: false,
+      },
+      user: {
+        user_id: '',
+        profile_img: '',
+        username: '',
+      },
+      written_by_me: false,
+    }]
   );
-  const [mentions1NotificationsList, setMentionsotificationsList] = useState<User[] | null>(null);
+  const [mentions1NotificationsList, setMentionsotificationsList] = useState<NotificationData['NotificationsType']>();
+  const [page, setPage] = useState<number>(1);
+  const [loadNextOkay, setLoadNextOkay] = useState<boolean>(true);
+  const [tweetData, setTweetData] = useState<TweetData['TweetsType']>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const params = useParams();
 
-  console.log(params);
 
   useEffect(() => {
     console.log(loc.pathname.slice(1, 14
-      ))
+    ))
     console.log(loc.pathname.slice(15, 24
-      ))
+    ))
     if (loc.pathname.slice(1, 14) === 'notifications') {
-      if(loc.pathname.slice(15, 24
-        )){
-        if(loc.pathname.slice(15, 24
-          )==='mentions'){
+      if (loc.pathname.slice(15, 24
+      )) {
+        if (loc.pathname.slice(15, 24
+        ) === 'mentions') {
           setIsChosen('Mentions');
+          allUpdate();
+          console.log('hello');
         }
       }
-      else{
+      else {
         setIsChosen('All');
-      }
-    }
-  }, []);
-
-  /*const AllUpdate = () => {
-    if (allNotificationsPage !== null) {
-      axios
-        .get(
-          params.id +
-          '/notifications/?page=' +
-          allNotificationsPage.toString(),
-        )
-        .then(response => {
-          setAllNotificationsPage([
-            ...allNotificationsPage,
-            response.data.results.map((notification: User) => {
-              return (
-                <li style={{ listStyle: 'none' }} key={notification.id}>
-                  <Notification
-
-                  />
-                </li>
-              );
-            }),
-          ]);
-          setAllNotificationsPage(response.data.next);
-        })
-        .catch(error => {
-          toast.error('알림 목록을 불러오는 데 실패하였습니다.');
-        });
-    }
-  };
-
-  /*const MentionsUpdate = () => {
-    if (mentionsNotificationsPage !== null) {
-      axios
-        .get(
-          params.id +
-          '/notifications/?page=' +
-          mentionsNotificationsPage.toString(),
-        )
-        .then(response => {
-          setMentionsNotificationsPage([
-            ...mentionsNotificationsPage,
-            response.data.results.filter((notification: User) => {
-              response.data.results.mention !== null
-            }).map((notification: User) => {
-              return (
-                <li style={{ listStyle: 'none' }} key={notification.id}>
-                  <Notification
-
-                  />
-                </li>
-              );
-            }),
-          ]);
-          setMentionsNotificationsPage(response.data.next);
-        })
-        .catch(error => {
-          toast.error('알림 목록을 불러오는 데 실패하였습니다.');
-        });
-    }
-  };
-
-  useEffect(() => {
-    allUpdate();
-    mentionsUpdate();
-  }, []);
-
-  useEffect(() => {
-    if (loadNext) {
-      console.log('loadnext');
-      if (isChosen === 'All') {
         allUpdate();
-      } else {
-        mentionsUpdate();
+        console.log('nothello');
       }
     }
-  }, [loadNext]);*/
+  }, []);
+
+
+  const allUpdate = () => {
+    if (allNotificationsPage !== null) {{
+        axios
+          .get(
+            `/notification/?page=${allNotificationsPage}`
+          )
+          .then(response => {
+            console.log(response.data);
+            console.log(allNotificationsList);
+            const fetchNotificationData = response.data.notification.slice(0, 10);
+            const mergedData = allNotificationsList.concat(...fetchNotificationData);
+            setAllNotificationsList(mergedData);
+            setAllNotificationsPage(response.data.notification[response.data.notification.length - 1].next);
+          })
+          .catch(error => {
+            toast.error('알림 목록을 불러오는 데 실패하였습니다.');
+            console.log('npe')
+          });
+      }
+    }
+  };
+  /*
+    const mentionsUpdate = () => {
+      if (mentionsNotificationsPage !== null) {
+        axios
+          .get(
+            params.id +
+            '/notifications/?page=' +
+            mentionsNotificationsPage.toString(),
+          )
+          .then(response => {
+            setMentionsNotificationsPage([
+              ...mentionsNotificationsPage,
+              response.data.results.filter((notification: User) => {
+                response.data.results.mention !== null
+              }).map((notification: User) => {
+                return (
+                  <li style={{ listStyle: 'none' }} key={notification.id}>
+                    <Notification
+  
+                    />
+                  </li>
+                );
+              }),
+            ]);
+            setMentionsNotificationsPage(response.data.next);
+          })
+          .catch(error => {
+            toast.error('알림 목록을 불러오는 데 실패하였습니다.');
+          });
+      }
+    };*/
+
+  
+    useEffect(() => {
+        if (isChosen === 'All') {
+          allUpdate();
+        } else {
+          console.log('mention update')
+        }
+    }, [isChosen]);
+  
 
   const switchToMentions = () => {
     setIsChosen('Mentions');
@@ -195,15 +223,20 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
         )}
       </div>
       {isChosen === 'All' ? (
-        <ul className={styles.FollowList}>
-          <li>
-            all
-          </li><li>
-            all2
-          </li>
+        <ul className={styles.NotificationList}>
+          {allNotificationsList ? (
+            allNotificationsList.map(item =>
+              (<Notification
+                key={item.id}
+                item={item}
+              />)
+            )
+          ) : (
+            <div className={styles.NoTweets}>Not Tweets yet</div>
+          )}
         </ul>
       ) : (
-        <ul className={styles.FollowList}>
+        <ul className={styles.NotificationList}>
 
           <li>
             mentions
@@ -215,4 +248,6 @@ function NotificationsPage({ loadNext, setLoadAgain, loadAgain }: Props) {
     </div>
   );
 }
+
+
 export default NotificationsPage;
