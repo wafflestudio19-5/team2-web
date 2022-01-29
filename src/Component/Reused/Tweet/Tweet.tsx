@@ -13,7 +13,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Dropdown from 'react-dropdown';
@@ -298,7 +298,8 @@ const Tweet = ({
   };
   const handleAllWrapperOnClick = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
-    navigate(`/status/${item.id}`);
+    navigate(`/status/${item.id}`, { replace: true });
+    window.location.reload();
   };
 
   return (
