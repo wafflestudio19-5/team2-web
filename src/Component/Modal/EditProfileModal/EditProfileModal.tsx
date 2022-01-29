@@ -154,7 +154,6 @@ const EditProfileModal = ({ isOpen, setIsOpen }: Props) => {
           'content-type': 'multipart/form-data',
         },
       };
-      console.log(formData);
       const response = await axios.patch(`/user/profile/`, formData, config);
       console.log(response);
     } catch (err) {
