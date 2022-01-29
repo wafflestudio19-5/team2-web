@@ -195,7 +195,7 @@
 
 .mediaWrapper {
   width: 100%;
-  height: auto;
+  min-height: auto;
 
   display: flex;
   flex-flow: column;
@@ -207,7 +207,7 @@
   width: calc(100% - 20px);
   height: auto;
 
-  border-radius: 21px;
+  border-radius: 15px;
   border: 1px solid rgb(236, 236, 236);
 
   margin: 10px 0px 10px 0px;
@@ -405,4 +405,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.tweetsStyle {
+  justify-content: left;
+  align-content: center;
+  width: 100%;
 }

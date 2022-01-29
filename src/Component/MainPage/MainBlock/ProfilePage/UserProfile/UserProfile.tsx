@@ -127,7 +127,6 @@ function UserProfile(props: {
               width={140}
               height={140}
             />
-
             {params.id === userContext?.userData.userID ? (
               <button
                 className={styles.UserProfileEditButton}
