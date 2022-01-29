@@ -303,7 +303,8 @@ const Tweet = ({
   };
 
   return (
-    <div>
+      <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
+        
       <ReplyTweetModal
         isTweetModalOpen={replyModalIsOpen}
         setIsTweetModalOpen={setReplyModalIsOpen}
@@ -311,7 +312,6 @@ const Tweet = ({
         loadAgain={loadAgain}
         setLoadAgain={setLoadAgain}
       />
-      <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
         {item.retweeting_user !== '' ? (
           <div className={styles.topAllWrapper}>
             <div className={styles.retweetedWrapper}>
@@ -455,7 +455,6 @@ const Tweet = ({
           </div>
         </div>
       </li>
-    </div>
   );
 };
 export default Tweet;
