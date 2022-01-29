@@ -22,24 +22,36 @@ const VerifyModal = ({
   const [isSent, setIsSent] = useState(false);
   const userContext = useUserContext();
   const sendCode = () => {
-    axios
-      .post('/verification/sms/')
-      .then(() => {
-        toast('전송되었습니다.');
-        setIsSent(true);
-      })
-      .catch(error => {
-        toast(error.message);
-      });
+    if (isEmail) {
+      axios
+        .post('/verification/email/')
+        .then(() => {
+          toast('전송되었습니다.');
+          setIsSent(true);
+        })
+        .catch(error => {
+          toast(error.message);
+        });
+    } else {
+      axios
+        .post('/verification/sms/')
+        .then(() => {
+          toast('전송되었습니다.');
+          setIsSent(true);
+        })
+        .catch(error => {
+          toast(error.message);
+        });
+    }
   };
   const handleCodeSubmit = () => {
     if (verifyCode.length !== 4) toast('인증 코드는 4자리 숫자입니다.');
     else {
-      if (isEmail) {
+      if (!isEmail) {
         axios
           .put('/verification/sms/', {
-            phone_number: '010-8673-1756',
-            auth_code: '7802',
+            phone_number: emailOrPhone,
+            auth_code: verifyCode,
           })
           .then(() => {
             toast('인증되었습니다.');
@@ -51,8 +63,8 @@ const VerifyModal = ({
           });
       } else {
         axios
-          .put('/verification/sms/', {
-            phone_number: emailOrPhone,
+          .put('/verification/email/', {
+            email: emailOrPhone,
             auth_code: verifyCode,
           })
           .then(() => {

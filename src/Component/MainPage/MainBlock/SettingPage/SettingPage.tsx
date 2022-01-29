@@ -47,10 +47,14 @@ function SettingPage() {
   const userContext = useUserContext();
   useEffect(() => {
     axios
-      .get(`/user/${userContext?.userData.userID}/profile/`)
+      .get('/user/' + userContext?.userData.userID + '/profile/')
       .then(response => {
         setIsVerified(response.data.isVerified);
-        if (response.data.phone_number === null) {
+        if (
+          response.data.phone_number === null ||
+          response.data.phone_number === 'null'
+        ) {
+          console.log('씨발');
           setEmailOrPhone(response.data.email);
           setIsEmail(true);
         } else {
@@ -231,7 +235,7 @@ function SettingPage() {
       >
         DEACTIVATE for Social User
       </button>
-      {isVerified ? (
+      {!isVerified ? (
         <button
           className={styles.SocialDeactivateButton}
           onClick={() => {
