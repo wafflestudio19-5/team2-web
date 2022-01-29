@@ -15,7 +15,8 @@ import 'react-dropdown/style.css';
 import RetweetButtons from '../ButtonGroup/RetweetButtons';
 import ReplyTweetModal from '../../Modal/ReplyModalTweet/ReplyTweetModal';
 import MoreButtons from '../ButtonGroup/MoreButtons';
-import {NotificationData} from '../../MainPage/MainBlock/NotificationsPage/NotificationsPage'; 
+import { NotificationData } from '../../MainPage/MainBlock/NotificationsPage/NotificationsPage';
+import { useUserContext } from '../../../UserContext';
 
 const Notification = ({
   item,
@@ -23,6 +24,7 @@ const Notification = ({
   item: NotificationData['NotificationType'];
 }): JSX.Element => {
   const navigate = useNavigate();
+  const userContext = useUserContext();
   const [replyModalIsOpen, setReplyModalIsOpen] = useState(false);
   const [isLike, setIsLike] = useState<boolean>(false);
   const [isRetweet, setIsRetweet] = useState<boolean>(false);
@@ -168,7 +170,10 @@ const Notification = ({
   };
   const handleDeleteClicked = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
-    if (item.tweet.tweet_type === 'REPLY' || item.tweet.tweet_type === 'GENERAL') {
+    if (
+      item.tweet.tweet_type === 'REPLY' ||
+      item.tweet.tweet_type === 'GENERAL'
+    ) {
       const tweetType = 'tweet';
       axios
         .delete('/' + tweetType + '/' + item.id)
@@ -197,141 +202,10 @@ const Notification = ({
     navigate(`/status/${item.id}`);
   };
 
-  if(item.noti_type==='REPLY'){
-  return (
-    <>
-      <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
-        {retweet ? (
-          <div className={styles.topAllWrapper}>
-            <div className={styles.retweetedWrapper}>
-              <img
-                className={styles.retweetedImage}
-                src={retweetTopImage}
-                alt={retweetTopImage}
-              />
-              <div className={styles.retweetedText}>Retweeted</div>
-            </div>
-          </div>
-        ) : null}
-        <div className={styles.bottomAllWrapper}>
-          <div
-            onBlur={() => {
-              setDisplay('none');
-            }}
-          >
-            <RetweetButtons
-              text={isRetweet ? 'Undo Retweet' : 'Retweet'}
-              display={display}
-              function1={handleRetweetClicked}
-              function2={handleQuoteRetweetClicked}
-            ></RetweetButtons>
-          </div>
-          <div
-            onBlur={() => {
-              setDisplay('none');
-            }}
-          >
-            <MoreButtons
-              text={'DELETE'}
-              display={moreDisplay}
-              function1={handleDeleteClicked}
-              //function2={handleQuoteRetweetClicked}
-            ></MoreButtons>
-          </div>
-          <div className={styles.leftWrapper}>
-            <img
-              className={styles.profileImage}
-              src={item.tweet.author.profile_img}
-              alt="tweet Profile Image"
-            />
-          </div>
-          <div className={styles.rightWrapper}>
-            <div className={styles.topWrapper}>
-              <div className={styles.topTextWrapper}>
-                <div className={styles.nameText}>{item.tweet.author.username}</div>
-                <div className={styles.idTimeText}>
-                  @{item.tweet.author.user_id} · {month}{' '}
-                  {item.tweet.written_at.slice(8, 10)}
-                </div>
-              </div>
-              <button
-                onClick={handleMoreButtonClicked}
-                className={styles.moreButton}
-              >
-                <More className={styles.moreButtonImg} />
-              </button>
-            </div>
-            <div className={styles.middleWrapper}>
-              <div className={styles.mainText}>{item.tweet.content}</div>
-            </div>
-            <div className={styles.bottomWrapper}>
-              <div className={styles.buttonWrapper}>
-                <button
-                  className={styles.commentButton}
-                  onClick={handleCommentClicked}
-                >
-                  <CommentIcon className={styles.commentImg} />
-                  <div className={styles.commentButtonText}>{item.tweet.replies}</div>
-                </button>
-
-                {!isRetweet ? (
-                  <button
-                    className={styles.retweetButton}
-                    onClick={handleRetweetIconClicked}
-                  >
-                    <RetweetIcon className={styles.retweetImg} />
-                    <div className={styles.retweetButtonText}>{retweet}</div>
-                  </button>
-                ) : (
-                  <button
-                    className={styles.retweetButtonClicked}
-                    onClick={handleRetweetIconClicked}
-                  >
-                    <RetweetIcon className={styles.retweetImg} />
-                    <div className={styles.retweetButtonText}>{retweet}</div>
-                  </button>
-                )}
-
-                {!isLike ? (
-                  <button //하트 안차있는 ver.
-                    className={styles.likeButton}
-                    onClick={handleLikeClicked}
-                  >
-                    <LikeIcon className={styles.likeImg} />
-                    <div className={styles.likeButtonText}>{like}</div>
-                  </button>
-                ) : (
-                  <button //하트 차있는 ver.
-                    className={styles.likeButtonClicked}
-                    onClick={handleLikeClicked}
-                  >
-                    <HeartFulfilled className={styles.likeImg} />
-                    <div className={styles.likeButtonText}>{like}</div>
-                  </button>
-                )}
-
-                <button
-                  className={styles.shareButton}
-                  onClick={handleShareClicked}
-                >
-                  <ShareIcon className={styles.shareImg} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-    </>
-  );
-  }
-
-  if(item.noti_type==='RETWEET'){
+  if (item.noti_type === 'REPLY') {
     return (
       <>
         <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
-          <div>
-            {item.user.username} retweeted
-          </div>
           {retweet ? (
             <div className={styles.topAllWrapper}>
               <div className={styles.retweetedWrapper}>
@@ -351,6 +225,7 @@ const Notification = ({
               }}
             >
               <RetweetButtons
+                setDisplay={setDisplay}
                 text={isRetweet ? 'Undo Retweet' : 'Retweet'}
                 display={display}
                 function1={handleRetweetClicked}
@@ -363,10 +238,12 @@ const Notification = ({
               }}
             >
               <MoreButtons
+                deleteActivated={item.written_by_me}
+                setDisplay={setMoreDisplay}
                 text={'DELETE'}
                 display={moreDisplay}
                 function1={handleDeleteClicked}
-                //function2={handleQuoteRetweetClicked}
+                function2={handleQuoteRetweetClicked}
               ></MoreButtons>
             </div>
             <div className={styles.leftWrapper}>
@@ -379,7 +256,145 @@ const Notification = ({
             <div className={styles.rightWrapper}>
               <div className={styles.topWrapper}>
                 <div className={styles.topTextWrapper}>
-                  <div className={styles.nameText}>{item.tweet.author.username}</div>
+                  <div className={styles.nameText}>
+                    {item.tweet.author.username}
+                  </div>
+                  <div className={styles.idTimeText}>
+                    @{item.tweet.author.user_id} · {month}{' '}
+                    {item.tweet.written_at.slice(8, 10)}
+                  </div>
+                </div>
+                <button
+                  onClick={handleMoreButtonClicked}
+                  className={styles.moreButton}
+                >
+                  <More className={styles.moreButtonImg} />
+                </button>
+              </div>
+              <div className={styles.middleWrapper}>
+                <div className={styles.mainText}>{item.tweet.content}</div>
+              </div>
+              <div className={styles.bottomWrapper}>
+                <div className={styles.buttonWrapper}>
+                  <button
+                    className={styles.commentButton}
+                    onClick={handleCommentClicked}
+                  >
+                    <CommentIcon className={styles.commentImg} />
+                    <div className={styles.commentButtonText}>
+                      {item.tweet.replies}
+                    </div>
+                  </button>
+
+                  {!isRetweet ? (
+                    <button
+                      className={styles.retweetButton}
+                      onClick={handleRetweetIconClicked}
+                    >
+                      <RetweetIcon className={styles.retweetImg} />
+                      <div className={styles.retweetButtonText}>{retweet}</div>
+                    </button>
+                  ) : (
+                    <button
+                      className={styles.retweetButtonClicked}
+                      onClick={handleRetweetIconClicked}
+                    >
+                      <RetweetIcon className={styles.retweetImg} />
+                      <div className={styles.retweetButtonText}>{retweet}</div>
+                    </button>
+                  )}
+
+                  {!isLike ? (
+                    <button //하트 안차있는 ver.
+                      className={styles.likeButton}
+                      onClick={handleLikeClicked}
+                    >
+                      <LikeIcon className={styles.likeImg} />
+                      <div className={styles.likeButtonText}>{like}</div>
+                    </button>
+                  ) : (
+                    <button //하트 차있는 ver.
+                      className={styles.likeButtonClicked}
+                      onClick={handleLikeClicked}
+                    >
+                      <HeartFulfilled className={styles.likeImg} />
+                      <div className={styles.likeButtonText}>{like}</div>
+                    </button>
+                  )}
+
+                  <button
+                    className={styles.shareButton}
+                    onClick={handleShareClicked}
+                  >
+                    <ShareIcon className={styles.shareImg} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </>
+    );
+  }
+
+  if (item.noti_type === 'RETWEET') {
+    return (
+      <>
+        <li className={styles.allWrapper} onClick={handleAllWrapperOnClick}>
+          <div>{item.user.username} retweeted</div>
+          {retweet ? (
+            <div className={styles.topAllWrapper}>
+              <div className={styles.retweetedWrapper}>
+                <img
+                  className={styles.retweetedImage}
+                  src={retweetTopImage}
+                  alt={retweetTopImage}
+                />
+                <div className={styles.retweetedText}>Retweeted</div>
+              </div>
+            </div>
+          ) : null}
+          <div className={styles.bottomAllWrapper}>
+            <div
+              onBlur={() => {
+                setDisplay('none');
+              }}
+            >
+              <RetweetButtons
+                setDisplay={setDisplay}
+                text={isRetweet ? 'Undo Retweet' : 'Retweet'}
+                display={display}
+                function1={handleRetweetClicked}
+                function2={handleQuoteRetweetClicked}
+              ></RetweetButtons>
+            </div>
+            <div
+              onBlur={() => {
+                setDisplay('none');
+              }}
+            >
+              <MoreButtons
+                deleteActivated={item.written_by_me}
+                text={'DELETE'}
+                display={moreDisplay}
+                setDisplay={setDisplay}
+                function1={handleDeleteClicked}
+                function2={handleQuoteRetweetClicked}
+              ></MoreButtons>
+            </div>
+            <div className={styles.leftWrapper}>
+              <img
+                className={styles.profileImage}
+                src={item.tweet.author.profile_img}
+                alt="tweet Profile Image"
+              />
+            </div>
+            <div className={styles.rightWrapper}>
+              <div className={styles.topWrapper}>
+                <div className={styles.topTextWrapper}>
+                  <div className={styles.nameText}>
+                    {item.tweet.author.username}
+                  </div>
                   <div className={styles.idTimeText}>
                     @{item.tweet.author.user_id} · {month}{' '}
                     {item.tweet.written_at.slice(8, 10)}
@@ -388,25 +403,16 @@ const Notification = ({
               </div>
               <div className={styles.middleWrapper}>
                 <div className={styles.mainText}>{item.tweet.content}</div>
-                
               </div>
-              <div className={styles.bottomWrapper}>
-              </div>
+              <div className={styles.bottomWrapper}></div>
             </div>
           </div>
         </li>
       </>
     );
-    }
+  }
 
-    
-return (
-<div>
-  hello
-  </div>
-
-);
+  return <div>hello</div>;
 };
-
 
 export default Notification;
